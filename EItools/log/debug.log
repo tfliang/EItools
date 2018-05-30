@@ -1,0 +1,1634 @@
+INFO 2018-05-30 14:57:40,763 crawl_information 87524 123145349533696 crawl db info start
+INFO 2018-05-30 14:58:30,864 crawl_information 87524 123145349533696 crawl db request end
+INFO 2018-05-30 14:58:30,867 crawl_information 89769 140736274047936 5b0e4b64c3666e55e52fac8b
+INFO 2018-05-30 14:58:30,870 basehttp 87524 123145349533696 "GET /crawldb/ HTTP/1.1" 200 898
+INFO 2018-05-30 14:58:31,296 crawl_information 89769 140736274047936 2000
+INFO 2018-05-30 14:58:31,305 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 14:58:45,455 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 14:58:45,560 pre_process 89769 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 14:58:46,414 chrome 89769 140736274047936 贺世忠 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 14:58:50,958 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 14:58:51,123 pre_process 89769 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 14:58:51,978 chrome 89769 140736274047936 黄明高 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 14:58:57,082 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 14:58:57,226 pre_process 89769 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 14:58:58,074 chrome 89769 140736274047936 邹文辉 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 14:59:01,512 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 14:59:01,631 pre_process 89769 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 14:59:02,514 chrome 89769 140736274047936 易兴利 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 14:59:07,140 crawler 89769 140736274047936 page_src  https://google.com/patents/CN103010226A?cl=nl
+INFO 2018-05-30 14:59:20,430 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 14:59:36,429 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 14:59:36,430 crawler 89769 140736274047936 page_src https://google.com/patents/CN103010226A?cl=nl
+INFO 2018-05-30 14:59:36,547 pre_process 89769 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 14:59:37,416 chrome 89769 140736274047936 杜玉峰 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 14:59:46,940 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 14:59:47,343 pre_process 89769 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 14:59:48,195 chrome 89769 140736274047936 饶国华 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 14:59:56,274 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 14:59:56,450 pre_process 89769 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 14:59:57,394 chrome 89769 140736274047936 彭奇彪 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 15:00:02,301 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 15:00:02,474 pre_process 89769 140736274047936 南充炼油化工总厂
+INFO 2018-05-30 15:00:03,335 chrome 89769 140736274047936 张鹏 [] 
+INFO 2018-05-30 15:00:06,577 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 15:00:06,711 pre_process 89769 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:00:07,586 chrome 89769 140736274047936 董朝阳 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:00:10,873 crawler 89769 140736274047936 page_src  http://www.csg.cn/xwzx/2016/gsyw/201601/t20160115_131572.html
+INFO 2018-05-30 15:01:29,347 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:01:45,788 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:01:45,788 crawler 89769 140736274047936 page_src http://www.csg.cn/xwzx/2016/gsyw/201601/t20160115_131572.html
+INFO 2018-05-30 15:01:46,237 pre_process 89769 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:01:47,131 chrome 89769 140736274047936 董旭柱 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:02:02,395 crawler 89769 140736274047936 page_src  http://www.csg.cn/xwzx/2016/gsyw/201601/t20160115_131572.html
+INFO 2018-05-30 15:03:24,027 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:03:38,964 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:03:38,973 crawler 89769 140736274047936 page_src http://www.csg.cn/xwzx/2016/gsyw/201601/t20160115_131572.html
+INFO 2018-05-30 15:03:39,150 pre_process 89769 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:03:40,090 chrome 89769 140736274047936 黎小林 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:03:50,643 crawler 89769 140736274047936 page_src  https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:04:00,674 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:04:15,507 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:04:15,509 crawler 89769 140736274047936 page_src https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:04:15,708 pre_process 89769 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:04:16,587 chrome 89769 140736274047936 李锐海 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:04:23,006 crawler 89769 140736274047936 page_src  https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:04:32,870 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:04:48,358 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:04:48,368 crawler 89769 140736274047936 page_src https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:04:48,567 pre_process 89769 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:04:49,688 chrome 89769 140736274047936 傅闯 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:04:57,431 crawler 89769 140736274047936 page_src  https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:05:10,184 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:05:29,639 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:05:29,641 crawler 89769 140736274047936 page_src https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:05:30,082 pre_process 89769 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:05:30,958 chrome 89769 140736274047936 韩伟强 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:05:41,762 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 15:05:41,986 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:05:42,865 chrome 89769 140736274047936 谢宇聪 ['南方科技大学'] 
+INFO 2018-05-30 15:05:47,744 crawler 89769 140736274047936 page_src  http://www.sustc.edu.cn/biology_04/f/Xie_Yucong111
+INFO 2018-05-30 15:05:58,563 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:06:13,367 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:06:13,375 crawler 89769 140736274047936 page_src http://www.sustc.edu.cn/biology_04/f/Xie_Yucong111
+INFO 2018-05-30 15:06:13,610 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:06:14,615 chrome 89769 140736274047936 仇明侠 ['南方科技大学'] 
+INFO 2018-05-30 15:06:29,103 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 15:06:29,229 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:06:30,727 chrome 89769 140736274047936 祁春超 ['南方科技大学'] 
+INFO 2018-05-30 15:06:36,640 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 15:06:36,765 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:06:37,607 chrome 89769 140736274047936 吴文政 ['南方科技大学'] 
+INFO 2018-05-30 15:06:40,762 crawler 89769 140736274047936 page_src  http://www.sustc.edu.cn/physics_faculty/f/Wu_Wenzhen
+INFO 2018-05-30 15:06:44,350 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:06:58,885 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:06:58,886 crawler 89769 140736274047936 page_src http://www.sustc.edu.cn/physics_faculty/f/Wu_Wenzhen
+INFO 2018-05-30 15:06:59,048 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:06:59,953 chrome 89769 140736274047936 戴俊峰 ['南方科技大学'] 
+INFO 2018-05-30 15:07:09,667 crawler 89769 140736274047936 page_src  http://sustc.edu.cn/faculty_51/f/Dai_Junfeng
+INFO 2018-05-30 15:07:14,291 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:07:27,177 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:07:27,178 crawler 89769 140736274047936 page_src http://sustc.edu.cn/faculty_51/f/Dai_Junfeng
+INFO 2018-05-30 15:07:27,380 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:07:28,246 chrome 89769 140736274047936 徐保民 ['南方科技大学'] 
+INFO 2018-05-30 15:07:34,986 crawler 89769 140736274047936 page_src  http://www.sustc.edu.cn/mse_04/f/Xu_Baomin
+INFO 2018-05-30 15:07:43,111 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:08:06,147 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:08:06,149 crawler 89769 140736274047936 page_src http://www.sustc.edu.cn/mse_04/f/Xu_Baomin
+INFO 2018-05-30 15:08:06,441 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:08:07,276 chrome 89769 140736274047936 吕广丰 ['南方科技大学'] 
+INFO 2018-05-30 15:08:14,732 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 15:08:14,860 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:08:15,765 chrome 89769 140736274047936 马林 ['南方科技大学'] 
+INFO 2018-05-30 15:08:20,530 crawler 89769 140736274047936 page_src  http://ese.sustc.edu.cn/staff/cxyg.aspx?nc=101035007
+INFO 2018-05-30 15:08:27,267 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:08:39,270 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:08:39,272 crawler 89769 140736274047936 page_src http://ese.sustc.edu.cn/staff/cxyg.aspx?nc=101035007
+INFO 2018-05-30 15:08:39,472 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:08:40,331 chrome 89769 140736274047936 胡滨 ['南方科技大学'] 
+INFO 2018-05-30 15:08:49,069 crawler 89769 140736274047936 page_src  http://ese.sustc.edu.cn/staff/cxyg.aspx?nc=101035007
+INFO 2018-05-30 15:08:55,280 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:09:09,898 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:09:09,907 crawler 89769 140736274047936 page_src http://ese.sustc.edu.cn/staff/cxyg.aspx?nc=101035007
+INFO 2018-05-30 15:09:10,032 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:09:10,880 chrome 89769 140736274047936 唐一 ['南方科技大学'] 
+INFO 2018-05-30 15:09:20,190 crawler 89769 140736274047936 page_src 
+INFO 2018-05-30 15:09:20,329 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:09:21,218 chrome 89769 140736274047936 陈炜 ['南方科技大学'] 
+INFO 2018-05-30 15:09:29,494 crawler 89769 140736274047936 page_src  http://www.sustc.edu.cn/biology_04/f/chenwei
+INFO 2018-05-30 15:09:36,113 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:09:48,898 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:09:48,907 crawler 89769 140736274047936 page_src http://www.sustc.edu.cn/biology_04/f/chenwei
+INFO 2018-05-30 15:09:49,159 pre_process 89769 140736274047936 南方科技大学
+INFO 2018-05-30 15:09:49,982 chrome 89769 140736274047936 魏志毅 ['南方科技大学'] 
+INFO 2018-05-30 15:09:56,175 crawler 89769 140736274047936 page_src  http://www.sustc.edu.cn/biology_04/f/Wei_zhiyi111
+INFO 2018-05-30 15:10:01,096 chrome 89769 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:10:16,272 chrome 89769 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:10:16,273 crawler 89769 140736274047936 page_src http://www.sustc.edu.cn/biology_04/f/Wei_zhiyi111
+INFO 2018-05-30 15:10:16,411 pre_process 89769 140736274047936 南方医科大学
+INFO 2018-05-30 15:25:22,024 crawl_information 33889 123145516564480 crawl db info start
+INFO 2018-05-30 15:25:57,303 crawl_information 33889 123145516564480 crawl db request end
+INFO 2018-05-30 15:25:57,306 crawl_information 34575 140736274047936 5b0e51e2c3666e8461eb9e6d
+INFO 2018-05-30 15:25:57,318 basehttp 33889 123145516564480 "GET /crawldb/ HTTP/1.1" 200 898
+INFO 2018-05-30 15:25:58,165 crawl_information 34575 140736274047936 2000
+INFO 2018-05-30 15:25:58,173 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:26:10,278 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:26:10,403 pre_process 34575 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 15:26:11,383 chrome 34575 140736274047936 贺世忠 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 15:26:20,468 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:26:20,580 pre_process 34575 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 15:26:21,511 chrome 34575 140736274047936 黄明高 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 15:26:26,886 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:26:27,023 pre_process 34575 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 15:26:28,421 chrome 34575 140736274047936 邹文辉 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 15:26:36,362 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:26:36,496 pre_process 34575 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 15:26:37,351 chrome 34575 140736274047936 易兴利 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 15:26:43,708 crawler 34575 140736274047936 page_src  https://google.com/patents/CN103010226A?cl=nl
+INFO 2018-05-30 15:26:59,315 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:27:14,732 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:27:14,733 crawler 34575 140736274047936 page_src https://google.com/patents/CN103010226A?cl=nl
+INFO 2018-05-30 15:27:14,912 pre_process 34575 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 15:27:15,796 chrome 34575 140736274047936 杜玉峰 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 15:27:22,767 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:27:22,877 pre_process 34575 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 15:27:23,713 chrome 34575 140736274047936 饶国华 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 15:27:30,067 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:27:30,196 pre_process 34575 140736274047936 南车株洲电力机车有限公司
+INFO 2018-05-30 15:27:31,045 chrome 34575 140736274047936 彭奇彪 ['南车株洲电力机车有限公司'] 
+INFO 2018-05-30 15:27:34,041 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:27:34,150 pre_process 34575 140736274047936 南充炼油化工总厂
+INFO 2018-05-30 15:27:35,045 chrome 34575 140736274047936 张鹏 [] 
+INFO 2018-05-30 15:27:40,811 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:27:40,939 pre_process 34575 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:27:41,787 chrome 34575 140736274047936 董朝阳 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:27:44,822 crawler 34575 140736274047936 page_src  http://www.csg.cn/xwzx/2016/gsyw/201601/t20160115_131572.html
+INFO 2018-05-30 15:29:00,949 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:29:16,332 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:29:16,333 crawler 34575 140736274047936 page_src http://www.csg.cn/xwzx/2016/gsyw/201601/t20160115_131572.html
+INFO 2018-05-30 15:29:16,442 pre_process 34575 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:29:17,446 chrome 34575 140736274047936 董旭柱 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:29:29,189 crawler 34575 140736274047936 page_src  http://www.csg.cn/xwzx/2016/gsyw/201601/t20160115_131572.html
+INFO 2018-05-30 15:30:45,777 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:30:59,115 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:30:59,116 crawler 34575 140736274047936 page_src http://www.csg.cn/xwzx/2016/gsyw/201601/t20160115_131572.html
+INFO 2018-05-30 15:30:59,247 pre_process 34575 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:31:00,497 chrome 34575 140736274047936 黎小林 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:31:07,965 crawler 34575 140736274047936 page_src  https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:31:10,946 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:31:25,303 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:31:25,304 crawler 34575 140736274047936 page_src https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:31:25,436 pre_process 34575 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:31:27,188 chrome 34575 140736274047936 李锐海 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:31:31,626 crawler 34575 140736274047936 page_src  https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:31:34,846 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:31:51,933 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:31:51,934 crawler 34575 140736274047936 page_src https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:31:52,046 pre_process 34575 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:31:53,220 chrome 34575 140736274047936 傅闯 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:31:58,398 crawler 34575 140736274047936 page_src  https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:32:02,065 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:32:20,602 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:32:20,603 crawler 34575 140736274047936 page_src https://www.ehv.csg.cn/qygg/201310/t20131022_2902.html
+INFO 2018-05-30 15:32:20,747 pre_process 34575 140736274047936 南方电网科学研究院有限责任公司
+INFO 2018-05-30 15:32:22,179 chrome 34575 140736274047936 韩伟强 ['南方电网科学研究院有限责任公司'] 
+INFO 2018-05-30 15:32:29,828 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:32:29,994 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:32:31,087 chrome 34575 140736274047936 谢宇聪 ['南方科技大学'] 
+INFO 2018-05-30 15:32:42,334 crawler 34575 140736274047936 page_src  http://www.sustc.edu.cn/biology_04/f/Xie_Yucong111
+INFO 2018-05-30 15:32:45,974 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:33:00,159 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:33:00,160 crawler 34575 140736274047936 page_src http://www.sustc.edu.cn/biology_04/f/Xie_Yucong111
+INFO 2018-05-30 15:33:00,396 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:33:01,587 chrome 34575 140736274047936 仇明侠 ['南方科技大学'] 
+INFO 2018-05-30 15:33:07,773 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:33:07,916 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:33:09,170 chrome 34575 140736274047936 祁春超 ['南方科技大学'] 
+INFO 2018-05-30 15:33:13,777 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:33:13,939 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:33:14,785 chrome 34575 140736274047936 吴文政 ['南方科技大学'] 
+INFO 2018-05-30 15:33:18,126 crawler 34575 140736274047936 page_src  http://www.sustc.edu.cn/physics_faculty/f/Wu_Wenzhen
+INFO 2018-05-30 15:33:22,479 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:33:36,188 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:33:36,189 crawler 34575 140736274047936 page_src http://www.sustc.edu.cn/physics_faculty/f/Wu_Wenzhen
+INFO 2018-05-30 15:33:36,732 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:33:38,449 chrome 34575 140736274047936 戴俊峰 ['南方科技大学'] 
+INFO 2018-05-30 15:33:48,921 crawler 34575 140736274047936 page_src  http://sustc.edu.cn/faculty_51/f/Dai_Junfeng
+INFO 2018-05-30 15:33:54,098 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:34:07,577 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:34:07,578 crawler 34575 140736274047936 page_src http://sustc.edu.cn/faculty_51/f/Dai_Junfeng
+INFO 2018-05-30 15:34:07,729 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:34:08,880 chrome 34575 140736274047936 徐保民 ['南方科技大学'] 
+INFO 2018-05-30 15:34:14,617 crawler 34575 140736274047936 page_src  http://www.sustc.edu.cn/mse_04/f/Xu_Baomin
+INFO 2018-05-30 15:34:24,199 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:34:39,726 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:34:39,726 crawler 34575 140736274047936 page_src http://www.sustc.edu.cn/mse_04/f/Xu_Baomin
+INFO 2018-05-30 15:34:39,870 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:34:41,110 chrome 34575 140736274047936 吕广丰 ['南方科技大学'] 
+INFO 2018-05-30 15:34:53,450 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:34:53,630 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:34:54,861 chrome 34575 140736274047936 马林 ['南方科技大学'] 
+INFO 2018-05-30 15:35:01,464 crawler 34575 140736274047936 page_src  http://ese.sustc.edu.cn/staff/cxyg.aspx?nc=101035007
+INFO 2018-05-30 15:35:07,620 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:35:22,535 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:35:22,536 crawler 34575 140736274047936 page_src http://ese.sustc.edu.cn/staff/cxyg.aspx?nc=101035007
+INFO 2018-05-30 15:35:22,697 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:35:23,819 chrome 34575 140736274047936 胡滨 ['南方科技大学'] 
+INFO 2018-05-30 15:35:29,164 crawler 34575 140736274047936 page_src  http://ese.sustc.edu.cn/staff/cxyg.aspx?nc=101035007
+INFO 2018-05-30 15:35:34,969 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:35:56,782 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:35:56,783 crawler 34575 140736274047936 page_src http://ese.sustc.edu.cn/staff/cxyg.aspx?nc=101035007
+INFO 2018-05-30 15:35:57,064 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:35:58,707 chrome 34575 140736274047936 唐一 ['南方科技大学'] 
+INFO 2018-05-30 15:36:05,041 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:36:05,254 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:36:07,616 chrome 34575 140736274047936 陈炜 ['南方科技大学'] 
+INFO 2018-05-30 15:36:11,848 crawler 34575 140736274047936 page_src  http://www.sustc.edu.cn/biology_04/f/chenwei
+INFO 2018-05-30 15:36:15,996 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:36:36,314 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:36:36,315 crawler 34575 140736274047936 page_src http://www.sustc.edu.cn/biology_04/f/chenwei
+INFO 2018-05-30 15:36:36,487 pre_process 34575 140736274047936 南方科技大学
+INFO 2018-05-30 15:36:37,986 chrome 34575 140736274047936 魏志毅 ['南方科技大学'] 
+INFO 2018-05-30 15:36:44,708 crawler 34575 140736274047936 page_src  http://www.sustc.edu.cn/biology_04/f/Wei_zhiyi111
+INFO 2018-05-30 15:36:49,643 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:37:04,983 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:37:04,984 crawler 34575 140736274047936 page_src http://www.sustc.edu.cn/biology_04/f/Wei_zhiyi111
+INFO 2018-05-30 15:37:05,155 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:37:06,456 chrome 34575 140736274047936 曾抗 ['南方医科大学'] 
+INFO 2018-05-30 15:37:11,289 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E6%9B%BE%E6%8A%97
+INFO 2018-05-30 15:37:14,858 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:37:28,647 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:37:28,649 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E6%9B%BE%E6%8A%97
+INFO 2018-05-30 15:37:28,991 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:37:30,933 chrome 34575 140736274047936 周华友 ['南方医科大学'] 
+INFO 2018-05-30 15:37:38,227 crawler 34575 140736274047936 page_src  https://ysk.familydoctor.com.cn/310487/
+INFO 2018-05-30 15:37:43,089 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:38:00,997 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:38:00,998 crawler 34575 140736274047936 page_src https://ysk.familydoctor.com.cn/310487/
+INFO 2018-05-30 15:38:01,150 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:38:02,046 chrome 34575 140736274047936 欧阳伟 ['南方医科大学'] 
+INFO 2018-05-30 15:38:07,344 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E6%AC%A7%E9%98%B3%E4%BC%9F
+INFO 2018-05-30 15:38:09,893 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:38:25,435 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:38:25,436 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E6%AC%A7%E9%98%B3%E4%BC%9F
+INFO 2018-05-30 15:38:25,635 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:38:26,905 chrome 34575 140736274047936 严静东 ['南方医科大学'] 
+INFO 2018-05-30 15:38:33,316 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/renshi/info/1011/3053.htm
+INFO 2018-05-30 15:38:34,186 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:38:46,439 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:38:46,440 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/renshi/info/1011/3053.htm
+INFO 2018-05-30 15:38:46,679 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:38:48,850 chrome 34575 140736274047936 杨谊 ['南方医科大学'] 
+INFO 2018-05-30 15:38:54,075 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/swyxgcxy/info/1020/1203.htm
+INFO 2018-05-30 15:38:55,440 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:39:10,602 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:39:10,603 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/swyxgcxy/info/1020/1203.htm
+INFO 2018-05-30 15:39:10,711 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:39:11,976 chrome 34575 140736274047936 季爱民 ['南方医科大学'] 
+INFO 2018-05-30 15:39:22,168 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%AD%A3%E7%88%B1%E6%B0%91/4986874
+INFO 2018-05-30 15:39:25,781 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:39:38,184 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:39:38,185 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%AD%A3%E7%88%B1%E6%B0%91/4986874
+INFO 2018-05-30 15:39:38,310 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:39:39,467 chrome 34575 140736274047936 田立文 ['南方医科大学'] 
+INFO 2018-05-30 15:39:50,938 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1259/2612.htm
+INFO 2018-05-30 15:39:58,143 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:40:09,239 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:40:09,240 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1259/2612.htm
+INFO 2018-05-30 15:40:09,368 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:40:11,617 chrome 34575 140736274047936 陈燕碧 ['南方医科大学'] 
+INFO 2018-05-30 15:40:17,920 crawler 34575 140736274047936 page_src  http://chenyanbi1974.haodf.com/
+INFO 2018-05-30 15:40:23,616 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:40:37,694 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:40:37,695 crawler 34575 140736274047936 page_src http://chenyanbi1974.haodf.com/
+INFO 2018-05-30 15:40:37,805 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:40:38,939 chrome 34575 140736274047936 寇伟 ['南方医科大学'] 
+INFO 2018-05-30 15:40:46,271 crawler 34575 140736274047936 page_src  http://kouweidr.haodf.com/
+INFO 2018-05-30 15:40:48,629 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:41:04,527 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:41:04,528 crawler 34575 140736274047936 page_src http://kouweidr.haodf.com/
+INFO 2018-05-30 15:41:04,744 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:41:05,685 chrome 34575 140736274047936 林奕辉 ['南方医科大学'] 
+INFO 2018-05-30 15:41:10,633 crawler 34575 140736274047936 page_src  http://www2.scut.edu.cn/hospital/2015/1014/c3302a68562/page.htm
+INFO 2018-05-30 15:41:16,072 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:41:27,645 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:41:27,654 crawler 34575 140736274047936 page_src http://www2.scut.edu.cn/hospital/2015/1014/c3302a68562/page.htm
+INFO 2018-05-30 15:41:28,049 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:41:30,440 chrome 34575 140736274047936 魏大年 ['南方医科大学'] 
+INFO 2018-05-30 15:41:36,764 crawler 34575 140736274047936 page_src  http://www.ccmtv.cn/ccmtvhomepage-10033754-hgfeefilesuc.html
+INFO 2018-05-30 15:41:37,914 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:41:57,583 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:41:57,591 crawler 34575 140736274047936 page_src http://www.ccmtv.cn/ccmtvhomepage-10033754-hgfeefilesuc.html
+INFO 2018-05-30 15:41:57,892 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:41:58,801 chrome 34575 140736274047936 鲜华 ['南方医科大学'] 
+INFO 2018-05-30 15:42:03,116 crawler 34575 140736274047936 page_src  http://www.gdskin.com/ShowNews.ASPX?ID=4287
+INFO 2018-05-30 15:42:06,699 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:42:25,207 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:42:25,208 crawler 34575 140736274047936 page_src http://www.gdskin.com/ShowNews.ASPX?ID=4287
+INFO 2018-05-30 15:42:25,341 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:42:26,756 chrome 34575 140736274047936 何晓平 ['南方医科大学'] 
+INFO 2018-05-30 15:42:37,882 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/wsglxy/info/1014/1149.htm
+INFO 2018-05-30 15:42:43,835 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:42:56,759 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:42:56,760 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/wsglxy/info/1014/1149.htm
+INFO 2018-05-30 15:42:56,916 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:42:57,976 chrome 34575 140736274047936 王淑平 ['南方医科大学'] 
+INFO 2018-05-30 15:43:02,992 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 15:43:03,118 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:43:03,927 chrome 34575 140736274047936 周国平 ['南方医科大学'] 
+INFO 2018-05-30 15:43:07,788 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%91%A8%E5%9B%BD%E5%B9%B3/5781551
+INFO 2018-05-30 15:43:09,997 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:43:21,170 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:43:21,171 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%91%A8%E5%9B%BD%E5%B9%B3/5781551
+INFO 2018-05-30 15:43:21,505 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:43:22,310 chrome 34575 140736274047936 杨礼腾 ['南方医科大学'] 
+INFO 2018-05-30 15:43:33,302 crawler 34575 140736274047936 page_src  http://yangliteng.baikemy.com/expert/profile
+INFO 2018-05-30 15:43:34,202 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:43:49,098 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:43:49,098 crawler 34575 140736274047936 page_src http://yangliteng.baikemy.com/expert/profile
+INFO 2018-05-30 15:43:49,272 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:43:50,561 chrome 34575 140736274047936 荣知立 ['南方医科大学'] 
+INFO 2018-05-30 15:43:55,535 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1086/1773.htm
+INFO 2018-05-30 15:43:57,606 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:44:13,934 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:44:13,935 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1086/1773.htm
+INFO 2018-05-30 15:44:14,082 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:44:14,994 chrome 34575 140736274047936 王远东 ['南方医科大学'] 
+INFO 2018-05-30 15:44:22,251 crawler 34575 140736274047936 page_src  http://www.nfzxy.com/ks/xbzlwk/doctor_43.html
+INFO 2018-05-30 15:44:35,123 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:44:47,477 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:44:47,478 crawler 34575 140736274047936 page_src http://www.nfzxy.com/ks/xbzlwk/doctor_43.html
+INFO 2018-05-30 15:44:47,593 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:44:48,478 chrome 34575 140736274047936 张向群 ['南方医科大学'] 
+INFO 2018-05-30 15:44:53,939 crawler 34575 140736274047936 page_src  http://www.nfzxy.com/search/?keyword=%E5%BC%A0%E5%90%91%E7%BE%A4
+INFO 2018-05-30 15:44:58,339 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:45:09,233 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:45:09,234 crawler 34575 140736274047936 page_src http://www.nfzxy.com/search/?keyword=%E5%BC%A0%E5%90%91%E7%BE%A4
+INFO 2018-05-30 15:45:09,378 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:45:10,224 chrome 34575 140736274047936 唐时幸 ['南方医科大学'] 
+INFO 2018-05-30 15:45:16,265 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/gwxy/info/1045/1985.htm
+INFO 2018-05-30 15:45:23,142 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:45:36,398 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:45:36,399 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/gwxy/info/1045/1985.htm
+INFO 2018-05-30 15:45:36,628 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:45:37,515 chrome 34575 140736274047936 周美娟 ['南方医科大学'] 
+INFO 2018-05-30 15:45:44,100 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/renshi/info/1036/3226.htm
+INFO 2018-05-30 15:45:48,877 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:46:01,582 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:46:01,582 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/renshi/info/1036/3226.htm
+INFO 2018-05-30 15:46:01,721 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:46:02,616 chrome 34575 140736274047936 吴娴波 ['南方医科大学'] 
+INFO 2018-05-30 15:46:07,843 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/gwxy/info/1045/1725.htm
+INFO 2018-05-30 15:46:08,999 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:46:26,550 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:46:26,551 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/gwxy/info/1045/1725.htm
+INFO 2018-05-30 15:46:26,673 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:46:27,542 chrome 34575 140736274047936 曾庆春 ['南方医科大学'] 
+INFO 2018-05-30 15:46:32,649 crawler 34575 140736274047936 page_src  http://zqchdr.haodf.com/
+INFO 2018-05-30 15:46:35,083 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:46:47,634 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:46:47,635 crawler 34575 140736274047936 page_src http://zqchdr.haodf.com/
+INFO 2018-05-30 15:46:47,787 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:46:49,104 chrome 34575 140736274047936 胡大林 ['南方医科大学'] 
+INFO 2018-05-30 15:46:55,288 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/gwxy/info/1045/1732.htm
+INFO 2018-05-30 15:46:56,340 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:47:09,128 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:47:09,136 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/gwxy/info/1045/1732.htm
+INFO 2018-05-30 15:47:09,319 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:47:10,302 chrome 34575 140736274047936 谢晓利 ['南方医科大学'] 
+INFO 2018-05-30 15:47:14,457 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/gwxy/info/1046/2150.htm
+INFO 2018-05-30 15:47:18,064 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:47:30,608 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:47:30,609 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/gwxy/info/1046/2150.htm
+INFO 2018-05-30 15:47:30,975 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:47:31,865 chrome 34575 140736274047936 王清华 ['南方医科大学'] 
+INFO 2018-05-30 15:47:45,704 crawler 34575 140736274047936 page_src  https://cha.guahao.com/expert/cd7e54fc-bfe0-49ab-8572-5d02339c46a4000?hospDeptId=9ebd323a-3ace-4b7a-9405-c4da7a1c8f7d000
+INFO 2018-05-30 15:47:47,676 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:48:01,336 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:48:01,337 crawler 34575 140736274047936 page_src https://cha.guahao.com/expert/cd7e54fc-bfe0-49ab-8572-5d02339c46a4000?hospDeptId=9ebd323a-3ace-4b7a-9405-c4da7a1c8f7d000
+INFO 2018-05-30 15:48:01,470 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:48:02,566 chrome 34575 140736274047936 何旭英 ['南方医科大学'] 
+INFO 2018-05-30 15:48:08,936 crawler 34575 140736274047936 page_src  http://hexuying.haodf.com/?boxPresentId=800871576&ajaxReferrer=1
+INFO 2018-05-30 15:48:12,933 chrome 34575 140736274047936 Message: stale element reference: element is not attached to the page document
+  (Session info: headless chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.37.544337 (8c0344a12e552148c185f7d5117db1f28d6c9e85),platform=Mac OS X 10.12.5 x86_64)
+
+INFO 2018-05-30 15:48:12,934 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:49:32,692 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:49:32,693 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/abaout/160380/
+INFO 2018-05-30 15:49:36,238 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:50:56,014 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:50:56,015 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/abaout/160380/
+INFO 2018-05-30 15:50:56,151 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:50:56,996 chrome 34575 140736274047936 梁东辉 ['南方医科大学'] 
+ERROR 2018-05-30 15:50:57,017 chrome 34575 140736274047936 google,Message: no such element: Unable to locate element: {"method":"name","selector":"q"}
+  (Session info: headless chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.37.544337 (8c0344a12e552148c185f7d5117db1f28d6c9e85),platform=Mac OS X 10.12.5 x86_64)
+, 
+blank, have retried 0 times
+INFO 2018-05-30 15:51:27,020 chrome 34575 140736274047936 chrome [google] closing,home is [https://www.google.com/]
+INFO 2018-05-30 15:51:27,136 chrome 34575 140736274047936 chrome [google] closed,home is [https://www.google.com/]
+INFO 2018-05-30 15:51:27,136 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:51:31,671 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+ERROR 2018-05-30 15:51:31,695 chrome 34575 140736274047936 google,Message: no such element: Unable to locate element: {"method":"name","selector":"q"}
+  (Session info: headless chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.37.544337 (8c0344a12e552148c185f7d5117db1f28d6c9e85),platform=Mac OS X 10.12.5 x86_64)
+, 
+blank, have retried 1 times
+INFO 2018-05-30 15:52:01,697 chrome 34575 140736274047936 chrome [google] closing,home is [https://www.google.com/]
+INFO 2018-05-30 15:52:01,814 chrome 34575 140736274047936 chrome [google] closed,home is [https://www.google.com/]
+INFO 2018-05-30 15:52:01,814 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:52:06,348 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+ERROR 2018-05-30 15:52:06,370 chrome 34575 140736274047936 google,Message: no such element: Unable to locate element: {"method":"name","selector":"q"}
+  (Session info: headless chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.37.544337 (8c0344a12e552148c185f7d5117db1f28d6c9e85),platform=Mac OS X 10.12.5 x86_64)
+, 
+blank, have retried 2 times
+INFO 2018-05-30 15:52:36,372 chrome 34575 140736274047936 chrome [google] closing,home is [https://www.google.com/]
+INFO 2018-05-30 15:52:36,491 chrome 34575 140736274047936 chrome [google] closed,home is [https://www.google.com/]
+INFO 2018-05-30 15:52:36,492 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:52:47,434 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:52:52,912 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/info/1020/1058.htm
+INFO 2018-05-30 15:52:54,611 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:53:10,164 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:53:10,165 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/info/1020/1058.htm
+INFO 2018-05-30 15:53:10,303 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:53:11,196 chrome 34575 140736274047936 陆云涛 ['南方医科大学'] 
+INFO 2018-05-30 15:53:16,290 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/abaout/310448/
+INFO 2018-05-30 15:53:20,833 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:53:34,553 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:53:34,555 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/abaout/310448/
+INFO 2018-05-30 15:53:34,681 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:53:35,582 chrome 34575 140736274047936 张琳 ['南方医科大学'] 
+INFO 2018-05-30 15:53:41,033 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1075/1688.htm
+INFO 2018-05-30 15:53:42,512 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:53:55,893 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:53:55,894 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1075/1688.htm
+INFO 2018-05-30 15:53:56,328 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:53:57,213 chrome 34575 140736274047936 谭晓梅 ['南方医科大学'] 
+INFO 2018-05-30 15:54:02,597 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1090/2058.htm
+INFO 2018-05-30 15:54:05,089 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:54:19,592 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:54:19,593 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1090/2058.htm
+INFO 2018-05-30 15:54:19,706 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:54:20,548 chrome 34575 140736274047936 林洁 ['南方医科大学'] 
+INFO 2018-05-30 15:54:26,586 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1076/1840.htm
+INFO 2018-05-30 15:54:27,849 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:54:41,275 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:54:41,284 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1076/1840.htm
+INFO 2018-05-30 15:54:41,431 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:54:42,278 chrome 34575 140736274047936 赵存友 ['南方医科大学'] 
+INFO 2018-05-30 15:54:48,051 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1081/1742.htm
+INFO 2018-05-30 15:54:50,315 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:55:04,608 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:55:04,609 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1081/1742.htm
+INFO 2018-05-30 15:55:04,733 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:55:05,577 chrome 34575 140736274047936 陈滨 ['南方医科大学'] 
+INFO 2018-05-30 15:55:10,520 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E9%99%88%E6%BB%A8/8727412
+INFO 2018-05-30 15:55:12,809 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:55:26,710 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:55:26,719 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E9%99%88%E6%BB%A8/8727412
+INFO 2018-05-30 15:55:26,908 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:55:27,767 chrome 34575 140736274047936 杨运平 ['南方医科大学'] 
+INFO 2018-05-30 15:55:33,365 crawler 34575 140736274047936 page_src  https://ysk.familydoctor.com.cn/31425/
+INFO 2018-05-30 15:55:38,170 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:55:52,177 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:55:52,187 crawler 34575 140736274047936 page_src https://ysk.familydoctor.com.cn/31425/
+INFO 2018-05-30 15:55:52,349 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:55:53,195 chrome 34575 140736274047936 丁振华 ['南方医科大学'] 
+INFO 2018-05-30 15:55:59,442 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E4%B8%81%E6%8C%AF%E5%8D%8E/13785884
+INFO 2018-05-30 15:56:02,357 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:56:19,604 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:56:19,605 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E4%B8%81%E6%8C%AF%E5%8D%8E/13785884
+INFO 2018-05-30 15:56:19,743 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:56:20,612 chrome 34575 140736274047936 胡稷杰 ['南方医科大学'] 
+INFO 2018-05-30 15:56:25,260 crawler 34575 140736274047936 page_src  http://jim0610.haodf.com/
+INFO 2018-05-30 15:56:28,632 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:56:43,807 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:56:43,815 crawler 34575 140736274047936 page_src http://jim0610.haodf.com/
+INFO 2018-05-30 15:56:43,954 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:56:44,824 chrome 34575 140736274047936 尹瑞雪 ['南方医科大学'] 
+INFO 2018-05-30 15:56:53,939 crawler 34575 140736274047936 page_src  https://zuciwang.com/q/451/ifjzcfjxazc.html
+INFO 2018-05-30 15:56:59,937 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:57:13,034 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:57:13,036 crawler 34575 140736274047936 page_src https://zuciwang.com/q/451/ifjzcfjxazc.html
+INFO 2018-05-30 15:57:13,230 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:57:14,135 chrome 34575 140736274047936 邹和群 ['南方医科大学'] 
+INFO 2018-05-30 15:57:18,075 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E9%82%B9%E5%92%8C%E7%BE%A4
+INFO 2018-05-30 15:57:20,553 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:57:35,077 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:57:35,078 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E9%82%B9%E5%92%8C%E7%BE%A4
+INFO 2018-05-30 15:57:35,238 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:57:36,139 chrome 34575 140736274047936 丁彦青 ['南方医科大学'] 
+INFO 2018-05-30 15:57:42,514 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E4%B8%81%E5%BD%A6%E9%9D%92
+INFO 2018-05-30 15:57:45,981 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:57:56,679 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:57:56,680 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E4%B8%81%E5%BD%A6%E9%9D%92
+INFO 2018-05-30 15:57:56,842 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:57:57,700 chrome 34575 140736274047936 廖雯婷 ['南方医科大学'] 
+INFO 2018-05-30 15:58:03,608 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1011/1099.htm
+INFO 2018-05-30 15:58:06,332 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:58:22,613 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:58:22,614 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1011/1099.htm
+INFO 2018-05-30 15:58:22,752 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:58:23,594 chrome 34575 140736274047936 肖炜 ['南方医科大学'] 
+INFO 2018-05-30 15:58:31,562 crawler 34575 140736274047936 page_src  http://www.suihuaxueersi.com/files/news/2830-201531182159-1.doc
+INFO 2018-05-30 15:58:32,377 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:58:45,187 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:58:45,189 crawler 34575 140736274047936 page_src http://www.suihuaxueersi.com/files/news/2830-201531182159-1.doc
+INFO 2018-05-30 15:58:45,686 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:58:46,546 chrome 34575 140736274047936 魏凤环 ['南方医科大学'] 
+INFO 2018-05-30 15:58:52,185 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyaosyzx/info/1031/1078.htm
+INFO 2018-05-30 15:58:53,080 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:59:07,376 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:59:07,378 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyaosyzx/info/1031/1078.htm
+INFO 2018-05-30 15:59:07,581 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:59:08,445 chrome 34575 140736274047936 杨翠兰 ['南方医科大学'] 
+INFO 2018-05-30 15:59:14,676 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1080/1724.htm
+INFO 2018-05-30 15:59:25,396 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 15:59:40,732 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 15:59:40,733 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1080/1724.htm
+INFO 2018-05-30 15:59:40,930 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 15:59:41,788 chrome 34575 140736274047936 瞿少刚 ['南方医科大学'] 
+INFO 2018-05-30 15:59:46,403 crawler 34575 140736274047936 page_src  https://www.scholarmate.com/P/JbeeYb
+INFO 2018-05-30 15:59:49,708 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:00:06,266 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:00:06,266 crawler 34575 140736274047936 page_src https://www.scholarmate.com/P/JbeeYb
+INFO 2018-05-30 16:00:06,440 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:00:07,324 chrome 34575 140736274047936 周本杰 ['南方医科大学'] 
+INFO 2018-05-30 16:00:11,738 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1049/2181.htm
+INFO 2018-05-30 16:00:15,987 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:00:31,446 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:00:31,447 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1049/2181.htm
+INFO 2018-05-30 16:00:31,606 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:00:32,523 chrome 34575 140736274047936 高建华 ['南方医科大学'] 
+INFO 2018-05-30 16:00:41,014 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E9%AB%98%E5%BB%BA%E5%8D%8E/824544
+INFO 2018-05-30 16:00:42,994 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:01:02,858 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:01:02,859 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E9%AB%98%E5%BB%BA%E5%8D%8E/824544
+INFO 2018-05-30 16:01:03,012 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:01:03,859 chrome 34575 140736274047936 刘存东 ['南方医科大学'] 
+INFO 2018-05-30 16:01:09,668 crawler 34575 140736274047936 page_src  https://ysk.familydoctor.com.cn/26079/
+INFO 2018-05-30 16:01:13,766 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:01:27,005 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:01:27,006 crawler 34575 140736274047936 page_src https://ysk.familydoctor.com.cn/26079/
+INFO 2018-05-30 16:01:27,166 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:01:28,004 chrome 34575 140736274047936 廖旺军 ['南方医科大学'] 
+INFO 2018-05-30 16:01:32,940 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/nk/zlk/doctor_5632.html
+INFO 2018-05-30 16:01:38,467 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:01:55,627 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:01:55,628 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/nk/zlk/doctor_5632.html
+INFO 2018-05-30 16:01:55,754 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:01:56,634 chrome 34575 140736274047936 孙剑 ['南方医科大学'] 
+INFO 2018-05-30 16:02:04,240 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%AD%99%E5%89%91/2331097
+INFO 2018-05-30 16:02:07,297 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:02:22,620 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:02:22,621 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%AD%99%E5%89%91/2331097
+INFO 2018-05-30 16:02:22,765 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:02:23,614 chrome 34575 140736274047936 刘思德 ['南方医科大学'] 
+INFO 2018-05-30 16:02:30,310 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%88%98%E6%80%9D%E5%BE%B7
+INFO 2018-05-30 16:02:32,999 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:02:46,644 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:02:46,645 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%88%98%E6%80%9D%E5%BE%B7
+INFO 2018-05-30 16:02:46,777 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:02:47,686 chrome 34575 140736274047936 蒋建平 ['南方医科大学'] 
+INFO 2018-05-30 16:03:01,028 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E8%92%8B%E5%BB%BA%E5%B9%B3/6921375
+INFO 2018-05-30 16:03:03,638 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:03:18,911 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:03:18,912 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E8%92%8B%E5%BB%BA%E5%B9%B3/6921375
+INFO 2018-05-30 16:03:19,030 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:03:19,862 chrome 34575 140736274047936 胡冬梅 ['南方医科大学'] 
+INFO 2018-05-30 16:03:25,512 crawler 34575 140736274047936 page_src  https://www.linkedin.com/in/%E5%86%AC%E6%A2%85-%E8%83%A1-706647128
+INFO 2018-05-30 16:03:27,815 chrome 34575 140736274047936 Message: no such element: Unable to locate element: {"method":"tag name","selector":"body"}
+  (Session info: headless chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.37.544337 (8c0344a12e552148c185f7d5117db1f28d6c9e85),platform=Mac OS X 10.12.5 x86_64)
+
+INFO 2018-05-30 16:03:27,815 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:03:42,899 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:03:42,900 crawler 34575 140736274047936 page_src https://www.linkedin.com/in/%E5%86%AC%E6%A2%85-%E8%83%A1-706647128
+INFO 2018-05-30 16:03:43,032 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:03:43,882 chrome 34575 140736274047936 尹恝 ['南方医科大学'] 
+INFO 2018-05-30 16:03:47,922 crawler 34575 140736274047936 page_src  http://www.nfyy.com/wap/ks/nk/sjnk/doctor_5733.html
+INFO 2018-05-30 16:03:49,185 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:04:01,780 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:04:01,781 crawler 34575 140736274047936 page_src http://www.nfyy.com/wap/ks/nk/sjnk/doctor_5733.html
+INFO 2018-05-30 16:04:01,911 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:04:02,747 chrome 34575 140736274047936 付霞霏 ['南方医科大学'] 
+INFO 2018-05-30 16:04:09,740 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/abaout/160408/
+INFO 2018-05-30 16:04:16,375 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:04:31,184 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:04:31,185 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/abaout/160408/
+INFO 2018-05-30 16:04:31,523 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:04:32,372 chrome 34575 140736274047936 刘浩 ['南方医科大学'] 
+INFO 2018-05-30 16:04:45,016 crawler 34575 140736274047936 page_src  http://nfyy.com/wap//xwzx/yyxw/a_102764.html
+INFO 2018-05-30 16:04:46,356 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:05:01,172 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:05:01,173 crawler 34575 140736274047936 page_src http://nfyy.com/wap//xwzx/yyxw/a_102764.html
+INFO 2018-05-30 16:05:01,314 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:05:02,161 chrome 34575 140736274047936 陈强 ['南方医科大学'] 
+INFO 2018-05-30 16:05:09,012 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/dwygb/zysj/byll.htm
+INFO 2018-05-30 16:05:11,017 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:05:27,212 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:05:27,213 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/dwygb/zysj/byll.htm
+INFO 2018-05-30 16:05:27,333 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:05:28,253 chrome 34575 140736274047936 刘萍 ['南方医科大学'] 
+INFO 2018-05-30 16:05:34,412 crawler 34575 140736274047936 page_src  http://lpivy.haodf.com/
+INFO 2018-05-30 16:05:38,749 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:05:51,810 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:05:51,811 crawler 34575 140736274047936 page_src http://lpivy.haodf.com/
+INFO 2018-05-30 16:05:51,949 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:05:52,791 chrome 34575 140736274047936 何晓峰 ['南方医科大学'] 
+INFO 2018-05-30 16:06:00,783 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E4%BD%95%E6%99%93%E5%B3%B0
+INFO 2018-05-30 16:06:03,201 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:06:18,584 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:06:18,593 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E4%BD%95%E6%99%93%E5%B3%B0
+INFO 2018-05-30 16:06:18,725 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:06:19,592 chrome 34575 140736274047936 陈勇 ['南方医科大学'] 
+INFO 2018-05-30 16:06:28,853 crawler 34575 140736274047936 page_src  http://qqhealth.haodf.com/doctor/DE4r0BCkuHzduxOzDygnLBKpXQJ1u.htm
+INFO 2018-05-30 16:06:29,609 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:06:46,033 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:06:46,034 crawler 34575 140736274047936 page_src http://qqhealth.haodf.com/doctor/DE4r0BCkuHzduxOzDygnLBKpXQJ1u.htm
+INFO 2018-05-30 16:06:46,178 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:06:47,021 chrome 34575 140736274047936 赵剑波 ['南方医科大学'] 
+INFO 2018-05-30 16:06:53,102 crawler 34575 140736274047936 page_src  https://ysk.familydoctor.com.cn/32109/
+INFO 2018-05-30 16:06:58,801 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:07:09,854 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:07:09,863 crawler 34575 140736274047936 page_src https://ysk.familydoctor.com.cn/32109/
+INFO 2018-05-30 16:07:09,994 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:07:10,855 chrome 34575 140736274047936 刘亚伟 ['南方医科大学'] 
+INFO 2018-05-30 16:07:24,141 crawler 34575 140736274047936 page_src  http://yjs.fimmu.com/info/1266/4225.htm
+INFO 2018-05-30 16:07:32,683 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:07:50,728 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:07:50,729 crawler 34575 140736274047936 page_src http://yjs.fimmu.com/info/1266/4225.htm
+INFO 2018-05-30 16:07:50,901 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:07:51,760 chrome 34575 140736274047936 周春兰 ['南方医科大学'] 
+INFO 2018-05-30 16:07:57,751 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%91%A8%E6%98%A5%E5%85%B0/3498472
+INFO 2018-05-30 16:07:59,666 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:08:12,014 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:08:12,015 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%91%A8%E6%98%A5%E5%85%B0/3498472
+INFO 2018-05-30 16:08:12,125 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:08:12,982 chrome 34575 140736274047936 宋慧娟 ['南方医科大学'] 
+INFO 2018-05-30 16:08:21,801 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yyglc/info/1004/1064.htm
+INFO 2018-05-30 16:08:23,495 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:08:42,289 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:08:42,290 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yyglc/info/1004/1064.htm
+INFO 2018-05-30 16:08:42,397 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:08:43,299 chrome 34575 140736274047936 陈仲清 ['南方医科大学'] 
+INFO 2018-05-30 16:08:49,571 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E9%99%88%E4%BB%B2%E6%B8%85/3862299
+INFO 2018-05-30 16:08:51,949 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:09:05,973 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:09:05,974 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E9%99%88%E4%BB%B2%E6%B8%85/3862299
+INFO 2018-05-30 16:09:06,117 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:09:07,073 chrome 34575 140736274047936 陈薪 ['南方医科大学'] 
+INFO 2018-05-30 16:09:14,044 crawler 34575 140736274047936 page_src  https://www.guahao.com/expert/f675d3e2-38c6-48bb-b615-b8cc59d49554000?hospDeptId=6e1fbd89-d47f-4cac-969b-fc42562c37d5000&hospitalId=a986c8d76-c720-11e1-913c-5cf9dd2e7135000
+INFO 2018-05-30 16:09:17,482 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:09:30,412 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:09:30,414 crawler 34575 140736274047936 page_src https://www.guahao.com/expert/f675d3e2-38c6-48bb-b615-b8cc59d49554000?hospDeptId=6e1fbd89-d47f-4cac-969b-fc42562c37d5000&hospitalId=a986c8d76-c720-11e1-913c-5cf9dd2e7135000
+INFO 2018-05-30 16:09:30,519 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:09:31,354 chrome 34575 140736274047936 朱青安 ['南方医科大学'] 
+INFO 2018-05-30 16:09:36,986 crawler 34575 140736274047936 page_src  https://www.huodongjia.com/guest-077068081121079084073119.html
+INFO 2018-05-30 16:09:46,175 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:10:00,881 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:10:00,882 crawler 34575 140736274047936 page_src https://www.huodongjia.com/guest-077068081121079084073119.html
+INFO 2018-05-30 16:10:00,994 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:10:01,837 chrome 34575 140736274047936 钟招明 ['南方医科大学'] 
+INFO 2018-05-30 16:10:06,234 crawler 34575 140736274047936 page_src  http://www.nfyy.com/wap/ks/wk/jzgbk/doctor_5741.html
+INFO 2018-05-30 16:10:08,171 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:10:23,303 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:10:23,304 crawler 34575 140736274047936 page_src http://www.nfyy.com/wap/ks/wk/jzgbk/doctor_5741.html
+INFO 2018-05-30 16:10:23,426 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:10:24,265 chrome 34575 140736274047936 朱晓霞 ['南方医科大学'] 
+INFO 2018-05-30 16:10:29,626 crawler 34575 140736274047936 page_src  https://ysk.familydoctor.com.cn/215780/
+INFO 2018-05-30 16:10:35,415 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:10:48,303 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:10:48,305 crawler 34575 140736274047936 page_src https://ysk.familydoctor.com.cn/215780/
+INFO 2018-05-30 16:10:48,414 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:10:49,246 chrome 34575 140736274047936 陈春林 ['南方医科大学'] 
+INFO 2018-05-30 16:10:58,931 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E9%99%88%E6%98%A5%E6%9E%97/2506222
+INFO 2018-05-30 16:11:02,332 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:11:15,541 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:11:15,549 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E9%99%88%E6%98%A5%E6%9E%97/2506222
+INFO 2018-05-30 16:11:15,684 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:11:16,525 chrome 34575 140736274047936 邵龙泉 ['南方医科大学'] 
+INFO 2018-05-30 16:11:21,803 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/zk/kqk/doctor_5848.html
+INFO 2018-05-30 16:12:42,714 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:12:54,159 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:12:54,168 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/zk/kqk/doctor_5848.html
+INFO 2018-05-30 16:12:54,298 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:12:55,089 chrome 34575 140736274047936 梅林 ['南方医科大学'] 
+INFO 2018-05-30 16:13:01,882 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E6%A2%85%E6%9E%97/2369268
+INFO 2018-05-30 16:13:04,609 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:13:18,174 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:13:18,182 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E6%A2%85%E6%9E%97/2369268
+INFO 2018-05-30 16:13:18,481 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:13:19,356 chrome 34575 140736274047936 杨丰 ['南方医科大学'] 
+INFO 2018-05-30 16:13:24,177 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/bme/info/1004/1047.htm
+INFO 2018-05-30 16:13:25,160 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:13:38,203 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:13:38,212 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/bme/info/1004/1047.htm
+INFO 2018-05-30 16:13:38,330 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:13:39,634 chrome 34575 140736274047936 赵善超 ['南方医科大学'] 
+INFO 2018-05-30 16:13:43,947 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/wk/mnwk/doctor_5787.html
+INFO 2018-05-30 16:13:46,062 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:13:59,302 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:13:59,311 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/wk/mnwk/doctor_5787.html
+INFO 2018-05-30 16:13:59,461 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:14:00,308 chrome 34575 140736274047936 刘叔文 ['南方医科大学'] 
+INFO 2018-05-30 16:14:10,298 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1075/2091.htm
+INFO 2018-05-30 16:14:12,229 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:14:24,685 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:14:24,686 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1075/2091.htm
+INFO 2018-05-30 16:14:24,821 pre_process 34575 140736274047936 南方医科大学
+INFO 2018-05-30 16:14:25,615 chrome 34575 140736274047936 邹飞 ['南方医科大学'] 
+INFO 2018-05-30 16:14:36,378 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/bkzs/info/1021/1717.htm
+INFO 2018-05-30 16:14:37,332 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:14:57,537 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:14:57,538 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/bkzs/info/1021/1717.htm
+INFO 2018-05-30 16:14:57,650 pre_process 34575 140736274047936 南方医科大学第三附属医院
+INFO 2018-05-30 16:14:58,463 chrome 34575 140736274047936 余梅香 ['南方医科大学第三附属医院'] 
+INFO 2018-05-30 16:15:06,236 crawler 34575 140736274047936 page_src  http://www.mingyihui.net/doctor_37560/comment.html
+INFO 2018-05-30 16:15:13,614 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:15:25,117 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:15:25,118 crawler 34575 140736274047936 page_src http://www.mingyihui.net/doctor_37560/comment.html
+INFO 2018-05-30 16:15:25,243 pre_process 34575 140736274047936 南方医科大学第三附属医院超声科
+INFO 2018-05-30 16:15:26,191 chrome 34575 140736274047936 赵素玲 ['南方医科大学第三附属医院超声科', '南方医科大学第三附属医院'] 
+INFO 2018-05-30 16:15:41,547 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:15:41,899 pre_process 34575 140736274047936 南方医科大学第三附属医院骨科
+INFO 2018-05-30 16:15:42,694 chrome 34575 140736274047936 赵亮 ['南方医科大学第三附属医院骨科', '南方医科大学第三附属医院'] 
+INFO 2018-05-30 16:15:50,447 crawler 34575 140736274047936 page_src  http://js.guahao.com/expert/978f270a-c720-11e1-913c-5cf9dd2e7135000
+INFO 2018-05-30 16:15:52,333 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:16:06,188 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:16:06,189 crawler 34575 140736274047936 page_src http://js.guahao.com/expert/978f270a-c720-11e1-913c-5cf9dd2e7135000
+INFO 2018-05-30 16:16:06,486 pre_process 34575 140736274047936 南方医科大学第三附属医院脊柱外科
+INFO 2018-05-30 16:16:07,384 chrome 34575 140736274047936 闫慧博 ['南方医科大学第三附属医院脊柱外科', '南方医科大学第三附属医院'] 
+INFO 2018-05-30 16:16:14,573 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:16:14,841 pre_process 34575 140736274047936 南方医科大学第三附属医院普通外科
+INFO 2018-05-30 16:16:15,716 chrome 34575 140736274047936 肖刚 ['南方医科大学第三附属医院普通外科', '南方医科大学第三附属医院'] 
+INFO 2018-05-30 16:16:20,191 crawler 34575 140736274047936 page_src  http://www.nysy.com.cn/lxyz/qzlxdetail.aspx?n_id=3210
+INFO 2018-05-30 16:16:21,023 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:16:35,766 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:16:35,775 crawler 34575 140736274047936 page_src http://www.nysy.com.cn/lxyz/qzlxdetail.aspx?n_id=3210
+INFO 2018-05-30 16:16:35,895 pre_process 34575 140736274047936 南方医科大学第三附属医院输血科
+INFO 2018-05-30 16:16:36,826 chrome 34575 140736274047936 郑英 ['南方医科大学第三附属医院输血科', '南方医科大学第三附属医院'] 
+INFO 2018-05-30 16:16:42,316 crawler 34575 140736274047936 page_src  http://www.gzbc.org/newsInfo.aspx?id=3782
+INFO 2018-05-30 16:16:44,852 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:16:59,692 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:16:59,693 crawler 34575 140736274047936 page_src http://www.gzbc.org/newsInfo.aspx?id=3782
+INFO 2018-05-30 16:17:00,020 pre_process 34575 140736274047936 南方医科大学第三附属医院药剂科
+INFO 2018-05-30 16:17:00,993 chrome 34575 140736274047936 郑晓霞 ['南方医科大学第三附属医院药剂科', '南方医科大学第三附属医院'] 
+INFO 2018-05-30 16:17:07,140 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:17:07,259 pre_process 34575 140736274047936 南方医科大学第三附属医院药剂科
+INFO 2018-05-30 16:17:08,111 chrome 34575 140736274047936 许静 ['南方医科大学第三附属医院药剂科', '南方医科大学第三附属医院'] 
+INFO 2018-05-30 16:17:12,887 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:17:13,003 pre_process 34575 140736274047936 南方医科大学法医学系
+INFO 2018-05-30 16:17:13,871 chrome 34575 140736274047936 王慧君 ['南方医科大学法医学系', '南方医科大学'] 
+INFO 2018-05-30 16:17:18,778 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E7%8E%8B%E6%85%A7%E5%90%9B/13858624
+INFO 2018-05-30 16:17:20,972 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:17:39,908 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:17:39,909 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E7%8E%8B%E6%85%A7%E5%90%9B/13858624
+INFO 2018-05-30 16:17:40,024 pre_process 34575 140736274047936 南方医科大学分析测试中心
+INFO 2018-05-30 16:17:40,929 chrome 34575 140736274047936 马安德 ['南方医科大学分析测试中心', '南方医科大学'] 
+INFO 2018-05-30 16:17:48,534 crawler 34575 140736274047936 page_src  http://chinamaven.com/plugin.php?id=zhuanjia&ac=view&aid=66831
+INFO 2018-05-30 16:17:51,501 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:18:03,542 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:18:03,543 crawler 34575 140736274047936 page_src http://chinamaven.com/plugin.php?id=zhuanjia&ac=view&aid=66831
+INFO 2018-05-30 16:18:03,665 pre_process 34575 140736274047936 南方医科大学附属南方医院病理科
+INFO 2018-05-30 16:18:04,756 chrome 34575 140736274047936 吴自_ ['南方医科大学附属南方医院', '南方医科大学附属南方医院病理科'] 
+INFO 2018-05-30 16:18:13,208 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:18:13,340 pre_process 34575 140736274047936 南方医科大学附属珠江医院骨科中心
+INFO 2018-05-30 16:18:14,244 chrome 34575 140736274047936 朱立新 ['南方医科大学附属珠江医院骨科中心', '南方医科大学附属珠江医院'] 
+INFO 2018-05-30 16:18:18,923 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:18:19,052 pre_process 34575 140736274047936 南方医科大学附属珠江医院急诊科
+INFO 2018-05-30 16:18:19,922 chrome 34575 140736274047936 夏东斌 ['南方医科大学附属珠江医院急诊科', '南方医科大学附属珠江医院'] 
+INFO 2018-05-30 16:18:27,760 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:18:27,884 pre_process 34575 140736274047936 南方医科大学高温医学研究室
+INFO 2018-05-30 16:18:28,847 chrome 34575 140736274047936 郭洪波 ['南方医科大学高温医学研究室', '南方医科大学'] 
+INFO 2018-05-30 16:18:32,941 crawler 34575 140736274047936 page_src  http://xueshu.baidu.com/scholarID/CN-B175FFZJ?site=xueshu_ri
+INFO 2018-05-30 16:18:33,996 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:18:48,661 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:18:48,662 crawler 34575 140736274047936 page_src http://xueshu.baidu.com/scholarID/CN-B175FFZJ?site=xueshu_ri
+INFO 2018-05-30 16:18:48,777 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院
+INFO 2018-05-30 16:18:49,721 chrome 34575 140736274047936 王冬 ['南方医科大学公共卫生与热带医学学院'] 
+INFO 2018-05-30 16:18:55,737 crawler 34575 140736274047936 page_src  http://www.chinamaven.com/plugin.php?id=zhuanjia&ac=view&aid=67316
+INFO 2018-05-30 16:18:58,275 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:19:15,297 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:19:15,298 crawler 34575 140736274047936 page_src http://www.chinamaven.com/plugin.php?id=zhuanjia&ac=view&aid=67316
+INFO 2018-05-30 16:19:15,458 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院
+INFO 2018-05-30 16:19:16,469 chrome 34575 140736274047936 万成松 ['南方医科大学公共卫生与热带医学学院'] 
+INFO 2018-05-30 16:19:26,070 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/gwxy/info/1046/1810.htm
+INFO 2018-05-30 16:19:27,155 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:19:43,406 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:19:43,407 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/gwxy/info/1046/1810.htm
+INFO 2018-05-30 16:19:43,688 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院
+INFO 2018-05-30 16:19:44,821 chrome 34575 140736274047936 马伟峰 ['南方医科大学公共卫生与热带医学学院'] 
+INFO 2018-05-30 16:19:52,873 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:19:53,241 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院病原生物学系
+INFO 2018-05-30 16:19:54,372 chrome 34575 140736274047936 陈晓光 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院病原生物学系'] 
+INFO 2018-05-30 16:19:58,709 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:19:59,226 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院病原生物学系
+INFO 2018-05-30 16:20:00,437 chrome 34575 140736274047936 彭鸿娟 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院病原生物学系'] 
+INFO 2018-05-30 16:20:05,455 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:20:05,833 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院病原生物学系
+INFO 2018-05-30 16:20:06,958 chrome 34575 140736274047936 顾金保 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院病原生物学系'] 
+INFO 2018-05-30 16:20:12,964 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:20:13,231 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院病原生物学系
+INFO 2018-05-30 16:20:14,310 chrome 34575 140736274047936 周晓红 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院病原生物学系'] 
+INFO 2018-05-30 16:20:18,352 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:20:18,850 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院病原生物学系
+INFO 2018-05-30 16:20:20,150 chrome 34575 140736274047936 郑学礼 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院病原生物学系'] 
+INFO 2018-05-30 16:20:23,628 crawler 34575 140736274047936 page_src  http://www.chinamaven.com/plugin.php?id=zhuanjia&ac=view&aid=66837
+INFO 2018-05-30 16:20:29,003 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:20:43,297 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:20:43,298 crawler 34575 140736274047936 page_src http://www.chinamaven.com/plugin.php?id=zhuanjia&ac=view&aid=66837
+INFO 2018-05-30 16:20:43,600 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院病原生物学系
+INFO 2018-05-30 16:20:44,746 chrome 34575 140736274047936 李华 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院病原生物学系'] 
+INFO 2018-05-30 16:20:50,808 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:20:51,119 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院毒理学系
+INFO 2018-05-30 16:20:52,198 chrome 34575 140736274047936 张文娟 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院毒理学系'] 
+INFO 2018-05-30 16:20:56,271 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:20:56,525 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院环境卫生学系
+INFO 2018-05-30 16:20:57,631 chrome 34575 140736274047936 吴继国 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院环境卫生学系'] 
+INFO 2018-05-30 16:21:04,499 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:21:04,814 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院流行病学系
+INFO 2018-05-30 16:21:05,915 chrome 34575 140736274047936 胡静 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院流行病学系'] 
+INFO 2018-05-30 16:21:12,198 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:21:12,542 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院生物统计学系
+INFO 2018-05-30 16:21:13,624 chrome 34575 140736274047936 陈平雁 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院生物统计学系'] 
+INFO 2018-05-30 16:21:17,692 crawler 34575 140736274047936 page_src  http://www.echobelt.org/people/Chenpy/
+INFO 2018-05-30 16:21:20,006 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:21:32,818 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:21:32,819 crawler 34575 140736274047936 page_src http://www.echobelt.org/people/Chenpy/
+INFO 2018-05-30 16:21:34,815 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院生物统计学系
+INFO 2018-05-30 16:21:35,829 chrome 34575 140736274047936 陈征 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院生物统计学系'] 
+INFO 2018-05-30 16:21:42,332 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:21:42,688 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院微生物学系
+INFO 2018-05-30 16:21:43,584 chrome 34575 140736274047936 张其威 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院微生物学系'] 
+INFO 2018-05-30 16:21:48,649 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:21:48,765 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院微生物学系
+INFO 2018-05-30 16:21:49,864 chrome 34575 140736274047936 赵卫 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院微生物学系'] 
+INFO 2018-05-30 16:21:53,544 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/gwxy/info/1046/1810.htm
+INFO 2018-05-30 16:21:57,270 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:22:08,574 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:22:08,574 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/gwxy/info/1046/1810.htm
+INFO 2018-05-30 16:22:08,700 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院营养与食品卫生学系
+INFO 2018-05-30 16:22:09,735 chrome 34575 140736274047936 查龙应 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院营养与食品卫生学系'] 
+INFO 2018-05-30 16:22:16,663 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:22:16,780 pre_process 34575 140736274047936 南方医科大学公共卫生与热带医学学院营养与食品卫生学系
+INFO 2018-05-30 16:22:17,683 chrome 34575 140736274047936 孙素霞 ['南方医科大学公共卫生与热带医学学院', '南方医科大学公共卫生与热带医学学院营养与食品卫生学系'] 
+INFO 2018-05-30 16:22:23,530 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:22:23,658 pre_process 34575 140736274047936 南方医科大学基础医学院广东省功能蛋白质组学重点实验室
+INFO 2018-05-30 16:22:24,810 chrome 34575 140736274047936 赵清 ['南方医科大学基础医学院广东省功能蛋白质组学重点实验室', '南方医科大学基础医学院'] 
+INFO 2018-05-30 16:22:31,635 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:22:31,735 pre_process 34575 140736274047936 南方医科大学基础医学院神经生物学教研室
+INFO 2018-05-30 16:22:32,687 chrome 34575 140736274047936 王雪敏 ['南方医科大学基础医学院神经生物学教研室', '南方医科大学基础医学院'] 
+INFO 2018-05-30 16:22:36,200 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1082/1752.htm
+INFO 2018-05-30 16:22:38,785 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:22:55,091 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:22:55,092 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1082/1752.htm
+INFO 2018-05-30 16:22:55,229 pre_process 34575 140736274047936 南方医科大学基础医学院生物信息学研究室
+INFO 2018-05-30 16:22:56,254 chrome 34575 140736274047936 郭劲松 ['南方医科大学基础医学院生物信息学研究室', '南方医科大学基础医学院'] 
+INFO 2018-05-30 16:23:00,270 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1084/1760.htm
+INFO 2018-05-30 16:23:01,534 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:23:16,064 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:23:16,065 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1084/1760.htm
+INFO 2018-05-30 16:23:16,181 pre_process 34575 140736274047936 南方医科大学基础医学院细胞生物学教研室
+INFO 2018-05-30 16:23:17,114 chrome 34575 140736274047936 白晓春 ['南方医科大学基础医学院', '南方医科大学基础医学院细胞生物学教研室'] 
+INFO 2018-05-30 16:23:23,184 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:23:23,300 pre_process 34575 140736274047936 南方医科大学基础医学院医学遗传学教研室
+INFO 2018-05-30 16:23:24,124 chrome 34575 140736274047936 李亮 ['南方医科大学基础医学院医学遗传学教研室', '南方医科大学基础医学院'] 
+INFO 2018-05-30 16:23:27,512 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1081/1738.htm
+INFO 2018-05-30 16:23:29,085 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:23:41,530 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:23:41,531 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1081/1738.htm
+INFO 2018-05-30 16:23:41,649 pre_process 34575 140736274047936 南方医科大学基因工程研究所
+INFO 2018-05-30 16:23:42,610 chrome 34575 140736274047936 李凌 ['南方医科大学基因工程研究所'] 
+INFO 2018-05-30 16:23:47,866 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1129/1787.htm
+INFO 2018-05-30 16:23:49,600 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:24:03,003 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:24:03,004 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1129/1787.htm
+INFO 2018-05-30 16:24:03,116 pre_process 34575 140736274047936 南方医科大学基因工程研究所
+INFO 2018-05-30 16:24:03,942 chrome 34575 140736274047936 肖维威 ['南方医科大学基因工程研究所'] 
+INFO 2018-05-30 16:24:09,534 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1129/1787.htm
+INFO 2018-05-30 16:24:10,959 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:24:26,277 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:24:26,278 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1129/1787.htm
+INFO 2018-05-30 16:24:26,443 pre_process 34575 140736274047936 南方医科大学解剖学教研室广东省组织构建与检测重点实验室
+INFO 2018-05-30 16:24:27,348 chrome 34575 140736274047936 廖华 ['南方医科大学解剖学教研室广东省组织构建与检测重点实验室', '南方医科大学'] 
+INFO 2018-05-30 16:24:35,375 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1008/1044.htm
+INFO 2018-05-30 16:24:36,967 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:24:47,794 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:24:47,795 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1008/1044.htm
+INFO 2018-05-30 16:24:47,921 pre_process 34575 140736274047936 南方医科大学科技处
+INFO 2018-05-30 16:24:55,816 chrome 34575 140736274047936 赵镇 ['南方医科大学科技处', '南方医科大学'] 
+INFO 2018-05-30 16:25:01,907 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1188/2544.htm
+INFO 2018-05-30 16:25:04,165 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:25:18,656 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:25:18,657 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1188/2544.htm
+INFO 2018-05-30 16:25:18,806 pre_process 34575 140736274047936 南方医科大学科技处
+INFO 2018-05-30 16:25:21,774 chrome 34575 140736274047936 赵醒村 ['南方医科大学科技处', '南方医科大学'] 
+INFO 2018-05-30 16:25:25,664 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/wlzb/info/1004/1193.htm
+INFO 2018-05-30 16:25:28,157 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:25:44,458 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:25:44,459 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/wlzb/info/1004/1193.htm
+INFO 2018-05-30 16:25:44,647 pre_process 34575 140736274047936 南方医科大学临床解剖学研究所
+INFO 2018-05-30 16:25:45,527 chrome 34575 140736274047936 欧阳钧 ['南方医科大学临床解剖学研究所', '南方医科大学'] 
+INFO 2018-05-30 16:25:51,885 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E6%AC%A7%E9%98%B3%E9%92%A7
+INFO 2018-05-30 16:25:54,589 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:26:09,536 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:26:09,537 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E6%AC%A7%E9%98%B3%E9%92%A7
+INFO 2018-05-30 16:26:09,649 pre_process 34575 140736274047936 南方医科大学南方医院
+INFO 2018-05-30 16:26:10,727 chrome 34575 140736274047936 朱志博 ['南方医科大学南方医院'] 
+INFO 2018-05-30 16:26:25,183 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:26:25,575 pre_process 34575 140736274047936 南方医科大学南方医院病理科
+INFO 2018-05-30 16:26:26,593 chrome 34575 140736274047936 张庆玲 ['南方医科大学南方医院', '南方医科大学南方医院病理科'] 
+INFO 2018-05-30 16:26:29,943 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1008/1046.htm
+INFO 2018-05-30 16:26:31,287 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:26:45,874 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:26:45,875 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1008/1046.htm
+INFO 2018-05-30 16:26:46,004 pre_process 34575 140736274047936 南方医科大学南方医院儿科
+INFO 2018-05-30 16:26:47,883 chrome 34575 140736274047936 吴学东 ['南方医科大学南方医院儿科', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:26:54,591 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/zk/ek/DoctorList.html
+INFO 2018-05-30 16:26:56,225 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:27:10,441 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:27:10,441 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/zk/ek/DoctorList.html
+INFO 2018-05-30 16:27:10,611 pre_process 34575 140736274047936 南方医科大学南方医院放疗科
+INFO 2018-05-30 16:27:11,678 chrome 34575 140736274047936 刘莉 ['南方医科大学南方医院', '南方医科大学南方医院放疗科'] 
+INFO 2018-05-30 16:27:22,603 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/zk/grnk/doctor_6060.html
+INFO 2018-05-30 16:27:27,012 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:27:42,011 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:27:42,019 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/zk/grnk/doctor_6060.html
+INFO 2018-05-30 16:27:42,236 pre_process 34575 140736274047936 南方医科大学南方医院放疗科
+INFO 2018-05-30 16:27:43,222 chrome 34575 140736274047936 吴德华 ['南方医科大学南方医院', '南方医科大学南方医院放疗科'] 
+INFO 2018-05-30 16:27:47,897 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/zk/fsk/DoctorList.html
+INFO 2018-05-30 16:27:58,013 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:28:11,395 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:28:11,404 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/zk/fsk/DoctorList.html
+INFO 2018-05-30 16:28:11,656 pre_process 34575 140736274047936 南方医科大学南方医院呼吸科
+INFO 2018-05-30 16:28:12,585 chrome 34575 140736274047936 刘刚 ['南方医科大学南方医院', '南方医科大学南方医院呼吸科'] 
+INFO 2018-05-30 16:28:17,871 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:28:18,016 pre_process 34575 140736274047936 南方医科大学南方医院惠侨楼泌尿外科
+INFO 2018-05-30 16:28:18,955 chrome 34575 140736274047936 韦安阳 ['南方医科大学南方医院惠侨楼泌尿外科', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:28:24,273 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:28:24,980 pre_process 34575 140736274047936 南方医科大学南方医院脊柱骨病外科
+INFO 2018-05-30 16:28:25,992 chrome 34575 140736274047936 江建明 ['南方医科大学南方医院脊柱骨病外科', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:28:30,069 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/wk/jzgbk/DoctorList.html
+INFO 2018-05-30 16:28:36,429 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:28:48,399 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:28:48,400 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/wk/jzgbk/DoctorList.html
+INFO 2018-05-30 16:28:48,534 pre_process 34575 140736274047936 南方医科大学南方医院脊柱骨病外科
+INFO 2018-05-30 16:28:49,405 chrome 34575 140736274047936 瞿东滨 ['南方医科大学南方医院脊柱骨病外科', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:28:56,424 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/bkzs/info/1015/1270.htm
+INFO 2018-05-30 16:28:57,400 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:29:10,200 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:29:10,201 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/bkzs/info/1015/1270.htm
+INFO 2018-05-30 16:29:10,606 pre_process 34575 140736274047936 南方医科大学南方医院脊柱骨科
+INFO 2018-05-30 16:29:11,509 chrome 34575 140736274047936 杨德鸿 ['南方医科大学南方医院', '南方医科大学南方医院脊柱骨科'] 
+INFO 2018-05-30 16:29:16,617 crawler 34575 140736274047936 page_src  http://www.nfyy.com/wap/ks/wk/jzgbk/doctor_5748.html
+INFO 2018-05-30 16:29:19,405 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:29:39,960 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:29:39,961 crawler 34575 140736274047936 page_src http://www.nfyy.com/wap/ks/wk/jzgbk/doctor_5748.html
+INFO 2018-05-30 16:29:40,088 pre_process 34575 140736274047936 南方医科大学南方医院检验医学中心
+INFO 2018-05-30 16:29:41,048 chrome 34575 140736274047936 郑磊 ['南方医科大学南方医院', '南方医科大学南方医院检验医学中心'] 
+INFO 2018-05-30 16:29:47,563 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/fzk/jyyxk/doctor_6036.html
+INFO 2018-05-30 16:30:10,370 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:30:30,172 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:30:30,172 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/fzk/jyyxk/doctor_6036.html
+INFO 2018-05-30 16:30:30,277 pre_process 34575 140736274047936 南方医科大学南方医院康复医学科
+INFO 2018-05-30 16:30:31,219 chrome 34575 140736274047936 吴红瑛 ['南方医科大学南方医院康复医学科', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:30:39,192 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/zk/kfyxk
+INFO 2018-05-30 16:30:44,357 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:30:59,318 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:30:59,318 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/zk/kfyxk
+INFO 2018-05-30 16:30:59,437 pre_process 34575 140736274047936 南方医科大学南方医院麻醉科
+INFO 2018-05-30 16:31:00,323 chrome 34575 140736274047936 肖金仿 ['南方医科大学南方医院', '南方医科大学南方医院麻醉科'] 
+INFO 2018-05-30 16:31:04,667 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/31909/
+INFO 2018-05-30 16:31:10,169 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:31:24,715 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:31:24,716 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/31909/
+INFO 2018-05-30 16:31:24,848 pre_process 34575 140736274047936 南方医科大学南方医院器官移植科
+INFO 2018-05-30 16:31:25,840 chrome 34575 140736274047936 余玉明 ['南方医科大学南方医院', '南方医科大学南方医院器官移植科'] 
+INFO 2018-05-30 16:31:30,468 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/wk/syzk/DoctorList.html
+INFO 2018-05-30 16:31:32,080 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:31:42,608 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:31:42,609 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/wk/syzk/DoctorList.html
+INFO 2018-05-30 16:31:42,765 pre_process 34575 140736274047936 南方医科大学南方医院神经内科
+INFO 2018-05-30 16:31:43,654 chrome 34575 140736274047936 吕田明 ['南方医科大学南方医院神经内科', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:31:50,573 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/31159/
+INFO 2018-05-30 16:31:53,719 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:32:04,300 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:32:04,301 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/31159/
+INFO 2018-05-30 16:32:04,427 pre_process 34575 140736274047936 南方医科大学南方医院神经内科
+INFO 2018-05-30 16:32:05,356 chrome 34575 140736274047936 周亮 ['南方医科大学南方医院神经内科', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:32:11,835 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/nk/sjnk
+INFO 2018-05-30 16:32:16,015 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:32:30,694 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:32:30,695 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/nk/sjnk
+INFO 2018-05-30 16:32:30,914 pre_process 34575 140736274047936 南方医科大学南方医院肾内科
+INFO 2018-05-30 16:32:31,839 chrome 34575 140736274047936 周丽丽 ['南方医科大学南方医院', '南方医科大学南方医院肾内科'] 
+INFO 2018-05-30 16:32:40,719 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/nk/snk/ksdt/a_101797.html
+INFO 2018-05-30 16:32:42,682 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:32:56,721 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:32:56,730 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/nk/snk/ksdt/a_101797.html
+INFO 2018-05-30 16:32:56,870 pre_process 34575 140736274047936 南方医科大学南方医院卫生经济管理科
+INFO 2018-05-30 16:32:57,785 chrome 34575 140736274047936 许军 ['南方医科大学南方医院', '南方医科大学南方医院卫生经济管理科'] 
+INFO 2018-05-30 16:33:02,709 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E8%AE%B8%E5%86%9B/2259538
+INFO 2018-05-30 16:33:06,009 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:33:18,191 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:33:18,199 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E8%AE%B8%E5%86%9B/2259538
+INFO 2018-05-30 16:33:18,335 pre_process 34575 140736274047936 南方医科大学南方医院心血管内科
+INFO 2018-05-30 16:33:19,184 chrome 34575 140736274047936 欧阳平 ['南方医科大学南方医院', '南方医科大学南方医院心血管内科'] 
+INFO 2018-05-30 16:33:25,311 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:33:25,437 pre_process 34575 140736274047936 南方医科大学南方医院新生儿科
+INFO 2018-05-30 16:33:26,400 chrome 34575 140736274047936 周杏 ['南方医科大学南方医院', '南方医科大学南方医院新生儿科'] 
+INFO 2018-05-30 16:33:31,162 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:33:31,536 pre_process 34575 140736274047936 南方医科大学南方医院胸外科
+INFO 2018-05-30 16:33:32,471 chrome 34575 140736274047936 吴旭 ['南方医科大学南方医院胸外科', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:33:36,057 crawler 34575 140736274047936 page_src  http://wuxu0225.haodf.com/
+INFO 2018-05-30 16:33:40,492 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:33:55,107 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:33:55,107 crawler 34575 140736274047936 page_src http://wuxu0225.haodf.com/
+INFO 2018-05-30 16:33:55,233 pre_process 34575 140736274047936 南方医科大学南方医院眼科
+INFO 2018-05-30 16:33:56,095 chrome 34575 140736274047936 白浪 ['南方医科大学南方医院', '南方医科大学南方医院眼科'] 
+INFO 2018-05-30 16:34:02,440 crawler 34575 140736274047936 page_src  http://www.cnbanglida.com/doctor_9387/comment.html
+INFO 2018-05-30 16:34:10,974 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:34:27,280 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:34:27,281 crawler 34575 140736274047936 page_src http://www.cnbanglida.com/doctor_9387/comment.html
+INFO 2018-05-30 16:34:27,400 pre_process 34575 140736274047936 南方医科大学南方医院药学部
+INFO 2018-05-30 16:34:28,248 chrome 34575 140736274047936 杨西晓 ['南方医科大学南方医院', '南方医科大学南方医院药学部'] 
+INFO 2018-05-30 16:34:33,221 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1049/2181.htm
+INFO 2018-05-30 16:34:34,229 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:34:46,624 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:34:46,625 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1049/2181.htm
+INFO 2018-05-30 16:34:46,771 pre_process 34575 140736274047936 南方医科大学南方医院药学部
+INFO 2018-05-30 16:34:47,710 chrome 34575 140736274047936 侯连兵 ['南方医科大学南方医院', '南方医科大学南方医院药学部'] 
+INFO 2018-05-30 16:34:56,531 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1089/2020.htm
+INFO 2018-05-30 16:34:57,608 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:35:10,899 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:35:10,900 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1089/2020.htm
+INFO 2018-05-30 16:35:11,042 pre_process 34575 140736274047936 南方医科大学南方医院影像科
+INFO 2018-05-30 16:35:11,894 chrome 34575 140736274047936 李绍林 ['南方医科大学南方医院', '南方医科大学南方医院影像科'] 
+INFO 2018-05-30 16:35:16,354 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:35:16,474 pre_process 34575 140736274047936 南方医科大学南方医院影像中心
+INFO 2018-05-30 16:35:17,316 chrome 34575 140736274047936 邱士军 ['南方医科大学南方医院', '南方医科大学南方医院影像中心'] 
+INFO 2018-05-30 16:35:21,350 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/fzk/yxzdk
+INFO 2018-05-30 16:35:23,402 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:35:33,629 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:35:33,630 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/fzk/yxzdk
+INFO 2018-05-30 16:35:33,854 pre_process 34575 140736274047936 南方医科大学南方医院整形外科
+INFO 2018-05-30 16:35:34,687 chrome 34575 140736274047936 胡志奇 ['南方医科大学南方医院', '南方医科大学南方医院整形外科'] 
+INFO 2018-05-30 16:35:43,128 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/Abaout/31870/
+INFO 2018-05-30 16:35:48,998 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:36:03,123 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:36:03,124 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/Abaout/31870/
+INFO 2018-05-30 16:36:03,244 pre_process 34575 140736274047936 南方医科大学南方医院中医科
+INFO 2018-05-30 16:36:04,174 chrome 34575 140736274047936 罗仁 ['南方医科大学南方医院', '南方医科大学南方医院中医科'] 
+INFO 2018-05-30 16:36:11,128 crawler 34575 140736274047936 page_src  http://www.nfyy.com/ks/zk/zyk
+INFO 2018-05-30 16:36:13,748 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:36:25,898 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:36:25,899 crawler 34575 140736274047936 page_src http://www.nfyy.com/ks/zk/zyk
+INFO 2018-05-30 16:36:26,003 pre_process 34575 140736274047936 南方医科大学南方医院中医科
+INFO 2018-05-30 16:36:26,993 chrome 34575 140736274047936 赵晓山 ['南方医科大学南方医院', '南方医科大学南方医院中医科'] 
+INFO 2018-05-30 16:36:37,437 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:36:37,556 pre_process 34575 140736274047936 南方医科大学南方医院肿瘤科
+INFO 2018-05-30 16:36:38,482 chrome 34575 140736274047936 马树东 ['南方医科大学南方医院', '南方医科大学南方医院肿瘤科'] 
+INFO 2018-05-30 16:36:42,855 crawler 34575 140736274047936 page_src  http://www.nfyy.com/wap/ks/nk/zlk/
+INFO 2018-05-30 16:36:52,314 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:37:05,113 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:37:05,114 crawler 34575 140736274047936 page_src http://www.nfyy.com/wap/ks/nk/zlk/
+INFO 2018-05-30 16:37:05,247 pre_process 34575 140736274047936 南方医科大学南方医院肿瘤中心
+INFO 2018-05-30 16:37:06,127 chrome 34575 140736274047936 李爱民 ['南方医科大学南方医院肿瘤中心', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:37:13,031 crawler 34575 140736274047936 page_src  http://nfzxy.com/ks/gbk/doctor_63.html
+INFO 2018-05-30 16:37:38,610 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:37:54,959 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:37:54,960 crawler 34575 140736274047936 page_src http://nfzxy.com/ks/gbk/doctor_63.html
+INFO 2018-05-30 16:37:56,349 pre_process 34575 140736274047936 南方医科大学南方医院肿瘤中心
+INFO 2018-05-30 16:37:57,325 chrome 34575 140736274047936 李黎波 ['南方医科大学南方医院肿瘤中心', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:38:04,462 crawler 34575 140736274047936 page_src  http://lilibo.haodf.com/?boxPresentId=800871576&ajaxReferrer=1
+INFO 2018-05-30 16:38:08,010 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:38:26,880 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:38:26,881 crawler 34575 140736274047936 page_src http://lilibo.haodf.com/?boxPresentId=800871576&ajaxReferrer=1
+INFO 2018-05-30 16:38:26,982 pre_process 34575 140736274047936 南方医科大学南方医院肿瘤中心
+INFO 2018-05-30 16:38:27,872 chrome 34575 140736274047936 张军一 ['南方医科大学南方医院肿瘤中心', '南方医科大学南方医院'] 
+INFO 2018-05-30 16:38:37,817 crawler 34575 140736274047936 page_src  http://nfzxy.com/ks/zhzl/doctor_60.html
+INFO 2018-05-30 16:38:58,180 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:39:14,939 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:39:14,948 crawler 34575 140736274047936 page_src http://nfzxy.com/ks/zhzl/doctor_60.html
+INFO 2018-05-30 16:39:15,358 pre_process 34575 140736274047936 南方医科大学南京临床学院(南京军区南京总医院)伤口护理中心
+INFO 2018-05-30 16:39:17,021 chrome 34575 140736274047936 刘新峰 ['南方医科大学南京临床学院(南京军区南京总医院)伤口护理中心', '南京军区南京总医院', '南方医科大学'] 
+INFO 2018-05-30 16:39:28,739 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:39:28,933 pre_process 34575 140736274047936 南方医科大学人体解剖学教研室
+INFO 2018-05-30 16:39:29,864 chrome 34575 140736274047936 黄文华 ['南方医科大学人体解剖学教研室', '南方医科大学'] 
+INFO 2018-05-30 16:39:33,899 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:39:34,255 pre_process 34575 140736274047936 南方医科大学生物技术学院
+INFO 2018-05-30 16:39:35,186 chrome 34575 140736274047936 宁云山 ['南方医科大学生物技术学院'] 
+INFO 2018-05-30 16:39:38,362 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jyyswjs/szdw/szgk.htm
+INFO 2018-05-30 16:39:39,306 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:39:51,637 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:39:51,646 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jyyswjs/szdw/szgk.htm
+INFO 2018-05-30 16:39:51,844 pre_process 34575 140736274047936 南方医科大学生物技术学院;南方医科大学中医药学院
+INFO 2018-05-30 16:39:52,819 chrome 34575 140736274047936 孙晓敏 ['南方医科大学生物技术学院;南方医科大学中医药学院', '南方医科大学生物技术学院', '南方医科大学中医药学院'] 
+INFO 2018-05-30 16:39:58,934 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:39:59,099 pre_process 34575 140736274047936 南方医科大学生物技术学院分子免疫学研究所
+INFO 2018-05-30 16:40:00,006 chrome 34575 140736274047936 马骊 ['南方医科大学生物技术学院分子免疫学研究所', '南方医科大学生物技术学院'] 
+INFO 2018-05-30 16:40:04,521 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jyyswjs/info/1046/1125.htm
+INFO 2018-05-30 16:40:05,500 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:40:16,445 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:40:16,446 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jyyswjs/info/1046/1125.htm
+INFO 2018-05-30 16:40:16,547 pre_process 34575 140736274047936 南方医科大学生物统计学系
+INFO 2018-05-30 16:40:17,404 chrome 34575 140736274047936 安胜利 ['南方医科大学生物统计学系', '南方医科大学'] 
+INFO 2018-05-30 16:40:22,621 crawler 34575 140736274047936 page_src  http://gb.oversea.cnki.net/Kns55/detail/detail.aspx?filename=ZGWT201604052&DBName=cjfqtotal&dbcode=cjfq
+INFO 2018-05-30 16:40:27,499 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:40:39,002 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:40:39,003 crawler 34575 140736274047936 page_src http://gb.oversea.cnki.net/Kns55/detail/detail.aspx?filename=ZGWT201604052&DBName=cjfqtotal&dbcode=cjfq
+INFO 2018-05-30 16:40:39,124 pre_process 34575 140736274047936 南方医科大学生物医学工程学院
+INFO 2018-05-30 16:40:39,995 chrome 34575 140736274047936 辛学刚 ['南方医科大学生物医学工程学院'] 
+INFO 2018-05-30 16:40:43,980 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/bme/info/1008/1178.htm
+INFO 2018-05-30 16:40:44,966 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:40:57,578 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:40:57,579 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/bme/info/1008/1178.htm
+INFO 2018-05-30 16:40:57,691 pre_process 34575 140736274047936 南方医科大学生物医学工程学院
+INFO 2018-05-30 16:40:58,540 chrome 34575 140736274047936 周凌宏 ['南方医科大学生物医学工程学院'] 
+INFO 2018-05-30 16:41:05,845 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/swyxgcxy/info/1020/1280.htm
+INFO 2018-05-30 16:41:06,944 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:41:22,949 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:41:22,950 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/swyxgcxy/info/1020/1280.htm
+INFO 2018-05-30 16:41:23,056 pre_process 34575 140736274047936 南方医科大学生物医学工程学院
+INFO 2018-05-30 16:41:23,999 chrome 34575 140736274047936 冯前进 ['南方医科大学生物医学工程学院'] 
+INFO 2018-05-30 16:41:27,874 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/bme/info/1004/1048.htm
+INFO 2018-05-30 16:41:28,654 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:41:39,904 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:41:39,905 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/bme/info/1004/1048.htm
+INFO 2018-05-30 16:41:40,035 pre_process 34575 140736274047936 南方医科大学生物医学工程学院
+INFO 2018-05-30 16:41:40,908 chrome 34575 140736274047936 冯衍秋 ['南方医科大学生物医学工程学院'] 
+INFO 2018-05-30 16:41:45,937 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/swyxgcxy/info/1020/1286.htm
+INFO 2018-05-30 16:41:47,033 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:41:59,262 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:41:59,271 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/swyxgcxy/info/1020/1286.htm
+INFO 2018-05-30 16:41:59,384 pre_process 34575 140736274047936 南方医科大学生物医学工程学院
+INFO 2018-05-30 16:42:00,229 chrome 34575 140736274047936 曹蕾 ['南方医科大学生物医学工程学院'] 
+INFO 2018-05-30 16:42:05,477 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/swyxgcxy/info/1020/1198.htm
+INFO 2018-05-30 16:42:06,508 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:42:19,607 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:42:19,616 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/swyxgcxy/info/1020/1198.htm
+INFO 2018-05-30 16:42:19,801 pre_process 34575 140736274047936 南方医科大学生物医学工程学院
+INFO 2018-05-30 16:42:20,721 chrome 34575 140736274047936 甄鑫 ['南方医科大学生物医学工程学院'] 
+INFO 2018-05-30 16:42:25,970 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/swyxgcxy/info/1020/1384.htm
+INFO 2018-05-30 16:42:27,406 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:42:40,360 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:42:40,369 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/swyxgcxy/info/1020/1384.htm
+INFO 2018-05-30 16:42:40,475 pre_process 34575 140736274047936 南方医科大学生物医学工程学院
+INFO 2018-05-30 16:42:41,325 chrome 34575 140736274047936 刘哲星 ['南方医科大学生物医学工程学院'] 
+INFO 2018-05-30 16:42:50,464 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/swyxgcxy/info/1020/1201.htm
+INFO 2018-05-30 16:42:51,751 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:43:04,459 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:43:04,467 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/swyxgcxy/info/1020/1201.htm
+INFO 2018-05-30 16:43:04,599 pre_process 34575 140736274047936 南方医科大学生物医学工程学院
+INFO 2018-05-30 16:43:05,484 chrome 34575 140736274047936 陈超敏 ['南方医科大学生物医学工程学院'] 
+INFO 2018-05-30 16:43:09,702 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/swyxgcxy/info/1020/1277.htm
+INFO 2018-05-30 16:43:11,548 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:43:23,552 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:43:23,555 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/swyxgcxy/info/1020/1277.htm
+INFO 2018-05-30 16:43:24,017 pre_process 34575 140736274047936 南方医科大学生物医学工程学院医学信息研究所
+INFO 2018-05-30 16:43:25,055 chrome 34575 140736274047936 马建华 ['南方医科大学生物医学工程学院', '南方医科大学生物医学工程学院医学信息研究所'] 
+INFO 2018-05-30 16:43:32,181 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/swyxgcxy/xygk/xyjg.htm
+INFO 2018-05-30 16:43:34,588 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:43:52,751 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:43:52,752 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/swyxgcxy/xygk/xyjg.htm
+INFO 2018-05-30 16:43:52,882 pre_process 34575 140736274047936 南方医科大学实验动物中心
+INFO 2018-05-30 16:43:53,679 chrome 34575 140736274047936 顾为望 ['南方医科大学实验动物中心', '南方医科大学'] 
+INFO 2018-05-30 16:44:01,233 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/sydwzx/ryjs.htm
+INFO 2018-05-30 16:44:03,336 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:44:16,695 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:44:16,704 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/sydwzx/ryjs.htm
+INFO 2018-05-30 16:44:16,943 pre_process 34575 140736274047936 南方医科大学心理学系
+INFO 2018-05-30 16:44:17,985 chrome 34575 140736274047936 冯现刚 ['南方医科大学心理学系'] 
+INFO 2018-05-30 16:44:23,459 crawler 34575 140736274047936 page_src  http://xlxx.smu.edu.cn/info/1027/1111.htm
+INFO 2018-05-30 16:44:24,980 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:44:40,270 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:44:40,278 crawler 34575 140736274047936 page_src http://xlxx.smu.edu.cn/info/1027/1111.htm
+INFO 2018-05-30 16:44:40,522 pre_process 34575 140736274047936 南方医科大学药学院
+INFO 2018-05-30 16:44:41,756 chrome 34575 140736274047936 徐学清 ['南方医科大学药学院'] 
+INFO 2018-05-30 16:44:47,608 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1083/2111.htm
+INFO 2018-05-30 16:44:48,865 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:45:02,365 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:45:02,374 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1083/2111.htm
+INFO 2018-05-30 16:45:02,505 pre_process 34575 140736274047936 南方医科大学药学院
+INFO 2018-05-30 16:45:03,519 chrome 34575 140736274047936 李晓娟 ['南方医科大学药学院'] 
+INFO 2018-05-30 16:45:11,263 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1159/2335.htm
+INFO 2018-05-30 16:45:13,988 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:45:27,638 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:45:27,639 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1159/2335.htm
+INFO 2018-05-30 16:45:27,784 pre_process 34575 140736274047936 南方医科大学药学院
+INFO 2018-05-30 16:45:28,763 chrome 34575 140736274047936 周中振 ['南方医科大学药学院'] 
+INFO 2018-05-30 16:45:36,733 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%91%A8%E4%B8%AD%E6%8C%AF
+INFO 2018-05-30 16:45:39,848 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:46:00,113 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:46:00,114 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%91%A8%E4%B8%AD%E6%8C%AF
+INFO 2018-05-30 16:46:00,308 pre_process 34575 140736274047936 南方医科大学药学院
+INFO 2018-05-30 16:46:01,412 chrome 34575 140736274047936 蔡铮 ['南方医科大学药学院'] 
+ERROR 2018-05-30 16:46:01,433 chrome 34575 140736274047936 google,Message: no such element: Unable to locate element: {"method":"name","selector":"q"}
+  (Session info: headless chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.37.544337 (8c0344a12e552148c185f7d5117db1f28d6c9e85),platform=Mac OS X 10.12.5 x86_64)
+, 
+blank, have retried 0 times
+INFO 2018-05-30 16:46:31,435 chrome 34575 140736274047936 chrome [google] closing,home is [https://www.google.com/]
+INFO 2018-05-30 16:46:31,549 chrome 34575 140736274047936 chrome [google] closed,home is [https://www.google.com/]
+INFO 2018-05-30 16:46:31,550 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:46:46,778 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:46:51,889 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E8%94%A1%E9%93%AE
+INFO 2018-05-30 16:46:54,001 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:47:09,877 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:47:09,878 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E8%94%A1%E9%93%AE
+INFO 2018-05-30 16:47:10,053 pre_process 34575 140736274047936 南方医科大学药学院
+INFO 2018-05-30 16:47:11,034 chrome 34575 140736274047936 陈金香 ['南方医科大学药学院'] 
+INFO 2018-05-30 16:47:17,084 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1084/2121.htm
+INFO 2018-05-30 16:47:19,533 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:47:32,816 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:47:32,816 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1084/2121.htm
+INFO 2018-05-30 16:47:32,952 pre_process 34575 140736274047936 南方医科大学药学院
+INFO 2018-05-30 16:47:33,801 chrome 34575 140736274047936 赵培亮 ['南方医科大学药学院'] 
+INFO 2018-05-30 16:47:42,266 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1084/2119.htm
+INFO 2018-05-30 16:47:44,737 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:47:57,460 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:47:57,461 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1084/2119.htm
+INFO 2018-05-30 16:47:57,596 pre_process 34575 140736274047936 南方医科大学药学院
+INFO 2018-05-30 16:47:58,445 chrome 34575 140736274047936 刘利红 ['南方医科大学药学院'] 
+INFO 2018-05-30 16:48:03,215 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:48:03,528 pre_process 34575 140736274047936 南方医科大学药学院
+INFO 2018-05-30 16:48:04,377 chrome 34575 140736274047936 唐斓 ['南方医科大学药学院'] 
+INFO 2018-05-30 16:48:08,905 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1084/2118.htm
+INFO 2018-05-30 16:48:09,891 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:48:24,112 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:48:24,113 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1084/2118.htm
+INFO 2018-05-30 16:48:24,246 pre_process 34575 140736274047936 南方医科大学药学院;香港浸会大学中医药学院
+INFO 2018-05-30 16:48:25,421 chrome 34575 140736274047936 姜志宏 ['香港浸会大学', '南方医科大学药学院', '南方医科大学药学院;香港浸会大学中医药学院'] 
+INFO 2018-05-30 16:48:31,322 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1187/1249.htm
+INFO 2018-05-30 16:48:32,435 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:48:45,201 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:48:45,202 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1187/1249.htm
+INFO 2018-05-30 16:48:45,373 pre_process 34575 140736274047936 南方医科大学药学院化学系
+INFO 2018-05-30 16:48:46,449 chrome 34575 140736274047936 杨雪梅 ['南方医科大学药学院化学系', '南方医科大学药学院'] 
+INFO 2018-05-30 16:48:50,428 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1090/2052.htm
+INFO 2018-05-30 16:48:51,897 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:49:07,180 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:49:07,180 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1090/2052.htm
+INFO 2018-05-30 16:49:07,503 pre_process 34575 140736274047936 南方医科大学药学院生物材料课题组
+INFO 2018-05-30 16:49:08,673 chrome 34575 140736274047936 曾庆冰 ['南方医科大学药学院', '南方医科大学药学院生物材料课题组'] 
+INFO 2018-05-30 16:49:14,326 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1160/2341.htm
+INFO 2018-05-30 16:49:22,198 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:49:38,412 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:49:38,413 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1160/2341.htm
+INFO 2018-05-30 16:49:38,558 pre_process 34575 140736274047936 南方医科大学医学生物力学实验室/广东省医学生物力学重点实验室
+INFO 2018-05-30 16:49:39,778 chrome 34575 140736274047936 李鉴轶 ['南方医科大学医学生物力学实验室/广东省医学生物力学重点实验室', '南方医科大学'] 
+INFO 2018-05-30 16:49:45,197 crawler 34575 140736274047936 page_src  http://gdjp.chinajournal.net.cn/WKC/WebPublication/paperDigest.aspx?paperID=FFC610C0-39F9-471C-B844-0F881CD8EFF9
+INFO 2018-05-30 16:49:47,340 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:50:00,397 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:50:00,406 crawler 34575 140736274047936 page_src http://gdjp.chinajournal.net.cn/WKC/WebPublication/paperDigest.aspx?paperID=FFC610C0-39F9-471C-B844-0F881CD8EFF9
+INFO 2018-05-30 16:50:00,558 pre_process 34575 140736274047936 南方医科大学中西医结合医院检验科
+INFO 2018-05-30 16:50:03,714 chrome 34575 140736274047936 张豫明 ['南方医科大学中西医结合医院检验科', '南方医科大学中西医结合医院'] 
+INFO 2018-05-30 16:50:14,209 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:50:14,356 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:50:15,460 chrome 34575 140736274047936 吕志平 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:50:19,417 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%90%95%E5%BF%97%E5%B9%B3/10956
+INFO 2018-05-30 16:50:23,014 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:50:41,620 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:50:41,629 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%90%95%E5%BF%97%E5%B9%B3/10956
+INFO 2018-05-30 16:50:41,767 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:50:43,517 chrome 34575 140736274047936 贾钰华 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:50:51,339 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/szjs/jsdw.htm
+INFO 2018-05-30 16:50:53,310 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:51:07,771 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:51:07,780 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/szjs/jsdw.htm
+INFO 2018-05-30 16:51:07,894 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:51:08,963 chrome 34575 140736274047936 蔡红兵 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:51:16,474 crawler 34575 140736274047936 page_src  http://www.chinanews.com/jk/2013/08-09/5146116.shtml
+INFO 2018-05-30 16:53:37,777 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:53:51,765 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:53:51,774 crawler 34575 140736274047936 page_src http://www.chinanews.com/jk/2013/08-09/5146116.shtml
+INFO 2018-05-30 16:53:52,170 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:53:53,208 chrome 34575 140736274047936 黄泳 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:54:00,158 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E9%BB%84%E6%B3%B3/16401065
+INFO 2018-05-30 16:54:03,505 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:54:19,645 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:54:19,653 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E9%BB%84%E6%B3%B3/16401065
+INFO 2018-05-30 16:54:19,838 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:54:21,018 chrome 34575 140736274047936 陈俊琦 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:54:27,368 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 16:54:27,564 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:54:30,028 chrome 34575 140736274047936 周迎春 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:54:38,591 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/info/1020/1058.htm
+INFO 2018-05-30 16:54:51,232 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:55:05,335 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:55:05,336 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/info/1020/1058.htm
+INFO 2018-05-30 16:55:05,461 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:55:06,512 chrome 34575 140736274047936 文小敏 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:55:13,375 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E6%96%87%E5%B0%8F%E6%95%8F
+INFO 2018-05-30 16:55:15,998 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:55:30,892 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:55:30,893 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E6%96%87%E5%B0%8F%E6%95%8F
+INFO 2018-05-30 16:55:31,001 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:55:32,037 chrome 34575 140736274047936 晁志 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:55:37,016 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyaosyzx/info/1031/1078.htm
+INFO 2018-05-30 16:55:37,825 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:55:49,829 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:55:49,831 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyaosyzx/info/1031/1078.htm
+INFO 2018-05-30 16:55:49,966 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:55:51,028 chrome 34575 140736274047936 张国华 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:55:56,658 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/info/1017/1348.htm
+INFO 2018-05-30 16:55:58,114 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:56:11,757 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:56:11,758 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/info/1017/1348.htm
+INFO 2018-05-30 16:56:11,870 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:56:12,947 chrome 34575 140736274047936 袁立霞 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:56:20,440 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/szjs/jsdw.htm
+INFO 2018-05-30 16:56:21,608 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:56:32,156 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:56:32,156 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/szjs/jsdw.htm
+INFO 2018-05-30 16:56:32,283 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:56:33,319 chrome 34575 140736274047936 刘强 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:56:41,748 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyaosyzx/info/1031/1078.htm
+INFO 2018-05-30 16:56:42,745 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:56:53,855 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:56:53,856 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyaosyzx/info/1031/1078.htm
+INFO 2018-05-30 16:56:53,970 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:56:54,947 chrome 34575 140736274047936 汤庆发 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:57:00,273 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/info/1015/1005.htm
+INFO 2018-05-30 16:57:01,387 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:57:15,541 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:57:15,542 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/info/1015/1005.htm
+INFO 2018-05-30 16:57:15,671 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:57:16,729 chrome 34575 140736274047936 孙学刚 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:57:24,568 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyaosyzx/info/1031/1078.htm
+INFO 2018-05-30 16:57:25,547 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:57:37,493 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:57:37,501 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyaosyzx/info/1031/1078.htm
+INFO 2018-05-30 16:57:37,611 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:57:38,666 chrome 34575 140736274047936 余林中 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:57:43,294 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyaosyzx/info/1006/1105.htm
+INFO 2018-05-30 16:57:44,834 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:57:57,328 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:57:57,337 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyaosyzx/info/1006/1105.htm
+INFO 2018-05-30 16:57:57,462 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:57:58,439 chrome 34575 140736274047936 朱全红 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:58:03,534 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E6%9C%B1%E5%85%A8%E7%BA%A2/2041137
+INFO 2018-05-30 16:58:05,993 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:58:16,953 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:58:16,961 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E6%9C%B1%E5%85%A8%E7%BA%A2/2041137
+INFO 2018-05-30 16:58:17,069 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:58:18,033 chrome 34575 140736274047936 陶华明 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:58:25,581 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/info/1015/1005.htm
+INFO 2018-05-30 16:58:30,851 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:58:44,113 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:58:44,114 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/info/1015/1005.htm
+INFO 2018-05-30 16:58:44,221 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:58:45,299 chrome 34575 140736274047936 罗佳波 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:58:52,880 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1078/2096.htm
+INFO 2018-05-30 16:59:12,363 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:59:26,376 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:59:26,377 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1078/2096.htm
+INFO 2018-05-30 16:59:26,699 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:59:27,809 chrome 34575 140736274047936 韦莉萍 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:59:37,348 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/yxy/info/1090/2048.htm
+INFO 2018-05-30 16:59:39,064 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 16:59:51,217 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 16:59:51,218 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/yxy/info/1090/2048.htm
+INFO 2018-05-30 16:59:51,377 pre_process 34575 140736274047936 南方医科大学中医药学院
+INFO 2018-05-30 16:59:52,410 chrome 34575 140736274047936 莫志贤 ['南方医科大学中医药学院'] 
+INFO 2018-05-30 16:59:57,346 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/info/1052/1940.htm
+INFO 2018-05-30 16:59:58,958 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:00:13,892 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:00:13,894 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/info/1052/1940.htm
+INFO 2018-05-30 17:00:14,007 pre_process 34575 140736274047936 南方医科大学中医药学院骨伤推拿教研室
+INFO 2018-05-30 17:00:15,323 chrome 34575 140736274047936 陈超 ['南方医科大学中医药学院骨伤推拿教研室', '南方医科大学中医药学院'] 
+INFO 2018-05-30 17:00:21,440 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/zyyxy/info/1015/1005.htm
+INFO 2018-05-30 17:00:25,073 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:00:38,778 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:00:38,786 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/zyyxy/info/1015/1005.htm
+INFO 2018-05-30 17:00:38,903 pre_process 34575 140736274047936 南方医科大学中医药学院基础教研室
+INFO 2018-05-30 17:00:39,929 chrome 34575 140736274047936 钟伟丽 ['南方医科大学中医药学院基础教研室', '南方医科大学中医药学院'] 
+INFO 2018-05-30 17:00:46,393 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:00:46,652 pre_process 34575 140736274047936 南方医科大学中医药学院临床基础教研室
+INFO 2018-05-30 17:00:47,616 chrome 34575 140736274047936 许丽 ['南方医科大学中医药学院临床基础教研室', '南方医科大学中医药学院'] 
+INFO 2018-05-30 17:00:51,174 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:00:51,300 pre_process 34575 140736274047936 南方医科大学珠江医院
+INFO 2018-05-30 17:00:52,337 chrome 34575 140736274047936 郭琳琅 ['南方医科大学珠江医院'] 
+INFO 2018-05-30 17:00:56,154 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E9%83%AD%E7%90%B3%E7%90%85
+INFO 2018-05-30 17:00:58,328 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:01:09,721 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:01:09,730 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E9%83%AD%E7%90%B3%E7%90%85
+INFO 2018-05-30 17:01:09,839 pre_process 34575 140736274047936 南方医科大学珠江医院儿科
+INFO 2018-05-30 17:01:10,928 chrome 34575 140736274047936 赵倩 ['南方医科大学珠江医院儿科', '南方医科大学珠江医院'] 
+INFO 2018-05-30 17:01:15,565 crawler 34575 140736274047936 page_src  http://www.zjyy.com.cn/news_center/news_detail_union.aspx?id=1145&did=0
+INFO 2018-05-30 17:01:21,044 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:01:32,637 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:01:32,645 crawler 34575 140736274047936 page_src http://www.zjyy.com.cn/news_center/news_detail_union.aspx?id=1145&did=0
+INFO 2018-05-30 17:01:32,768 pre_process 34575 140736274047936 南方医科大学珠江医院儿科
+INFO 2018-05-30 17:03:03,240 rest_client 34575 140736274047936 HTTP Error 504: Gateway Time-out
+INFO 2018-05-30 17:03:03,249 chrome 34575 140736274047936 王斌 ['南方医科大学珠江医院儿科'] 
+INFO 2018-05-30 17:03:06,847 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/22534/
+INFO 2018-05-30 17:03:10,432 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:03:20,347 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:03:20,347 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/22534/
+INFO 2018-05-30 17:03:20,489 pre_process 34575 140736274047936 南方医科大学珠江医院肝胆二科
+INFO 2018-05-30 17:03:21,330 chrome 34575 140736274047936 汪艳 ['南方医科大学珠江医院', '南方医科大学珠江医院肝胆二科'] 
+INFO 2018-05-30 17:03:26,426 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:03:26,532 pre_process 34575 140736274047936 南方医科大学珠江医院骨科
+INFO 2018-05-30 17:03:27,337 chrome 34575 140736274047936 吕海 ['南方医科大学珠江医院', '南方医科大学珠江医院骨科'] 
+INFO 2018-05-30 17:03:34,300 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/160351/
+INFO 2018-05-30 17:03:37,564 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:03:48,877 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:03:48,886 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/160351/
+INFO 2018-05-30 17:03:49,006 pre_process 34575 140736274047936 南方医科大学珠江医院骨科中心
+INFO 2018-05-30 17:03:49,806 chrome 34575 140736274047936 靳安民 ['南方医科大学珠江医院', '南方医科大学珠江医院骨科中心'] 
+INFO 2018-05-30 17:03:54,039 crawler 34575 140736274047936 page_src  http://www.zjyy.com.cn/dept/index.aspx?id=127
+INFO 2018-05-30 17:03:56,846 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:04:09,082 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:04:09,090 crawler 34575 140736274047936 page_src http://www.zjyy.com.cn/dept/index.aspx?id=127
+INFO 2018-05-30 17:04:09,480 pre_process 34575 140736274047936 南方医科大学珠江医院呼吸内科
+INFO 2018-05-30 17:04:10,278 chrome 34575 140736274047936 于化鹏 ['南方医科大学珠江医院', '南方医科大学珠江医院呼吸内科'] 
+INFO 2018-05-30 17:04:14,001 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/22278/
+INFO 2018-05-30 17:04:16,944 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:04:28,421 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:04:28,430 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/22278/
+INFO 2018-05-30 17:04:29,223 pre_process 34575 140736274047936 南方医科大学珠江医院呼吸内科
+INFO 2018-05-30 17:04:30,019 chrome 34575 140736274047936 樊慧珍 ['南方医科大学珠江医院', '南方医科大学珠江医院呼吸内科'] 
+INFO 2018-05-30 17:04:38,268 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:04:38,601 pre_process 34575 140736274047936 南方医科大学珠江医院康复医学科
+INFO 2018-05-30 17:04:39,412 chrome 34575 140736274047936 陈银海 ['南方医科大学珠江医院', '南方医科大学珠江医院康复医学科'] 
+INFO 2018-05-30 17:04:42,915 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:04:43,066 pre_process 34575 140736274047936 南方医科大学珠江医院麻醉科
+INFO 2018-05-30 17:04:43,875 chrome 34575 140736274047936 雷洪伊 ['南方医科大学珠江医院', '南方医科大学珠江医院麻醉科'] 
+INFO 2018-05-30 17:04:47,724 crawler 34575 140736274047936 page_src  http://qqhealth.haodf.com/doctor/DE4r0Fy0C9LugkvjtdfUkVEJKXY-1sBh8.htm
+INFO 2018-05-30 17:04:49,630 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:05:03,551 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:05:03,552 crawler 34575 140736274047936 page_src http://qqhealth.haodf.com/doctor/DE4r0Fy0C9LugkvjtdfUkVEJKXY-1sBh8.htm
+INFO 2018-05-30 17:05:03,681 pre_process 34575 140736274047936 南方医科大学珠江医院麻醉科
+INFO 2018-05-30 17:05:04,495 chrome 34575 140736274047936 许睿 ['南方医科大学珠江医院', '南方医科大学珠江医院麻醉科'] 
+INFO 2018-05-30 17:05:08,202 crawler 34575 140736274047936 page_src  https://ysk.familydoctor.com.cn/160429/
+INFO 2018-05-30 17:05:13,991 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:05:28,712 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:05:28,713 crawler 34575 140736274047936 page_src https://ysk.familydoctor.com.cn/160429/
+INFO 2018-05-30 17:05:29,927 pre_process 34575 140736274047936 南方医科大学珠江医院内分泌科
+INFO 2018-05-30 17:05:30,769 chrome 34575 140736274047936 张桦 ['南方医科大学珠江医院', '南方医科大学珠江医院内分泌科'] 
+INFO 2018-05-30 17:05:34,638 crawler 34575 140736274047936 page_src  https://www.chunyuyisheng.com/pc/clinic/22ab066ce00e5a43-af/
+INFO 2018-05-30 17:05:35,554 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:05:47,615 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:05:47,616 crawler 34575 140736274047936 page_src https://www.chunyuyisheng.com/pc/clinic/22ab066ce00e5a43-af/
+INFO 2018-05-30 17:05:47,733 pre_process 34575 140736274047936 南方医科大学珠江医院普通外科
+INFO 2018-05-30 17:05:48,538 chrome 34575 140736274047936 史福军 ['南方医科大学珠江医院', '南方医科大学珠江医院普通外科'] 
+INFO 2018-05-30 17:05:56,254 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/311181/
+INFO 2018-05-30 17:06:01,612 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:06:13,592 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:06:13,593 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/311181/
+INFO 2018-05-30 17:06:13,702 pre_process 34575 140736274047936 南方医科大学珠江医院普外科
+INFO 2018-05-30 17:06:14,499 chrome 34575 140736274047936 厉周 ['南方医科大学珠江医院普外科', '南方医科大学珠江医院'] 
+INFO 2018-05-30 17:06:19,346 crawler 34575 140736274047936 page_src  http://www.zjyy.com.cn/dept/index.aspx?id=124
+INFO 2018-05-30 17:06:24,008 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:06:34,305 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:06:34,306 crawler 34575 140736274047936 page_src http://www.zjyy.com.cn/dept/index.aspx?id=124
+INFO 2018-05-30 17:06:34,631 pre_process 34575 140736274047936 南方医科大学珠江医院器官移植科
+INFO 2018-05-30 17:06:35,525 chrome 34575 140736274047936 赵明 ['南方医科大学珠江医院器官移植科', '南方医科大学珠江医院'] 
+INFO 2018-05-30 17:06:41,413 crawler 34575 140736274047936 page_src  http://www.zjyy.com.cn/dept/expert_show.aspx?id=49&pid=132
+INFO 2018-05-30 17:06:43,657 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:06:55,708 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:06:55,709 crawler 34575 140736274047936 page_src http://www.zjyy.com.cn/dept/expert_show.aspx?id=49&pid=132
+INFO 2018-05-30 17:06:56,027 pre_process 34575 140736274047936 南方医科大学珠江医院神经外科
+INFO 2018-05-30 17:08:11,425 rest_client 34575 140736274047936 <urlopen error [Errno 60] Operation timed out>
+INFO 2018-05-30 17:08:11,426 chrome 34575 140736274047936 段传志 ['南方医科大学珠江医院神经外科'] 
+INFO 2018-05-30 17:08:17,909 crawler 34575 140736274047936 page_src  http://duanchuanzhi.haodf.com/
+INFO 2018-05-30 17:08:20,674 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:08:32,689 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:08:32,698 crawler 34575 140736274047936 page_src http://duanchuanzhi.haodf.com/
+INFO 2018-05-30 17:08:32,852 pre_process 34575 140736274047936 南方医科大学珠江医院神经外科
+INFO 2018-05-30 17:08:36,795 chrome 34575 140736274047936 柯以铨 ['南方医科大学珠江医院神经外科', '南方医科大学珠江医院'] 
+INFO 2018-05-30 17:08:41,664 crawler 34575 140736274047936 page_src  http://news.smu.edu.cn/info/1019/25561.htm
+INFO 2018-05-30 17:08:45,092 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:08:55,257 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:08:55,266 crawler 34575 140736274047936 page_src http://news.smu.edu.cn/info/1019/25561.htm
+INFO 2018-05-30 17:08:55,429 pre_process 34575 140736274047936 南方医科大学珠江医院神经医学研究所
+INFO 2018-05-30 17:08:56,331 chrome 34575 140736274047936 姜晓丹 ['南方医科大学珠江医院', '南方医科大学珠江医院神经医学研究所'] 
+INFO 2018-05-30 17:09:01,454 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%A7%9C%E6%99%93%E4%B8%B9
+INFO 2018-05-30 17:09:04,275 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:09:18,033 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:09:18,042 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%A7%9C%E6%99%93%E4%B8%B9
+INFO 2018-05-30 17:09:18,197 pre_process 34575 140736274047936 南方医科大学珠江医院肾内科
+INFO 2018-05-30 17:09:19,096 chrome 34575 140736274047936 章俊 ['南方医科大学珠江医院', '南方医科大学珠江医院肾内科'] 
+INFO 2018-05-30 17:09:23,830 crawler 34575 140736274047936 page_src  http://www.zjyy.com.cn/appointment/medical_appointment_expert.aspx?id=109&pid=118
+INFO 2018-05-30 17:09:26,434 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:09:36,343 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:09:36,344 crawler 34575 140736274047936 page_src http://www.zjyy.com.cn/appointment/medical_appointment_expert.aspx?id=109&pid=118
+INFO 2018-05-30 17:09:36,505 pre_process 34575 140736274047936 南方医科大学珠江医院心内科
+INFO 2018-05-30 17:09:37,413 chrome 34575 140736274047936 王丽姿 ['南方医科大学珠江医院', '南方医科大学珠江医院心内科'] 
+INFO 2018-05-30 17:09:42,075 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/22211/
+INFO 2018-05-30 17:09:47,097 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:09:58,899 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:09:58,908 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/22211/
+INFO 2018-05-30 17:09:59,096 pre_process 34575 140736274047936 南方医科大学珠江医院血管外科
+INFO 2018-05-30 17:10:00,002 chrome 34575 140736274047936 罗云峰 ['南方医科大学珠江医院', '南方医科大学珠江医院血管外科'] 
+INFO 2018-05-30 17:10:05,307 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/abaout/311178/
+INFO 2018-05-30 17:10:08,575 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:10:21,377 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:10:21,386 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/abaout/311178/
+INFO 2018-05-30 17:10:22,764 pre_process 34575 140736274047936 南方医科大学珠江医院血液科
+INFO 2018-05-30 17:10:23,649 chrome 34575 140736274047936 张梅霞 ['南方医科大学珠江医院', '南方医科大学珠江医院血液科'] 
+INFO 2018-05-30 17:10:31,354 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:10:31,488 pre_process 34575 140736274047936 南方医科大学珠江医院中西医结合肾病中心
+INFO 2018-05-30 17:10:32,404 chrome 34575 140736274047936 牛红心 ['南方医科大学珠江医院', '南方医科大学珠江医院中西医结合肾病中心'] 
+INFO 2018-05-30 17:10:39,002 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:10:39,167 pre_process 34575 140736274047936 南方医科大学珠江医院中西医结合肾病中心
+INFO 2018-05-30 17:10:40,100 chrome 34575 140736274047936 魏连波 ['南方医科大学珠江医院', '南方医科大学珠江医院中西医结合肾病中心'] 
+INFO 2018-05-30 17:10:44,549 crawler 34575 140736274047936 page_src  https://mysk.familydoctor.com.cn/abaout/160419/
+INFO 2018-05-30 17:10:52,370 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:11:03,159 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:11:03,168 crawler 34575 140736274047936 page_src https://mysk.familydoctor.com.cn/abaout/160419/
+INFO 2018-05-30 17:11:03,283 pre_process 34575 140736274047936 南方医科大学珠江医院肿瘤中心
+INFO 2018-05-30 17:11:04,159 chrome 34575 140736274047936 郑燕芳 ['南方医科大学珠江医院', '南方医科大学珠江医院肿瘤中心'] 
+INFO 2018-05-30 17:11:11,454 crawler 34575 140736274047936 page_src  http://www.zjyy.com.cn/dept/index.aspx?id=123
+INFO 2018-05-30 17:11:14,368 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:11:29,628 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:11:29,629 crawler 34575 140736274047936 page_src http://www.zjyy.com.cn/dept/index.aspx?id=123
+INFO 2018-05-30 17:11:29,775 pre_process 34575 140736274047936 南方医科大学组织学与胚胎学教研室
+INFO 2018-05-30 17:11:30,766 chrome 34575 140736274047936 郭家松 ['南方医科大学组织学与胚胎学教研室', '南方医科大学'] 
+INFO 2018-05-30 17:11:36,022 crawler 34575 140736274047936 page_src  http://portal.smu.edu.cn/jcyxy/info/1075/1689.htm
+INFO 2018-05-30 17:11:37,169 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:11:52,615 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:11:52,616 crawler 34575 140736274047936 page_src http://portal.smu.edu.cn/jcyxy/info/1075/1689.htm
+INFO 2018-05-30 17:11:52,776 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:11:53,702 chrome 34575 140736274047936 屈丽华 ['南华大学'] 
+INFO 2018-05-30 17:11:57,844 crawler 34575 140736274047936 page_src  http://yxy.usc.edu.cn/info/2123/2386.htm
+INFO 2018-05-30 17:12:01,366 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:12:17,418 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:12:17,419 crawler 34575 140736274047936 page_src http://yxy.usc.edu.cn/info/2123/2386.htm
+INFO 2018-05-30 17:12:17,563 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:12:18,433 chrome 34575 140736274047936 王姣亮 ['南华大学'] 
+INFO 2018-05-30 17:12:23,947 crawler 34575 140736274047936 page_src  http://hgxy.usc.edu.cn/info/1016/2601.htm
+INFO 2018-05-30 17:12:31,731 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:12:42,894 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:12:42,895 crawler 34575 140736274047936 page_src http://hgxy.usc.edu.cn/info/1016/2601.htm
+INFO 2018-05-30 17:12:43,219 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:12:44,097 chrome 34575 140736274047936 贺修胜 ['南华大学'] 
+INFO 2018-05-30 17:12:52,712 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%8D%97%E5%8D%8E%E5%A4%A7%E5%AD%A6%E5%8C%BB%E5%AD%A6%E9%83%A8
+INFO 2018-05-30 17:12:55,803 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:13:07,309 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:13:07,310 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%8D%97%E5%8D%8E%E5%A4%A7%E5%AD%A6%E5%8C%BB%E5%AD%A6%E9%83%A8
+INFO 2018-05-30 17:13:07,472 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:13:08,325 chrome 34575 140736274047936 杨立环 ['南华大学'] 
+INFO 2018-05-30 17:13:14,420 crawler 34575 140736274047936 page_src  http://rsc.usc.edu.cn/gqpxgb.xls
+INFO 2018-05-30 17:13:14,680 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:13:25,499 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:13:25,500 crawler 34575 140736274047936 page_src http://rsc.usc.edu.cn/gqpxgb.xls
+INFO 2018-05-30 17:13:25,610 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:13:26,578 chrome 34575 140736274047936 李新霞 ['南华大学'] 
+INFO 2018-05-30 17:13:34,491 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E6%9D%8E%E6%96%B0%E9%9C%9E/20629084
+INFO 2018-05-30 17:13:37,606 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:13:50,986 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:13:50,995 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E6%9D%8E%E6%96%B0%E9%9C%9E/20629084
+INFO 2018-05-30 17:13:52,090 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:13:54,781 chrome 34575 140736274047936 刘莉萍 ['南华大学'] 
+INFO 2018-05-30 17:14:05,243 crawler 34575 140736274047936 page_src  http://shengming.haodf.com/doctor/DE4r0BCkuHzduCalhmmRDydDzVOlL.htm
+INFO 2018-05-30 17:14:06,063 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:14:19,279 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:14:19,280 crawler 34575 140736274047936 page_src http://shengming.haodf.com/doctor/DE4r0BCkuHzduCalhmmRDydDzVOlL.htm
+INFO 2018-05-30 17:14:19,444 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:14:20,302 chrome 34575 140736274047936 聂长明 ['南华大学'] 
+INFO 2018-05-30 17:14:24,506 crawler 34575 140736274047936 page_src  http://hgxy.usc.edu.cn/info/1151/3052.htm
+INFO 2018-05-30 17:14:26,878 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:14:41,993 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:14:42,002 crawler 34575 140736274047936 page_src http://hgxy.usc.edu.cn/info/1151/3052.htm
+INFO 2018-05-30 17:14:42,142 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:14:43,074 chrome 34575 140736274047936 王毅 ['南华大学'] 
+INFO 2018-05-30 17:14:48,007 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:14:48,149 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:14:49,115 chrome 34575 140736274047936 郭玮 ['南华大学'] 
+INFO 2018-05-30 17:14:52,397 crawler 34575 140736274047936 page_src  http://dqxy.usc.edu.cn/info/2072/2846.htm
+INFO 2018-05-30 17:14:56,321 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:15:08,103 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:15:08,104 crawler 34575 140736274047936 page_src http://dqxy.usc.edu.cn/info/2072/2846.htm
+INFO 2018-05-30 17:15:08,240 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:15:09,201 chrome 34575 140736274047936 刘永 ['南华大学'] 
+INFO 2018-05-30 17:15:14,812 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%88%98%E6%B0%B8/9829617
+INFO 2018-05-30 17:15:17,046 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:15:29,848 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:15:29,849 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%88%98%E6%B0%B8/9829617
+INFO 2018-05-30 17:15:29,955 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:15:30,845 chrome 34575 140736274047936 唐朝克 ['南华大学'] 
+INFO 2018-05-30 17:15:36,320 crawler 34575 140736274047936 page_src  https://baike.baidu.com/item/%E5%94%90%E6%9C%9D%E5%85%8B
+INFO 2018-05-30 17:15:38,433 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:15:53,487 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:15:53,488 crawler 34575 140736274047936 page_src https://baike.baidu.com/item/%E5%94%90%E6%9C%9D%E5%85%8B
+INFO 2018-05-30 17:15:53,596 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:16:09,909 chrome 34575 140736274047936 张_ ['南华大学'] 
+INFO 2018-05-30 17:16:15,678 crawler 34575 140736274047936 page_src 
+INFO 2018-05-30 17:16:16,031 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:17:34,298 chrome 34575 140736274047936 阳学风 ['南华大学'] 
+INFO 2018-05-30 17:17:38,271 crawler 34575 140736274047936 page_src  http://www.hnnhyy.com/article.php?id=188
+INFO 2018-05-30 17:18:10,177 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:18:25,480 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:18:25,480 crawler 34575 140736274047936 page_src http://www.hnnhyy.com/article.php?id=188
+INFO 2018-05-30 17:18:25,605 pre_process 34575 140736274047936 南华大学
+INFO 2018-05-30 17:18:31,735 chrome 34575 140736274047936 彭国文 ['南华大学'] 
+INFO 2018-05-30 17:18:39,323 crawler 34575 140736274047936 page_src  http://hgxy.usc.edu.cn/info/1151/2243.htm
+INFO 2018-05-30 17:18:40,575 chrome 34575 140736274047936 chrome [google] starting,home is [https://www.google.com/]
+INFO 2018-05-30 17:18:57,674 chrome 34575 140736274047936 chrome [google] started home is [https://www.google.com/]
+INFO 2018-05-30 17:18:57,675 crawler 34575 140736274047936 page_src http://hgxy.usc.edu.cn/info/1151/2243.htm
+INFO 2018-05-30 17:18:57,872 pre_process 34575 140736274047936 南华大学
