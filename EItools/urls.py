@@ -15,19 +15,24 @@ Including another URLconf
 """
 import os
 
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
 
-from EItools import view, crawl_information, settings
+from EItools import view, settings
+from EItools.crawler import crawl_information, task
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^hello$',view.hello),
-    url(r'^uploadFile/$', view.uploadFile),
-    url(r'^crawlfile/$',crawl_information.crawl_file_info),
-    url(r'^crawldb/$',crawl_information.crawl_DB_info)
+    url(r'^uploadfile/$', view.uploadFile2),
+    url(r'^downloadfile/(.+)/$', task.export_data, name="download"),
+    url(r'^showtasks/$', view.showTask),
+
+    url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),
+
+    url(r'^gettask/$', task.get_all_tasks),
+    url(r'^publishtask/$', crawl_information.do_task),
 ]
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

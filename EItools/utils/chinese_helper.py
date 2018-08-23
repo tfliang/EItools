@@ -42,7 +42,6 @@ def contain_zh(word):
 def get_first_name(messageContent):
     words = pseg.cut(messageContent)
     for word, flag in words:
-        print(word)
         if flag == 'nr'and len(word)>1:#单字姓名去掉
             return word
 
@@ -53,8 +52,7 @@ def get_all_words(messageContent,p="nr"):
     ks = []
     for word, flag in words:
         print(word+"  "+flag)
-        if flag == p:#人名词性为nr
-            ks.append(word)
+        ks.append(word)
     return list(set(ks))
 
 #修改停用词集合中所有词性为名词，大部分为名词
@@ -86,6 +84,9 @@ regexPunctuations = "[\\pP‘’“”$^~+=\\|<>`]"
 
 
 def simila_name(nl,nr):
+    nl=nl.replace(' ','')
+    nr=nr.replace(' ','')
+    print("%s--%s"%(nl,nr))
     escapeStr=["et","al","etc"]
     def trans(name):
         if contain_zh(name):
@@ -137,8 +138,6 @@ def simila_name(nl,nr):
                 else:
                     return 0
 
-
-print(get_all_words("目前就职, 电气工程及自动化学院 ... 于继来 科学研究 教育教学 论文专著 ... 1995——1998, 哈尔滨工业大学 电力系统及其自动化教研室 副主任."))
 
 
 

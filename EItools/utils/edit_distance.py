@@ -26,4 +26,3 @@ class EditDistance:
 
 s = EditDistance()
 
-print(s.minDistance("xiaojunwan", "hanxiaojun"))

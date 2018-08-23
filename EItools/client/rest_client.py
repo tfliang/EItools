@@ -204,7 +204,6 @@ class RESTClient(object):
 
         post_json["parameters"]["advquery"]["texts"][0]["text"]=name
         post_json["parameters"]["advquery"]["texts"][1]["text"] = org
-        print(post_json)
         url = "https://apiv2.aminer.cn/magic"
         urls = {"local": url, "beta": "https://apiv2-beta.aminer.org/magic",
                 "product": "https://apiv2.aminer.cn/magic"}

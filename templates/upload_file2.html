@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table id="" border='0' bordercolor="#FFFFFF" width='98%' cellpadding='0' cellspacing='0' align='center' bgcolor=''>
+  <tbody>
+   <tr style="vertical-align:middle">
+            <td style="width: 20%" >    {{form.batchfile.label}}   </td>
+            <td style="width: 30%" >    {{form.batchfile}}         </td>
+       <td> <button style="width:80px;" class="btn btn-primary" data-loading-text="导入中..." id='IMPORT_WL' onclick='importbatch()' type="button">批量导入</button>
+       </td>
+       <td><button onclick="window.location.href='{%url 'download' 1234 %}'">下载</button></td>
+    </tr>
+  </tbody>
+</table>
+{% load static %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}" ></script>
+    <script src="{% static 'js/uploadfile.js' %}" ></script>
+</body>
+
+</html>

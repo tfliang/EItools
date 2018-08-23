@@ -1,0 +1,16 @@
+train_data='data_path'
+test_data='data_path'
+batch_size=64
+epoch=40
+hidden_dim=300
+optimizer='Adam'
+CRF=True
+lr=0.001
+clip=5.0
+dropout=0.5
+update_embedding=True
+pretrain_embedding='random'
+embedding_dim=300
+shuffle=True
+mode='demo'
+demo_model='1521112368'

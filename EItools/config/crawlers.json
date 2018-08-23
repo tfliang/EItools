@@ -1,17 +1,27 @@
-[
-    {
-        "name": "google",
-        "homepage": "https://www.google.com/",
-        "proxy":"http://27.156.192.85:46596",
-        "parse_info": {
-            "search_box_name":"q",
-            "snippet_tag": "div",
-            "snippet_cls": "g",
-            "title_tag": "h3",
-            "title_src":"a",
-            "content_tag": "span",
-            "content_cls": "st",
-            "h_tag":"em"
-        }
+{
+    "google": {
+            "name": "google",
+            "homepage": "https://www.google.com/",
+            "parse_info": {
+                "search_box_name": "q",
+                "snippet_tag": "div",
+                "snippet_cls": "g",
+                "title_tag": "h3",
+                "title_src": "a",
+                "content_tag": "span",
+                "content_cls": "st",
+                "h_tag": "em"
+            }
+        },
+    "google-scholar": {
+            "name": "google",
+            "homepage": "https://scholar.google.com/citations?view_op=search_authors",
+            "parse_info": {
+                "search_box_name": "mauthors",
+                "snippet_tag": "div",
+                "snippet_cls": "gsc_1usr gs_scl",
+                "title_tag": "h3",
+                "title_src": "a"
+            }
     }
-]
+}

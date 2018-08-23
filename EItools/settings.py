@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
+from datetime import timedelta
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from celery import Celery
 
@@ -27,7 +27,7 @@ SECRET_KEY = '%yk&t4npi7$x2!w=2y63qh3(nn@iv+ki$m16&om1z=d5^%6vb@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Shanghai'
+#TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -140,7 +140,10 @@ LOGGING = {
         },
     'file': {
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'when': 'midnight',
+            'interval': 1,
+            'backupCount': 100,
             'filename': BASE_DIR+'/EItools/log/debug.log',
             'formatter': 'verbose'
         },
@@ -152,3 +155,8 @@ LOGGING = {
         },
     },
 }
+
+
+
+timezone = 'Asia/Beijing'
+

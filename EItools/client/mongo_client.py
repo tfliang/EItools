@@ -7,64 +7,115 @@ from EItools.client import settings
 class MongoDBClient(object):
     def __init__(self, host=settings.MONGO_HOST, port=settings.MONGO_PORT, db_name=settings.MONGO_DBNAME,
                  user=settings.MONGO_USERNAME, password=settings.MONGO_PASSWORD):
-        self.client = MongoClient(host, port)
+        self.client = MongoClient(host, port,connect=False)
         self.db = self.client[db_name]
         if password is not None:
             self.db.authenticate(user, password)
-        self.person_col = self.db["person_uncrawled"]
+        self.person_col = self.db[settings.MONGO_UNCRAWLED_PERSON]
+        self.crawed_person_col = self.db[settings.MONGO_CRAWLED_PERSON]
         self.pub_col = self.db["publication_dupl"]
         self.ins_col = self.db["institution"]
         self.proj_col = self.db["project"]
         self.patent_col = self.db["patent"]
-        self.task_col = self.db["task"]
+        self.task_col = self.db[settings.MONGO_ALL_TASK]
 
-    def get_crawl_info(self):
-        return self.db["crawled_person"]
-    def get_test_person(self):
-        return self.db["tech_person"].find()
+    #task function
+    def get_all_task(self):
+        tasks_info = []
+        tasks = self.task_col.find()
+        for item in tasks:
+            item['id']=str(item['_id'])
+            del item['_id']
+            tasks_info.append(item)
+        return tasks_info
+    def get_unfinished_task(self):
+        task_ids=[]
+        tasks=self.task_col.find({"$or":[{"status": 1},{"status":3}]})
+        for item in tasks:
+            task_ids.append(item["_id"])
+            self.update_task(2,str(item['_id']))
+        return task_ids
 
-    def get_test_person_info(self,offset,size):
-        return self.db["tech_person"].find().skip(offset).limit(size)
-    def get_person(self, pid):
-        return self.person_col.find_one({"_id": ObjectId(pid)})
-
-    def save_person(self, item):
-        self.person_col.save(item)
-    def get_person_by_taskId(self,id):
-        persons=[]
-        for item in (self.person_col.find({"taskId": ObjectId(id)})):
-            persons.append(item)
-        return persons
+    def get_doing_task(self):
+        task_ids=[]
+        tasks=self.task_col.find({"$or":[{"status": 2}]})
+        for item in tasks:
+            task_ids.append(item["_id"])
+        return task_ids
 
     def save_task(self, item):
         self.task_col.save(item)
 
-    def update_task(self, status,id):
-        self.task_col.update({"status":status},{"_id":ObjectId(id)})
+    def update_task(self, status, id):
+        self.task_col.update({"_id": ObjectId(id)}, {"$set": {"status": status}})
 
-    def get_ins(self, iid):
-        return self.ins_col.find_one({"_id": ObjectId(iid)})
 
-    def get_ins_member(self, iid):
-        faculties = self.person_col.find(
-            {"$or": [{"work.aff.inst.i": ObjectId(iid)}, {"work.aff.dept.i": ObjectId(iid)}]})
-        return faculties
+    def get_task_by_Id(self, id):
+        return self.task_col.find_one({"_id": ObjectId(id)})
 
-    def count_ins_member(self, iid):
-        n_faculty = self.person_col.count({"work.aff.dept.i": ObjectId(iid)})
-        return n_faculty
+    # person by taskId function
+    def get_person_by_taskId(self, id, offset=0, size=0):
+        persons = []
+        for item in (self.person_col.find({"taskId": ObjectId(id)})):
+            persons.append(item)
+        if size > 0 and offset >= 0:
+            return persons[offset:offset + size]
+        else:
+            return persons
 
-    def set_ins_parent(self, iid, pid):
-        ins = self.ins_col.find_one({"_id": ObjectId(iid)})
-        if ins is not None:
-            ins["parent"] = ObjectId(pid)
-        self.ins_col.save(ins)
+    def get_uncrawled_person_by_taskId(self, id, offset=0, size=0):
+        persons = []
+        c=self.person_col.find({"taskId": ObjectId(id)})
+        if size > 0 and offset >= 0:
+            c=c.skip(offset).limit(size)
+        for item in c:
+            item['id'] = str(item['_id'])
+            if 'status' not in item or item['status'] != 0:
+                persons.append(item)
+        return persons
 
-    def update_ins_stat(self, iid, stat):
-        ins = self.ins_col.find_one({"_id": ObjectId(iid)})
-        if ins is not None:
-            ins["stat"] = stat
-        self.ins_col.save(ins)
+    def get_crawled_person(self,  offset=0, size=0):
+        persons = []
+        c = self.crawed_person_col.find()
+        if size > 0 and offset >= 0:
+            c = c.skip(offset).limit(size)
+        for item in c:
+            item['id'] = str(item['_id'])
+            persons.append(item['_id'])
+        return persons
+
+    def get_person_num_by_taskId(self, id):
+        return self.person_col.find({"$and": [{"taskId": ObjectId(id)}]}).count()
+
+
+    #person function
+
+    def get_person(self, pid):
+        return self.person_col.find_one({"_id": ObjectId(pid)})
+    def get_crawled_person_by_pid(self,pid):
+        return self.crawed_person_col.find_one({"_id":ObjectId(pid)})
+
+    def save_person(self, item):
+        self.person_col.save(item)
+
+    def rm_person_by_id(self, pid):
+        self.person_col.remove({"_id": pid})
+
+    def update_person_by_id(self,id):
+        self.person_col.update({"_id":ObjectId(id)},{"$set":{"status":0}})
+
+
+    def is_crawled_person(self, name,org):
+        return self.crawed_person_col.find({"$and":[{"name": name},{"org": org}]}).count()>0
+
+    def get_person_by_nameandorg(self, name,org):
+        return self.crawed_person_col.find_one({"$and":[{"name": name},{"org": org}]})
+
+    def save_crawled_person(self,item):
+        self.crawed_person_col.save(item)
+
+    def update_crawled_person_status(self,id):
+        self.crawed_person_col.update({"_id":ObjectId(id)},{"$set":{"status":0}})
 
     def update_person_projects(self, pid, projects):
         p_item = self.get_person(pid)
@@ -84,9 +135,3 @@ class MongoDBClient(object):
     def save_pub(self, item):
         self.pub_col.save(item)
 
-    def get_depts(self, iid):
-        depts = []
-        for item in self.ins_col.find({"parent": ObjectId(iid)}):
-            if not item["is_removed"]:
-                depts.append(str(item["_id"]))
-        return depts

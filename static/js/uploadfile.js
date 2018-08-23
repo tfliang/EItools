@@ -13,8 +13,8 @@ function importbatch()
         processData : false,
         type : 'POST',
         success : function(rdata) {
-            $('#IMPORT_WL').button("reset");
-            rdata = JSON.parse(rdata);
+            $('#IMPORT_WL').text("开始导入");
+            alert("上传成功")
         }
     });
 }

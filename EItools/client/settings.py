@@ -10,17 +10,17 @@ MONGO_USERNAME_PROD = 'kegger_aminer'
 MONGO_PASSWORD_PROD = 'jingjieweiwu2016'
 MONGO_DBNAME_PROD = 'aminer'
 
-MONGO_HOST = os.environ.get('MONGO_HOST', '166.111.7.173')
+
+
+MONGO_HOST = os.environ.get('MONGO_HOST', '166.111.5.227')
 MONGO_PORT = os.environ.get('MONGO_PORT', 30019)
 MONGO_USERNAME = os.environ.get('MONGO_USERNAME', 'kegger_bigsci')
 MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD', 'datiantian123!@#')
 MONGO_DBNAME = os.environ.get('MONGO_DBNAME', 'bigsci')
+MONGO_CRAWLED_PERSON="crawled_person_final"
+MONGO_UNCRAWLED_PERSON="person_uncrawled"
+MONGO_ALL_TASK="task"
 
-#MONGO_HOST = os.environ.get('MONGO_HOST', '10.0.1.15')
-#MONGO_PORT = os.environ.get('MONGO_PORT', 27017)
-#MONGO_USERNAME = os.environ.get('MONGO_USERNAME', 'kegger_aminer')
-#MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD', 'jingjieweiwu2016')
-#MONGO_DBNAME = os.environ.get('MONGO_DBNAME', 'aminer')
 
 PROD_DB = "aminer"
 DEV_DB = "bigsci"

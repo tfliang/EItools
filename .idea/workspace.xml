@@ -2,8 +2,604 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9bbcc02-65ba-47ab-9e3f-b0e7be0bec94" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/utils/stopword.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1521112368/checkpoints/model-31680.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1521112368/checkpoints/model-31680.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1521112368/checkpoints/model-31680.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5880.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5880.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5880.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5910.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5910.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5910.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5940.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5940.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5940.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5970.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5970.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-5970.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-6000.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-6000.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/model-6000.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/avatar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/avatar1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/avatar2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/avatar3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/avatar4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/avatar5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/profile-pic.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/user.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/images/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/font/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/image-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/image-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/image-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/image-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/image-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/image-6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/thumb-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/thumb-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/thumb-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/thumb-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/thumb-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/gallery/thumb-6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/chrome/crawler.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_email/MLP.pkl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_email/svm-model.pkl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/Aff2Pat.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/Extract.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/Feature.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/Str2Query.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/TextSlicer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/data/abbr.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/data/aff.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/data/classifier.pkl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/classifier_mainpage/data/name.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/crawler/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/crawler/crawl_information.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/1250-1500.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/250-500.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/750-1000.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/info0-250.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/info1000-1250.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/info500-750.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/infoExample2100-2200.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/infoExample2200-2300.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/infoExample2300-2400.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/infoExample2400-2500.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/infoExample2500-2600.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/infoExample2600-2700.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/infoExample2700-2800.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/data/infoExample2800-2900.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/conlleval_rev.pl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path/test_data" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path/test_data2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path/train_data2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path/word2id.pkl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1521112368/checkpoints/checkpoint" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1521112368/results/log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/checkpoints/checkpoint" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_10" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_100" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_101" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_102" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_103" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_104" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_105" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_106" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_107" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_108" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_109" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_11" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_110" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_111" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_112" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_113" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_114" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_115" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_116" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_117" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_118" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_119" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_12" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_120" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_121" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_122" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_123" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_124" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_125" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_126" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_127" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_128" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_129" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_13" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_130" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_131" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_132" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_133" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_134" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_135" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_136" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_137" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_138" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_139" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_14" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_140" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_141" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_142" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_143" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_144" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_145" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_146" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_147" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_148" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_149" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_15" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_150" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_151" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_152" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_153" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_154" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_155" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_156" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_157" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_158" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_159" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_16" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_160" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_161" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_162" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_163" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_164" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_165" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_166" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_167" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_168" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_169" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_17" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_170" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_171" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_172" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_173" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_174" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_175" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_176" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_177" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_178" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_179" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_18" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_180" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_181" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_182" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_183" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_184" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_185" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_186" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_187" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_188" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_189" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_19" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_190" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_191" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_192" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_193" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_194" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_195" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_196" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_197" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_198" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_199" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_20" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_200" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_21" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_22" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_23" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_24" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_25" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_26" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_27" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_28" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_29" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_30" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_31" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_32" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_33" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_34" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_35" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_36" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_37" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_38" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_39" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_4" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_40" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_41" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_42" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_43" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_44" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_45" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_46" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_47" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_48" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_49" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_50" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_51" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_52" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_53" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_54" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_55" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_56" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_57" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_58" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_59" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_6" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_60" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_61" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_62" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_63" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_64" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_65" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_66" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_67" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_68" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_69" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_7" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_70" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_71" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_72" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_73" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_74" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_75" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_76" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_77" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_78" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_79" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_8" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_80" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_81" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_82" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_83" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_84" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_85" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_86" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_87" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_88" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_89" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_9" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_90" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_91" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_92" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_93" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_94" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_95" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_96" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_97" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_98" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/label_99" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_10" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_100" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_101" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_102" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_103" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_104" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_105" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_106" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_107" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_108" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_109" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_11" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_110" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_111" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_112" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_113" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_114" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_115" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_116" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_117" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_118" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_119" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_12" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_120" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_121" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_122" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_123" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_124" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_125" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_126" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_127" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_128" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_129" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_13" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_130" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_131" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_132" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_133" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_134" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_135" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_136" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_137" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_138" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_139" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_14" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_140" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_141" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_142" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_143" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_144" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_145" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_146" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_147" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_148" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_149" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_15" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_150" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_151" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_152" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_153" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_154" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_155" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_156" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_157" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_158" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_159" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_16" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_160" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_161" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_162" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_163" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_164" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_165" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_166" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_167" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_168" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_169" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_17" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_170" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_171" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_172" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_173" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_174" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_175" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_176" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_177" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_178" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_179" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_18" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_180" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_181" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_182" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_183" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_184" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_185" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_186" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_187" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_188" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_189" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_19" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_190" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_191" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_192" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_193" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_194" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_195" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_196" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_197" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_198" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_199" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_20" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_200" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_21" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_22" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_23" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_24" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_25" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_26" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_27" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_28" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_29" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_30" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_31" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_32" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_33" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_34" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_35" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_36" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_37" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_38" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_39" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_4" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_40" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_41" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_42" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_43" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_44" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_45" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_46" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_47" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_48" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_49" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_5" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_50" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_51" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_52" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_53" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_54" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_55" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_56" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_57" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_58" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_59" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_6" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_60" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_61" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_62" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_63" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_64" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_65" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_66" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_67" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_68" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_69" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_7" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_70" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_71" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_72" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_73" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_74" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_75" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_76" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_77" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_78" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_79" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_8" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_80" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_81" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_82" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_83" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_84" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_85" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_86" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_87" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_88" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_89" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_9" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_90" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_91" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_92" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_93" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_94" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_95" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_96" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_97" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_98" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/results/result_metric_99" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/data_path_save/1530721857/summaries/events.out.tfevents.1530721868.supermicro" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/eval.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/interface.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/main.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/model.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/util.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EItools/extract/utils.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/avatars/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/ace-ie.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/ace-rtl.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/ace-skins.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/ace.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/bootstrap-editable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/bootstrap-timepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/chosen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/colorbox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/colorpicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/datepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/daterangepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/dropzone.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/font-awesome-ie7.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/fullcalendar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/images/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/jquery-ui-1.10.3.custom.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/jquery-ui-1.10.3.full.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/jquery.gritter.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/select2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/css/ui.jqgrid.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/ace-elements.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/ace-extra.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/ace.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/additional-methods.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/bootbox.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/bootstrap-colorpicker.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/bootstrap-tag.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/bootstrap-wysiwyg.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/chosen.jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/date-time/bootstrap-datepicker.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/date-time/bootstrap-timepicker.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/date-time/daterangepicker.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/date-time/moment.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/dropzone.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/excanvas.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/flot/jquery.flot.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/flot/jquery.flot.pie.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/flot/jquery.flot.resize.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/fuelux/data/fuelux.tree-sampledata.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/fuelux/fuelux.spinner.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/fuelux/fuelux.tree.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/fuelux/fuelux.wizard.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/fullcalendar.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/html5shiv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jqGrid/i18n/grid.locale-en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jqGrid/jquery.jqGrid.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery-1.10.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery-2.0.3.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery-ui-1.10.3.custom.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery-ui-1.10.3.full.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.autosize.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.colorbox-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.dataTables.bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.dataTables.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.easy-pie-chart.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.gritter.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.hotkeys.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.inputlimiter.1.3.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.knob.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.maskedinput.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.mobile.custom.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.nestable.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.slimscroll.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.sparkline.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.ui.touch-punch.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/jquery.validate.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/markdown/bootstrap-markdown.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/markdown/markdown.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/respond.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/select2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/typeahead-bs2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/x-editable/ace-editable.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/js/x-editable/bootstrap-editable.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/tasks.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/EItools/crawl_information.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/EItools/log/debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/EItools/src/aa.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/EItools/src/crawler.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/EItools/src/getData2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/EItools/utils/name_infoExample2000-2100.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/file/bigsci.抽取信息2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/file/抽取的人员信息（共100，错误39人）.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/file/（100人样例。错误39人）抽取信息 2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/file/（100人样例。错误39人）抽取信息.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/post.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EItools/celery.py" afterPath="$PROJECT_DIR$/EItools/celery_config.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EItools/src/chrome.py" afterPath="$PROJECT_DIR$/EItools/chrome/chrome.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EItools/src/classifier.py" afterPath="$PROJECT_DIR$/EItools/chrome/classifier.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EItools/src/globalvar.py" afterPath="$PROJECT_DIR$/EItools/config/globalvar.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EItools/src/pre_process.py" afterPath="$PROJECT_DIR$/EItools/chrome/pre_process.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EItools/src/proxy.py" afterPath="$PROJECT_DIR$/EItools/chrome/proxy.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/EItools/utils/infoExample2000-2100.txt" afterPath="$PROJECT_DIR$/EItools/data/infoExample2000-2100.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/upload_file.html" afterPath="$PROJECT_DIR$/templates/upload_file2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/__init__.py" afterPath="$PROJECT_DIR$/EItools/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/client/mongo_client.py" afterPath="$PROJECT_DIR$/EItools/client/mongo_client.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/client/rest_client.py" afterPath="$PROJECT_DIR$/EItools/client/rest_client.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/client/settings.py" afterPath="$PROJECT_DIR$/EItools/client/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/config/crawlers.json" afterPath="$PROJECT_DIR$/EItools/config/crawlers.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/settings.py" afterPath="$PROJECT_DIR$/EItools/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/urls.py" afterPath="$PROJECT_DIR$/EItools/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/utils/chinese_helper.py" afterPath="$PROJECT_DIR$/EItools/utils/chinese_helper.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/utils/common_utils.py" afterPath="$PROJECT_DIR$/EItools/utils/common_utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/utils/edit_distance.py" afterPath="$PROJECT_DIR$/EItools/utils/edit_distance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EItools/view.py" afterPath="$PROJECT_DIR$/EItools/view.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/uploadfile.js" afterPath="$PROJECT_DIR$/static/js/uploadfile.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,108 +611,91 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pre_process.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/src/pre_process.py">
+      <file leaf-file-name="gen_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EItools/process/gen_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rest_client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/client/rest_client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="249" column="17" lean-forward="false" selection-start-line="249" selection-start-column="17" selection-end-line="249" selection-end-column="17" />
+            <state relative-caret-position="113">
+              <caret line="147" column="13" lean-forward="false" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crawler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/src/crawler.py">
+      <file leaf-file-name="test_data2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EItools/data/test_data2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
-              <folding>
-                <element signature="e#14#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crawl_information.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/crawl_information.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+            <state relative-caret-position="715523">
+              <caret line="94715" column="9" lean-forward="true" selection-start-line="94715" selection-start-column="9" selection-end-line="94715" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/__init__.py">
+      <file leaf-file-name="test_data" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EItools/data/test_data">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+            <state relative-caret-position="-10151">
+              <caret line="272" column="1" lean-forward="false" selection-start-line="272" selection-start-column="1" selection-end-line="272" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="celery.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/celery.py">
+      <file leaf-file-name="train_data" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EItools/data/train_data">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1336">
+              <caret line="170" column="4" lean-forward="false" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interface.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EItools/extract/interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="train_data2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EItools/data/train_data2">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3457">
+              <caret line="3660" column="4" lean-forward="true" selection-start-line="3660" selection-start-column="4" selection-end-line="3660" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+              <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EItools/extract/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="123">
+              <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chrome.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/src/chrome.py">
+      <file leaf-file-name="data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EItools/extract/data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1189">
-              <caret line="198" column="29" lean-forward="false" selection-start-line="198" selection-start-column="29" selection-end-line="198" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#1369#1669#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="debug.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/log/debug.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3018">
-              <caret line="160" column="50" lean-forward="true" selection-start-line="160" selection-start-column="50" selection-end-line="160" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="classifier.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EItools/src/classifier.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+            <state relative-caret-position="-54">
+              <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -134,36 +713,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>id_batchfile</find>
-      <find>192.168.2.107</find>
-      <find>Celery</find>
-      <find>baichenjing1</find>
+      <find>Name</find>
+      <find>Names</find>
+      <find>Namespace</find>
+      <find>r</find>
+      <find>result</find>
+      <find>results</find>
+      <find>l</find>
+      <find>label</find>
+      <find>p</find>
+      <find>pro</find>
+      <find>proce</find>
+      <find>process_test</find>
+      <find>process_tes</find>
+      <find>process</find>
+      <find>process_te</find>
+      <find>process_t</find>
+      <find>职</find>
+      <find>中</find>
+      <find>者</find>
+      <find>123</find>
+      <find>process_</find>
       <find>b</find>
-      <find>baichenj</find>
-      <find>baichenjing</find>
-      <find>kill</find>
-      <find>switch_proxy</find>
-      <find>LOGGING</find>
-      <find>logger</find>
-      <find>crawl db info start</find>
-      <find>start</find>
-      <find>start()</find>
-      <find>ALLOWED_HOSTS</find>
-      <find>alterWordTagToX</find>
-      <find>cut</find>
-      <find>lcut</find>
-      <find>appid</find>
-      <find>secretKey</find>
-      <find>url</find>
-      <find>salt</find>
-      <find>zh_pattern</find>
-      <find>startCrawl</find>
-      <find>page_src</find>
-      <find>s</find>
-      <find>spl</find>
-      <find>split</find>
-      <find>logging</find>
-      <find>贺世忠</find>
+      <find>before</find>
+      <find>before:</find>
+      <find>子</find>
+      <find>作</find>
+      <find>B-EDU</find>
+      <find>AFF</find>
+      <find>get_feed_dict</find>
+      <find>result_path</find>
     </findStrings>
     <replaceStrings>
       <replace>logging</replace>
@@ -173,6 +752,7 @@
       <replace>SALT</replace>
       <replace>ZH_PATTERN</replace>
       <replace>logger</replace>
+      <replace>&quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -181,65 +761,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/search_form.html" />
-        <option value="$PROJECT_DIR$/templates/post.html" />
-        <option value="$PROJECT_DIR$/EItools/search2.py" />
-        <option value="$PROJECT_DIR$/EItools/processCSVFile.py" />
-        <option value="$PROJECT_DIR$/js/uploadfile.js" />
-        <option value="$PROJECT_DIR$/templates/uploadFile.html" />
-        <option value="$PROJECT_DIR$/media/file/123.csv" />
-        <option value="$PROJECT_DIR$/media/file/（100人样例。错误39人）抽取信息.csv" />
-        <option value="$PROJECT_DIR$/EItools/client/__init__.py" />
-        <option value="$PROJECT_DIR$/EItools/src/globalvar.py" />
-        <option value="$PROJECT_DIR$/EItools/src/logonline.txt" />
-        <option value="$PROJECT_DIR$/EItools/client/mongo_client.py" />
-        <option value="$PROJECT_DIR$/EItools/src/log.txt" />
-        <option value="$PROJECT_DIR$/EItools/src/__init__.py" />
-        <option value="$PROJECT_DIR$/EItools/src/phonecrawler.py" />
-        <option value="$PROJECT_DIR$/EItools/log/test.log" />
-        <option value="$PROJECT_DIR$/static/js/uploadfile.js" />
-        <option value="$PROJECT_DIR$/EItools/celery/task.py" />
         <option value="$PROJECT_DIR$/EItools/__init__.py" />
-        <option value="$PROJECT_DIR$/EItools/celery.py" />
-        <option value="$PROJECT_DIR$/EItools/log/logging.conf" />
-        <option value="$PROJECT_DIR$/EItools/src/test.log" />
-        <option value="$PROJECT_DIR$/test.log" />
-        <option value="$PROJECT_DIR$/EItools/log/log.py" />
-        <option value="$PROJECT_DIR$/debug.log" />
-        <option value="$PROJECT_DIR$/EItools/debug.log" />
-        <option value="$PROJECT_DIR$/EItools/src/getData.py" />
-        <option value="$PROJECT_DIR$/EItools/crawlInformation.py" />
-        <option value="$PROJECT_DIR$/EItools/utils/aa.py" />
-        <option value="$PROJECT_DIR$/EItools/src/aa.py" />
-        <option value="$PROJECT_DIR$/EItools/utils/stopword.txt" />
-        <option value="$PROJECT_DIR$/EItools/utils/recognizeName.py" />
-        <option value="$PROJECT_DIR$/EItools/utils/ChineseHelper.py" />
-        <option value="$PROJECT_DIR$/EItools/utils/__init__.py" />
-        <option value="$PROJECT_DIR$/EItools/utils/EditDistance.py" />
-        <option value="$PROJECT_DIR$/EItools/src/pre_process.py" />
-        <option value="$PROJECT_DIR$/EItools/utils/edit_distance.py" />
-        <option value="$PROJECT_DIR$/EItools/src/phone_crawler.py" />
-        <option value="$PROJECT_DIR$/EItools/config/crawlers.json" />
+        <option value="$PROJECT_DIR$/EItools/celerybeat-schedule" />
+        <option value="$PROJECT_DIR$/EItools/celery_config.py" />
         <option value="$PROJECT_DIR$/EItools/utils/chinese_helper.py" />
-        <option value="$PROJECT_DIR$/EItools/model/__init__.py" />
-        <option value="$PROJECT_DIR$/EItools/view.py" />
-        <option value="$PROJECT_DIR$/EItools/urls.py" />
-        <option value="$PROJECT_DIR$/EItools/settings.py" />
-        <option value="$PROJECT_DIR$/EItools/crawl_information.py" />
-        <option value="$PROJECT_DIR$/templates/upload_file.html" />
+        <option value="$PROJECT_DIR$/EItools/plug/Examples/google_search.py" />
+        <option value="$PROJECT_DIR$/EItools/plug/MagicGoogle/magic_google.py" />
+        <option value="$PROJECT_DIR$/EItools/plug/MagicGoogle/data/all_domain.txt" />
+        <option value="$PROJECT_DIR$/EItools/extract/2.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/extract2.py" />
         <option value="$PROJECT_DIR$/EItools/src/crawler.py" />
-        <option value="$PROJECT_DIR$/EItools/src/getData2.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/get_data4.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/get_data3.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/gen_data2.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/gen_data.py" />
+        <option value="$PROJECT_DIR$/EItools/client/mongo_client.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/export.py" />
+        <option value="$PROJECT_DIR$/EItools/crawl_information.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/data_path_save/1521112368/results/log.txt" />
         <option value="$PROJECT_DIR$/EItools/src/chrome.py" />
-        <option value="$PROJECT_DIR$/EItools/client/rest_client.py" />
-        <option value="$PROJECT_DIR$/EItools/log/debug.log" />
+        <option value="$PROJECT_DIR$/EItools/main.py" />
+        <option value="$PROJECT_DIR$/EItools/main3.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/buchong.py" />
+        <option value="$PROJECT_DIR$/EItools/extract_now_position.py" />
+        <option value="$PROJECT_DIR$/EItools/a.py" />
+        <option value="$PROJECT_DIR$/EItools/main2.py" />
+        <option value="$PROJECT_DIR$/EItools/chrome/chrome.py" />
+        <option value="$PROJECT_DIR$/EItools/crawler/task.py" />
+        <option value="$PROJECT_DIR$/EItools/crawler/main.py" />
+        <option value="$PROJECT_DIR$/EItools/process/export.py" />
+        <option value="$PROJECT_DIR$/EItools/crawler/extract_mainpage.py" />
+        <option value="$PROJECT_DIR$/EItools/config/globalvar.py" />
+        <option value="$PROJECT_DIR$/EItools/classifier_mainpage/Aff2Pat.py" />
+        <option value="$PROJECT_DIR$/EItools/classifier_mainpage/Extract.py" />
+        <option value="$PROJECT_DIR$/EItools/crawler/crawl_mainpage.py" />
+        <option value="$PROJECT_DIR$/EItools/process/csvFile2.csv" />
+        <option value="$PROJECT_DIR$/EItools/process/test.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/extract_information.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/main.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/eval.py" />
+        <option value="$PROJECT_DIR$/EItools/process/process.py" />
+        <option value="$PROJECT_DIR$/EItools/client/settings.py" />
+        <option value="$PROJECT_DIR$/EItools/process/process_test.py" />
+        <option value="$PROJECT_DIR$/EItools/data/train_data" />
+        <option value="$PROJECT_DIR$/EItools/extract/data_path/train_data" />
+        <option value="$PROJECT_DIR$/EItools/urls.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/data.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/utils.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/model.py" />
+        <option value="$PROJECT_DIR$/EItools/process/gen_data.py" />
+        <option value="$PROJECT_DIR$/EItools/extract/interface.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="648" />
-    <option name="y" value="-1057" />
-    <option name="width" value="1879" />
-    <option name="height" value="990" />
+    <option name="x" value="24" />
+    <option name="y" value="23" />
+    <option name="width" value="1288" />
+    <option name="height" value="677" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -257,7 +837,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -270,15 +849,149 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_path_save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_path_save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="1521112368" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_path_save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="1521112368" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="results" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EItools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_path" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -289,17 +1002,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/EItools/utils" />
-      <recent name="$PROJECT_DIR$/EItools/src" />
-      <recent name="$PROJECT_DIR$/EItools/client" />
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/EItools/static/js" />
+      <recent name="$PROJECT_DIR$/EItools/extract/data_path_save" />
+      <recent name="$PROJECT_DIR$/EItools/extract/data_path" />
+      <recent name="$PROJECT_DIR$/EItools/process" />
+      <recent name="$PROJECT_DIR$/EItools/data" />
+      <recent name="$PROJECT_DIR$/EItools" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/EItools/extract/data_path" />
+      <recent name="$PROJECT_DIR$/EItools/config" />
       <recent name="$PROJECT_DIR$/EItools" />
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/EItools/model" />
+      <recent name="$PROJECT_DIR$/EItools/crawler" />
+      <recent name="$PROJECT_DIR$/EItools/mainpage_classifier" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -314,95 +1028,92 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.getData2">
-    <configuration default="false" name="recognizeName" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.gen_data">
+    <configuration default="false" name="process" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/utils" />
+      <option name="SDK_HOME" value="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/process" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="EItools" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/utils/recognize_name.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/process/process.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="pre_process" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="gen_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/src" />
+      <option name="SDK_HOME" value="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/process" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="EItools" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/src/pre_process.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/process/gen_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="EditDistance" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/utils" />
+      <option name="SDK_HOME" value="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/extract" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="EItools" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/utils/edit_distance.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/extract/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="chinese_helper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="eval" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/utils" />
+      <option name="SDK_HOME" value="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/extract" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="EItools" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/utils/chinese_helper.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/extract/eval.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="getData2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Unittests in process_test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/src" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/process" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="EItools" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EItools/src/getData2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/EItools/process/process_test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -411,7 +1122,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -469,20 +1180,56 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.recognizeName" />
-      <item index="1" class="java.lang.String" itemvalue="Python.pre_process" />
-      <item index="2" class="java.lang.String" itemvalue="Python.EditDistance" />
-      <item index="3" class="java.lang.String" itemvalue="Python.chinese_helper" />
-      <item index="4" class="java.lang.String" itemvalue="Python.getData2" />
+    <configuration default="false" name="Unnamed" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="EItools" />
+      <option name="SCRIPT_NAME" value="python3" />
+      <option name="PARAMETERS" value="manage.py runserver  127.0.0.1:8001" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in bin" type="tests" factoryName="Unittests" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EItools/extract" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="EItools" />
+      <option name="_new_pattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <list size="7">
+      <item index="0" class="java.lang.String" itemvalue="Python.Unnamed" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in bin" />
+      <item index="2" class="java.lang.String" itemvalue="Python.process" />
+      <item index="3" class="java.lang.String" itemvalue="Python.gen_data" />
+      <item index="4" class="java.lang.String" itemvalue="Python.main" />
+      <item index="5" class="java.lang.String" itemvalue="Python.eval" />
+      <item index="6" class="java.lang.String" itemvalue="Python tests.Unittests in process_test.py" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.getData2" />
-        <item index="1" class="java.lang.String" itemvalue="Python.chinese_helper" />
-        <item index="2" class="java.lang.String" itemvalue="Python.recognizeName" />
-        <item index="3" class="java.lang.String" itemvalue="Python.EditDistance" />
-        <item index="4" class="java.lang.String" itemvalue="Python.pre_process" />
+        <item index="0" class="java.lang.String" itemvalue="Python.gen_data" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in process_test.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python.process" />
+        <item index="3" class="java.lang.String" itemvalue="Python.eval" />
+        <item index="4" class="java.lang.String" itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -499,6 +1246,38 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 10h 36m 05s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 10h 41m 29s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 10h 43m 27s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 10h 44m 28s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 10h 47m 28s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 19h 51m 29s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 20h 03m 10s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 20h 06m 08s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 20h 12m 30s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_process_test_py - 2018.08.22 at 20h 16m 10s.xml">
+      <configuration name="Unittests in process_test.py" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -509,24 +1288,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="648" y="-1057" width="1879" height="990" extended-state="0" />
+    <frame x="24" y="23" width="1288" height="677" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1497006" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273196" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33184856" sideWeight="0.119216114" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33743018" sideWeight="0.8189454" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32688928" sideWeight="0.496633" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23434992" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32210526" sideWeight="0.48533332" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32991454" sideWeight="0.16452648" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20321469" sideWeight="0.49487054" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.408547" sideWeight="0.7968278" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.4926754" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25700936" sideWeight="0.45171338" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33184856" sideWeight="0.8807839" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24469274" sideWeight="0.90340644" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32991454" sideWeight="0.83547354" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33831775" sideWeight="0.8203531" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -536,13 +1316,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/EItools/src/crawler.py</url>
-          <line>168</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -553,354 +1326,374 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="37" />
+      <option name="time" value="168" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/debug.log" />
-    <entry file="file://$PROJECT_DIR$/EItools/debug.log" />
-    <entry file="file://$PROJECT_DIR$/EItools/log/logging.conf" />
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.1/python_stubs/1025205290/time.py">
+    <entry file="file://$PROJECT_DIR$/EItools/process/csvFile2.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="181" column="4" lean-forward="false" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="4" />
+        <state relative-caret-position="108">
+          <caret line="6" column="45" lean-forward="true" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/getData.py" />
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/manage.py">
+    <entry file="file://$PROJECT_DIR$/EItools/process/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="412">
+          <caret line="90" column="22" lean-forward="true" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/selenium/webdriver/__init__.py">
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/framework/ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/aa.py" />
-    <entry file="file:///usr/local/lib/python3.6/site-packages/jieba/_compat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/client/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/aa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/recognize_name.py" />
-    <entry file="file://$PROJECT_DIR$/EItools/client/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/client/csv_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/proxy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/EItools/utils/infoExample2000-2100.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
-          <caret line="506" column="10" lean-forward="false" selection-start-line="506" selection-start-column="10" selection-end-line="506" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/stopword.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="4341" column="1" lean-forward="true" selection-start-line="4341" selection-start-column="1" selection-end-line="4341" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/name_infoExample2000-2100.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/english_stopword.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-346">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/tokenize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/logging/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="1835" column="4" lean-forward="false" selection-start-line="1835" selection-start-column="4" selection-end-line="1835" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/common_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/edit_distance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_comm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6390">
-          <caret line="363" column="0" lean-forward="false" selection-start-line="363" selection-start-column="0" selection-end-line="363" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/globalvar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/jieba/posseg/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4014">
-          <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/jieba/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10494">
-          <caret line="583" column="0" lean-forward="false" selection-start-line="583" selection-start-column="0" selection-end-line="583" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="289">
+          <caret line="5518" column="0" lean-forward="false" selection-start-line="5518" selection-start-column="0" selection-end-line="5518" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="80">
+          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/utils/chinese_helper.py">
+    <entry file="file://$PROJECT_DIR$/EItools/data/1250-1500.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="116" column="24" lean-forward="true" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-4521">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/model/__init__.py">
+    <entry file="file://$PROJECT_DIR$/EItools/data/info1000-1250.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="235" column="23" lean-forward="true" selection-start-line="235" selection-start-column="23" selection-end-line="235" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/data/infoExample2000-2100.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/data_path/train_data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/data/250-500.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/data/750-1000.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/data/info0-250.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.1/python_stubs/1025205290/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="3598" column="8" lean-forward="false" selection-start-line="3598" selection-start-column="8" selection-end-line="3598" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/model/file_forms.py">
+    <entry file="file://$PROJECT_DIR$/EItools/data/info500-750.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="-1511">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/view.py">
+    <entry file="file://$PROJECT_DIR$/EItools/process/data.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/urls.py">
+    <entry file="file://$PROJECT_DIR$/EItools/process/变更 .csv" />
+    <entry file="file://$PROJECT_DIR$/EItools/process/data2.csv" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/training/saver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="29" column="49" lean-forward="false" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
-          <folding>
-            <element signature="e#631#640#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="193">
+          <caret line="1836" column="4" lean-forward="false" selection-start-line="1836" selection-start-column="4" selection-end-line="1836" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/settings.py">
+    <entry file="file://$PROJECT_DIR$/data_path_save/1534741624/results/log.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/upload_file.html">
+    <entry file="file://$PROJECT_DIR$/EItools/extract/data_path/train_data2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="69" lean-forward="false" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
-          <folding />
+        <state relative-caret-position="-7294617">
+          <caret line="3460" column="8" lean-forward="false" selection-start-line="3460" selection-start-column="8" selection-end-line="3460" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/config/crawlers.json">
+    <entry file="file://$PROJECT_DIR$/EItools/extract/data_path/test_data2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="-439303">
+          <caret line="446" column="10" lean-forward="false" selection-start-line="446" selection-start-column="10" selection-end-line="446" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/extract_information.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="201" column="4" lean-forward="false" selection-start-line="201" selection-start-column="4" selection-end-line="201" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/client/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/process/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/EItools/extract/data_path/word2id.pkl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/contrib/crf/python/ops/crf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="316" column="4" lean-forward="false" selection-start-line="316" selection-start-column="4" selection-end-line="316" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EItools/client/mongo_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="274">
+          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/log/log.py">
+    <entry file="file://$PROJECT_DIR$/EItools/view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="234">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/getData2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="66" column="32" lean-forward="true" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-          <folding>
-            <element signature="e#14#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
-          <folding>
-            <element signature="e#14#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/chrome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1189">
-          <caret line="198" column="29" lean-forward="false" selection-start-line="198" selection-start-column="29" selection-end-line="198" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#1369#1669#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/client/rest_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="249" column="17" lean-forward="false" selection-start-line="249" selection-start-column="17" selection-end-line="249" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/src/pre_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/log/debug.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3018">
-          <caret line="160" column="50" lean-forward="true" selection-start-line="160" selection-start-column="50" selection-end-line="160" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/crawl_information.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EItools/celery.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/static/js/uploadfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/upload_file.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-524">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/crawler/crawl_information.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/crawler/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/data_path/train_data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="1670" column="1" lean-forward="false" selection-start-line="1670" selection-start-column="0" selection-end-line="1670" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/process/process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="105" column="10" lean-forward="false" selection-start-line="105" selection-start-column="10" selection-end-line="105" selection-end-column="10" />
+          <folding>
+            <element signature="e#1391#2123#0" expanded="false" />
+            <element signature="e#2170#2250#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/data_path/test_data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="1599" column="5" lean-forward="true" selection-start-line="1599" selection-start-column="5" selection-end-line="1599" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/process/process_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="240" column="12" lean-forward="true" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#731#1682#0" expanded="false" />
+            <element signature="e#6268#7633#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="239" column="25" lean-forward="false" selection-start-line="239" selection-start-column="25" selection-end-line="239" selection-end-column="25" />
+          <folding>
+            <element signature="e#14556#15948#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/process/gen_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="147" column="13" lean-forward="false" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/data/test_data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10151">
+          <caret line="272" column="1" lean-forward="false" selection-start-line="272" selection-start-column="1" selection-end-line="272" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/data/train_data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1336">
+          <caret line="170" column="4" lean-forward="false" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/data/test_data2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715523">
+          <caret line="94715" column="9" lean-forward="true" selection-start-line="94715" selection-start-column="9" selection-end-line="94715" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/data/train_data2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3457">
+          <caret line="3660" column="4" lean-forward="true" selection-start-line="3660" selection-start-column="4" selection-end-line="3660" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/data_path_save/1521112368/results/log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3284">
+          <caret line="148" column="44" lean-forward="true" selection-start-line="148" selection-start-column="44" selection-end-line="148" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/extract/interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EItools/process/out.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
           <folding />
         </state>
       </provider>

@@ -1,0 +1,11 @@
+processed 81912 tokens with 371 phrases; found: 455 phrases; correct: 88.
+accuracy:  83.05%; precision:  19.34%; recall:  23.72%; FB1:  21.31
+              AWD: precision:  13.24%; recall:  26.47%; FB1:  17.65  68
+              DOM: precision:  13.16%; recall:  15.87%; FB1:  14.39  76
+              EDU: precision:  26.76%; recall:  27.54%; FB1:  27.14  71
+              JOB: precision:   6.06%; recall:   6.06%; FB1:   6.06  33
+              PAT: precision:   0.00%; recall:   0.00%; FB1:   0.00  23
+              PRJ: precision:  10.26%; recall:  18.18%; FB1:  13.11  39
+              SOC: precision:  10.34%; recall:  42.86%; FB1:  16.67  29
+              TIT: precision:  47.27%; recall:  33.77%; FB1:  39.39  55
+              WRK: precision:  24.59%; recall:  30.61%; FB1:  27.27  61
