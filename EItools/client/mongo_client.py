@@ -84,6 +84,17 @@ class MongoDBClient(object):
                 persons.append(item)
         return persons
 
+    def get_crawled_person_by_taskId(self,id, offset=0, size=0):
+        persons = []
+        c = self.crawed_person_col.find({"taskId": ObjectId(id)})
+        if size > 0 and offset >= 0:
+            c = c.skip(offset).limit(size)
+        for item in c:
+            item['id'] = str(item['_id'])
+            if 'status' not in item or item['status'] != 0:
+                persons.append(item)
+        return persons
+
     def get_crawled_person(self,  offset=0, size=0):
         persons = []
         c = self.crawed_person_col.find()
@@ -113,6 +124,7 @@ class MongoDBClient(object):
 
     def update_person_by_id(self,id):
         self.person_col.update({"_id":ObjectId(id)},{"$set":{"status":0}})
+        self.task_col.update({"_id":ObjectId(id)},{"$inc":{"has_finished":1}})
 
 
     def is_crawled_person(self, name,org):

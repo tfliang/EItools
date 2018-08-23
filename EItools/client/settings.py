@@ -17,7 +17,7 @@ MONGO_PORT = os.environ.get('MONGO_PORT', 30019)
 MONGO_USERNAME = os.environ.get('MONGO_USERNAME', 'kegger_bigsci')
 MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD', 'datiantian123!@#')
 MONGO_DBNAME = os.environ.get('MONGO_DBNAME', 'bigsci')
-MONGO_CRAWLED_PERSON="crawled_person_final"
+MONGO_CRAWLED_PERSON="crawled_person"
 MONGO_UNCRAWLED_PERSON="person_uncrawled"
 MONGO_ALL_TASK="task"
 

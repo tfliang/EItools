@@ -26,7 +26,7 @@ from EItools.crawler import crawl_information, task
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^uploadfile/$', view.uploadFile),
-    url(r'^downloadfile/(.+)/$', task.export_data, name="download"),
+    url(r'^download/crawldata/(.+)/$', task.export_data, name="download"),
     url(r'^showtasks/$', view.showTask),
 
     url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),

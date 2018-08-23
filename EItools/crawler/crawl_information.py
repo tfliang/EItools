@@ -205,7 +205,7 @@ def start_crawl(id,offset,size):
                     #p['PRJ'] = PRJ
                     p['source'] = 'crawler'
                     p['emails_prob']=emails_prob
-                    mongo_client.db[''].save(p)
+                    mongo_client.db['crawled_person'].save(p)
                     #存入智库
 
                 #mongo_client.rm_person_by_id(p['_id'])
