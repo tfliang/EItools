@@ -20,14 +20,21 @@ class MongoDBClient(object):
         self.task_col = self.db[settings.MONGO_ALL_TASK]
 
     #task function
-    def get_all_task(self):
+    def get_all_task(self,size=0,offset=0):
         tasks_info = []
-        tasks = self.task_col.find()
+        if size > 0 and offset >= 0:
+            tasks= self.task_col.find().skip(offset).size(size)
+        else:
+            tasks = self.task_col.find()
         for item in tasks:
-            item['id']=str(item['_id'])
+            item['id'] = str(item['_id'])
             del item['_id']
             tasks_info.append(item)
         return tasks_info
+
+    def get_task_count(self):
+        return self.task_col.find().count()
+
     def get_unfinished_task(self):
         task_ids=[]
         tasks=self.task_col.find({"$or":[{"status": 1},{"status":3}]})
@@ -51,7 +58,10 @@ class MongoDBClient(object):
 
 
     def get_task_by_Id(self, id):
-        return self.task_col.find_one({"_id": ObjectId(id)})
+        try:
+            return self.task_col.find_one({"_id": ObjectId(id)})
+        except Exception as e:
+            return None
 
     # person by taskId function
     def get_person_by_taskId(self, id, offset=0, size=0):

@@ -25,13 +25,14 @@ from EItools.crawler import crawl_information, task
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^uploadfile/$', view.uploadFile2),
+    url(r'^uploadfile/$', view.uploadFile),
     url(r'^downloadfile/(.+)/$', task.export_data, name="download"),
     url(r'^showtasks/$', view.showTask),
 
     url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),
 
-    url(r'^gettask/$', task.get_all_tasks),
+    url(r'^showtasks/(.+)/(.+)/$', task.get_tasks_by_page),
+    url(r'^save/task/$',task.upload_task),
     url(r'^publishtask/$', crawl_information.do_task),
 ]
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -19,8 +19,8 @@ class ChromeCrawler:
         self.killed=False
         chrome_options=Options()
         chrome_options.add_argument('--disable-extensions')
-        #if 'debug' not in str(sys.argv):
-        #chrome_options.add_argument('--headless')
+        if 'debug' not in str(sys.argv):
+            chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--no-sandbox')
         self.options=chrome_options

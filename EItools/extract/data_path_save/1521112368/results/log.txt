@@ -577,3 +577,239 @@
 2018-07-09 03:37:56,103:INFO: Restoring parameters from ../model/data_path_save/1521112368/checkpoints/model-31680
 2018-07-09 03:37:56,103:INFO: Restoring parameters from ../model/data_path_save/1521112368/checkpoints/model-31680
 2018-07-09 03:37:56,103:INFO: Restoring parameters from ../model/data_path_save/1521112368/checkpoints/model-31680
+2018-08-22 21:18:37,589:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:25:28,203:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:26:02,005:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:28:08,757:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:28:20,368:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:28:40,240:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:29:06,862:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:31:16,177:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:31:36,382:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 10:32:31,304:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:32:32,300:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 10:32:57,891:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:33:58,902:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 10:35:46,283:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:35:46,823:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:37:14,455:ERROR: Internal Server Error: /showtasks/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 475, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/bcj/Documents/科技部/EItools/EItools/view.py", line 25, in showTask
+    return render(request,"tasks.html",{'task_list': tasks})
+  File "/usr/local/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/local/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.6/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.6/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/usr/local/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 477, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 539, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 488: 'static'. Did you forget to register or load this tag?
+2018-08-22 21:37:14,551:ERROR: "GET /showtasks/ HTTP/1.1" 500 130753
+2018-08-22 21:37:14,928:WARNING: Not Found: /favicon.ico
+2018-08-22 21:37:14,929:WARNING: "GET /favicon.ico HTTP/1.1" 404 2806
+2018-08-22 21:39:15,519:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:39:20,890:INFO: get all task
+2018-08-22 21:39:20,909:INFO: "GET /gettasks/ HTTP/1.1" 200 455
+2018-08-22 21:44:48,395:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:45:24,471:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:47:52,788:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:49:09,220:WARNING: Not Found: /gettasks/0/4
+2018-08-22 21:49:09,221:WARNING: "GET /gettasks/0/4 HTTP/1.1" 404 2825
+2018-08-22 21:49:18,210:WARNING: Not Found: /showtasks/0/4
+2018-08-22 21:49:18,210:WARNING: "GET /showtasks/0/4 HTTP/1.1" 404 2828
+2018-08-22 21:49:25,371:WARNING: Not Found: /showtasks/0/4/
+2018-08-22 21:49:25,372:WARNING: "GET /showtasks/0/4/ HTTP/1.1" 404 2831
+2018-08-22 21:51:45,426:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:51:52,056:WARNING: Not Found: /showtasks/0/4/
+2018-08-22 21:51:52,057:WARNING: "GET /showtasks/0/4/ HTTP/1.1" 404 2831
+2018-08-22 21:53:36,487:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:53:42,081:INFO: get all task
+2018-08-22 21:53:42,096:INFO: "GET /showtasks/0/4/ HTTP/1.1" 200 455
+2018-08-22 21:54:00,713:WARNING: Not Found: /struts2-rest-showcase/orders.xhtml
+2018-08-22 21:54:00,714:WARNING: "GET /struts2-rest-showcase/orders.xhtml HTTP/1.1" 404 2893
+2018-08-22 21:54:00,861:WARNING: Not Found: /index.action
+2018-08-22 21:54:00,861:WARNING: "GET /index.action HTTP/1.1" 404 2827
+2018-08-22 21:54:00,996:WARNING: Not Found: /index.do
+2018-08-22 21:54:00,997:WARNING: "GET /index.do HTTP/1.1" 404 2815
+2018-08-22 21:54:44,471:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:56:24,381:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:58:09,752:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:58:21,455:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:58:36,200:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:58:50,106:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 21:59:29,053:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:01:30,793:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:01:49,807:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:03:14,030:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:03:44,450:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:05:05,305:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:05:30,761:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:05:36,753:INFO: get all task
+2018-08-22 22:05:36,754:ERROR: Internal Server Error: /showtasks/0/4/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/bcj/Documents/科技部/EItools/EItools/crawler/task.py", line 20, in get_all_tasks
+    tasks=mongo_client.get_all_task(offset,size)
+  File "/Users/bcj/Documents/科技部/EItools/EItools/client/mongo_client.py", line 25, in get_all_task
+    if size > 0 and offset >= 0:
+TypeError: '>' not supported between instances of 'str' and 'int'
+2018-08-22 22:05:36,830:ERROR: "GET /showtasks/0/4/ HTTP/1.1" 500 66427
+2018-08-22 22:06:50,770:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:06:56,793:INFO: get all task
+2018-08-22 22:06:56,826:INFO: "GET /showtasks/0/4/ HTTP/1.1" 200 20
+2018-08-22 22:07:31,685:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:07:37,483:INFO: get all task
+2018-08-22 22:07:37,541:INFO: "GET /showtasks/0/4/ HTTP/1.1" 200 562
+2018-08-22 22:08:16,435:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:08:21,934:INFO: get all task
+2018-08-22 22:08:22,034:INFO: "GET /showtasks/0/4/ HTTP/1.1" 200 506
+2018-08-22 22:09:36,312:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:09:58,039:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:15:04,179:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:15:59,140:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:16:30,710:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:21:15,617:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:22:15,131:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:22:44,977:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:23:46,890:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:24:52,323:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:31:01,783:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:32:34,370:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:33:30,836:ERROR: Internal Server Error: /save/task/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/utils/datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'file_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/bcj/Documents/科技部/EItools/EItools/crawler/task.py", line 34, in upload_task
+    file_name=request.POST['file_name']
+  File "/usr/local/lib/python3.6/site-packages/django/utils/datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'file_name'
+2018-08-22 22:33:30,930:ERROR: "GET /save/task/ HTTP/1.1" 500 68371
+2018-08-22 22:33:39,715:ERROR: Internal Server Error: /save/task/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/utils/datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'file_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/bcj/Documents/科技部/EItools/EItools/crawler/task.py", line 34, in upload_task
+    file_name=request.POST['file_name']
+  File "/usr/local/lib/python3.6/site-packages/django/utils/datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'file_name'
+2018-08-22 22:33:39,764:ERROR: "POST /save/task/ HTTP/1.1" 500 68379
+2018-08-22 22:34:16,355:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:34:37,911:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:35:54,230:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:36:43,468:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:37:24,002:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:37:31,804:INFO: "POST /save/task/ HTTP/1.1" 200 29
+2018-08-22 22:37:50,313:INFO: "GET /save/task/ HTTP/1.1" 200 29
+2018-08-22 22:38:18,634:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:38:34,476:INFO: "POST /save/task/ HTTP/1.1" 200 29
+2018-08-22 22:40:09,460:INFO: "POST /save/task/ HTTP/1.1" 200 29
+2018-08-22 22:40:20,234:INFO: "POST /save/task/ HTTP/1.1" 200 29
+2018-08-22 22:41:44,002:INFO: "POST /save/task/ HTTP/1.1" 200 26
+2018-08-23 11:42:31,452:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:43:13,804:INFO: "POST /save/task/ HTTP/1.1" 200 26
+2018-08-22 22:44:39,626:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 11:44:53,870:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:44:58,501:INFO: get all task
+2018-08-22 22:44:58,570:INFO: "GET /showtasks/0/4/ HTTP/1.1" 200 506
+2018-08-22 22:45:04,110:INFO: "POST /save/task/ HTTP/1.1" 200 26
+2018-08-22 22:47:42,123:INFO: crawl file info start
+2018-08-22 22:47:42,187:INFO: crawl file info end
+2018-08-22 22:47:42,189:INFO: "POST /upload/crawlfile/ HTTP/1.1" 200 70
+2018-08-22 22:48:26,011:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:48:33,944:INFO: crawl file info start
+2018-08-22 22:48:33,950:INFO: crawl file info end
+2018-08-22 22:48:33,951:INFO: "POST /upload/crawlfile/ HTTP/1.1" 200 57
+2018-08-22 22:49:32,831:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:51:23,593:INFO: "GET /downloadfile/fjsfdsffds HTTP/1.1" 301 0
+2018-08-22 22:53:33,067:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:53:39,630:INFO: "GET /downloadfile/fjsfdsffds HTTP/1.1" 301 0
+2018-08-22 22:54:11,346:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:54:20,271:INFO: "GET /downloadfile/fjsfdsffds HTTP/1.1" 301 0
+2018-08-22 22:54:35,225:INFO: "GET /downloadfile/fjsfdsffds HTTP/1.1" 301 0
+2018-08-22 22:54:53,883:ERROR: Internal Server Error: /downloadfile/fjsfdsffds/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/bcj/Documents/科技部/EItools/EItools/crawler/task.py", line 51, in export_data
+    task=mongo_client.get_task_by_Id(taskid)
+  File "/Users/bcj/Documents/科技部/EItools/EItools/client/mongo_client.py", line 61, in get_task_by_Id
+    return self.task_col.find_one({"_id": ObjectId(id)})
+  File "/usr/local/lib/python3.6/site-packages/bson/objectid.py", line 110, in __init__
+    self.__validate(oid)
+  File "/usr/local/lib/python3.6/site-packages/bson/objectid.py", line 206, in __validate
+    _raise_invalid_id(oid)
+  File "/usr/local/lib/python3.6/site-packages/bson/objectid.py", line 52, in _raise_invalid_id
+    " or a 24-character hex string" % oid)
+bson.errors.InvalidId: 'fjsfdsffds' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+2018-08-22 22:54:53,950:ERROR: "GET /downloadfile/fjsfdsffds/ HTTP/1.1" 500 75403
+2018-08-22 22:56:52,009:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:56:58,074:INFO: "GET /downloadfile/fjsfdsffds/ HTTP/1.1" 200 25
+2018-08-22 22:59:21,144:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 22:59:38,717:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 23:03:10,361:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 23:05:07,508:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 23:05:54,090:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 23:06:23,623:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 23:06:53,675:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-22 23:08:06,935:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>

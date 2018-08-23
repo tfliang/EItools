@@ -1,13 +1,17 @@
 # coding:utf-8
 import json
+import os
 import sys
 
 from io import StringIO
 from django.http import HttpResponse
 
+from EItools import settings
+
 sys.path.append("..")
 from EItools.log.log import logger
 from EItools.client.mongo_client import MongoDBClient
+from EItools.crawler.crawl_information import save_task
 task_status_dict={
     "finished":0,
     "failed":1,
@@ -15,19 +19,44 @@ task_status_dict={
     "not_started":3
 }
 mongo_client=MongoDBClient()
-def get_all_tasks(request):
+def get_tasks_by_page(request,offset,size):
     logger.info("get all task")
-    tasks=mongo_client.get_all_task()
-    return HttpResponse(json.dumps(tasks), content_type="application/json")
+    tasks=mongo_client.get_all_task(int(offset),int(size))
+    result={
+        'total':mongo_client.get_task_count(),
+        'offset':offset,
+        'size':size,
+        'tasks':tasks
+    }
+    return HttpResponse(json.dumps(result), content_type="application/json")
+
+def upload_task(request):
+    if request.POST:
+        file_name=request.POST['file_name']
+        task_name=request.POST['task_name']
+        creator_id=request.POST['creator_id']
+        creator=request.POST['creator']
+        file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
+        save_task.apply_async(args=[file_path,task_name,creator,creator_id])
+        result={
+            'info':"upload success"
+        }
+    else:
+        result={
+            'info':"upload data error"
+        }
+    return HttpResponse(json.dumps(result), content_type="application/json")
 
 
 def export_data(request,taskid):
     task=mongo_client.get_task_by_Id(taskid)
     if task is not None:
+        print(123)
         persons=mongo_client.get_crawled_person_by_pid(taskid)
         logger.info(len(persons))
         return write_json(persons,task['file_name'])
     else:
+        print(456)
         return HttpResponse(json.dumps({"message":"task error"}), content_type="application/json")
 
 def write_json(data,file_name):
@@ -39,7 +68,7 @@ def write_json(data,file_name):
         response.write(json_stream)
         return response
     except Exception as e:
-        print(e)
+        return HttpResponse(json.dumps({"message": "task error"}), content_type="application/json")
 
 def get_json_stream(data):
     file= StringIO()
