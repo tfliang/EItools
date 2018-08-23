@@ -33,7 +33,7 @@ urlpatterns = [
 
     url(r'^showtasks/(.+)/(.+)/$', task.get_tasks_by_page),
     url(r'^save/task/$',task.upload_task),
-    url(r'^publishtask/$', crawl_information.do_task),
+    url(r'^publishtask/$', crawl_information.publish_task),
 ]
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

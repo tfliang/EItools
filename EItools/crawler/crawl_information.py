@@ -225,16 +225,16 @@ def publish_task():
             offset += size
 
 
-@celery_app.task
-def do_task(request):
-    offset=0
-    total = mongo_client.get_person_num_by_taskId('5b5f02a4421aa9031208072c')
-    total = int(total / 2)
-    size = int(total / 3) + 1
-    while offset < total:
-        start_crawl.apply_async(args=[str('5b5f02a4421aa9031208072c'), offset, size])
-        offset += size
-    return HttpResponse(json.dumps({"info": "upload success"}), content_type="application/json")
+# @celery_app.task
+# def do_task(request):
+#     offset=0
+#     total = mongo_client.get_person_num_by_taskId('5b5f02a4421aa9031208072c')
+#     total = int(total / 2)
+#     size = int(total / 3) + 1
+#     while offset < total:
+#         start_crawl.apply_async(args=[str('5b5f02a4421aa9031208072c'), offset, size])
+#         offset += size
+#     return HttpResponse(json.dumps({"info": "upload success"}), content_type="application/json")
 
 
 @celery_app.task
