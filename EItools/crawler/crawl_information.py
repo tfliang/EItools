@@ -19,7 +19,6 @@ from EItools.log.log import logger
 from EItools import settings
 from EItools.utils import chinese_helper
 from EItools.chrome.crawler import InfoCrawler
-from EItools.chrome import pre_process
 from EItools import celery_app
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import interface

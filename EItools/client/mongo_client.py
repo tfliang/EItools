@@ -59,7 +59,10 @@ class MongoDBClient(object):
 
     def get_task_by_Id(self, id):
         try:
-            return self.task_col.find_one({"_id": ObjectId(id)})
+            task=self.task_col.find_one({"_id": ObjectId(id)})
+            task['id']=str(task['_id'])
+            del task['_id']
+            return task
         except Exception as e:
             return None
 
@@ -91,6 +94,9 @@ class MongoDBClient(object):
             c = c.skip(offset).limit(size)
         for item in c:
             item['id'] = str(item['_id'])
+            del item['_id']
+            #item['task_id']=str(item['taskId'])
+            del item['taskId']
             if 'status' not in item or item['status'] != 0:
                 persons.append(item)
         return persons

@@ -20,7 +20,6 @@ task_status_dict={
 }
 mongo_client=MongoDBClient()
 def get_tasks_by_page(request,offset,size):
-    logger.info("get all task")
     tasks=mongo_client.get_all_task(int(offset),int(size))
     result={
         'total':mongo_client.get_task_count(),
@@ -61,12 +60,10 @@ def publish_task(request):
 def export_data(request,taskid):
     task=mongo_client.get_task_by_Id(taskid)
     if task is not None:
-        print(123)
         persons=mongo_client.get_crawled_person_by_taskId(taskid)
         logger.info(len(persons))
-        return write_json(persons,task['file_name'])
+        return write_json(persons,task['task_name'])
     else:
-        print(456)
         return HttpResponse(json.dumps({"message":"task error"}), content_type="application/json")
 
 def write_json(data,file_name):
@@ -78,6 +75,7 @@ def write_json(data,file_name):
         response.write(json_stream)
         return response
     except Exception as e:
+        logger.info(e)
         return HttpResponse(json.dumps({"message": "task error"}), content_type="application/json")
 
 def get_json_stream(data):

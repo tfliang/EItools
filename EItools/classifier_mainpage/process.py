@@ -12,7 +12,6 @@ from sklearn.externals import joblib
 from EItools.config.globalvar import CLASSIFIER_DIR
 from EItools.log.log import logger
 from EItools.extract.interface import interface
-from EItools.process.gen_data import clean_text,cut_text
 
 clf = joblib.load(CLASSIFIER_DIR + '/data/classifier.pkl')
 
@@ -225,37 +224,3 @@ def test_data():
         if 'url' in p:
             get_main_page(p['url'],p)
 
-#test_data()
-#get_main_page_simple("http://phys.hust.edu.cn/info/1099/1441.htm",{"ini":"fsdf"})
-
-# interface(clean_text(cut_text("1999年-2008年就读于中国科技大学，获理论物理博士学位；200年-2010年于中国科学院理论物理所从事博士后研究；2010年-2011年于中国科学院高能物理所从事博士后研究；2011年-2013年于意大利国家核物理研究所巴里分部(INFN, Bari)从事博士后研究；2013年就职于华中科技大学物理学院")))
-#
-# interface(clean_text("1999年-2008年就读于中国科技大学，获理论物理博士学位；200年-2010年于中国科学院理论物理所从事博士后研究；2010年-2011年于中国科学院高能物理所从事博士后研究；2011年-2013年于意大利国家核物理研究所巴里分部(INFN, Bari)从事博士后研究；2013年就职于华中科技大学物理学院"))
-
-
-person=mongo_client.get_crawled_person_by_pid('5b67f6cfa4af26471c291ddb')
-if 'info' in person and person['info'] !="":
-    print(person['info'])
-    interface(person['info'])
-    interface(cut_text(person['info']))
-
-#if __name__ == '__main__':
-    #print(get_main_page("http://sfst.ncu.edu.cn/News_View.asp?NewsID=136", person={'ini': "清华大学"}))
-    # total = mongo_client.db['search'].find().count()
-    # total=10000
-    # offset = 0
-    # size = 900
-    # p_list=[]
-    # crawl_person(0,900)
-    # while (offset < total):
-    # 	p = Process(target=crawl_person, args=(offset,size))
-    # 	p_list.append(p)
-    # 	p.start()
-    # 	offset += size
-    # for p in p_list:
-    # 	p.join()
-
-    # import json
-    # with open('out.json', 'w', encoding = 'utf-8') as f:
-    # 	f.write(json.dumps(result, indent=4, ensure_ascii=False))
-    # print('结果已保存到out.json')
