@@ -28,11 +28,12 @@ urlpatterns = [
     url(r'^uploadfile/$', view.uploadFile),
     url(r'^download/crawldata/(.+)/$', task.export_data, name="download"),
     url(r'^showtasks/$', view.showTask),
+    url(r'^view/task/(.+)/$',)
 
     url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),
 
     url(r'^showtasks/(.+)/(.+)/$', task.get_tasks_by_page),
-    url(r'^save/task/$',task.upload_task),
+    url(r'^save/task/$',task.publish_task),
     url(r'^publishtask/$', crawl_information.publish_task),
 ]
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

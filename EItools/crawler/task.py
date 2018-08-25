@@ -30,7 +30,17 @@ def get_tasks_by_page(request,offset,size):
     }
     return HttpResponse(json.dumps(result), content_type="application/json")
 
-def upload_task(request):
+def get_task_by_id(request,id):
+    task=mongo_client.get_task_by_Id(id)
+    if task is None:
+        result={
+           'info':"task not exsits"
+        }
+    else:
+        result=task
+    return HttpResponse(json.dumps(result), content_type="application/json")
+
+def publish_task(request):
     if request.POST:
         file_name=request.POST['file_name']
         task_name=request.POST['task_name']
@@ -52,7 +62,7 @@ def export_data(request,taskid):
     task=mongo_client.get_task_by_Id(taskid)
     if task is not None:
         print(123)
-        persons=mongo_client.get_crawled_person_by_pid(taskid)
+        persons=mongo_client.get_crawled_person_by_taskId(taskid)
         logger.info(len(persons))
         return write_json(persons,task['file_name'])
     else:

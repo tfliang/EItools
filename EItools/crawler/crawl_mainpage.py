@@ -74,6 +74,7 @@ def get_content(url, headers):
 	# res.encoding='utf-8'
 	content = res.content
 	return content
+
 def get_main_page(url,person):
 	try:
 		print(url)

@@ -818,3 +818,95 @@ bson.errors.InvalidId: 'fjsfdsffds' is not a valid ObjectId, it must be a 12-byt
 2018-08-23 00:13:20,927:WARNING: Not Found: /index.action
 2018-08-23 00:13:20,929:WARNING: "GET /index.action HTTP/1.1" 404 2939
 2018-08-23 14:20:20,279:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 03:17:18,631:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 03:38:32,697:INFO: get all task
+2018-08-23 03:38:32,834:INFO: "GET /showtasks/0/4/ HTTP/1.1" 200 529
+2018-08-23 03:39:31,444:INFO: get all task
+2018-08-23 03:39:31,493:INFO: "GET /showtasks/0/4/ HTTP/1.1" 200 521
+2018-08-23 04:43:38,391:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 04:46:06,807:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 04:46:28,388:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 04:46:41,946:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 04:49:05,077:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 04:49:40,506:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 04:50:03,306:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 04:50:35,652:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 04:53:39,774:WARNING: Not Found: /struts2-rest-showcase/orders.xhtml
+2018-08-23 04:53:39,776:WARNING: "GET /struts2-rest-showcase/orders.xhtml HTTP/1.1" 404 3011
+2018-08-23 04:53:39,917:WARNING: Not Found: /index.action
+2018-08-23 04:53:39,917:WARNING: "GET /index.action HTTP/1.1" 404 2945
+2018-08-23 04:53:40,049:WARNING: Not Found: /index.do
+2018-08-23 04:53:40,050:WARNING: "GET /index.do HTTP/1.1" 404 2933
+2018-08-23 04:53:56,668:WARNING: Not Found: /struts2-rest-showcase/orders.xhtml
+2018-08-23 04:53:56,669:WARNING: "GET /struts2-rest-showcase/orders.xhtml HTTP/1.1" 404 3011
+2018-08-23 04:53:56,805:WARNING: Not Found: /index.action
+2018-08-23 04:53:56,805:WARNING: "GET /index.action HTTP/1.1" 404 2945
+2018-08-23 04:53:56,928:WARNING: Not Found: /index.do
+2018-08-23 04:53:56,928:WARNING: "GET /index.do HTTP/1.1" 404 2933
+2018-08-23 06:23:39,086:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 06:26:43,414:WARNING: Not Found: /struts2-rest-showcase/orders.xhtml
+2018-08-23 06:26:43,417:WARNING: "GET /struts2-rest-showcase/orders.xhtml HTTP/1.1" 404 3011
+2018-08-23 06:26:43,541:WARNING: Not Found: /index.action
+2018-08-23 06:26:43,542:WARNING: "GET /index.action HTTP/1.1" 404 2945
+2018-08-23 06:26:43,665:WARNING: Not Found: /index.do
+2018-08-23 06:26:43,665:WARNING: "GET /index.do HTTP/1.1" 404 2933
+2018-08-23 06:36:49,667:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 06:53:41,054:WARNING: Not Found: /struts2-rest-showcase/orders.xhtml
+2018-08-23 06:53:41,059:WARNING: "GET /struts2-rest-showcase/orders.xhtml HTTP/1.1" 404 3011
+2018-08-23 06:53:41,198:WARNING: Not Found: /index.action
+2018-08-23 06:53:41,198:WARNING: "GET /index.action HTTP/1.1" 404 2945
+2018-08-23 06:53:41,325:WARNING: Not Found: /index.do
+2018-08-23 06:53:41,326:WARNING: "GET /index.do HTTP/1.1" 404 2933
+2018-08-23 22:51:04,693:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-23 23:53:13,287:WARNING: Not Found: /struts2-rest-showcase/orders.xhtml
+2018-08-23 23:53:13,290:WARNING: "GET /struts2-rest-showcase/orders.xhtml HTTP/1.1" 404 3011
+2018-08-23 23:53:13,475:WARNING: Not Found: /index.action
+2018-08-23 23:53:13,476:WARNING: "GET /index.action HTTP/1.1" 404 2945
+2018-08-23 23:53:13,656:WARNING: Not Found: /index.do
+2018-08-23 23:53:13,657:WARNING: "GET /index.do HTTP/1.1" 404 2933
+2018-08-24 00:23:42,050:WARNING: Not Found: /struts2-rest-showcase/orders.xhtml
+2018-08-24 00:23:42,051:WARNING: "GET /struts2-rest-showcase/orders.xhtml HTTP/1.1" 404 3011
+2018-08-24 00:23:42,227:WARNING: Not Found: /index.action
+2018-08-24 00:23:42,227:WARNING: "GET /index.action HTTP/1.1" 404 2945
+2018-08-24 00:23:42,404:WARNING: Not Found: /index.do
+2018-08-24 00:23:42,405:WARNING: "GET /index.do HTTP/1.1" 404 2933
+2018-08-24 00:27:40,964:WARNING: Not Found: /struts2-rest-showcase/orders.xhtml
+2018-08-24 00:27:40,965:WARNING: "GET /struts2-rest-showcase/orders.xhtml HTTP/1.1" 404 3011
+2018-08-24 00:27:41,148:WARNING: Not Found: /index.action
+2018-08-24 00:27:41,149:WARNING: "GET /index.action HTTP/1.1" 404 2945
+2018-08-24 00:27:41,312:WARNING: Not Found: /index.do
+2018-08-24 00:27:41,313:WARNING: "GET /index.do HTTP/1.1" 404 2933
+2018-08-24 00:48:37,751:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 00:49:07,407:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 00:49:18,126:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 00:52:36,885:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 00:57:18,947:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 00:58:01,747:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 00:58:37,988:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 00:58:50,904:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:03:41,594:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:07:45,175:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:09:52,153:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:10:19,297:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:10:31,808:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:11:16,181:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:14:45,675:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:17:46,972:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:18:11,797:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:18:43,620:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:19:34,838:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:28:33,361:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:34:07,553:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:37:29,197:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:46:08,890:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:50:25,458:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:51:00,754:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:57:36,468:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:59:14,223:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 01:59:24,970:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 02:01:11,889:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 02:02:11,499:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 02:04:51,051:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 02:06:05,370:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 02:09:08,865:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>
+2018-08-24 02:09:25,826:INFO: <module 'EItools.extract.args' from '/Users/bcj/Documents/科技部/EItools/EItools/extract/args.py'>

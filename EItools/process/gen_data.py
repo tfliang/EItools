@@ -139,8 +139,8 @@ train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500
                'infoExample2600-2700.txt']
 #train_data = ['info500-750.txt']
 test_data = ['infoExample2700-2800.txt', 'infoExample2800-2900.txt']
-with open(os.path.join(DATA_DIR, 'test_data2'), 'w+') as w:
-    for file_name in test_data:
+with open(os.path.join(DATA_DIR, 'train_data'), 'w+') as w:
+    for file_name in train_data:
         with open(os.path.join(DATA_DIR, file_name), 'r') as file:
             data = file.read()
         personList = data.split('*********&&&&&&&&')

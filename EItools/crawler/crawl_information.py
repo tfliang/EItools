@@ -1,6 +1,11 @@
 # coding:utf-8
 import os
 import sys
+
+from EItools.classifier_mainpage import Str2Query, Feature, process
+from EItools.crawler import crawl_mainpage
+from EItools.crawler.crawl_mainpage import clf
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import csv
 import json
@@ -40,19 +45,18 @@ def crawl_file_info(request):
 def save_task(file_path,task_name,creator,creator_id):
     mongo_client = MongoDBClient()
     task_id = ObjectId()
-    size=1000
-    k = 0
+    total = 0
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             reader = csv.reader(f)
             for i, row in enumerate(reader):#row[0] is person name row[1] is org name
-                k += 1
+                total += 1
                 person = dict()
                 person['name'] = row[0]
                 person['org'] = row[1]
                 person['taskId'] = task_id
                 mongo_client.db['uncrawled_person'].save(person)
-        logger.info("pulish task: {} total: {}".format(task_id, k))
+        logger.info("pulish task: {} total: {}".format(task_id, total))
         task = dict()
         task['_id'] = task_id
         task['task_name']=task_name
@@ -61,7 +65,7 @@ def save_task(file_path,task_name,creator,creator_id):
         task['publish_time'] = strftime("%Y-%m-%d %H:%M")
         task['file_name'] = "%s"%(file_path.split("/")[-1])
         task['status'] = task_status_dict['not_started']
-        task['total']=k
+        task['total']=total
         mongo_client.save_task(task)
     except Exception as e:
         logger.info(e)
@@ -151,15 +155,8 @@ def start_crawl(id,offset,size):
         infoCrawler = InfoCrawler()
         infoCrawler.load_crawlers()
         for i, p in enumerate(persons):
-    # persons = mongo_client.crawed_person_col.find()
-    # j = 0
-    # for i, p in enumerate(persons):
-            if 'name' not in p:
-                p = mongo_client.person_col.find({"_id": p['_id']})
-                if p is not None:
-                    j = j + 1
+            if 'name' in p:
                 person = {}
-                print(p['name'])
                 person['name'] = p['name']
                 #affs = pre_process.get_valid_aff(p['org'])
                 #person['simple_affiliation'] = ' '.join(affs)
@@ -168,43 +165,53 @@ def start_crawl(id,offset,size):
                 if success:
                     p=p1
                     p['source'] = 'aminer'
-                    mongo_client.save_crawled_person(p1)
+                    #mongo_client.save_crawled_person(p1)
                 else:
-                    info, url = infoCrawler.get_info(person)
-                    emails_prob=infoCrawler.get_emails(person)
-                    citation,h_index=infoCrawler.get_scholar_info(person)
+                    result = process.Get(p['ini'])
+                    #mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
+                    p['result']=result
+                    result_sorted = sorted(result['res'], key=lambda s: s['label'], reverse=True)
+                    if len(result_sorted) > 0:
+                        p['url'] = result_sorted[0]['url']
+                        p['source'] = 'crawler'
+                        p['info'] = crawl_mainpage.get_main_page(p['url'], p)
+
+                    #info, url = infoCrawler.get_info(person)
+                    #emails_prob=infoCrawler.get_emails(person)
+                    #citation,h_index=infoCrawler.get_scholar_info(person)
                     #if affs is not None:
                         #p['s_aff'] = affs
-                    p['url'] = url
-                    p['info'] = info
-                    p['citation']=citation
-                    p['h_index']=h_index
+                    #p['url'] = url
+                    #p['info'] = info
+                    # p['citation']=citation
+                    # p['h_index']=h_index
                     #p = extract_information.extract(info, p)
-                    #result=interface(info)
-                    #PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ=result if result is not None else (None,None,None,None,None,None,None,None,None,None,None,None)
-                    # p['aff']=AFF
-                    # p['title']=TIT
-                    # p['job']=JOB
-                    # p['achieve']=DOM
-                    # p['awards']=AWD
-                    # p['exp']=WRK
-                    # p['patents']=PAT
-                    # p['projects']=PRJ
-                    # p['academic_org_exp']=SOC
-                    #p['PER'] = PER
-                    #p['ADR'] = ADR
-                    #p['AFF'] = AFF
-                    #p['TIT'] = TIT
-                    #p['JOB'] = JOB
-                    #p['DOM'] = DOM
-                    #p['EDU'] = EDU
-                    #p['WRK'] = WRK
-                    #p['SOC'] = SOC
-                    #p['AWD'] = AWD
-                    #p['PAT'] = PAT
-                    #p['PRJ'] = PRJ
+                    if 'info' in p:
+                        result=interface(p['info'])
+                        PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ=result if result is not None else (None,None,None,None,None,None,None,None,None,None,None,None)
+                        #p['aff']=AFF
+                        #p['title']=TIT
+                        #p['job']=JOB
+                        #p['achieve']=DOM
+                        #p['awards']=AWD
+                        #p['exp']=WRK
+                        #p['patents']=PAT
+                        #p['projects']=PRJ
+                        #p['academic_org_exp']=SOC
+                        p['PER'] = PER
+                        p['ADR'] = ADR
+                        p['AFF'] = AFF
+                        p['TIT'] = TIT
+                        p['JOB'] = JOB
+                        p['DOM'] = DOM
+                        p['EDU'] = EDU
+                        p['WRK'] = WRK
+                        p['SOC'] = SOC
+                        p['AWD'] = AWD
+                        p['PAT'] = PAT
+                        p['PRJ'] = PRJ
                     p['source'] = 'crawler'
-                    p['emails_prob']=emails_prob
+                    #p['emails_prob']=emails_prob
                     mongo_client.db['crawled_person'].save(p)
                     #存入智库
 
@@ -218,23 +225,11 @@ def start_crawl(id,offset,size):
 def publish_task():
     for id in mongo_client.get_unfinished_task():
         total = mongo_client.get_person_num_by_taskId(id)
-        offset = int(total / 2) + 1
-        size=5000
+        offset = 0
+        size=500
         while offset < total:
             start_crawl.apply_async(args=[str(id), offset,size])
             offset += size
-
-
-# @celery_app.task
-# def do_task(request):
-#     offset=0
-#     total = mongo_client.get_person_num_by_taskId('5b5f02a4421aa9031208072c')
-#     total = int(total / 2)
-#     size = int(total / 3) + 1
-#     while offset < total:
-#         start_crawl.apply_async(args=[str('5b5f02a4421aa9031208072c'), offset, size])
-#         offset += size
-#     return HttpResponse(json.dumps({"info": "upload success"}), content_type="application/json")
 
 
 @celery_app.task

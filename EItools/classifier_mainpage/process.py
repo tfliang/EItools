@@ -196,7 +196,6 @@ def crawl_person(offset, size):
     persons = mongo_client.db['search3'].find().skip(offset).limit(size)
     for i, p in enumerate(persons):
         mongo_client.db['search'].save(p)
-        print(i)
         if i >= 0 and i < size:
             if 'status' not in p or p['status'] != 0:
                 print("{}-{}".format(i, p['_id']))
@@ -204,7 +203,7 @@ def crawl_person(offset, size):
                 # org = p['org']
                 # str = '{},{}'.format(name, org)
                 query = Str2Query.get_query(p['ini'])
-                # result = get_res(p['res'])
+                result = get_res(p['res'])
                 result = p['res']
                 result_with_label = []
                 for i, th in enumerate(result):

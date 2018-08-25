@@ -168,7 +168,7 @@ class BiLSTM_CRF(object):
         saver = tf.train.Saver(tf.global_variables())
 
         with tf.Session(config=self.config) as sess:
-            # saver.restore(sess, self.restore_path)
+            #saver.restore(sess, self.restore_path)
             sess.run(self.init_op)
             self.add_summary(sess)
 
