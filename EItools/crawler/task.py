@@ -52,7 +52,7 @@ def publish_task(request):
         save_task.apply_async(args=[str(task_id),file_path,task_name,creator,creator_id])
         result={
             'info':"upload success",
-            'task_id':task_id
+            'task_id':str(task_id)
         }
     else:
         result={
