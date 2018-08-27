@@ -52,7 +52,7 @@ def save_task(task_id,file_path,task_name,creator,creator_id):
                 person = dict()
                 person['name'] = row[0]
                 person['org'] = row[1]
-                person['taskId'] = task_id
+                person['task_id'] = task_id
                 mongo_client.db['uncrawled_person'].save(person)
         logger.info("pulish task: {} total: {}".format(task_id, total))
         task = dict()
@@ -232,7 +232,7 @@ def crawl_person_info(persons):
                 p['source'] = 'crawler'
                 p['emails_prob'] = emails_prob
                 persons_info.append(p)
-                mongo_client.db['crawled_person'].save(p)
+                mongo_client.crawed_person_col.save(p)
                 # 存入智库
 
             # mongo_client.rm_person_by_id(p['_id'])

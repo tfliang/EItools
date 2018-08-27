@@ -60,8 +60,8 @@ def publish_task(request):
                     person = dict()
                     person['name'] = row[0]
                     person['org'] = row[1]
-                    person['taskId'] = task_id
-                    mongo_client.db['uncrawled_person'].save(person)
+                    person['task_id'] = task_id
+                    mongo_client.person_col.save(person)
             logger.info("pulish task: {} total: {}".format(task_id, total))
             task = dict()
             task['_id'] = task_id
