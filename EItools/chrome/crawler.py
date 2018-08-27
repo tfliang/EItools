@@ -65,6 +65,7 @@ class InfoCrawler:
             citation=lines[3]
             h_index=lines[6]
         return citation,h_index
+
     def get_snippets(self,crawler,person,aff=True):
         template='email'
         if aff:

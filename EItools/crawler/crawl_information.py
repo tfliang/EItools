@@ -2,9 +2,7 @@
 import os
 import sys
 
-from EItools.classifier_mainpage import Str2Query, Feature, process
-from EItools.crawler import crawl_mainpage
-from EItools.crawler.crawl_mainpage import clf
+from EItools.crawler import crawl_mainpage, process
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import csv
@@ -22,12 +20,15 @@ from EItools.chrome.crawler import InfoCrawler
 from EItools import celery_app
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import interface
+
 task_status_dict={
     "finished":0,
     "failed":1,
     "doing":2,
     "not_started":3
 }
+mongo_client = MongoDBClient()
+
 def crawl_file_info(request):
     logger.info("crawl file info start")
     csv_file = request.FILES['file']
@@ -42,7 +43,6 @@ def crawl_file_info(request):
 
 @celery_app.task
 def save_task(file_path,task_name,creator,creator_id):
-    mongo_client = MongoDBClient()
     task_id = ObjectId()
     total = 0
     try:
@@ -141,84 +141,106 @@ def get_resp_result(resp):
         logger.error("request %s error: %s", resp.url, resp.text)
     return False, None
 
-
-mongo_client = MongoDBClient()
-
-
 @celery_app.task
 def start_crawl(id,offset,size):
     logger.info("task begin id:{} offset:{} size:{} ".format(id, offset, size))
     persons = mongo_client.get_uncrawled_person_by_taskId(id, offset, size)
     logger.info("this task has {} person".format(len(persons)))
     if len(persons) > 0:
-        infoCrawler = InfoCrawler()
-        infoCrawler.load_crawlers()
-        for i, p in enumerate(persons):
-            if 'name' in p:
-                person = {}
-                person['name'] = p['name']
-                #affs = pre_process.get_valid_aff(p['org'])
-                #person['simple_affiliation'] = ' '.join(affs)
-                person['simple_affiliation'] = p['org']
-                success,p1=get_data_from_aminer(person)
-                if success:
-                    p=p1
-                    p['source'] = 'aminer'
-                    #mongo_client.save_crawled_person(p1)
-                else:
-                    result = process.Get(p['ini'])
-                    #mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
-                    p['result']=result
-                    result_sorted = sorted(result['res'], key=lambda s: s['label'], reverse=True)
-                    if len(result_sorted) > 0:
-                        p['url'] = result_sorted[0]['url']
-                        p['source'] = 'crawler'
-                        p['info'] = crawl_mainpage.get_main_page(p['url'], p)
-
-                    #info, url = infoCrawler.get_info(person)
-                    #emails_prob=infoCrawler.get_emails(person)
-                    #citation,h_index=infoCrawler.get_scholar_info(person)
-                    #if affs is not None:
-                        #p['s_aff'] = affs
-                    #p['url'] = url
-                    #p['info'] = info
-                    # p['citation']=citation
-                    # p['h_index']=h_index
-                    #p = extract_information.extract(info, p)
-                    if 'info' in p:
-                        result=interface(p['info'])
-                        PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ=result if result is not None else (None,None,None,None,None,None,None,None,None,None,None,None)
-                        #p['aff']=AFF
-                        #p['title']=TIT
-                        #p['job']=JOB
-                        #p['achieve']=DOM
-                        #p['awards']=AWD
-                        #p['exp']=WRK
-                        #p['patents']=PAT
-                        #p['projects']=PRJ
-                        #p['academic_org_exp']=SOC
-                        p['PER'] = PER
-                        p['ADR'] = ADR
-                        p['AFF'] = AFF
-                        p['TIT'] = TIT
-                        p['JOB'] = JOB
-                        p['DOM'] = DOM
-                        p['EDU'] = EDU
-                        p['WRK'] = WRK
-                        p['SOC'] = SOC
-                        p['AWD'] = AWD
-                        p['PAT'] = PAT
-                        p['PRJ'] = PRJ
-                    p['source'] = 'crawler'
-                    #p['emails_prob']=emails_prob
-                    mongo_client.db['crawled_person'].save(p)
-                    #存入智库
-
-                #mongo_client.rm_person_by_id(p['_id'])
-                mongo_client.update_person_by_id(str(p['_id']))
-        infoCrawler.shutdown_crawlers()
+        crawl_person_info(persons)
     logger.info("task exit" + id)
 
+def crawl_person_by_id(request):
+    name=request.GET.get('name','')
+    org=request.GET.get('org','')
+    persons=[]
+    persons_info={}
+    if name !="" and org !="":
+        person={
+            'name':name,
+            'org':org
+        }
+        persons.append(person)
+        persons_info=crawl_person_info(persons)
+    return HttpResponse(json.dumps({"info": persons_info}), content_type="application/json")
+
+def get_crawled_persons_by_taskId(request):
+    crawled_persons=mongo_client.get_crawled_person_by_taskId(id)
+    return HttpResponse(json.dumps({"info": crawled_persons}), content_type="application/json")
+
+
+def crawl_person_info(persons):
+    infoCrawler = InfoCrawler()
+    infoCrawler.load_crawlers()
+    persons_info=[]
+    for i, p in enumerate(persons):
+        if 'name' in p:
+            person = {}
+            person['name'] = p['name']
+            # affs = pre_process.get_valid_aff(p['org'])
+            # person['simple_affiliation'] = ' '.join(affs)
+            person['simple_affiliation'] = p['org']
+            success, p1 = get_data_from_aminer(person)
+            if success:
+                p = p1
+                p['source'] = 'aminer'
+                # mongo_client.save_crawled_person(p1)
+            else:
+                result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))
+                # mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
+                p['result'] = result
+                result_sorted = sorted(result['res'], key=lambda s: s['label'], reverse=True)
+                if len(result_sorted) > 0:
+                    p['url'] = result_sorted[0]['url']
+                    p['source'] = 'crawler'
+                    p['info'] = crawl_mainpage.get_mainpage_by_algo(p['url'])
+
+                # info, url = infoCrawler.get_info(person)
+                emails_prob = infoCrawler.get_emails(person)
+                citation, h_index = infoCrawler.get_scholar_info(person)
+                # if affs is not None:
+                # p['s_aff'] = affs
+                # p['url'] = url
+                # p['info'] = info
+                p['citation'] = citation
+                p['h_index'] = h_index
+                # p = extract_information.extract(info, p)
+                if 'info' in p:
+                    result = interface(p['info'])
+                    PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ = result if result is not None else (
+                    None, None, None, None, None, None, None, None, None, None, None, None)
+                    # p['aff']=AFF
+                    # p['title']=TIT
+                    # p['job']=JOB
+                    # p['achieve']=DOM
+                    # p['awards']=AWD
+                    # p['exp']=WRK
+                    # p['patents']=PAT
+                    # p['projects']=PRJ
+                    # p['academic_org_exp']=SOC
+                    #p['PER'] = PER
+                    #p['ADR'] = ADR
+                    p['AFF'] = AFF
+                    p['TIT'] = TIT
+                    p['JOB'] = JOB
+                    p['DOM'] = DOM
+                    p['EDU'] = EDU
+                    p['WRK'] = WRK
+                    p['SOC'] = SOC
+                    p['AWD'] = AWD
+                    p['PAT'] = PAT
+                    p['PRJ'] = PRJ
+                p['source'] = 'crawler'
+                p['emails_prob'] = emails_prob
+                persons_info.append(p)
+                mongo_client.db['crawled_person'].save(p)
+                # 存入智库
+
+            # mongo_client.rm_person_by_id(p['_id'])
+            mongo_client.update_person_by_id(str(p['_id']))
+            del p['_id']
+    infoCrawler.shutdown_crawlers()
+    return persons_info
 
 @celery_app.task
 def publish_task():

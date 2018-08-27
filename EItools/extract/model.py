@@ -312,12 +312,12 @@ class BiLSTM_CRF(object):
         # print('seqs: ', type(seqs), len(seqs))
         
         feed_dict, seq_len_list = self.get_feed_dict(seqs, dropout=1.0)
-        print('seq_len_list: ', seq_len_list)
+        #print('seq_len_list: ', seq_len_list)
         if self.CRF:
             logits, transition_params = sess.run([self.logits, self.transition_params],
                                                  feed_dict=feed_dict)
-            print('logits: ', type(logits), len(logits))
-            print('transition_params: ', type(transition_params), len(transition_params))
+            #print('logits: ', type(logits), len(logits))
+            #print('transition_params: ', type(transition_params), len(transition_params))
             label_list = []
             for logit, seq_len in zip(logits, seq_len_list):
                 # print('logit: ', type(logit), len(logit), 'seq_len: ', seq_len)

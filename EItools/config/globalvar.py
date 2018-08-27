@@ -10,7 +10,7 @@ def mkdir(dirpath):
 DIR_SRC=dirname(__file__)
 DIR_PRJ=dirname(DIR_SRC)
 
-DIR_MOD=join(DIR_PRJ,'classifier')
+DIR_MOD=join(DIR_PRJ,'classifier_email')
 DIR_CONFIG=join(DIR_PRJ,'config')
 DIR_CACHE=join(DIR_PRJ,'cache')
 FILE_SVM_MOD=join(DIR_MOD,'svm-model.pkl')

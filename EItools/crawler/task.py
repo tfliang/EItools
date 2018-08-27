@@ -40,11 +40,11 @@ def get_task_by_id(request,id):
     return HttpResponse(json.dumps(result), content_type="application/json")
 
 def publish_task(request):
-    if request.POST:
-        file_name=request.POST['file_name']
-        task_name=request.POST['task_name']
-        creator_id=request.POST['creator_id']
-        creator=request.POST['creator']
+    if request.method=='POST':
+        file_name=request.POST.get('file_name',"")
+        task_name=request.POST.get('task_name',"")
+        creator_id=request.POST.get('creator_id',"")
+        creator=request.POST.get('creator',"")
         file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
         save_task.apply_async(args=[file_path,task_name,creator,creator_id])
         result={

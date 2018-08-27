@@ -20,7 +20,7 @@ class MongoDBClient(object):
         self.task_col = self.db[settings.MONGO_ALL_TASK]
 
     #task function
-    def get_all_task(self,size=0,offset=0):
+    def get_all_task(self,offset=0,size=0):
         tasks_info = []
         if size > 0 and offset >= 0:
             tasks= self.task_col.find().skip(offset).limit(size)
@@ -94,12 +94,12 @@ class MongoDBClient(object):
             c = c.skip(offset).limit(size)
         for item in c:
             item['id'] = str(item['_id'])
-            del item['_id']
-            #item['task_id']=str(item['taskId'])
-            del item['taskId']
             if 'status' not in item or item['status'] != 0:
                 persons.append(item)
         return persons
+
+    def get_crawled_person_num_by_taskId(self, id):
+        return self.crawed_person_col.find({"$and": [{"taskId": ObjectId(id)}]}).count()
 
     def get_crawled_person(self,  offset=0, size=0):
         persons = []
@@ -108,7 +108,7 @@ class MongoDBClient(object):
             c = c.skip(offset).limit(size)
         for item in c:
             item['id'] = str(item['_id'])
-            persons.append(item['_id'])
+            persons.append(item['id'])
         return persons
 
     def get_person_num_by_taskId(self, id):

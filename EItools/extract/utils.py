@@ -37,8 +37,6 @@ def get_name_entitry(name, tag_seq, char_seq):
     lst = []
     item = ''
     for i, (char, tag) in enumerate(zip(char_seq, tag_seq)):
-        print(char)
-        print(tag)
         if tag == 'B-'+name:
             if len(item) > 0:
                 lst.append(item)
