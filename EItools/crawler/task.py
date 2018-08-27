@@ -49,7 +49,7 @@ def publish_task(request):
         creator=request.POST.get('creator',"")
         task_id=ObjectId()
         file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
-        save_task.apply_async(args=[task_id,file_path,task_name,creator,creator_id])
+        save_task.apply_async(args=[str(task_id),file_path,task_name,creator,creator_id])
         result={
             'info':"upload success",
             'task_id':task_id
