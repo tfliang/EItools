@@ -244,6 +244,7 @@ def crawl_person_info(persons):
 @celery_app.task
 def publish_task():
     for id in mongo_client.get_unfinished_task():
+        logger.info("not finished task {}".format(id))
         total = mongo_client.get_person_num_by_taskId(id)
         offset = 0
         size=500
