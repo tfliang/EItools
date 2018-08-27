@@ -6,5 +6,7 @@ EItools/extract/data_path_save/1521112368/results/log.txt
 .idea/
 
 EItools/log/debug.*
+EItools/crawler/celerybeat*
+
 
 media/file/

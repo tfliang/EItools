@@ -24,11 +24,11 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 app.conf.beat_schedule={
     'publish_task':{
-        'task':'EItools.crawl_information.publish_task',
+        'task':'EItools.crawler.crawl_information.publish_task',
         'schedule':timedelta(seconds=20),
     },
     'clean_task':{
-        'task':'EItools.crawl_information.clean_task',
+        'task':'EItools.crawler.crawl_information.clean_task',
         'schedule':timedelta(days=1),
         'args':()
     },

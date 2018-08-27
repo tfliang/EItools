@@ -1,10 +1,8 @@
 # coding:utf-8
 import os
 import sys
-
-from EItools.crawler import crawl_mainpage, process
-
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from EItools.crawler import crawl_mainpage, process
 import csv
 import json
 import os
@@ -44,6 +42,7 @@ def crawl_file_info(request):
 @celery_app.task
 def save_task(task_id,file_path,task_name,creator,creator_id):
     task_id = ObjectId(str(task_id))
+    print(file_path)
     total = 0
     try:
         with open(file_path, 'r', encoding='utf-8') as f:

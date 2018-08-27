@@ -1,9 +1,11 @@
 # coding:utf-8
+import csv
 import json
 import os
 import sys
 
 from io import StringIO
+from time import strftime
 
 from bson import ObjectId
 from django.http import HttpResponse
@@ -49,15 +51,38 @@ def publish_task(request):
         creator=request.POST.get('creator',"")
         task_id=ObjectId()
         file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
-        save_task.apply_async(args=[str(task_id),file_path,task_name,creator,creator_id])
-        result={
-            'info':"upload success",
-            'task_id':str(task_id)
-        }
-    else:
-        result={
-            'info':"upload data error"
-        }
+        total = 0
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                reader = csv.reader(f)
+                for i, row in enumerate(reader):  # row[0] is person name row[1] is org name
+                    total += 1
+                    person = dict()
+                    person['name'] = row[0]
+                    person['org'] = row[1]
+                    person['taskId'] = task_id
+                    mongo_client.db['uncrawled_person'].save(person)
+            logger.info("pulish task: {} total: {}".format(task_id, total))
+            task = dict()
+            task['_id'] = task_id
+            task['task_name'] = task_name
+            task['creator'] = creator
+            task['creator_id'] = creator_id
+            task['publish_time'] = strftime("%Y-%m-%d %H:%M")
+            task['file_name'] = "%s" % (file_path.split("/")[-1])
+            task['status'] = task_status_dict['not_started']
+            task['total'] = total
+            mongo_client.save_task(task)
+            result = {
+                'info': "upload success",
+                'task_id': str(task_id)
+            }
+        except Exception as e:
+            logger.info(e)
+            result = {
+                'info': "upload data error"
+            }
+
     return HttpResponse(json.dumps(result), content_type="application/json")
 
 
