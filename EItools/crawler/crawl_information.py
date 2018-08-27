@@ -42,8 +42,8 @@ def crawl_file_info(request):
 
 
 @celery_app.task
-def save_task(file_path,task_name,creator,creator_id):
-    task_id = ObjectId()
+def save_task(task_id,file_path,task_name,creator,creator_id):
+    task_id = ObjectId(str(task_id))
     total = 0
     try:
         with open(file_path, 'r', encoding='utf-8') as f:

@@ -4,6 +4,8 @@ import os
 import sys
 
 from io import StringIO
+
+from bson import ObjectId
 from django.http import HttpResponse
 
 from EItools import settings
@@ -45,10 +47,12 @@ def publish_task(request):
         task_name=request.POST.get('task_name',"")
         creator_id=request.POST.get('creator_id',"")
         creator=request.POST.get('creator',"")
+        task_id=ObjectId()
         file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
-        save_task.apply_async(args=[file_path,task_name,creator,creator_id])
+        save_task.apply_async(args=[task_id,file_path,task_name,creator,creator_id])
         result={
-            'info':"upload success"
+            'info':"upload success",
+            'task_id':task_id
         }
     else:
         result={
