@@ -126,9 +126,9 @@ def extract_one(text):
         AWD = get_name_entitry('AWD', tag, demo_sent)
         PAT = get_name_entitry('PAT', tag, demo_sent)
         PRJ = get_name_entitry('PRJ', tag, demo_sent)
-        AFF = get_name_entitry('AFF', tag, demo_sent)
+        #AFF = get_name_entitry('AFF', tag, demo_sent)
     sess.close()
-    return TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ ,AFF
+    return TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ
 
 def extract_one_3(text):
     text = clean_text(text).strip()
