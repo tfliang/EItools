@@ -249,7 +249,7 @@ def crawl_person_info(persons):
                     p['title'] = ''.join(TIT) if TIT is not None else ""
                     p['position'] = ''.join(JOB) if JOB is not None else ""
                     p['domain'] = ''.join(DOM) if DOM is not None else ""
-                    p['EDU'] = EDU
+                    p['edu'] = ''.join(EDU) if EDU is not None else ""
                     p['exp'] = ''.join(WRK) if WRK is not None else ""
                     p['academic_org_exp'] = ' '.join(SOC) if SOC is not None else ""
                     p['awards'] = ''.join(AWD) if AWD is not None else ""
