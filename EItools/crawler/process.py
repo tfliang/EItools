@@ -36,7 +36,8 @@ def get_res(query):
                     else:
                         th[k] = i[k]
                 th['source'] = 'google'
-                th['label'] = clf.predict_proba([Feature.get_feature(query, th)])[0][1]
+                th['label'] = int(clf.predict([Feature.get_feature(query, th)])[0])
+                th['score']=clf.predict_proba([Feature.get_feature(query, th)])[0][1]
                 res.append(th)
             except Exception as e:
                 print(e)
@@ -48,7 +49,8 @@ def get_res(query):
                 th = i
                 th['source'] = 'baidu'
                 th['url'] = i['url']
-                th['label'] = clf.predict_proba([Feature.get_feature(query, th)])[0][1]
+                th['label'] = int(clf.predict([Feature.get_feature(query, th)])[0])
+                th['score']=clf.predict_proba([Feature.get_feature(query, th)])[0][1]
                 res.append(th)
             except Exception as e:
                 print(e)

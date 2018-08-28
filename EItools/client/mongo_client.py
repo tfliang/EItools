@@ -39,7 +39,7 @@ class MongoDBClient(object):
         task_ids=[]
         tasks=self.task_col.find({"$or":[{"status": 1},{"status":3}]})
         for item in tasks:
-            task_ids.append(item["_id"])
+            task_ids.append(str(item["_id"]))
             self.update_task(2,str(item['_id']))
         return task_ids
 
@@ -69,7 +69,7 @@ class MongoDBClient(object):
     # person by taskId function
     def get_person_by_taskId(self, id, offset=0, size=0):
         persons = []
-        for item in (self.person_col.find({"taskId": ObjectId(id)})):
+        for item in (self.person_col.find({"task_id": ObjectId(id)})):
             persons.append(item)
         if size > 0 and offset >= 0:
             return persons[offset:offset + size]
@@ -78,7 +78,7 @@ class MongoDBClient(object):
 
     def get_uncrawled_person_by_taskId(self, id, offset=0, size=0):
         persons = []
-        c=self.person_col.find({"taskId": ObjectId(id)})
+        c=self.person_col.find({"task_id": ObjectId(id)})
         if size > 0 and offset >= 0:
             c=c.skip(offset).limit(size)
         for item in c:
@@ -89,17 +89,18 @@ class MongoDBClient(object):
 
     def get_crawled_person_by_taskId(self,id, offset=0, size=0):
         persons = []
-        c = self.crawed_person_col.find({"taskId": ObjectId(id)})
+        c = self.crawed_person_col.find({"task_id": ObjectId(id)})
         if size > 0 and offset >= 0:
             c = c.skip(offset).limit(size)
         for item in c:
             item['id'] = str(item['_id'])
-            if 'status' not in item or item['status'] != 0:
-                persons.append(item)
+            del item['_id']
+            del item['task_id']
+            persons.append(item)
         return persons
 
     def get_crawled_person_num_by_taskId(self, id):
-        return self.crawed_person_col.find({"$and": [{"taskId": ObjectId(id)}]}).count()
+        return self.crawed_person_col.find({"$and": [{"task_id": ObjectId(id)}]}).count()
 
     def get_crawled_person(self,  offset=0, size=0):
         persons = []
@@ -112,7 +113,7 @@ class MongoDBClient(object):
         return persons
 
     def get_person_num_by_taskId(self, id):
-        return self.person_col.find({"$and": [{"taskId": ObjectId(id)}]}).count()
+        return self.person_col.find({"$and": [{"task_id": ObjectId(id)},{"status":{'$ne':0}}]}).count()
 
 
     #person function

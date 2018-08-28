@@ -28,7 +28,7 @@ tag = {
 tag2label = {"O": 'O',
              # "B-PER": 'A', "I-PER": 'a',
              # "B-ADR": 'B', "I-ADR": 'b',
-             "B-AFF": 'C', "I-AFF": 'c',
+            "B-AFF": 'C', "I-AFF": 'c',
              "B-TIT": 'D', "I-TIT": 'd',
              "B-JOB": 'E', "I-JOB": 'e',
              "B-DOM": 'F', "I-DOM": 'f',
@@ -139,8 +139,8 @@ train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500
                'infoExample2600-2700.txt']
 #train_data = ['info500-750.txt']
 test_data = ['infoExample2700-2800.txt', 'infoExample2800-2900.txt']
-with open(os.path.join(DATA_DIR, 'train_data'), 'w+') as w:
-    for file_name in train_data:
+with open(os.path.join(DATA_DIR, 'test_data'), 'w+') as w:
+    for file_name in test_data:
         with open(os.path.join(DATA_DIR, file_name), 'r') as file:
             data = file.read()
         personList = data.split('*********&&&&&&&&')

@@ -18,6 +18,7 @@ from EItools.chrome.crawler import InfoCrawler
 from EItools import celery_app
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import interface
+from EItools.extract import util
 
 task_status_dict={
     "finished":0,
@@ -141,12 +142,16 @@ def get_resp_result(resp):
     return False, None
 
 @celery_app.task
-def start_crawl(id,offset,size):
-    logger.info("task begin id:{} offset:{} size:{} ".format(id, offset, size))
-    persons = mongo_client.get_uncrawled_person_by_taskId(id, offset, size)
+def start_crawl(id):
+    persons = mongo_client.get_uncrawled_person_by_taskId(id)
     logger.info("this task has {} person".format(len(persons)))
     if len(persons) > 0:
+        # try:
         crawl_person_info(persons)
+        mongo_client.update_task(task_status_dict['finished'], id)
+        # except Exception as e:
+        #     logger.error("crawl info task exception: %s",e)
+        #     mongo_client.update_task(task_status_dict['failed'], id)
     logger.info("task exit" + id)
 
 def crawl_person_by_id(request):
@@ -163,9 +168,16 @@ def crawl_person_by_id(request):
         persons_info=crawl_person_info(persons)
     return HttpResponse(json.dumps({"info": persons_info}), content_type="application/json")
 
-def get_crawled_persons_by_taskId(request):
+def get_crawled_persons_by_taskId(request,id):
     crawled_persons=mongo_client.get_crawled_person_by_taskId(id)
-    return HttpResponse(json.dumps({"info": crawled_persons}), content_type="application/json")
+    crawled_persons_final=[]
+    for person in crawled_persons:
+        del person['result']
+        if 'email' in person and person['email']==[] and len(person['emails_prob'])>0:
+            person['email']=person['emails_prob'][0][0]
+
+        crawled_persons_final.append(person)
+    return HttpResponse(json.dumps({"info": crawled_persons_final}), content_type="application/json")
 
 
 def crawl_person_info(persons):
@@ -188,15 +200,16 @@ def crawl_person_info(persons):
                 result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))
                 # mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
                 p['result'] = result
-                result_sorted = sorted(result['res'], key=lambda s: s['label'], reverse=True)
-                if len(result_sorted) > 0:
+                #positive_result=[ r for r in result['res'] if r['label']==1.0]
+                result_sorted = sorted(result['res'], key=lambda s: s['score'], reverse=True)
+                if len(result_sorted) > 0 :
                     p['url'] = result_sorted[0]['url']
                     p['source'] = 'crawler'
-                    p['info'] = crawl_mainpage.get_mainpage_by_algo(p['url'])
+                    p['info'] = crawl_mainpage.get_main_page(p['url'],person)
 
                 # info, url = infoCrawler.get_info(person)
                 emails_prob = infoCrawler.get_emails(person)
-                citation, h_index = infoCrawler.get_scholar_info(person)
+                citation, h_index ,citation_in_recent_five_year = infoCrawler.get_scholar_info(person)
                 # if affs is not None:
                 # p['s_aff'] = affs
                 # p['url'] = url
@@ -219,16 +232,29 @@ def crawl_person_info(persons):
                     # p['academic_org_exp']=SOC
                     #p['PER'] = PER
                     #p['ADR'] = ADR
-                    p['AFF'] = AFF
-                    p['TIT'] = TIT
-                    p['JOB'] = JOB
-                    p['DOM'] = DOM
+                    # p['AFF'] = AFF
+                    # p['TIT'] = TIT
+                    # p['JOB'] = JOB
+                    # p['DOM'] = DOM
+                    # p['EDU'] = EDU
+                    # p['WRK'] = WRK
+                    # p['SOC'] = SOC
+                    # p['AWD'] = AWD
+                    # p['PAT'] = PAT
+                    # p['PRJ'] = PRJ
+                    p['aff']={}
+                    p['aff']['inst'] = ' '.join(AFF) if AFF is not None else ""
+                    p['title'] = ''.join(TIT) if TIT is not None else ""
+                    p['position'] = ''.join(JOB) if JOB is not None else ""
+                    p['domain'] = ''.join(DOM) if DOM is not None else ""
                     p['EDU'] = EDU
-                    p['WRK'] = WRK
-                    p['SOC'] = SOC
-                    p['AWD'] = AWD
-                    p['PAT'] = PAT
-                    p['PRJ'] = PRJ
+                    p['exp'] = ''.join(WRK) if WRK is not None else ""
+                    p['academic_org_exp'] = ' '.join(SOC) if SOC is not None else ""
+                    p['awards'] = ''.join(AWD) if AWD is not None else ""
+                    p['patents'] = ''.join(PAT) if PAT is not None else ""
+                    p['projects'] = ''.join(PRJ) if PRJ is not None else ""
+                    p['gender']=util.find_gender(p['info'])
+                    p['email']=util.find_email(p['info'])
                 p['source'] = 'crawler'
                 p['emails_prob'] = emails_prob
                 persons_info.append(p)
@@ -246,11 +272,10 @@ def publish_task():
     for id in mongo_client.get_unfinished_task():
         logger.info("not finished task {}".format(id))
         total = mongo_client.get_person_num_by_taskId(id)
-        offset = 0
-        size=500
-        while offset < total:
-            start_crawl.apply_async(args=[str(id), offset,size])
-            offset += size
+        logger.info("total:{}".format(total))
+        if total>0:
+            start_crawl.apply_async(args=[str(id)])
+
 
 
 @celery_app.task

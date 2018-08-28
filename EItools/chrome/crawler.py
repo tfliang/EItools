@@ -58,13 +58,14 @@ class InfoCrawler:
             template=chinese_helper.translate(person['name'],fromLang="zh",toLang="en")
         crawler=self.crawlers[crawler_key]
         snippets=crawler.download_parse(template)
-        citation,h_index=0,0
+        citation,h_index, citation_in_recent_five_year=0,0,0
         if len(snippets)>0:
             content=crawler.get_scholar_citation("https://scholar.google.com/"+snippets[0]['page_src'])
             lines=re.split("<k>",content)
             citation=lines[3]
             h_index=lines[6]
-        return citation,h_index
+            citation_in_recent_five_year=lines[7]
+        return citation,h_index,citation_in_recent_five_year
 
     def get_snippets(self,crawler,person,aff=True):
         template='email'

@@ -8,7 +8,7 @@ tag2label = {"O": 0,
              # "B-ORG": 5, "I-ORG": 6
              # "B-PER": 1, "I-PER": 2,
              # "B-ADR": 3, "I-ADR": 4,
-             "B-AFF": 19, "I-AFF": 20,
+             #"B-AFF": 19, "I-AFF": 20,
              # "B-TIT": 7, "I-TIT": 8,
              # "B-JOB": 9, "I-JOB": 10,
              # "B-DOM": 11, "I-DOM": 12,
@@ -40,16 +40,21 @@ def read_corpus(corpus_path):
     with open(corpus_path, encoding='utf-8') as fr:
         lines = fr.readlines()
     sent_, tag_ = [], []
+    last=''
     for line in lines:
         if line != '\n':
             # print(line)
             [char, label] = line.strip().split()
             sent_.append(char)
             tag_.append(label)
+            last=line
         else:
+            if last=='\n':
+                continue
             # print('add')
             data.append((sent_, tag_))
             sent_, tag_ = [], []
+            last=line
 
     return data
 

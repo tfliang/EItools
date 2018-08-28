@@ -47,11 +47,11 @@ def extract(name, text):
 
 def find_gender(text):
     if '男' in text:
-        return ['男']
+        return '男'
     elif '女' in text:
-        return ['女']
+        return '女'
     else:
-        return []
+        return ""
 
 def find_name(text, PER):
     min_idx = 100000000000

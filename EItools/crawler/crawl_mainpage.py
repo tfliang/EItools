@@ -22,21 +22,21 @@ def get_main_page(url,person):
 		source_code = get_content(url,headers)
 		soup = bs4.BeautifulSoup(source_code, 'html.parser')
 		scripts = soup.find_all(name='div', attrs={
-			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|pageR_t clearfix|menu|header).*$')})
+			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu|header).*$')})
 		scriptsId = soup.find_all(name='div', attrs={
-			"id": re.compile(r'.*(foot|nav|Nav|footer|bottom|pageR_t clearfix|header|guest|head).*$')})
+			"id": re.compile(r'.*(foot|nav|Nav|footer|bottom).*$')})
 		for script in scripts + scriptsId:
 			script.extract()
 		for script in soup(["script", "style"]):
 			script.extract()
-		text = soup.find('body').get_text(separator="")
+		text = soup.find('body').get_text(separator=" ")
 		# lines = (line.strip() for line in text.splitlines())
 		# text = '\n\r'.join(chunk for chunk in lines if chunk)
 		lines = (line.strip() for line in text.split())
-		if person['ini'].find("公司") != -1:
-			text = '<k>'.join(chunk for chunk in lines if chunk.find(person['ini'].split()[0]) != -1)
+		if person['simple_affiliation'].find("公司") != -1:
+			text = '\n'.join(chunk for chunk in lines if chunk.find(person['simple_affiliation'].split()[0]) != -1)
 		else:
-			text = '<k>'.join(chunk for chunk in lines if chunk)
+			text = '\n'.join(chunk for chunk in lines if chunk)
 	except Exception as e:
 		logger.info(e)
 		text = ""
@@ -50,4 +50,4 @@ def get_mainpage_by_algo(url):
 	text, pval = pe.extract(soup)
 	return text
 
-print(get_mainpage_by_algo("https://baike.baidu.com/item/%E6%AD%A6%E5%BB%BA%E5%86%9B/4614499"))
+#print(get_mainpage_by_algo("https://baike.baidu.com/item/%E6%AD%A6%E5%BB%BA%E5%86%9B/4614499"))

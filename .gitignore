@@ -10,3 +10,6 @@ EItools/crawler/celerybeat*
 
 
 media/file/
+
+EItools/process/*.txt
+EItools/extract/data_path/*data*

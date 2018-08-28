@@ -129,7 +129,7 @@ class ChromeCrawler:
             return source_code
         except Exception as e:
             if type(e) is not NoSuchElementException:
-                logger.info(e)
+                logger.info("download page %s"%(e))
                 source_code="other error"
             logger.error("%s,%s, \n%s, have retried %d times",self.name,e,source_code,retries)
             retries+=1
@@ -236,9 +236,17 @@ class ChromeCrawler:
             element=self.driver.find_element_by_id("gsc_rsb_st")
             source_code = element.get_attribute("outerHTML")
             soup = bs4.BeautifulSoup(source_code, 'html.parser')
-            return soup.get_text(separator="<k>")
+            content=soup.get_text(separator="<k>")
         except Exception as e:
             logger.info(e)
-            return ""
+            content=""
+        try:
+            self.driver.get(self.homepage)
+        except Exception as e:
+            time.sleep(3)
+            logger.info(e)
+            self.shutdown()
+            self.start()
+        return content
 
 
