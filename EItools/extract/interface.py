@@ -162,7 +162,7 @@ def extract_one_3(text):
 def interface(text):
     tf.reset_default_graph()
     result=extract_one(text)
-    TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ= result if result is not None else (None,None,None,None,None,None,None,None,None,None)
+    TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ= result if result is not None else (None,None,None,None,None,None,None,None,None)
     tf.reset_default_graph()
     result=extract_one_3(text)
     PER, ADR, AFF = result if result is not None else (None,None,None)
