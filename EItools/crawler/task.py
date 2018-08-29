@@ -44,11 +44,14 @@ def get_task_by_id(request,id):
     return HttpResponse(json.dumps(result), content_type="application/json")
 
 def publish_task(request):
+    def get_value(key,content):
+        return content[key] if key in content else ""
     if request.method=='POST':
-        file_name=request.POST.get('file_name',"")
-        task_name=request.POST.get('task_name',"")
-        creator_id=request.POST.get('creator_id',"")
-        creator=request.POST.get('creator',"")
+        content=json.loads(request.body)
+        file_name=get_value('file_name',content)
+        task_name=get_value('task_name',content)
+        creator_id=get_value('creator_id',content)
+        creator=get_value('creator',content)
         task_id=ObjectId()
         file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
         total = 0
