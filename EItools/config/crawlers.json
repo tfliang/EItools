@@ -16,6 +16,7 @@
     "google-scholar": {
             "name": "google",
             "homepage": "https://scholar.google.com/citations?view_op=search_authors",
+            "proxy": ["http://185.15.45.68"],
             "parse_info": {
                 "search_box_name": "mauthors",
                 "snippet_tag": "div",
