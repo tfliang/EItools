@@ -51,8 +51,8 @@ class ChromeCrawler:
 
 
     def switch_proxy(self,need=True):
-        #is_switch, proxy = self.proxy_switcher.get_proxy()
-        is_switch,proxy=self.proxy_switcher.get_proxy_by_url(need)
+        is_switch, proxy = self.proxy_switcher.get_proxy()
+        #is_switch,proxy=self.proxy_switcher.get_proxy_by_url(need)
         if is_switch:
             arg_proxy = '--proxy-server='
             for arg in self.options.arguments:
