@@ -84,9 +84,6 @@ class ChromeCrawler:
             if self.killed:
                 self.shutdown()
                 return None
-            element = self.driver.find_element_by_tag_name("body")
-            source_code = element.get_attribute("outerHTML")
-            print(source_code)
             search_box=self.driver.find_element_by_name(self.parse_info['search_box_name'])
             search_box.clear()
             search_box.send_keys(keyword)
