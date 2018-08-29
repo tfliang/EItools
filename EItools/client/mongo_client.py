@@ -129,9 +129,9 @@ class MongoDBClient(object):
     def rm_person_by_id(self, pid):
         self.person_col.remove({"_id": pid})
 
-    def update_person_by_id(self,id):
-        self.person_col.update({"_id":ObjectId(id)},{"$set":{"status":0}})
-        self.task_col.update({"_id":ObjectId(id)},{"$inc":{"has_finished":1}})
+    def update_person_by_id(self,person_id,task_id):
+        self.person_col.update({"_id":ObjectId(person_id)},{"$set":{"status":0}})
+        self.task_col.update({"_id":ObjectId(task_id)},{"$inc":{"has_finished":1}})
 
 
     def is_crawled_person(self, name,org):

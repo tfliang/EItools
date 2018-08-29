@@ -147,7 +147,7 @@ def start_crawl(id):
     logger.info("this task has {} person".format(len(persons)))
     if len(persons) > 0:
         # try:
-        crawl_person_info(persons)
+        crawl_person_info(persons,id)
         mongo_client.update_task(task_status_dict['finished'], id)
         # except Exception as e:
         #     logger.error("crawl info task exception: %s",e)
@@ -182,7 +182,7 @@ def get_crawled_persons_by_taskId(request,id):
     return HttpResponse(json.dumps({"info": crawled_persons_final}), content_type="application/json")
 
 
-def crawl_person_info(persons):
+def crawl_person_info(persons,task_id):
     infoCrawler = InfoCrawler()
     infoCrawler.load_crawlers()
     persons_info=[]
@@ -264,7 +264,7 @@ def crawl_person_info(persons):
                 # 存入智库
 
             # mongo_client.rm_person_by_id(p['_id'])
-            mongo_client.update_person_by_id(str(p['_id']))
+            mongo_client.update_person_by_id(str(p['_id']),task_id)
             del p['_id']
     infoCrawler.shutdown_crawlers()
     return persons_info
