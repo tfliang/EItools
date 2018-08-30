@@ -186,7 +186,7 @@ def get_crawled_persons_by_taskId(request,id):
         person['status']=0
         total_persons.append(person)
 
-    return HttpResponse(json.dumps({"info": crawled_persons_final}), content_type="application/json")
+    return HttpResponse(json.dumps({"info": total_persons}), content_type="application/json")
 
 
 def crawl_person_info(persons,task_id):
