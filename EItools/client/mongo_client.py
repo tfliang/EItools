@@ -84,6 +84,8 @@ class MongoDBClient(object):
         for item in c:
             item['id'] = str(item['_id'])
             if 'status' not in item or item['status'] != 0:
+                del item['_id']
+                del item['task_id']
                 persons.append(item)
         return persons
 
