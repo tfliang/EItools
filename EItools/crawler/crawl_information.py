@@ -170,6 +170,8 @@ def crawl_person_by_id(request):
 
 def get_crawled_persons_by_taskId(request,id):
     crawled_persons=mongo_client.get_crawled_person_by_taskId(id)
+    uncrawled_persons=mongo_client.get_uncrawled_person_by_taskId(id)
+    total_persons=[]
     crawled_persons_final=[]
     for person in crawled_persons:
         del person['result']
@@ -177,8 +179,13 @@ def get_crawled_persons_by_taskId(request,id):
             del person['info']
         if 'email' in person and person['email']==[] and len(person['emails_prob'])>0:
             person['email']=person['emails_prob'][0][0]
+        person['status']=1
+        total_persons.append(person)
+        #crawled_persons_final.append(person)
+    for person in uncrawled_persons:
+        person['status']=0
+        total_persons.append(person)
 
-        crawled_persons_final.append(person)
     return HttpResponse(json.dumps({"info": crawled_persons_final}), content_type="application/json")
 
 

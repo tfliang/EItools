@@ -19,8 +19,8 @@ MODEL3_PATH = os.path.join(NER_PATH, "data_path_save", "1521112368","checkpoints
 # MODEL_PATH = "../model/data_path_save/1530521907/checkpoints/" #5
 # MODEL_PATH = "../model/data_path_save/1530605248/checkpoints/" #12
 # MODEL_PATH = "../model/data_path_save/1530683206/checkpoints/" #7
-#MODEL_PATH = os.path.join(NER_PATH, "data_path_save", "1535130886","checkpoints")
-MODEL_PATH = os.path.join(NER_PATH, "data_path_save", "1530721857","checkpoints")
+MODEL_PATH = os.path.join(NER_PATH, "data_path_save", "1535130886","checkpoints")
+#MODEL_PATH = os.path.join(NER_PATH, "data_path_save", "1530721857","checkpoints")
 
 
 
@@ -103,7 +103,7 @@ def extract_one(text):
              "B-AWD": 13, "I-AWD": 14,
              "B-PAT": 15, "I-PAT": 16,
              "B-PRJ": 17, "I-PRJ": 18,
-             #"B-AFF": 19, "I-AFF":  20
+             "B-AFF": 19, "I-AFF":  20
             }
     ckpt_file = tf.train.latest_checkpoint(MODEL_PATH)
     paths['model_path'] = ckpt_file
@@ -126,9 +126,9 @@ def extract_one(text):
         AWD = get_name_entitry('AWD', tag, demo_sent)
         PAT = get_name_entitry('PAT', tag, demo_sent)
         PRJ = get_name_entitry('PRJ', tag, demo_sent)
-        #AFF = get_name_entitry('AFF', tag, demo_sent)
+        AFF = get_name_entitry('AFF', tag, demo_sent)
     sess.close()
-    return TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ
+    return TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ,AFF
 
 def extract_one_3(text):
     text = clean_text(text).strip()
@@ -162,10 +162,10 @@ def extract_one_3(text):
 def interface(text):
     tf.reset_default_graph()
     result=extract_one(text)
-    TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ= result if result is not None else (None,None,None,None,None,None,None,None,None)
+    TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ,AFF= result if result is not None else (None,None,None,None,None,None,None,None,None,None)
     tf.reset_default_graph()
     result=extract_one_3(text)
-    PER, ADR, AFF = result if result is not None else (None,None,None)
+    PER, ADR, AFF2 = result if result is not None else (None,None,None)
     if PER is not None:
         print_tag(PER, 'PER', text)
     if ADR is not None:

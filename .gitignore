@@ -9,7 +9,10 @@ EItools/log/debug.*
 EItools/crawler/celerybeat*
 
 
-media/file/
+EItools/media/file/*
 
 EItools/process/*.txt
 EItools/extract/data_path/*data*
+
+
+*test*

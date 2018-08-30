@@ -5694,3 +5694,146 @@
 2018-08-28 08:18:20,771:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='demo', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
 2018-08-28 08:18:22,957:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
 2018-08-28 08:18:22,957:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:29:20,358:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:29:23,041:INFO: =========== testing ===========
+2018-08-29 19:29:23,041:INFO: =========== testing ===========
+2018-08-29 19:29:23,041:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:29:23,041:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:30:37,832:INFO: processed 81912 tokens with 371 phrases; found: 472 phrases; correct: 106.
+2018-08-29 19:30:37,832:INFO: processed 81912 tokens with 371 phrases; found: 472 phrases; correct: 106.
+2018-08-29 19:30:37,833:INFO: accuracy:  83.50%; precision:  22.46%; recall:  28.57%; FB1:  25.15
+2018-08-29 19:30:37,833:INFO: accuracy:  83.50%; precision:  22.46%; recall:  28.57%; FB1:  25.15
+2018-08-29 19:30:37,833:INFO: AWD: precision:  17.24%; recall:  29.41%; FB1:  21.74  58
+2018-08-29 19:30:37,833:INFO: AWD: precision:  17.24%; recall:  29.41%; FB1:  21.74  58
+2018-08-29 19:30:37,833:INFO: DOM: precision:  13.89%; recall:  15.87%; FB1:  14.81  72
+2018-08-29 19:30:37,833:INFO: DOM: precision:  13.89%; recall:  15.87%; FB1:  14.81  72
+2018-08-29 19:30:37,833:INFO: EDU: precision:  31.82%; recall:  30.43%; FB1:  31.11  66
+2018-08-29 19:30:37,833:INFO: EDU: precision:  31.82%; recall:  30.43%; FB1:  31.11  66
+2018-08-29 19:30:37,834:INFO: JOB: precision:  11.11%; recall:  18.18%; FB1:  13.79  54
+2018-08-29 19:30:37,834:INFO: JOB: precision:  11.11%; recall:  18.18%; FB1:  13.79  54
+2018-08-29 19:30:37,834:INFO: PAT: precision:   8.70%; recall:  11.76%; FB1:  10.00  23
+2018-08-29 19:30:37,834:INFO: PAT: precision:   8.70%; recall:  11.76%; FB1:  10.00  23
+2018-08-29 19:30:37,834:INFO: PRJ: precision:  11.76%; recall:  18.18%; FB1:  14.29  34
+2018-08-29 19:30:37,834:INFO: PRJ: precision:  11.76%; recall:  18.18%; FB1:  14.29  34
+2018-08-29 19:30:37,834:INFO: SOC: precision:  10.00%; recall:  28.57%; FB1:  14.81  20
+2018-08-29 19:30:37,834:INFO: SOC: precision:  10.00%; recall:  28.57%; FB1:  14.81  20
+2018-08-29 19:30:37,834:INFO: TIT: precision:  39.58%; recall:  49.35%; FB1:  43.93  96
+2018-08-29 19:30:37,834:INFO: TIT: precision:  39.58%; recall:  49.35%; FB1:  43.93  96
+2018-08-29 19:30:37,834:INFO: WRK: precision:  26.53%; recall:  26.53%; FB1:  26.53  49
+2018-08-29 19:30:37,834:INFO: WRK: precision:  26.53%; recall:  26.53%; FB1:  26.53  49
+2018-08-29 19:38:52,002:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:38:54,752:INFO: =========== testing ===========
+2018-08-29 19:38:54,752:INFO: =========== testing ===========
+2018-08-29 19:38:54,752:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:38:54,752:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:39:59,090:INFO: processed 81912 tokens with 371 phrases; found: 472 phrases; correct: 106.
+2018-08-29 19:39:59,090:INFO: processed 81912 tokens with 371 phrases; found: 472 phrases; correct: 106.
+2018-08-29 19:39:59,090:INFO: accuracy:  83.50%; precision:  22.46%; recall:  28.57%; FB1:  25.15
+2018-08-29 19:39:59,090:INFO: accuracy:  83.50%; precision:  22.46%; recall:  28.57%; FB1:  25.15
+2018-08-29 19:39:59,091:INFO: AWD: precision:  17.24%; recall:  29.41%; FB1:  21.74  58
+2018-08-29 19:39:59,091:INFO: AWD: precision:  17.24%; recall:  29.41%; FB1:  21.74  58
+2018-08-29 19:39:59,091:INFO: DOM: precision:  13.89%; recall:  15.87%; FB1:  14.81  72
+2018-08-29 19:39:59,091:INFO: DOM: precision:  13.89%; recall:  15.87%; FB1:  14.81  72
+2018-08-29 19:39:59,091:INFO: EDU: precision:  31.82%; recall:  30.43%; FB1:  31.11  66
+2018-08-29 19:39:59,091:INFO: EDU: precision:  31.82%; recall:  30.43%; FB1:  31.11  66
+2018-08-29 19:39:59,091:INFO: JOB: precision:  11.11%; recall:  18.18%; FB1:  13.79  54
+2018-08-29 19:39:59,091:INFO: JOB: precision:  11.11%; recall:  18.18%; FB1:  13.79  54
+2018-08-29 19:39:59,091:INFO: PAT: precision:   8.70%; recall:  11.76%; FB1:  10.00  23
+2018-08-29 19:39:59,091:INFO: PAT: precision:   8.70%; recall:  11.76%; FB1:  10.00  23
+2018-08-29 19:39:59,092:INFO: PRJ: precision:  11.76%; recall:  18.18%; FB1:  14.29  34
+2018-08-29 19:39:59,092:INFO: PRJ: precision:  11.76%; recall:  18.18%; FB1:  14.29  34
+2018-08-29 19:39:59,092:INFO: SOC: precision:  10.00%; recall:  28.57%; FB1:  14.81  20
+2018-08-29 19:39:59,092:INFO: SOC: precision:  10.00%; recall:  28.57%; FB1:  14.81  20
+2018-08-29 19:39:59,092:INFO: TIT: precision:  39.58%; recall:  49.35%; FB1:  43.93  96
+2018-08-29 19:39:59,092:INFO: TIT: precision:  39.58%; recall:  49.35%; FB1:  43.93  96
+2018-08-29 19:39:59,092:INFO: WRK: precision:  26.53%; recall:  26.53%; FB1:  26.53  49
+2018-08-29 19:39:59,092:INFO: WRK: precision:  26.53%; recall:  26.53%; FB1:  26.53  49
+2018-08-29 19:40:41,775:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:40:44,558:INFO: =========== testing ===========
+2018-08-29 19:40:44,558:INFO: =========== testing ===========
+2018-08-29 19:40:44,558:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:40:44,558:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:45:04,129:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:45:06,954:INFO: =========== testing ===========
+2018-08-29 19:45:06,954:INFO: =========== testing ===========
+2018-08-29 19:45:06,954:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:45:06,954:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:48:42,591:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:48:45,416:INFO: =========== testing ===========
+2018-08-29 19:48:45,416:INFO: =========== testing ===========
+2018-08-29 19:48:45,417:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:48:45,417:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:49:17,280:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:49:20,082:INFO: =========== testing ===========
+2018-08-29 19:49:20,082:INFO: =========== testing ===========
+2018-08-29 19:49:20,082:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:49:20,082:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:52:05,268:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:52:08,257:INFO: =========== testing ===========
+2018-08-29 19:52:08,257:INFO: =========== testing ===========
+2018-08-29 19:52:08,257:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:52:08,257:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:52:54,895:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:52:57,614:INFO: =========== testing ===========
+2018-08-29 19:52:57,614:INFO: =========== testing ===========
+2018-08-29 19:52:57,615:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:52:57,615:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:53:31,545:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:53:34,302:INFO: =========== testing ===========
+2018-08-29 19:53:34,302:INFO: =========== testing ===========
+2018-08-29 19:53:34,303:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:53:34,303:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:55:20,061:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 19:55:22,901:INFO: =========== testing ===========
+2018-08-29 19:55:22,901:INFO: =========== testing ===========
+2018-08-29 19:55:22,902:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:55:22,902:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 19:58:59,552:INFO: processed 96456 tokens with 676 phrases; found: 1600 phrases; correct: 210.
+2018-08-29 19:58:59,552:INFO: processed 96456 tokens with 676 phrases; found: 1600 phrases; correct: 210.
+2018-08-29 19:58:59,553:INFO: accuracy:  75.01%; precision:  13.12%; recall:  31.07%; FB1:  18.45
+2018-08-29 19:58:59,553:INFO: accuracy:  75.01%; precision:  13.12%; recall:  31.07%; FB1:  18.45
+2018-08-29 19:58:59,553:INFO: AWD: precision:   9.51%; recall:  34.44%; FB1:  14.90  326
+2018-08-29 19:58:59,553:INFO: AWD: precision:   9.51%; recall:  34.44%; FB1:  14.90  326
+2018-08-29 19:58:59,553:INFO: DOM: precision:  12.31%; recall:  20.00%; FB1:  15.24  130
+2018-08-29 19:58:59,553:INFO: DOM: precision:  12.31%; recall:  20.00%; FB1:  15.24  130
+2018-08-29 19:58:59,554:INFO: EDU: precision:  11.73%; recall:  42.00%; FB1:  18.34  358
+2018-08-29 19:58:59,554:INFO: EDU: precision:  11.73%; recall:  42.00%; FB1:  18.34  358
+2018-08-29 19:58:59,554:INFO: JOB: precision:   6.35%; recall:  12.50%; FB1:   8.42  63
+2018-08-29 19:58:59,554:INFO: JOB: precision:   6.35%; recall:  12.50%; FB1:   8.42  63
+2018-08-29 19:58:59,554:INFO: PAT: precision:  14.04%; recall:  29.63%; FB1:  19.05  114
+2018-08-29 19:58:59,554:INFO: PAT: precision:  14.04%; recall:  29.63%; FB1:  19.05  114
+2018-08-29 19:58:59,554:INFO: PRJ: precision:  13.65%; recall:  28.81%; FB1:  18.53  249
+2018-08-29 19:58:59,554:INFO: PRJ: precision:  13.65%; recall:  28.81%; FB1:  18.53  249
+2018-08-29 19:58:59,554:INFO: SOC: precision:  10.87%; recall:  27.78%; FB1:  15.62  46
+2018-08-29 19:58:59,554:INFO: SOC: precision:  10.87%; recall:  27.78%; FB1:  15.62  46
+2018-08-29 19:58:59,554:INFO: TIT: precision:  14.63%; recall:  31.17%; FB1:  19.92  164
+2018-08-29 19:58:59,554:INFO: TIT: precision:  14.63%; recall:  31.17%; FB1:  19.92  164
+2018-08-29 19:58:59,554:INFO: WRK: precision:  25.33%; recall:  35.51%; FB1:  29.57  150
+2018-08-29 19:58:59,554:INFO: WRK: precision:  25.33%; recall:  35.51%; FB1:  29.57  150
+2018-08-29 20:13:25,991:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1530721857', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-08-29 20:13:29,049:INFO: =========== testing ===========
+2018-08-29 20:13:29,049:INFO: =========== testing ===========
+2018-08-29 20:13:29,050:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 20:13:29,050:INFO: Restoring parameters from ./data_path_save/1530721857/checkpoints/model-6000
+2018-08-29 20:17:02,011:INFO: processed 96456 tokens with 676 phrases; found: 1600 phrases; correct: 210.
+2018-08-29 20:17:02,011:INFO: processed 96456 tokens with 676 phrases; found: 1600 phrases; correct: 210.
+2018-08-29 20:17:02,011:INFO: accuracy:  75.01%; precision:  13.12%; recall:  31.07%; FB1:  18.45
+2018-08-29 20:17:02,011:INFO: accuracy:  75.01%; precision:  13.12%; recall:  31.07%; FB1:  18.45
+2018-08-29 20:17:02,011:INFO: AWD: precision:   9.51%; recall:  34.44%; FB1:  14.90  326
+2018-08-29 20:17:02,011:INFO: AWD: precision:   9.51%; recall:  34.44%; FB1:  14.90  326
+2018-08-29 20:17:02,012:INFO: DOM: precision:  12.31%; recall:  20.00%; FB1:  15.24  130
+2018-08-29 20:17:02,012:INFO: DOM: precision:  12.31%; recall:  20.00%; FB1:  15.24  130
+2018-08-29 20:17:02,012:INFO: EDU: precision:  11.73%; recall:  42.00%; FB1:  18.34  358
+2018-08-29 20:17:02,012:INFO: EDU: precision:  11.73%; recall:  42.00%; FB1:  18.34  358
+2018-08-29 20:17:02,012:INFO: JOB: precision:   6.35%; recall:  12.50%; FB1:   8.42  63
+2018-08-29 20:17:02,012:INFO: JOB: precision:   6.35%; recall:  12.50%; FB1:   8.42  63
+2018-08-29 20:17:02,012:INFO: PAT: precision:  14.04%; recall:  29.63%; FB1:  19.05  114
+2018-08-29 20:17:02,012:INFO: PAT: precision:  14.04%; recall:  29.63%; FB1:  19.05  114
+2018-08-29 20:17:02,012:INFO: PRJ: precision:  13.65%; recall:  28.81%; FB1:  18.53  249
+2018-08-29 20:17:02,012:INFO: PRJ: precision:  13.65%; recall:  28.81%; FB1:  18.53  249
+2018-08-29 20:17:02,012:INFO: SOC: precision:  10.87%; recall:  27.78%; FB1:  15.62  46
+2018-08-29 20:17:02,012:INFO: SOC: precision:  10.87%; recall:  27.78%; FB1:  15.62  46
+2018-08-29 20:17:02,012:INFO: TIT: precision:  14.63%; recall:  31.17%; FB1:  19.92  164
+2018-08-29 20:17:02,012:INFO: TIT: precision:  14.63%; recall:  31.17%; FB1:  19.92  164
+2018-08-29 20:17:02,012:INFO: WRK: precision:  25.33%; recall:  35.51%; FB1:  29.57  150
+2018-08-29 20:17:02,012:INFO: WRK: precision:  25.33%; recall:  35.51%; FB1:  29.57  150

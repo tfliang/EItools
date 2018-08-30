@@ -15,7 +15,7 @@ def clean_text(text):
 tag = {
     # 'name' : 'PER',
     # 'address' : 'ADR',
-    'aff' : 'AFF',
+    #'aff' : 'AFF',
     'title': 'TIT',
     'job': 'JOB',
     'domain': 'DOM',
@@ -28,7 +28,7 @@ tag = {
 tag2label = {"O": 'O',
              # "B-PER": 'A', "I-PER": 'a',
              # "B-ADR": 'B', "I-ADR": 'b',
-            "B-AFF": 'C', "I-AFF": 'c',
+             #"B-AFF": 'C', "I-AFF": 'c',
              "B-TIT": 'D', "I-TIT": 'd',
              "B-JOB": 'E', "I-JOB": 'e',
              "B-DOM": 'F', "I-DOM": 'f',
@@ -42,7 +42,7 @@ tag2label = {"O": 'O',
 label2tag = {"O": 'O', "X": 'X',
              # 'A': "B-PER", 'a': "I-PER",
              # 'B': "B-ADR", 'b': "I-ADR",
-             'C': "B-AFF", 'c': "I-AFF",
+             #'C': "B-AFF", 'c': "I-AFF",
              'D': "B-TIT", 'd': "I-TIT",
              'E': "B-JOB", 'e': "I-JOB",
              'F': "B-DOM", 'f': "I-DOM",
@@ -138,9 +138,10 @@ train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500
                'infoExample2100-2200.txt', 'infoExample2200-2300.txt', 'infoExample2400-2500.txt',
                'infoExample2600-2700.txt']
 #train_data = ['info500-750.txt']
+test_data_standard = ['test_data_standard2.txt']
 test_data = ['infoExample2700-2800.txt', 'infoExample2800-2900.txt']
-with open(os.path.join(DATA_DIR, 'test_data'), 'w+') as w:
-    for file_name in test_data:
+with open(os.path.join(DATA_DIR, 'test_data_standard'), 'w+') as w:
+    for file_name in test_data_standard:
         with open(os.path.join(DATA_DIR, file_name), 'r') as file:
             data = file.read()
         personList = data.split('*********&&&&&&&&')
