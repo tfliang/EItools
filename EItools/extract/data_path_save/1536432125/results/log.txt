@@ -1,0 +1,17 @@
+2018-09-09 02:42:05,914:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1536043839', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='train', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-09-09 02:42:30,439:INFO: 2018-09-09 02:42:09 epoch 1, step 1, loss: 745.9, global_step: 1
+2018-09-09 02:42:30,439:INFO: 2018-09-09 02:42:09 epoch 1, step 1, loss: 745.9, global_step: 1
+2018-09-09 02:43:49,994:INFO: 2018-09-09 02:42:09 epoch 1, step 6, loss: 386.2, global_step: 6
+2018-09-09 02:43:49,994:INFO: 2018-09-09 02:42:09 epoch 1, step 6, loss: 386.2, global_step: 6
+2018-09-09 02:43:50,572:INFO: ===========validation / test===========
+2018-09-09 02:43:50,572:INFO: ===========validation / test===========
+2018-09-09 02:44:40,263:INFO: processed 35640 tokens with 1182 phrases; found: 18450 phrases; correct: 3.
+2018-09-09 02:44:40,263:INFO: processed 35640 tokens with 1182 phrases; found: 18450 phrases; correct: 3.
+2018-09-09 02:44:40,264:INFO: accuracy:  59.35%; precision:   0.02%; recall:   0.25%; FB1:   0.03
+2018-09-09 02:44:40,264:INFO: accuracy:  59.35%; precision:   0.02%; recall:   0.25%; FB1:   0.03
+2018-09-09 02:44:40,264:INFO: CAT: precision:   0.00%; recall:   0.00%; FB1:   0.00  8906
+2018-09-09 02:44:40,264:INFO: CAT: precision:   0.00%; recall:   0.00%; FB1:   0.00  8906
+2018-09-09 02:44:40,264:INFO: TITLE: precision:   0.03%; recall:   0.51%; FB1:   0.06  9544
+2018-09-09 02:44:40,264:INFO: TITLE: precision:   0.03%; recall:   0.51%; FB1:   0.06  9544
+2018-09-09 02:45:05,528:INFO: 2018-09-09 02:44:40 epoch 2, step 1, loss: 404.6, global_step: 7
+2018-09-09 02:45:05,528:INFO: 2018-09-09 02:44:40 epoch 2, step 1, loss: 404.6, global_step: 7

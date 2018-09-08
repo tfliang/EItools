@@ -87,6 +87,8 @@ def find_title(text):
     pattern = re.compile(r'职\s*?[称位][\.。,，:：\s]*(.+?)[\s\.。,，;；]')
     return remove_sign(pattern.findall(text))
 
+def find_work_detail(text):
+    pattern=re.compile(r'\d')
 if __name__ == "__main__":
     # with open(os.path.join(DATA_DIR, 'infoExample2000-2100.txt')) as file:
     #     data = file.read()

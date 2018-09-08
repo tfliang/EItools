@@ -9,7 +9,7 @@ class MongoDBClient(object):
                  user=settings.MONGO_USERNAME, password=settings.MONGO_PASSWORD):
         self.client = MongoClient(host, port,connect=False)
         self.db = self.client[db_name]
-        if password is not None:
+        if password is not None and password !="":
             self.db.authenticate(user, password)
         self.person_col = self.db[settings.MONGO_UNCRAWLED_PERSON]
         self.crawed_person_col = self.db[settings.MONGO_CRAWLED_PERSON]

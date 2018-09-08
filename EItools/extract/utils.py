@@ -32,6 +32,27 @@ def get_entity(tag_seq, char_seq):
     # return PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ
     return PER, ADR, AFF, TIT, JOB#, DOM, EDU, WRK, SOC, AWD, PAT, PRJ
 
+def get_work_entity(tag_seq,char_seq):
+    INT = get_name_entitry('INT', tag_seq, char_seq)
+    POS = get_name_entitry('POS', tag_seq, char_seq)
+    FROM = get_name_entitry('FROM', tag_seq, char_seq)
+    TO = get_name_entitry('To', tag_seq, char_seq)
+    return INT,POS,FROM,TO
+
+def get_award_entity(tag_seq,char_seq):
+    NAME = get_name_entitry('NAME', tag_seq, char_seq)
+    TITLE = get_name_entitry('TITLE', tag_seq, char_seq)
+    GRADE = get_name_entitry('GRADE', tag_seq, char_seq)
+    YEAR = get_name_entitry('YEAR', tag_seq, char_seq)
+    RANK = get_name_entitry('RANK', tag_seq, char_seq)
+    return NAME, TITLE, GRADE, YEAR,RANK
+
+def get_social_entity(tag_seq,char_seq):
+    ORG = get_name_entitry('ORG', tag_seq, char_seq)
+    DUR = get_name_entitry('DUR', tag_seq, char_seq)
+    TITLE = get_name_entitry('TITLE', tag_seq, char_seq)
+    return ORG,DUR,TITLE
+
 def get_name_entitry(name, tag_seq, char_seq):
     length = len(char_seq)
     lst = []

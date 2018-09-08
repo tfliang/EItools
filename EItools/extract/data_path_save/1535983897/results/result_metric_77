@@ -1,0 +1,7 @@
+processed 997 tokens with 105 phrases; found: 102 phrases; correct: 100.
+accuracy:  98.80%; precision:  98.04%; recall:  95.24%; FB1:  96.62
+            GRADE: precision: 100.00%; recall: 100.00%; FB1: 100.00  28
+             NAME: precision: 100.00%; recall: 100.00%; FB1: 100.00  6
+             RANK: precision: 100.00%; recall:  42.86%; FB1:  60.00  3
+            TITLE: precision:  95.12%; recall:  97.50%; FB1:  96.30  41
+             YEAR: precision: 100.00%; recall: 100.00%; FB1: 100.00  24

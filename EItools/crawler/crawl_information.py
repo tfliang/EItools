@@ -207,8 +207,15 @@ def crawl_person_info(persons,task_id):
                 # mongo_client.save_crawled_person(p1)
             else:
                 result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))
+                result_without_org=process.Get('{}'.format(person['name']))
                 # mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
-                p['result'] = result
+                p['result'] = result & result_without_org
+                if len(p['result'])>0:
+                    #罕见度高,选取最新的
+                    #罕见度低，选取公共的
+                else:
+                    # 罕见度高,选取最新的
+                    # 罕见度低，选取公共的
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
                 result_sorted = sorted(result['res'], key=lambda s: s['score'], reverse=True)
                 if len(result_sorted) > 0 :

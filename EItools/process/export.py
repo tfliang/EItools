@@ -77,4 +77,4 @@ def extract():
     with open('out.txt', 'w', encoding='utf-8') as f:
         f.write(text)
 
-extract()
+#extract()

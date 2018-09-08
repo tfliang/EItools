@@ -36,4 +36,4 @@ class TextSlicer:
 					parts.append((w, i, j - 1))
 		words += self.choose(text, parts, 0, len(text) - 1)
 		return words
-	
+

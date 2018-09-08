@@ -3,6 +3,8 @@ import string
 
 import re
 
+from MagicBaidu import MagicBaidu
+from MagicGoogle import MagicGoogle
 from bson import ObjectId
 
 from EItools.client.mongo_client import MongoDBClient
@@ -144,6 +146,69 @@ def caculate_rest():
                         print(e)
 
 #caculate_rest()
+mongo_client=MongoDBClient()
+PROXIES = [{
+    'http': 'http://159.203.174.2:3128'
+}]
+
+mg = MagicGoogle(PROXIES)
+mb = MagicBaidu()
+
+
+def get_res(query):
+    res = []
+    try:
+        for i in mb.search(query=query, pause=0.5):
+            if 'baike.com' in i['domain'] or 'baidu.com' in i['domain']:
+                continue
+            if '官网' in i['title'] :
+                print(i)
+                if 'domain' in i:
+                    #result=re.split('-',i['domain'])
+                    return i['domain']
+            else:
+                return i['domain']
+    except Exception as e:
+        return ""
+
+def get_domain():
+    institutions=mongo_client.db['institution'].find()
+    for inst in institutions:
+        if inst['domain'] is None or 'baidu.com' in inst['domain'] or 'baike.com' in inst['domain']:
+            name=inst['name']
+            print(name)
+            result=get_res(name)
+            print(result)
+            inst['domain']=result
+            mongo_client.db['institution'].save(inst)
+def save_name():
+    with open('/Users/bcj/Desktop/高校中英名单.csv','r') as f:
+        reader=csv.reader(f)
+        for i,data in enumerate(reader):
+            if i>0:
+                name=data[0]
+                name_en=data[1]
+                dict={}
+                result = get_res(name)
+                dict['name']=name
+                dict['name_en']=name_en
+                dict['domain']=result
+                mongo_client.db['institution'].save(dict)
+
+def save_inst():
+    with open('/Users/bcj/Documents/科技部/抽取文档/xingming.csv','r') as w:
+        reader=csv.reader(w)
+        for i,data in enumerate(reader):
+            dict={}
+            dict['name']=data[0]
+            dict['rare']=data[1]
+            dict['total']=data[2]
+            mongo_client.db['name_rare'].save(dict)
+
+#save_inst()
+#get_domain()
+#print(get_res("中国航空工业集团公司"))
+
 
 
 

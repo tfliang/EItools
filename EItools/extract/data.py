@@ -2,7 +2,7 @@ import sys, pickle, os, random
 import numpy as np
 
 ## tags, BIO
-tag2label = {"O": 0,
+tag2label2 = {"O": 0,
              # "B-PER": 1, "I-PER": 2,
              # "B-LOC": 3, "I-LOC": 4,
              # "B-ORG": 5, "I-ORG": 6
@@ -29,6 +29,43 @@ tag2label = {"O": 0,
              "B-PRJ": 17, "I-PRJ": 18
              }
 
+tag2label3 = {"O": 0,
+             # "B-PER": 'A', "I-PER": 'a',
+             # "B-ADR": 'B', "I-ADR": 'b',
+             #"B-AFF": 'C', "I-AFF": 'c',
+             "B-FROM": 1, "I-FROM": 2,
+             "B-TO": 3, "I-TO": 4,
+             "B-POS": 5, "I-POS": 6,
+             "B-INT": 7, "I-INT": 8,
+             }
+
+tag2label4 = {"O":0,
+             # "B-PER": 'A', "I-PER": 'a',
+             # "B-ADR": 'B', "I-ADR": 'b',
+             #"B-AFF": 'C', "I-AFF": 'c',
+             "B-NAME": 1, "I-NAME": 2,
+             "B-TITLE": 3, "I-TITLE": 4,
+             "B-GRADE": 5, "I-GRADE": 6,
+             "B-YEAR": 7, "I-YEAR": 8,
+             "B-RANK": 9,"I-RANK": 10
+             }
+
+tag2label5 = {"O": 0,
+             # "B-PER": 'A', "I-PER": 'a',
+             # "B-ADR": 'B', "I-ADR": 'b',
+             #"B-AFF": 'C', "I-AFF": 'c',
+             "B-ORG": 1, "I-ORG": 2,
+             "B-DUR": 3, "I-DUR": 4,
+             "B-TITLE": 5, "I-TITLE": 6
+             }
+
+tag2label = {"O": 0,
+             # "B-PER": 'A', "I-PER": 'a',
+             # "B-ADR": 'B', "I-ADR": 'b',
+             #"B-AFF": 'C', "I-AFF": 'c',
+             "B-CAT": 1, "I-CAT": 2,
+             "B-TITLE": 3, "I-TITLE": 4
+             }
 
 def read_corpus(corpus_path):
     """
