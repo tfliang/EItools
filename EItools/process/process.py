@@ -1,4 +1,5 @@
 import csv
+import json
 import string
 
 import re
@@ -209,7 +210,28 @@ def save_inst():
 #get_domain()
 #print(get_res("中国航空工业集团公司"))
 
+def match_data():
+    train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500.txt', 'infoExample2000-2100.txt',
+               'infoExample2100-2200.txt', 'infoExample2200-2300.txt', 'infoExample2400-2500.txt',
+               'infoExample2600-2700.txt']
+    with open('/Users/bcj/Documents/科技部/award.txt', 'w+') as w:
+        for data in train_data:
+            with open("../data/"+data,'r') as f:
+                data=f.read()
+                text=re.findall('<award>.*?</award>',data)
+                print(len(text))
+                w.write('\r\n*******\r\n'.join(text))
 
+#match_data()
+
+def write_data():
+    with open('/Users/bcj/Documents/科技部/award.json','r') as f:
+        data=json.load(f)
+        for d in data:
+            s=d[7:len(d)-7]
+            print(s)
+
+#write_data()
 
 
 

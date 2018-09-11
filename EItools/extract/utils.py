@@ -53,6 +53,11 @@ def get_social_entity(tag_seq,char_seq):
     TITLE = get_name_entitry('TITLE', tag_seq, char_seq)
     return ORG,DUR,TITLE
 
+def get_project_entity(tag_seq,char_seq):
+    CAT = get_name_entitry('CAT', tag_seq, char_seq)
+    TITLE = get_name_entitry('TITLE', tag_seq, char_seq)
+    return CAT, TITLE
+
 def get_name_entitry(name, tag_seq, char_seq):
     length = len(char_seq)
     lst = []

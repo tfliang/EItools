@@ -244,7 +244,7 @@ def cut_text(text):
 train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500.txt', 'infoExample2000-2100.txt',
                'infoExample2100-2200.txt', 'infoExample2200-2300.txt', 'infoExample2400-2500.txt',
                'infoExample2600-2700.txt']
-train_data = ['project.txt']
+#train_data = ['project.txt']
 #test_data_standard = ['test_data_standard2.txt']
 #test_data = ['infoExample2700-2800.txt', 'infoExample2800-2900.txt']
 with open(os.path.join(DATA_DIR, 'train_data_project'), 'w+') as w:

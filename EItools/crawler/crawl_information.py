@@ -19,6 +19,7 @@ from EItools import celery_app
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import interface
 from EItools.extract import util
+from EItools.detail_apart import soc_apart
 
 task_status_dict={
     "finished":0,
@@ -188,6 +189,19 @@ def get_crawled_persons_by_taskId(request,id):
 
     return HttpResponse(json.dumps({"info": total_persons}), content_type="application/json")
 
+def update_person_by_Id(request):
+    def get_value(key,content):
+        return content[key] if key in content else ""
+    if request.method == 'POST':
+        person = json.loads(request.body)
+        person_id = get_value('id', person)
+        if mongo_client.get_crawled_person_by_pid(person_id) is not None:
+            person['_id']=ObjectId(person_id)
+            del person['id']
+            mongo_client.save_person(person)
+            return HttpResponse(json.dumps({"info": "save success"}), content_type="application/json")
+        else:
+            return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
 
 def crawl_person_info(persons,task_id):
     infoCrawler = InfoCrawler()
@@ -210,12 +224,12 @@ def crawl_person_info(persons,task_id):
                 result_without_org=process.Get('{}'.format(person['name']))
                 # mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
                 p['result'] = result & result_without_org
-                if len(p['result'])>0:
-                    #罕见度高,选取最新的
-                    #罕见度低，选取公共的
-                else:
-                    # 罕见度高,选取最新的
-                    # 罕见度低，选取公共的
+                # if len(p['result'])>0:
+                #     #罕见度高,选取最新的
+                #     #罕见度低，选取公共的
+                # else:
+                #     # 罕见度高,选取最新的
+                #     # 罕见度低，选取公共的
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
                 result_sorted = sorted(result['res'], key=lambda s: s['score'], reverse=True)
                 if len(result_sorted) > 0 :
@@ -271,6 +285,12 @@ def crawl_person_info(persons,task_id):
                     p['projects'] = ''.join(PRJ) if PRJ is not None else ""
                     p['gender']=util.find_gender(p['info'])
                     p['email']=util.find_email(p['info'])
+                    p['edu_detail']=soc_apart.find_edus(p['edu'])
+                    p['exp_detail']=soc_apart.find_work(p['exp'])
+                    p['academic_org_exp_detail']=soc_apart.find_soc(p['academic_org_exp'])
+                    #p['awards']=soc_apart.find(p['awards'])
+                    p['patents_detail']=soc_apart.find_patent(p['patents'])
+                    p['projects_detail'] = soc_apart.find_patent(p['projects'])
                 p['source'] = 'crawler'
                 p['emails_prob'] = emails_prob
                 persons_info.append(p)

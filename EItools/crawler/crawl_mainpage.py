@@ -16,7 +16,7 @@ def get_content(url, headers):
 	content = res.content
 	return content
 
-def get_main_page(url,person):
+def get_main_page(url,person=None):
 	try:
 		print(url)
 		source_code = get_content(url,headers)
@@ -29,14 +29,17 @@ def get_main_page(url,person):
 			script.extract()
 		for script in soup(["script", "style"]):
 			script.extract()
-		text = soup.find('body').get_text(separator=" ")
+		text = soup.find('body').get_text(separator="")
 		# lines = (line.strip() for line in text.splitlines())
 		# text = '\n\r'.join(chunk for chunk in lines if chunk)
-		lines = (line.strip() for line in text.split())
-		if person['simple_affiliation'].find("公司") != -1:
+		lines = (line.strip() for line in text.split('\n'))
+		# for line in lines:
+		# 	if line !='':
+		# 		print(line)
+		if person is not None and 'simple_affiliation' in person and person['simple_affiliation'].find("公司") != -1:
 			text = '\n'.join(chunk for chunk in lines if chunk.find(person['simple_affiliation'].split()[0]) != -1)
 		else:
-			text = '\n'.join(chunk for chunk in lines if chunk)
+			text = '\n'.join(chunk for chunk in lines if chunk!='')
 	except Exception as e:
 		logger.info(e)
 		text = ""
@@ -50,4 +53,4 @@ def get_mainpage_by_algo(url):
 	text, pval = pe.extract(soup)
 	return text
 
-#print(get_mainpage_by_algo("https://baike.baidu.com/item/%E6%AD%A6%E5%BB%BA%E5%86%9B/4614499"))
+#print(get_main_page("http://www1.gdou.edu.cn/Scxy/Info.aspx?id=430",None))

@@ -5,7 +5,8 @@ import tensorflow as tf
 import numpy as np
 import os, argparse, time, random
 from EItools.extract.model import BiLSTM_CRF
-from EItools.extract.utils import str2bool, get_logger, get_entity,get_award_entity,get_social_entity,get_work_entity
+from EItools.extract.utils import str2bool, get_logger, get_entity, get_award_entity, get_social_entity, \
+    get_work_entity, get_project_entity
 from EItools.extract.data import read_corpus, read_dictionary, tag2label, random_embedding
 
 
@@ -133,4 +134,4 @@ elif args.mode == 'demo':
             #TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ = get_entity(tag, demo_sent)
             # print('PER: {}\nADR: {}\nAFF: {}\nTIT: {}\nJOB: {}\nDOM: {}\nEDU: {}\nWRK: {}\nSOC: {}\nAWD: {}\nPAT: {}\nPRJ: {}\n'.format(PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ))
             #print('TIT: {}\nJOB: {}\nDOM: {}\nEDU: {}\nWRK: {}\nSOC: {}\nAWD: {}\nPAT: {}\nPRJ: {}\n'.format(TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ))
-            print(get_social_entity(tag,demo_sent))
+            print(get_project_entity(tag,demo_sent))

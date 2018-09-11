@@ -20,6 +20,7 @@ MODEL3_PATH = os.path.join(NER_PATH, "data_path_save", "1521112368","checkpoints
 # MODEL_PATH = "../model/data_path_save/1530605248/checkpoints/" #12
 # MODEL_PATH = "../model/data_path_save/1530683206/checkpoints/" #7
 MODEL_PATH = os.path.join(NER_PATH, "data_path_save", "1535130886","checkpoints")
+MODEL_PROJECT_PATH=os.path.join(NER_PATH, "data_path_save", "1536432125","checkpoints")
 #MODEL_PATH = os.path.join(NER_PATH, "data_path_save", "1530721857","checkpoints")
 
 
@@ -159,13 +160,44 @@ def extract_one_3(text):
         AFF = get_name_entitry('AFF', tag, demo_sent)
         return clean_list(PER), clean_list(ADR), clean_list(AFF)
 
+
+def extract_project(text):
+    text = clean_text(text).strip()
+    if len(text) == 0:
+        return
+    tag2label = {"O": 0,
+                 # "B-PER": 'A', "I-PER": 'a',
+                 # "B-ADR": 'B', "I-ADR": 'b',
+                 # "B-AFF": 'C', "I-AFF": 'c',
+                 "B-CAT": 1, "I-CAT": 2,
+                 "B-TITLE": 3, "I-TITLE": 4
+                 }
+    ckpt_file = tf.train.latest_checkpoint(MODEL_PROJECT_PATH)
+    paths['model_path'] = ckpt_file
+    model = BiLSTM_CRF(args, embeddings, tag2label, word2id, paths, config=config)
+    model.build_graph()
+    saver = tf.train.Saver()
+    # sess2 = tf.Session(config=config)
+    # with sess2.as_default():
+    with tf.Session(config=config) as sess3:
+        tf.get_variable_scope().reuse_variables()
+        saver.restore(sess3, ckpt_file)
+
+        demo_sent = list(text)
+        demo_data = [(demo_sent, ['O'] * len(demo_sent))]
+        tag = model.demo(sess3, demo_data, tag2label)
+
+        CAT = get_name_entitry('CAT', tag, demo_sent)
+        TITLE = get_name_entitry('TITLE', tag, demo_sent)
+        return clean_list(CAT), clean_list(TITLE)
+
 def interface(text):
     tf.reset_default_graph()
     result=extract_one(text)
-    TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ,AFF2= result if result is not None else (None,None,None,None,None,None,None,None,None,None)
+    TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ,AFF= result if result is not None else (None,None,None,None,None,None,None,None,None,None)
     tf.reset_default_graph()
     result=extract_one_3(text)
-    PER, ADR, AFF = result if result is not None else (None,None,None)
+    PER, ADR, AFF2 = result if result is not None else (None,None,None)
     if PER is not None:
         print_tag(PER, 'PER', text)
     if ADR is not None:

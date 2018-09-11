@@ -2,13 +2,13 @@ import sys, pickle, os, random
 import numpy as np
 
 ## tags, BIO
-tag2label2 = {"O": 0,
+tag2label = {"O": 0,
              # "B-PER": 1, "I-PER": 2,
              # "B-LOC": 3, "I-LOC": 4,
              # "B-ORG": 5, "I-ORG": 6
              # "B-PER": 1, "I-PER": 2,
              # "B-ADR": 3, "I-ADR": 4,
-             #"B-AFF": 19, "I-AFF": 20,
+             "B-AFF": 19, "I-AFF": 20,
              # "B-TIT": 7, "I-TIT": 8,
              # "B-JOB": 9, "I-JOB": 10,
              # "B-DOM": 11, "I-DOM": 12,
@@ -59,13 +59,13 @@ tag2label5 = {"O": 0,
              "B-TITLE": 5, "I-TITLE": 6
              }
 
-tag2label = {"O": 0,
-             # "B-PER": 'A', "I-PER": 'a',
-             # "B-ADR": 'B', "I-ADR": 'b',
-             #"B-AFF": 'C', "I-AFF": 'c',
-             "B-CAT": 1, "I-CAT": 2,
-             "B-TITLE": 3, "I-TITLE": 4
-             }
+# tag2label = {"O": 0,
+#              # "B-PER": 'A', "I-PER": 'a',
+#              # "B-ADR": 'B', "I-ADR": 'b',
+#              #"B-AFF": 'C', "I-AFF": 'c',
+#              "B-CAT": 1, "I-CAT": 2,
+#              "B-TITLE": 3, "I-TITLE": 4
+#              }
 
 def read_corpus(corpus_path):
     """
