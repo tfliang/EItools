@@ -3,7 +3,7 @@ import json
 import re
 
 import jieba
-from nn import tf
+import tensorflow as tf
 
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import extract_one_3, print_tag, interface, extract_project
