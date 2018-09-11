@@ -16,3 +16,7 @@ EItools/extract/data_path/*data*
 
 
 *test*
+
+
+[http]
+postBuffer = 524288000
