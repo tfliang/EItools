@@ -2,7 +2,7 @@ import sys, pickle, os, random
 import numpy as np
 
 ## tags, BIO
-tag2label = {"O": 0,
+tag2label2 = {"O": 0,
              # "B-PER": 1, "I-PER": 2,
              # "B-LOC": 3, "I-LOC": 4,
              # "B-ORG": 5, "I-ORG": 6
@@ -58,7 +58,12 @@ tag2label5 = {"O": 0,
              "B-DUR": 3, "I-DUR": 4,
              "B-TITLE": 5, "I-TITLE": 6
              }
-
+tag2label = {"O": 0,
+             # "B-PER": 'A', "I-PER": 'a',
+             # "B-ADR": 'B', "I-ADR": 'b',
+             #"B-AFF": 'C', "I-AFF": 'c',
+             "B-NAME": 1, "I-NAME": 2,
+             }
 # tag2label = {"O": 0,
 #              # "B-PER": 'A', "I-PER": 'a',
 #              # "B-ADR": 'B', "I-ADR": 'b',
