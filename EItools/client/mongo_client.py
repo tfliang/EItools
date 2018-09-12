@@ -135,6 +135,8 @@ class MongoDBClient(object):
         self.person_col.update({"_id":ObjectId(person_id)},{"$set":{"status":0}})
         self.task_col.update({"_id":ObjectId(task_id)},{"$inc":{"has_finished":1}})
 
+    def update_person_by_keyvalue(self,person_id,key,value):
+        self.person_col.update({"_id": ObjectId(person_id)}, {"$set": {key: value}})
 
     def is_crawled_person(self, name,org):
         return self.crawed_person_col.find({"$and":[{"name": name},{"org": org}]}).count()>0

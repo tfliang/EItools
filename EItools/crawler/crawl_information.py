@@ -1,6 +1,9 @@
 # coding:utf-8
 import os
 import sys
+
+import re
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from EItools.crawler import crawl_mainpage, process
 import csv
@@ -19,7 +22,7 @@ from EItools import celery_app
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import interface
 from EItools.extract import util
-from EItools.detail_apart import soc_apart
+from EItools.detail_apart import detail_apart
 
 task_status_dict={
     "finished":0,
@@ -155,7 +158,7 @@ def start_crawl(id):
         #     mongo_client.update_task(task_status_dict['failed'], id)
     logger.info("task exit" + id)
 
-def crawl_person_by_id(request):
+def crawl_person_by_name(request):
     name=request.GET.get('name','')
     org=request.GET.get('org','')
     persons=[]
@@ -166,8 +169,29 @@ def crawl_person_by_id(request):
             'org':org
         }
         persons.append(person)
-        persons_info=crawl_person_info(persons)
+        persons_info=crawl_person_info(persons,None)
     return HttpResponse(json.dumps({"info": persons_info}), content_type="application/json")
+
+def crawl_person_by_id(request,id):
+    person=mongo_client.get_crawled_person_by_pid(id)
+    if person is not None:
+        persons_info=crawl_person_info([person],None)
+        return HttpResponse(json.dumps({"info": persons_info}), content_type="application/json")
+    return HttpResponse(json.dumps({"info": "person not exists"}), content_type="application/json")
+
+
+
+
+def update_person_by_field(request):
+    person_id = request.GET.get('person_id', '')
+    field_key = request.GET.get('field_key', '')
+    field_value=request.GET.get('field_value','')
+    if person_id=="" or field_key == "" or field_value == "":
+        info="info not exists"
+    else:
+        mongo_client.update_person_by_keyvalue(person_id,field_key,field_value)
+        info="info update success"
+    return HttpResponse(json.dumps({"info": info}), content_type="application/json")
 
 def get_crawled_persons_by_taskId(request,id):
     crawled_persons=mongo_client.get_crawled_person_by_taskId(id)
@@ -190,6 +214,19 @@ def get_crawled_persons_by_taskId(request,id):
     return HttpResponse(json.dumps({"info": total_persons}), content_type="application/json")
 
 def update_person_by_Id(request):
+    def get_value(key,content):
+        return content[key] if key in content else ""
+    if request.method == 'POST':
+        person = json.loads(request.body)
+        person_id = get_value('id', person)
+        if mongo_client.get_crawled_person_by_pid(person_id) is not None:
+            person['_id']=ObjectId(person_id)
+            mongo_client.save_person(person)
+            return HttpResponse(json.dumps({"info": "save success"}), content_type="application/json")
+        else:
+            return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
+
+def update_person_by_detail(request):
     def get_value(key,content):
         return content[key] if key in content else ""
     if request.method == 'POST':
@@ -221,9 +258,9 @@ def crawl_person_info(persons,task_id):
                 # mongo_client.save_crawled_person(p1)
             else:
                 result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))
-                result_without_org=process.Get('{}'.format(person['name']))
+                #result_without_org=process.Get('{}'.format(person['name']))
                 # mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
-                p['result'] = result & result_without_org
+                p['result'] = result
                 # if len(p['result'])>0:
                 #     #罕见度高,选取最新的
                 #     #罕见度低，选取公共的
@@ -239,13 +276,13 @@ def crawl_person_info(persons,task_id):
 
                 # info, url = infoCrawler.get_info(person)
                 emails_prob = infoCrawler.get_emails(person)
-                citation, h_index ,citation_in_recent_five_year = infoCrawler.get_scholar_info(person)
+                #citation, h_index ,citation_in_recent_five_year = infoCrawler.get_scholar_info(person)
                 # if affs is not None:
                 # p['s_aff'] = affs
                 # p['url'] = url
                 # p['info'] = info
-                p['citation'] = citation
-                p['h_index'] = h_index
+                #p['citation'] = citation
+                #p['h_index'] = h_index
                 # p = extract_information.extract(info, p)
                 if 'info' in p:
                     result = interface(p['info'])
@@ -272,25 +309,27 @@ def crawl_person_info(persons,task_id):
                     # p['AWD'] = AWD
                     # p['PAT'] = PAT
                     # p['PRJ'] = PRJ
+                    p['honors']=re.findall('(国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863专家|百千万人才工程国家级人选|创新人才推进计划)',p['info'])
                     p['aff']={}
                     p['aff']['inst'] = ' '.join(AFF) if AFF is not None else ""
                     p['title'] = ''.join(TIT) if TIT is not None else ""
                     p['position'] = ''.join(JOB) if JOB is not None else ""
                     p['domain'] = ''.join(DOM) if DOM is not None else ""
-                    p['edu'] = ''.join(EDU) if EDU is not None else ""
-                    p['exp'] = ''.join(WRK) if WRK is not None else ""
-                    p['academic_org_exp'] = ' '.join(SOC) if SOC is not None else ""
-                    p['awards'] = ''.join(AWD) if AWD is not None else ""
-                    p['patents'] = ''.join(PAT) if PAT is not None else ""
-                    p['projects'] = ''.join(PRJ) if PRJ is not None else ""
+                    p['edu_region'] = ''.join(EDU) if EDU is not None else ""
+                    p['exp_region'] = ''.join(WRK) if WRK is not None else ""
+                    p['academic_org_exp_region'] = ' '.join(SOC) if SOC is not None else ""
+                    p['awards_region'] = ''.join(AWD) if AWD is not None else ""
+                    p['patents_region'] = ''.join(PAT) if PAT is not None else ""
+                    p['projects_region'] = ''.join(PRJ) if PRJ is not None else ""
                     p['gender']=util.find_gender(p['info'])
-                    p['email']=util.find_email(p['info'])
-                    p['edu_detail']=soc_apart.find_edus(p['edu'])
-                    p['exp_detail']=soc_apart.find_work(p['exp'])
-                    p['academic_org_exp_detail']=soc_apart.find_soc(p['academic_org_exp'])
-                    #p['awards']=soc_apart.find(p['awards'])
-                    p['patents_detail']=soc_apart.find_patent(p['patents'])
-                    p['projects_detail'] = soc_apart.find_patent(p['projects'])
+                    email=util.find_email(p['info'])
+                    p['email']=email[0] if len(email)>0 else ""
+                    p['edu']=detail_apart.find_edus(p['edu_region'])
+                    p['exp']=detail_apart.find_works(p['exp_region'])
+                    p['academic_org_exp']=detail_apart.find_socs(p['academic_org_exp_region'])
+                    p['awards']=detail_apart.find_awards(p['awards_region'])
+                    p['patents']=detail_apart.find_patents(p['patents_region'])
+                    p['projects'] = detail_apart.find_projects(p['projects_region'])
                 p['source'] = 'crawler'
                 p['emails_prob'] = emails_prob
                 persons_info.append(p)
@@ -298,7 +337,8 @@ def crawl_person_info(persons,task_id):
                 # 存入智库
 
             # mongo_client.rm_person_by_id(p['_id'])
-            mongo_client.update_person_by_id(str(p['_id']),task_id)
+            if task_id is not None:
+                mongo_client.update_person_by_id(str(p['_id']),task_id)
             del p['_id']
     infoCrawler.shutdown_crawlers()
     return persons_info

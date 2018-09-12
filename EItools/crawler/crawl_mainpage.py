@@ -22,7 +22,7 @@ def get_main_page(url,person=None):
 		source_code = get_content(url,headers)
 		soup = bs4.BeautifulSoup(source_code, 'html.parser')
 		scripts = soup.find_all(name='div', attrs={
-			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu|header).*$')})
+			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu).*$')})
 		scriptsId = soup.find_all(name='div', attrs={
 			"id": re.compile(r'.*(foot|nav|Nav|footer|bottom).*$')})
 		for script in scripts + scriptsId:
@@ -30,7 +30,7 @@ def get_main_page(url,person=None):
 		for script in soup(["script", "style"]):
 			script.extract()
 		text = soup.find('body').get_text(separator="")
-		# lines = (line.strip() for line in text.splitlines())
+		#lines = (line.strip() for line in text.splitlines())
 		# text = '\n\r'.join(chunk for chunk in lines if chunk)
 		lines = (line.strip() for line in text.split('\n'))
 		# for line in lines:
@@ -53,4 +53,4 @@ def get_mainpage_by_algo(url):
 	text, pval = pe.extract(soup)
 	return text
 
-#print(get_main_page("http://www1.gdou.edu.cn/Scxy/Info.aspx?id=430",None))
+print(get_main_page("http://www5.zzu.edu.cn/lifesci/info/1076/1279.htm",None))

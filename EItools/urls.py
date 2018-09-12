@@ -32,12 +32,16 @@ urlpatterns = [
 
     url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),
 
-    url(r'^crawl/person/info/$',crawl_information.crawl_person_by_id),
+    url(r'^crawl/person/info/$',crawl_information.crawl_person_by_name),
     url(r'^view/crawldetail/(.+)/$',crawl_information.get_crawled_persons_by_taskId),
     url(r'^update/persondetail/$',crawl_information.update_person_by_Id),
+    url(r'^update/personfield/$',crawl_information.update_person_by_field),
+
     url(r'^show/tasks/(.+)/(.+)/', task.get_tasks_by_page),
     url(r'^save/task/$',task.publish_task),
     url(r'^publish/task/$', crawl_information.publish_task),
+
+    url(r'^crawl/person/info/(.+)/$',crawl_information.crawl_person_by_id)
 ]
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

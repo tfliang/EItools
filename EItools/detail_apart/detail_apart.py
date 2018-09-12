@@ -6,7 +6,7 @@ import jieba
 import tensorflow as tf
 
 from EItools.client.mongo_client import MongoDBClient
-from EItools.extract.interface import extract_one_3, print_tag, interface, extract_project
+from EItools.extract.interface import extract_one_3, print_tag, interface, extract_project, extract_patent
 
 
 def find_aff(text):
@@ -41,9 +41,20 @@ def match(aff_list,time_list,text):
     time_list_with_index=sorted(zip(time_list,[text.index(time) for time in time_list]),key=lambda a:a[0])
     if len(aff_list_with_index)==len(time_list_with_index):
         for i,(index,aff) in enumerate(aff_list_with_index):
-            yield(time_list_with_index[i][1],aff)
+            yield(time_list_with_index[i][1],aff_list_with_index[i][1])
     elif len(aff_list_with_index)!=len(time_list_with_index):
-        return None
+        i=0
+        j=0
+        while i!=len(time_list_with_index) and j!=len(aff_list_with_index):
+            if time_list_with_index[i]<aff_list_with_index[j]<time_list_with_index[i+1]:
+                yield (time_list_with_index[i][1],aff_list_with_index[j][1])
+                j=j+1
+            else:
+                yield (time_list_with_index[i+1][1],aff_list_with_index[j][1])
+                i=i+1
+                j=j+1
+
+
 
 
 
@@ -87,8 +98,11 @@ def find_work(text):
     print(text)
     aff_list = find_aff(text)
 
-    time = re.findall(pattern_work_time, text)
-
+    time = re.findall(pattern_time, text)
+    # if len(time_all)>0:
+    #     time=re.split(r'[年./]',time_all[0])
+    # else:
+    #     time=[]
     if aff_list is not None and len(aff_list) > 0:
         for aff in aff_list:
             pattern_title = r''
@@ -118,7 +132,7 @@ def find_work(text):
 def find_edu(text):
     aff_list = find_aff(text)
 
-    time = re.findall(pattern_work_time, text)
+    time = re.findall(pattern_time, text)
 
     if aff_list is not None and len(aff_list) > 0:
         for aff in aff_list:
@@ -153,17 +167,19 @@ def find_edu(text):
 
 def find_patent(text):
     inventor_names=find_aff(text)
-    patent_number_pattern=r'[0-9]{8}/.[0-9]'
+    patent_number_pattern=r'((ZL|CN|JP)?[0-9X]{9,15}.{0,1}[0-9X]{0,1})'
     patent_number=re.findall(patent_number_pattern,text)
+    tf.reset_default_graph()
+    patent_name=extract_patent(text)
     time = re.findall(pattern_time, text)
     print("time is:{}".format(time))
     print("inventor is:{}".format(inventor_names))
     print("patent_number is:{}".format(patent_number))
     patent=None
     if len(time)>2:
-        patent={"issue_date":time[0],"inventor_names":inventor_names,"patent_number":patent_number,"issue_date":"","issue_by":"中华人民共和国国家知识产权局","title":""}
+        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":"","issue_by":"中华人民共和国国家知识产权局","title":patent_name}
     elif len(time)==0:
-        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":"","issue_by":"中华人民共和国国家知识产权局","title":""}
+        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":"","issue_by":"中华人民共和国国家知识产权局","title":patent_name}
     return patent
 
 def find_project(text):
@@ -177,6 +193,9 @@ def find_project(text):
     print("funds is:{}".format(project_funds))
     print("project name is:{}".format(project_name))
     print("project cat is:{}".format(project_cat))
+    project_name=''.join(project_name) if len(project_name) is not None else""
+    project_cat=''.join(project_cat) if len(project_cat) is not None else ""
+    project_funds=''.join(project_funds) if len(project_funds) is not None else ""
     project=None
     if len(time)>2:
         project={"title":project_name,"cat":project_cat,"fund":project_funds,"start":time[0],"end":time[1],"role":"负责人","code":project_number}
@@ -185,6 +204,16 @@ def find_project(text):
     elif len(time)==0:
         project = {"title": project_name, "cat": project_cat, "fund": project_funds}
     return project
+
+def find_award(text):
+    time=re.findall(pattern_time,text)
+    title_all=re.findall(r'(国家|省|市|自治区|政府|协会|学会|国务院)[\u4e00-\u9fa5]*?(科学|技术|进步|自然|发明|科技){1,}\s*?奖',text)
+    title=title_all[0] if len(title_all)>0  else ""
+    time= time[0] if len(time)>0 else ""
+    award=None
+    if title!="":
+        award={'title':title ,'year':time}
+    return award
 
 def find_socs(text):
     socs=[]
@@ -224,6 +253,7 @@ def find_patents(text):
     for t in re.split(r'[。.\n,，；;]', text):
         if t!="":
             patent=find_patent(t)
+            tf.reset_default_graph()
             if patent is not None:
                 patents.append(patent)
     return patents
@@ -231,7 +261,7 @@ def find_patents(text):
 
 def find_projects(text):
     projects=[]
-    print(re.split(r'[。\n；;]', text))
+    print(re.split(r'[。\n；;、]', text))
     for t in re.split(r'[。\n；;]', text):
         if t!="":
             project=find_project(t)
@@ -241,8 +271,17 @@ def find_projects(text):
     return projects
 
 def find_awards(text):
-    awards=[{"title":"国家科技进步奖","award":"天津电力公司供用电综合楼","from":"上海市","sid":"","year":"1937","rank":"一等",}]
+    awards=[]
+    for t in re.split(r'\[\d\]',text):
+        if t!="":
+            award=find_award(t)
+            tf.reset_default_graph()
+            if award is not None:
+                awards.append(award)
     return awards
+
+#print(find_awards("[1] “浙江省舟山市沈家门小学”, 专业负责人， 获2003年度建设部优秀勘察设计二等奖；[2]"))
+#find_project("郭灿城,  王旭涛,  刘强,  选择性催化空气氧化甲苯和取代甲苯成醛和醇的方法, ZL 03118066.3 ")
 # with open("../data/work2.json",'r') as file:
 #     data=json.load(file)
 # for t in data:

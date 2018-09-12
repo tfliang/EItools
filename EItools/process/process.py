@@ -9,6 +9,7 @@ from MagicGoogle import MagicGoogle
 from bson import ObjectId
 
 from EItools.client.mongo_client import MongoDBClient
+from EItools.crawler.crawl_information import crawl_person_info
 
 mongoClient=MongoDBClient()
 def process_data():
@@ -214,11 +215,11 @@ def match_data():
     train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500.txt', 'infoExample2000-2100.txt',
                'infoExample2100-2200.txt', 'infoExample2200-2300.txt', 'infoExample2400-2500.txt',
                'infoExample2600-2700.txt']
-    with open('/Users/bcj/Documents/科技部/award.txt', 'w+') as w:
+    with open('/Users/bcj/Documents/科技部/patent.txt', 'w+') as w:
         for data in train_data:
             with open("../data/"+data,'r') as f:
                 data=f.read()
-                text=re.findall('<award>.*?</award>',data)
+                text=re.findall('<patent>.*?</patent>',data)
                 print(len(text))
                 w.write('\r\n*******\r\n'.join(text))
 
@@ -233,9 +234,17 @@ def write_data():
 
 #write_data()
 
+def test_data():
+    persons = mongo_client.get_crawled_person_by_taskId("5b8673ba8d431519256c32c5")
+    for person in persons:
+        person['_id']=ObjectId(person['id'])
+        persons_info = crawl_person_info([person], None)
 
 
+#test_data()
 
+person=mongo_client.get_crawled_person_by_pid("5b8676c98d431526a3507939")
+crawl_person_info([person], None)
 
 
 
