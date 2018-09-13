@@ -243,8 +243,8 @@ def test_data():
 
 #test_data()
 
-person=mongo_client.get_crawled_person_by_pid("5b8676c98d431526a3507939")
-crawl_person_info([person], None)
+#person=mongo_client.get_crawled_person_by_pid("5b8676c78d431526a350792f")
+#crawl_person_info([person], None)
 
 
 

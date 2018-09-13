@@ -123,6 +123,7 @@ class MongoDBClient(object):
     def get_person(self, pid):
         return self.person_col.find_one({"_id": ObjectId(pid)})
     def get_crawled_person_by_pid(self,pid):
+        print(self.crawed_person_col.find_one({"_id":ObjectId(pid)}))
         return self.crawed_person_col.find_one({"_id":ObjectId(pid)})
 
     def save_person(self, item):
@@ -137,6 +138,11 @@ class MongoDBClient(object):
 
     def update_person_by_keyvalue(self,person_id,key,value):
         self.person_col.update({"_id": ObjectId(person_id)}, {"$set": {key: value}})
+
+    def update_crawled_person_by_keyvalue(self, person_id, key, value):
+        print(key)
+        print(value)
+        self.crawed_person_col.update({"_id": ObjectId(person_id)}, {"$set": {key: value}})
 
     def is_crawled_person(self, name,org):
         return self.crawed_person_col.find({"$and":[{"name": name},{"org": org}]}).count()>0

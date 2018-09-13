@@ -141,6 +141,7 @@ def clean_text(text):
 #              'P': "B-TITLE", 'p': "I-TITLE"
 #              }
 ############
+#project
 # tag = {
 #     # 'name' : 'PER',
 #     # 'address' : 'ADR',
@@ -163,10 +164,31 @@ def clean_text(text):
 #              'N': "B-TITLE", 'n': "I-TITLE"
 #              }
 ############
+#patent
+# tag = {
+#     # 'name' : 'PER',
+#     # 'address' : 'ADR',
+#     #'aff' : 'AFF',
+#     'name': 'NAME'}
+
+# tag2label = {"O": 'O',
+#              # "B-PER": 'A', "I-PER": 'a',
+#              # "B-ADR": 'B', "I-ADR": 'b',
+#              #"B-AFF": 'C', "I-AFF": 'c',
+#              "B-NAME": 'M', "I-NAME": 'm',
+#              }
+# label2tag = {"O": 'O', "X": 'X',
+#              # 'A': "B-PER", 'a': "I-PER",
+#              # 'B': "B-ADR", 'b': "I-ADR",
+#              #'C': "B-AFF", 'c': "I-AFF",
+#              'M': "B-NAME", 'm': "I-NAME"
+#              }
+############
 tag = {
     # 'name' : 'PER',
     # 'address' : 'ADR',
     #'aff' : 'AFF',
+    'title':'TITLE',
     'name': 'NAME'}
 
 tag2label = {"O": 'O',
@@ -174,12 +196,14 @@ tag2label = {"O": 'O',
              # "B-ADR": 'B', "I-ADR": 'b',
              #"B-AFF": 'C', "I-AFF": 'c',
              "B-NAME": 'M', "I-NAME": 'm',
+             "B-TITLE": 'N', "I-TITLE": 'n'
              }
 label2tag = {"O": 'O', "X": 'X',
              # 'A': "B-PER", 'a': "I-PER",
              # 'B': "B-ADR", 'b': "I-ADR",
              #'C': "B-AFF", 'c': "I-AFF",
-             'M': "B-NAME", 'm': "I-NAME"
+             'M': "B-NAME", 'm': "I-NAME",
+             'N': "B-TITLE", 'n': "I-TITLE"
              }
 
 def tagging(text,w):
@@ -264,10 +288,10 @@ def cut_text(text):
 train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500.txt', 'infoExample2000-2100.txt',
                'infoExample2100-2200.txt', 'infoExample2200-2300.txt', 'infoExample2400-2500.txt',
                'infoExample2600-2700.txt']
-train_data = ['patent.txt']
+train_data = ['award.txt']
 #test_data_standard = ['test_data_standard2.txt']
 #test_data = ['infoExample2700-2800.txt', 'infoExample2800-2900.txt']
-with open(os.path.join(DATA_DIR, 'train_data_patent'), 'w+') as w:
+with open(os.path.join(DATA_DIR, 'train_data_award_title'), 'w+') as w:
     for file_name in train_data:
         with open(os.path.join(DATA_DIR, file_name), 'r') as file:
             data = file.read()

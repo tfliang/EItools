@@ -51,8 +51,8 @@ else:
 print(args.mode)
 ## read corpus and get training data
 if args.mode != 'demo':
-    train_path = os.path.join(path, args.train_data, 'train_data_patent')
-    test_path = os.path.join(path, args.test_data, 'train_data_patent')
+    train_path = os.path.join(path, args.train_data, 'train_data_award_title')
+    test_path = os.path.join(path, args.test_data, 'train_data_award_title')
     train_data = read_corpus(train_path)
     test_data = read_corpus(test_path); test_size = len(test_data)
     print('read data:', len(train_data), train_path)

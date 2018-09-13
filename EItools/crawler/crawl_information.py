@@ -219,9 +219,10 @@ def update_person_by_Id(request):
     if request.method == 'POST':
         person = json.loads(request.body)
         person_id = get_value('id', person)
+        del person['id']
         if mongo_client.get_crawled_person_by_pid(person_id) is not None:
-            person['_id']=ObjectId(person_id)
-            mongo_client.save_person(person)
+            for key,value in person.items():
+                mongo_client.update_crawled_person_by_keyvalue(person_id,key,value)
             return HttpResponse(json.dumps({"info": "save success"}), content_type="application/json")
         else:
             return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
@@ -257,10 +258,22 @@ def crawl_person_info(persons,task_id):
                 p['source'] = 'aminer'
                 # mongo_client.save_crawled_person(p1)
             else:
-                result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))
-                #result_without_org=process.Get('{}'.format(person['name']))
-                # mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
-                p['result'] = result
+                def select(r):
+                    return r['label']==1
+                result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))['res']
+                result_without_org=process.Get('{},'.format(person['name']))['res']
+                result_rest=filter(select,result)
+                print(result_rest)
+                result_without_org_rest=filter(select,result_without_org)
+                print(result_without_org_rest)
+                final_result=[]
+                for r in result_rest:
+                    for j in result_without_org_rest:
+                        print("{}_{}".format(r['url'], j['url']))
+                        if r['url']==j['url']:
+                            final_result.append(r)
+                #mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
+                p['result'] = final_result if len(final_result)>0 else result
                 # if len(p['result'])>0:
                 #     #罕见度高,选取最新的
                 #     #罕见度低，选取公共的
@@ -268,12 +281,17 @@ def crawl_person_info(persons,task_id):
                 #     # 罕见度高,选取最新的
                 #     # 罕见度低，选取公共的
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
-                result_sorted = sorted(result['res'], key=lambda s: s['score'], reverse=True)
-                if len(result_sorted) > 0 :
-                    p['url'] = result_sorted[0]['url']
+                result_sorted = sorted(result, key=lambda s: s['score'], reverse=True)
+                if len(result_sorted) > 0:
+                    selected_item=result_sorted[0]
+                    #for se in result_sorted:
+                        #if 'edu.cn'in p['url']:
+                            #selected_item=se
+                            #break
+                    p['url'] = selected_item['url']
                     p['source'] = 'crawler'
                     p['info'] = crawl_mainpage.get_main_page(p['url'],person)
-
+                print("url is****"+p['url'])
                 # info, url = infoCrawler.get_info(person)
                 emails_prob = infoCrawler.get_emails(person)
                 #citation, h_index ,citation_in_recent_five_year = infoCrawler.get_scholar_info(person)

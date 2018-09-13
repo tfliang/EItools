@@ -29,7 +29,7 @@ def get_main_page(url,person=None):
 			script.extract()
 		for script in soup(["script", "style"]):
 			script.extract()
-		text = soup.find('body').get_text(separator="")
+		text = soup.find(name='body').get_text()
 		#lines = (line.strip() for line in text.splitlines())
 		# text = '\n\r'.join(chunk for chunk in lines if chunk)
 		lines = (line.strip() for line in text.split('\n'))
@@ -53,4 +53,4 @@ def get_mainpage_by_algo(url):
 	text, pval = pe.extract(soup)
 	return text
 
-print(get_main_page("http://www5.zzu.edu.cn/lifesci/info/1076/1279.htm",None))
+#print(get_main_page("http://www.tjkcsj.com/cpzs.asp?upid=215&newsid=1007",None))

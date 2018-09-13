@@ -49,7 +49,7 @@ tag2label4 = {"O":0,
              "B-YEAR": 7, "I-YEAR": 8,
              "B-RANK": 9,"I-RANK": 10
              }
-
+#social
 tag2label5 = {"O": 0,
              # "B-PER": 'A', "I-PER": 'a',
              # "B-ADR": 'B', "I-ADR": 'b',
@@ -58,12 +58,14 @@ tag2label5 = {"O": 0,
              "B-DUR": 3, "I-DUR": 4,
              "B-TITLE": 5, "I-TITLE": 6
              }
-tag2label = {"O": 0,
-             # "B-PER": 'A', "I-PER": 'a',
-             # "B-ADR": 'B', "I-ADR": 'b',
-             #"B-AFF": 'C', "I-AFF": 'c',
-             "B-NAME": 1, "I-NAME": 2,
-             }
+#patent
+# tag2label = {"O": 0,
+#              # "B-PER": 'A', "I-PER": 'a',
+#              # "B-ADR": 'B', "I-ADR": 'b',
+#              #"B-AFF": 'C', "I-AFF": 'c',
+#              "B-NAME": 1, "I-NAME": 2,
+#              }
+#project
 # tag2label = {"O": 0,
 #              # "B-PER": 'A', "I-PER": 'a',
 #              # "B-ADR": 'B', "I-ADR": 'b',
@@ -71,7 +73,13 @@ tag2label = {"O": 0,
 #              "B-CAT": 1, "I-CAT": 2,
 #              "B-TITLE": 3, "I-TITLE": 4
 #              }
-
+tag2label = {"O": 0,
+             # "B-PER": 'A', "I-PER": 'a',
+             # "B-ADR": 'B', "I-ADR": 'b',
+             #"B-AFF": 'C', "I-AFF": 'c',
+             "B-TITLE": 1, "I-TITLE": 2,
+             "B-NAME": 3, "I-NAME": 4
+             }
 def read_corpus(corpus_path):
     """
     read corpus and return the list of samples
