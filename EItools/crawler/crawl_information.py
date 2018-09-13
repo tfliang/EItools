@@ -263,9 +263,7 @@ def crawl_person_info(persons,task_id):
                 result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))['res']
                 result_without_org=process.Get('{},'.format(person['name']))['res']
                 result_rest=filter(select,result)
-                print(result_rest)
                 result_without_org_rest=filter(select,result_without_org)
-                print(result_without_org_rest)
                 final_result=[]
                 for r in result_rest:
                     for j in result_without_org_rest:
@@ -281,13 +279,13 @@ def crawl_person_info(persons,task_id):
                 #     # 罕见度高,选取最新的
                 #     # 罕见度低，选取公共的
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
-                result_sorted = sorted(result, key=lambda s: s['score'], reverse=True)
+                result_sorted = sorted(p['result'], key=lambda s: s['score'], reverse=True)
                 if len(result_sorted) > 0:
                     selected_item=result_sorted[0]
-                    #for se in result_sorted:
-                        #if 'edu.cn'in p['url']:
-                            #selected_item=se
-                            #break
+                    # for se in result_sorted:
+                    #     if 'edu.cn'in p['url']:
+                    #         selected_item=se
+                    #         break
                     p['url'] = selected_item['url']
                     p['source'] = 'crawler'
                     p['info'] = crawl_mainpage.get_main_page(p['url'],person)

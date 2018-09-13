@@ -24,7 +24,7 @@ def get_main_page(url,person=None):
 		scripts = soup.find_all(name='div', attrs={
 			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu).*$')})
 		scriptsId = soup.find_all(name='div', attrs={
-			"id": re.compile(r'.*(foot|nav|Nav|footer|bottom).*$')})
+			"id": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu).*$')})
 		for script in scripts + scriptsId:
 			script.extract()
 		for script in soup(["script", "style"]):

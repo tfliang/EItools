@@ -6,7 +6,8 @@ import jieba
 import tensorflow as tf
 
 from EItools.client.mongo_client import MongoDBClient
-from EItools.extract.interface import extract_one_3, print_tag, interface, extract_project, extract_patent
+from EItools.extract.interface import extract_one_3, print_tag, interface, extract_project, extract_patent, \
+    extract_award
 
 
 def find_aff(text):
@@ -207,12 +208,17 @@ def find_project(text):
 
 def find_award(text):
     time=re.findall(pattern_time,text)
-    title_all=re.findall(r'(国家|省|市|自治区|政府|协会|学会|国务院)[\u4e00-\u9fa5]*?(科学|技术|进步|自然|发明|科技){1,}\s*?奖',text)
-    title=title_all[0] if len(title_all)>0  else ""
+    tf.reset_default_graph()
+    result = extract_award(text)
+    award_title, award_name = result if result is not None else (None, None)
+    # title_all=re.findall(r'(国家|省|市|自治区|政府|协会|学会|国务院)[\u4e00-\u9fa5]*?(科学|技术|进步|自然|发明|科技){1,}\s*?奖',text)
+    #title=title_all[0] if len(title_all)>0  else ""
     time= time[0] if len(time)>0 else ""
+    title=award_title if award_title is not None else ""
+    name=award_name if award_name is not None else ""
     award=None
-    if title!="":
-        award={'title':title ,'year':time}
+    if title!="" or time!="" or name !="":
+        award={'title':title,'year':time,'award':name}
     return award
 
 def find_socs(text):
@@ -299,3 +305,4 @@ def find_awards(text):
 #find_work("2013/11－至今广东海洋大学水产学院副教授2011/12－2013/10美国俄克拉荷马大学环境基因组研究所访问学者2010/01－2011/12广东海洋大学水产学院副教授2004/10－2009/12广东海洋大学水产学院讲师2001/07－2004/09广东海洋大学水产学院助教1995/08－1998/08安徽省郎溪县郎川酒业有限公司技术员主")
 #find_work("曾分别于2001年-2004年，就读于湖南师范大学生命科学学院和法国INRA研究所，获硕士学位")
 #find_work("1986年毕业至今，工作于广州中医药大学")
+find_award("2005年山东省科技进步一等奖，第一完成人")
