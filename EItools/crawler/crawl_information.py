@@ -241,19 +241,23 @@ def update_person_by_detail(request):
         else:
             return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
 
+
+
 def crawl_person_info(persons,task_id):
     infoCrawler = InfoCrawler()
     infoCrawler.load_crawlers()
     persons_info=[]
     for i, p in enumerate(persons):
         if 'name' in p:
+            if '中国科学院' in p['org']:
+                p['org'] = '中国科学院'
             person = {}
             person['name'] = p['name']
             # affs = pre_process.get_valid_aff(p['org'])
             # person['simple_affiliation'] = ' '.join(affs)
             person['simple_affiliation'] = p['org']
             success, p1 = get_data_from_aminer(person)
-            if success:
+            if False:
                 p = p1
                 p['source'] = 'aminer'
                 # mongo_client.save_crawled_person(p1)
@@ -262,34 +266,39 @@ def crawl_person_info(persons,task_id):
                     return r['label']==1
                 result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))['res']
                 result_without_org=process.Get('{},'.format(person['name']))['res']
-                result_rest=filter(select,result)
-                result_without_org_rest=filter(select,result_without_org)
-                final_result=[]
-                for r in result_rest:
-                    for j in result_without_org_rest:
-                        print("{}_{}".format(r['url'], j['url']))
-                        if r['url']==j['url']:
-                            final_result.append(r)
+                result_rest=list(filter(select,result))
+                result_without_org_rest=list(filter(select,result_without_org))
+                # final_result=[]
+                # for r in result_rest:
+                #     for j in result_without_org_rest:
+                #         print("{}_{}".format(r['url'], j['url']))
+                #         if r['domain']==j['domain']:
+                #             final_result.append(r)
                 #mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
-                p['result'] = final_result if len(final_result)>0 else result
-                # if len(p['result'])>0:
-                #     #罕见度高,选取最新的
-                #     #罕见度低，选取公共的
+                #p['result'] = final_result if len(final_result)>0 and else result_rest
+                rare_value=int(util.get_name_rare(person['name']))
+                #if len(final_result)>0:
+                    #罕见度高,选取最新的
+                if rare_value<4 :
+                    p['result']=result_without_org_rest
+                else:
+                    p['result']=result_rest
+                    #罕见度低，选取公共的
                 # else:
-                #     # 罕见度高,选取最新的
-                #     # 罕见度低，选取公共的
+                #     p['result']=result_rest
+                    # 罕见度低，选取公共的
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
                 result_sorted = sorted(p['result'], key=lambda s: s['score'], reverse=True)
+
                 if len(result_sorted) > 0:
                     selected_item=result_sorted[0]
-                    # for se in result_sorted:
-                    #     if 'edu.cn'in p['url']:
-                    #         selected_item=se
-                    #         break
+                    for se in result_sorted:
+                        if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']):
+                            selected_item=se
                     p['url'] = selected_item['url']
                     p['source'] = 'crawler'
                     p['info'] = crawl_mainpage.get_main_page(p['url'],person)
-                print("url is****"+p['url'])
+                    print("url is****"+p['url'])
                 # info, url = infoCrawler.get_info(person)
                 emails_prob = infoCrawler.get_emails(person)
                 #citation, h_index ,citation_in_recent_five_year = infoCrawler.get_scholar_info(person)
@@ -301,8 +310,8 @@ def crawl_person_info(persons,task_id):
                 #p['h_index'] = h_index
                 # p = extract_information.extract(info, p)
                 if 'info' in p:
-                    result = interface(p['info'])
-                    PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ = result if result is not None else (
+                    apart_result = interface(p['info'])
+                    PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ = apart_result if result is not None else (
                     None, None, None, None, None, None, None, None, None, None, None, None)
                     # p['aff']=AFF
                     # p['title']=TIT

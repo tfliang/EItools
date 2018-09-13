@@ -161,28 +161,28 @@ def get_res(query):
     res = []
     try:
         for i in mb.search(query=query, pause=0.5):
-            if 'baike.com' in i['domain'] or 'baidu.com' in i['domain']:
+            if 'domain' in i and('baike.com' in i['domain'] or 'baidu.com' in i['domain']):
                 continue
-            if '官网' in i['title'] :
+            if 'domain' in i and'官网' in i['title'] :
                 print(i)
                 if 'domain' in i:
                     #result=re.split('-',i['domain'])
                     return i['domain']
-            else:
-                return i['domain']
     except Exception as e:
         return ""
 
 def get_domain():
-    institutions=mongo_client.db['institution'].find()
+    institutions=mongo_client.db['aff'].find({ "domain": "" })
     for inst in institutions:
-        if inst['domain'] is None or 'baidu.com' in inst['domain'] or 'baike.com' in inst['domain']:
-            name=inst['name']
-            print(name)
-            result=get_res(name)
-            print(result)
-            inst['domain']=result
-            mongo_client.db['institution'].save(inst)
+        #if inst['domain'] is None or 'baidu.com' in inst['domain'] or 'baike.com' in inst['domain']:
+        name=inst['name']
+        print(name)
+        result=get_res(name)
+        print(result)
+        inst['domain']=result
+        mongo_client.db['aff'].save(inst)
+
+get_domain()
 def save_name():
     with open('/Users/bcj/Desktop/高校中英名单.csv','r') as f:
         reader=csv.reader(f)
@@ -243,10 +243,16 @@ def test_data():
 
 #test_data()
 
-#person=mongo_client.get_crawled_person_by_pid("5b8676c78d431526a350792f")
-#crawl_person_info([person], None)
+person=mongo_client.get_crawled_person_by_pid("5b9a33628d431508dea40b80")
+crawl_person_info([person], None)
 
-
+# affs=mongo_client.db['aff'].find()
+# for aff in affs:
+#     print(aff['_id'])
+#     if aff is not None and aff['domain'] !=" " :
+#         print(aff['domain'])
+#         domain_key=aff['domain'].split('.')[1]
+#         print(domain_key)
 
 
 

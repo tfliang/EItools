@@ -2,6 +2,8 @@ import bs4
 import re
 import requests
 import pextract as pe
+
+from EItools.client.mongo_client import MongoDBClient
 from EItools.log.log import logger
 
 headers = {
@@ -27,7 +29,7 @@ def get_main_page(url,person=None):
 			"id": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu).*$')})
 		for script in scripts + scriptsId:
 			script.extract()
-		for script in soup(["script", "style"]):
+		for script in soup(["script", "style","select"]):
 			script.extract()
 		text = soup.find(name='body').get_text()
 		#lines = (line.strip() for line in text.splitlines())
@@ -53,4 +55,4 @@ def get_mainpage_by_algo(url):
 	text, pval = pe.extract(soup)
 	return text
 
-#print(get_main_page("http://www.tjkcsj.com/cpzs.asp?upid=215&newsid=1007",None))
+#print(get_mainpage_by_algo("http://dsxt.ustc.edu.cn/zj_js.asp?zzid=992"))

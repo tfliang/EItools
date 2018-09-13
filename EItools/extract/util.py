@@ -1,4 +1,7 @@
 import os, sys, re
+
+from EItools.client.mongo_client import MongoDBClient
+
 DATA_DIR = os.path.join(os.path.abspath('..'), 'data')
 
 def clean_text(text):
@@ -89,11 +92,39 @@ def find_title(text):
 
 def find_work_detail(text):
     pattern=re.compile(r'\d')
+
+mongo_client=MongoDBClient()
+def compare(org, url):
+    if org!="" and url!="":
+        aff = mongo_client.db['aff'].find_one({"name": org})
+        if aff is not None and aff['domain'] != "":
+            domain_key = aff['domain'].replace("https://", "").replace("http://", "").split('.')[slice(1,2)]
+            item_key = url.replace("https://", "").replace("http://", "").split('.')[slice(1,2)]
+            short=len(domain_key) if len(domain_key)<len(item_key) else len(item_key)
+            s_key=domain_key if len(domain_key)<len(item_key) else item_key
+            l_key=item_key if len(domain_key)<len(item_key) else domain_key
+            if domain_key==item_key:
+                return True
+            else:
+                count=0
+                for d in s_key:
+                    if d in l_key:
+                        count+=1
+                return count/short>0.3
+    return False
+def get_name_rare(name):
+    person=mongo_client.db['name_rare'].find_one({'name':name})
+    if person is not None:
+        return person['rare']
+    else:
+        return 5
+
 if __name__ == "__main__":
     # with open(os.path.join(DATA_DIR, 'infoExample2000-2100.txt')) as file:
     #     data = file.read()
     # personList = data.split('*********&&&&&&&&')
     # print(clean_text(personList[0]))
-    print(check_contain_chinese('中国'))
-    print(check_contain_chinese('xxx'))
-    print(check_contain_chinese('xx中国'))
+    # print(check_contain_chinese('中国'))
+    # print(check_contain_chinese('xxx'))
+    # print(check_contain_chinese('xx中国'))
+    print(compare("中国科学技术大学","http://dsxt.ustc.edu.cn/zj_js.asp?zzid=992"))

@@ -32,8 +32,8 @@ def find_name(text):
     if AFF is not None:
         print_tag(AFF, 'AFF', text)
     return PER
-pattern_time = r'([1-2][0-9]{3}[年|.|/]?[0-9]{0,2}[月]?)'
-pattern_work_time=r'([1-2][0-9]{3}[年./]?[0-9]{0,2}[月]?(?:-|－|-|(?:毕业))?(?:[1-2][0-9]{3}[年|.|/]?[0-9]{0,2}[月]?|至今)?)[^0-9]'
+pattern_time = r'([1-2][0-9]{3}[年|.|/-]?[0-9]{0,2}[月]?)'
+pattern_work_time=r'([1-2][0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|-|(?:毕业))*\s*(?:[1-2][0-9]{3}[年|.|/]?[0-9]{0,2}[月]?|至今)?)[^0-9]'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -223,8 +223,15 @@ def find_award(text):
 
 def find_socs(text):
     socs=[]
-    print(re.split(r'[。.\n,，；;]', text))
-    for t in re.split(r'[。.\n,，；;、]', text):
+    datas = re.findall(pattern_work_time, text)
+    socs_all = []
+    if len(datas) > 0:
+        indexs = [text.index(data) for data in datas]
+        socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    if len(socs_all) == 0:
+        socs_all = re.split(r'[。.\n,，；;、]', text)
+    for t in socs:
         if t!="":
             soc=find_soc(t)
             if soc is not None:
@@ -234,8 +241,15 @@ def find_socs(text):
 
 def find_works(text):
     works=[]
-    print(re.split(r'[。\n；;]', text))
-    for t in re.split(r'[。\n；;]', text):
+    datas = re.findall(pattern_work_time, text)
+    works_all=[]
+    if len(datas) > 0:
+        indexs = [text.index(data) for data in datas]
+        works_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        works_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    if len(works_all)==0:
+        works_all=re.split(r'[。\n；;]', text)
+    for t in works_all:
         if t!="":
             work=find_work(t)
             if work is not None:
@@ -244,8 +258,15 @@ def find_works(text):
 
 def find_edus(text):
     edus=[]
-    print(re.split(r'[。\n；;]', text))
-    for t in re.split(r'[。\n；;]', text):
+    datas = re.findall(pattern_work_time, text)
+    edus_all = []
+    if len(datas) > 0:
+        indexs = [text.index(data) for data in datas]
+        edus_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        edus_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    if len(edus_all) == 0:
+        edus_all = re.split(r'[。\n；;]', text)
+    for t in edus_all:
         if t!="":
             edu=find_edu(t)
             if edu is not None:
@@ -255,8 +276,18 @@ def find_edus(text):
 
 def find_patents(text):
     patents=[]
-    print(re.split(r'[。.\n,，；;]', text))
-    for t in re.split(r'[。.\n,，；;]', text):
+    datas = re.findall(r'(\d[．.][\u4e00-\u9fa5]?)', text)
+    if len(datas) == 0:
+        datas = re.findall(r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)', text)
+    patents_all = []
+    if len(datas) > 0:
+        indexs = [text.index(data) for data in datas]
+        patents_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        patents_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    if len(patents_all) == 0:
+        patents_all = re.split(r'[。\n；;]', text)
+    print(patents_all)
+    for t in patents_all:
         if t!="":
             patent=find_patent(t)
             tf.reset_default_graph()
@@ -267,8 +298,18 @@ def find_patents(text):
 
 def find_projects(text):
     projects=[]
-    print(re.split(r'[。\n；;、]', text))
-    for t in re.split(r'[。\n；;]', text):
+    datas = re.findall(r'(\d[．.][\u4e00-\u9fa5]?)', text)
+    if len(datas) == 0:
+        datas = re.findall(r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)', text)
+    projects_all = []
+    if len(datas) > 0:
+        indexs = [text.index(data) for data in datas]
+        projects_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        projects_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    if len(projects_all) == 0:
+        projects_all = re.split(r'[。\n；;]', text)
+    print(projects_all)
+    for t in projects_all:
         if t!="":
             project=find_project(t)
             tf.reset_default_graph()
@@ -278,7 +319,19 @@ def find_projects(text):
 
 def find_awards(text):
     awards=[]
-    for t in re.split(r'\[\d\]',text):
+    datas=re.findall(r'(\d[．.][\u4e00-\u9fa5]?)',text)
+    if len(datas)==0:
+        datas=re.findall(r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)', text)
+    awards_all=[]
+    if len(datas)>0:
+        indexs=[text.index(data) for data in datas]
+        awards_all=[text[indexs[i]:indexs[i+1]] for i,data in enumerate(indexs) if i<len(indexs)-1]
+        awards_all.append(text[indexs[len(indexs)-1]:len(text)])
+    if len(awards_all)==0:
+        awards_all=re.split(r'[。\n；;，,]', text)
+    print(awards_all)
+    for t in awards_all:
+        print(t)
         if t!="":
             award=find_award(t)
             tf.reset_default_graph()
@@ -305,4 +358,8 @@ def find_awards(text):
 #find_work("2013/11－至今广东海洋大学水产学院副教授2011/12－2013/10美国俄克拉荷马大学环境基因组研究所访问学者2010/01－2011/12广东海洋大学水产学院副教授2004/10－2009/12广东海洋大学水产学院讲师2001/07－2004/09广东海洋大学水产学院助教1995/08－1998/08安徽省郎溪县郎川酒业有限公司技术员主")
 #find_work("曾分别于2001年-2004年，就读于湖南师范大学生命科学学院和法国INRA研究所，获硕士学位")
 #find_work("1986年毕业至今，工作于广州中医药大学")
-find_award("2005年山东省科技进步一等奖，第一完成人")
+#find_award("2005年山东省科技进步一等奖，第一完成人")
+
+#find_awards("1．土壤重金属污染发生机理与修复原理，辽宁省自然科学一等奖（2008），排名：周启星、马奇英、孙铁珩、贾永锋、魏树和、王美娥、郭观林等，中国科学院沈阳应用生态研究所等，2006-12-062．污染土壤的植物修复技术与应用，辽宁省科技进步二等奖（2006），排名：周启星、魏树和、陈晓东、常文越、李法云、王晓飞、李培军、曹伟、王美娥、宋玉芳、王新、任丽萍、张倩茹等，中国科学院沈阳应用生态研究所等，2005-12-053．生态安全复合高效絮凝剂研制及在水处理中的应用，辽宁省科技进步二等奖（2005），排名：周启星、张凯松、张倩茹、刘睿、王新、魏树和、籍国东、任丽萍、刘宛、孙铁珩等")
+
+#find_works("大学高分子系，博士(导师：沈之荃院士) 1993.09 - 1996.06 杭州大学化学系，硕士(导师：龚钰秋教授) 1989.09 - 1993.06 杭州师范学院化学系本科")
