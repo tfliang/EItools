@@ -167,7 +167,7 @@ def find_edu(text):
 
 
 def find_patent(text):
-    inventor_names=find_aff(text)
+    inventor_names=find_name(text)
     patent_number_pattern=r'((ZL|CN|JP)?[0-9X]{9,15}.{0,1}[0-9X]{0,1})'
     patent_number=re.findall(patent_number_pattern,text)
     tf.reset_default_graph()
@@ -194,6 +194,7 @@ def find_project(text):
     print("funds is:{}".format(project_funds))
     print("project name is:{}".format(project_name))
     print("project cat is:{}".format(project_cat))
+    print("project time is:{}".format(time))
     project_name=''.join(project_name) if len(project_name) is not None else""
     project_cat=''.join(project_cat) if len(project_cat) is not None else ""
     project_funds=''.join(project_funds) if len(project_funds) is not None else ""

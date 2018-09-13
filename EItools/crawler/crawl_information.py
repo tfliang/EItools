@@ -311,7 +311,7 @@ def crawl_person_info(persons,task_id):
                 # p = extract_information.extract(info, p)
                 if 'info' in p:
                     apart_result = interface(p['info'])
-                    PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ = apart_result if result is not None else (
+                    PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ = apart_result if apart_result is not None else (
                     None, None, None, None, None, None, None, None, None, None, None, None)
                     # p['aff']=AFF
                     # p['title']=TIT
