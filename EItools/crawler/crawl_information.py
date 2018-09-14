@@ -211,7 +211,7 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
     #     person['status']=0
     #     total_persons.append(person)
     result = {
-        'total': mongo_client.get_crawled_person_by_taskId(id),
+        'total': mongo_client.get_crawled_person_num_by_taskId(id),
         'offset': offset,
         'size': size,
         'info': total_persons

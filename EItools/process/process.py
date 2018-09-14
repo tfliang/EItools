@@ -243,7 +243,7 @@ def test_data():
 
 #test_data()
 
-person=mongo_client.get_crawled_person_by_pid("5b9a33628d431508dea40b80")
+person=mongo_client.get_crawled_person_by_pid("5b9abce9c3666e23ba80d3da")
 crawl_person_info([person], None)
 
 # affs=mongo_client.db['aff'].find()
