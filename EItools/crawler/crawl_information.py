@@ -194,7 +194,7 @@ def update_person_by_field(request):
     return HttpResponse(json.dumps({"info": info}), content_type="application/json")
 
 def get_crawled_persons_by_taskId(request,id,offset,size):
-    crawled_persons=mongo_client.get_crawled_person_by_taskId(id,offset,size)
+    crawled_persons=mongo_client.get_crawled_person_by_taskId(id,int(offset),int(size))
     #uncrawled_persons=mongo_client.get_uncrawled_person_by_taskId(id)
     total_persons=[]
     crawled_persons_final=[]
