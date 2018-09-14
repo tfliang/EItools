@@ -106,11 +106,8 @@ def compare(org, url):
             if domain_key==item_key:
                 return True
             else:
-                count=0
-                for d in s_key:
-                    if d in l_key:
-                        count+=1
-                return count/short>0.3
+                if s_key in l_key:
+                    return True
     return False
 def get_name_rare(name):
     person=mongo_client.db['name_rare'].find_one({'name':name})

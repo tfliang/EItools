@@ -193,9 +193,9 @@ def update_person_by_field(request):
         info="info update success"
     return HttpResponse(json.dumps({"info": info}), content_type="application/json")
 
-def get_crawled_persons_by_taskId(request,id):
-    crawled_persons=mongo_client.get_crawled_person_by_taskId(id)
-    uncrawled_persons=mongo_client.get_uncrawled_person_by_taskId(id)
+def get_crawled_persons_by_taskId(request,id,offset,size):
+    crawled_persons=mongo_client.get_crawled_person_by_taskId(id,offset,size)
+    #uncrawled_persons=mongo_client.get_uncrawled_person_by_taskId(id)
     total_persons=[]
     crawled_persons_final=[]
     for person in crawled_persons:
@@ -207,11 +207,16 @@ def get_crawled_persons_by_taskId(request,id):
         person['status']=1
         total_persons.append(person)
         #crawled_persons_final.append(person)
-    for person in uncrawled_persons:
-        person['status']=0
-        total_persons.append(person)
-
-    return HttpResponse(json.dumps({"info": total_persons}), content_type="application/json")
+    # for person in uncrawled_persons:
+    #     person['status']=0
+    #     total_persons.append(person)
+    result = {
+        'total': mongo_client.get_crawled_person_by_taskId(id),
+        'offset': offset,
+        'size': size,
+        'info': total_persons
+    }
+    return HttpResponse(result, content_type="application/json")
 
 def update_person_by_Id(request):
     def get_value(key,content):
@@ -249,8 +254,6 @@ def crawl_person_info(persons,task_id):
     persons_info=[]
     for i, p in enumerate(persons):
         if 'name' in p:
-            if '中国科学院' in p['org']:
-                p['org'] = '中国科学院'
             person = {}
             person['name'] = p['name']
             # affs = pre_process.get_valid_aff(p['org'])
@@ -295,6 +298,7 @@ def crawl_person_info(persons,task_id):
                     for se in result_sorted:
                         if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']):
                             selected_item=se
+                            break
                     p['url'] = selected_item['url']
                     p['source'] = 'crawler'
                     p['info'] = crawl_mainpage.get_main_page(p['url'],person)

@@ -33,7 +33,7 @@ def find_name(text):
         print_tag(AFF, 'AFF', text)
     return PER
 pattern_time = r'([1-2][0-9]{3}[年|.|/-]?[0-9]{0,2}[月]?)'
-pattern_work_time=r'([1-2][0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|-|(?:毕业))*\s*(?:[1-2][0-9]{3}[年|.|/]?[0-9]{0,2}[月]?|至今)?)[^0-9]'
+pattern_work_time=r'([1-2]{1}[0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|-|(?:毕业))*\s*(?:[1-2]{1}[0-9]{3}[年|.|/]?[0-9]{0,2}[月]?|至今)?)[^0-9]'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -110,15 +110,15 @@ def find_work(text):
         #aff = aff_list[0]
         aff="及".join(aff_list)
         #title = text[text.index(aff) + len(aff):]
-        title=re.findall(r"(访问学者|教授|副教授|教师|讲师|博士后)",text)
+        title=re.findall(r"(访问学者|教授|副教授|教师|讲师|博士后|主任|处长|院长|所长|副主任|副所长|副总工程师)",text)
         print("time is:{}".format(time))
         print("aff is:{}".format(aff))
-        print("title is:{}".format(title))
+        print("positon is:{}".format(title))
         exp = None
         if len(time) > 2:
-            exp = {"start": time[0], "end": time[1], "title": title,"inst": aff}
+            exp = {"start": time[0], "end": time[1], "position": title,"inst": aff}
         elif len(time) == 1:
-            exp = {"start": time[0], "title": title,"inst": aff}
+            exp = {"start": time[0], "title": title,"position": aff}
         elif len(time) == 0:
             exp = {"title": title,"inst": aff}
         return exp
@@ -178,9 +178,9 @@ def find_patent(text):
     print("patent_number is:{}".format(patent_number))
     patent=None
     if len(time)>2:
-        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":"","issue_by":"中华人民共和国国家知识产权局","title":patent_name}
+        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":"","issue_by":"","title":patent_name}
     elif len(time)==0:
-        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":"","issue_by":"中华人民共和国国家知识产权局","title":patent_name}
+        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":"","issue_by":"","title":patent_name}
     return patent
 
 def find_project(text):
@@ -299,16 +299,16 @@ def find_patents(text):
 
 def find_projects(text):
     projects=[]
-    datas = re.findall(r'(\d[．.][\u4e00-\u9fa5]?)', text)
-    if len(datas) == 0:
-        datas = re.findall(r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)', text)
-    projects_all = []
-    if len(datas) > 0:
-        indexs = [text.index(data) for data in datas]
-        projects_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
-        projects_all.append(text[indexs[len(indexs) - 1]:len(text)])
-    if len(projects_all) == 0:
-        projects_all = re.split(r'[。\n；;]', text)
+    #datas = re.findall(r'(\d[．.][\u4e00-\u9fa5]?)', text)
+    #if len(datas) == 0:
+        #datas = re.findall(r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)', text)
+    #projects_all = []
+    #if len(datas) > 0:
+        #indexs = [text.index(data) for data in datas]
+        #projects_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        #projects_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    #if len(projects_all) == 0:
+    projects_all = re.split(r'[。\n；;]', text)
     print(projects_all)
     for t in projects_all:
         if t!="":

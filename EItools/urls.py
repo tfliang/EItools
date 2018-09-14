@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),
 
     url(r'^crawl/person/info/$',crawl_information.crawl_person_by_name),
-    url(r'^view/crawldetail/(.+)/$',crawl_information.get_crawled_persons_by_taskId),
+    url(r'^view/crawldetail/(.+)/(.+)/(.+)/$',crawl_information.get_crawled_persons_by_taskId),
     url(r'^update/persondetail/$',crawl_information.update_person_by_Id),
     url(r'^update/personfield/$',crawl_information.update_person_by_field),
 

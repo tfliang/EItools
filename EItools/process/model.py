@@ -1,9 +1,12 @@
 import datetime
 import json
+
 import re
 
 from bson import ObjectId
-
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from EItools.client.mongo_client import MongoDBClient
 from EItools.crawler.crawl_information import start_crawl, crawl_person_info
 from EItools.crawler.task import task_status_dict
@@ -167,7 +170,7 @@ persons = mongo_client.get_uncrawled_person_by_taskId("5b9a33608d431508dea40b74"
 if len(persons) > 0:
     print(len(persons))
     # try:
-    persons=persons[500:1000]
+    #persons=persons[25:500]
     crawl_person_info(persons, "5b9a33608d431508dea40b74")
     mongo_client.update_task(task_status_dict['finished'], "5b9a33608d431508dea40b74")
 
