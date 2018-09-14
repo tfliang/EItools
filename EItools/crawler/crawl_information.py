@@ -216,7 +216,7 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
         'size': size,
         'info': total_persons
     }
-    return HttpResponse(result, content_type="application/json")
+    return HttpResponse(json.dumps(result), content_type="application/json")
 
 def update_person_by_Id(request):
     def get_value(key,content):
