@@ -172,15 +172,15 @@ def get_res(query):
         return ""
 
 def get_domain():
-    institutions=mongo_client.db['aff'].find({ "domain": "" })
+    institutions=mongo_client.db['aff'].find()
     for inst in institutions:
-        #if inst['domain'] is None or 'baidu.com' in inst['domain'] or 'baike.com' in inst['domain']:
-        name=inst['name']
-        print(name)
-        result=get_res(name)
-        print(result)
-        inst['domain']=result
-        mongo_client.db['aff'].save(inst)
+        if inst['domain'] is None or 'baidu.com' in inst['domain'] or 'baike.com' in inst['domain']:
+            name=inst['name']
+            print(name)
+            result=get_res(name)
+            print(result)
+            inst['domain']=result
+            mongo_client.db['aff'].save(inst)
 
 get_domain()
 def save_name():
@@ -243,9 +243,32 @@ def test_data():
 
 #test_data()
 
-person=mongo_client.get_crawled_person_by_pid("5b9abce9c3666e23ba80d3da")
-crawl_person_info([person], None)
+def export_data():
+    #person_ids=["5b9a33778d431508dea40be2","5b9a33768d431508dea40be0","5b9a33768d431508dea40bdf","5b9a33788d431508dea40be6","5b9a33788d431508dea40be7","5b9a33788d431508dea40be8"]
+    person_ids = ["5b9a33778d431508dea40be2", "5b9a33768d431508dea40be0", "5b9a33768d431508dea40bdf",
+                  "5b9a33788d431508dea40be6", "5b9a33788d431508dea40be7", "5b9a33788d431508dea40be8",
+                  "5b9a341e8d431508dea40ee0", "5b9abce9c3666e23ba80d3da"]
+    persons=[]
+    for id in person_ids:
+        person=mongo_client.db['crawled_person_final'].find_one({"_id":ObjectId(id)},{'name':1,'aff':1,'position':1,'domain':1,'honors':1,'gender':1,'title':1
+            ,'edu_exp':1,'exp':1,'academic_org_exp':1,'awards':1,'patents':1,'projects':1,'url':1})
+        if person is not None:
+            person['id']=str(person['_id'])
+            del person['_id']
+            persons.append(person)
+    with open('b.json','w+') as w:
+        w.write(json.dumps(persons,ensure_ascii=False))
 
+def crawl_person():
+    person_ids = ["5b9a33778d431508dea40be2", "5b9a33768d431508dea40be0", "5b9a33768d431508dea40bdf",
+                 "5b9a33788d431508dea40be6", "5b9a33788d431508dea40be7","5b9a33788d431508dea40be8","5b9a341e8d431508dea40ee0","5b9abce9c3666e23ba80d3da"]
+    #person_ids=["5b9abce9c3666e23ba80d3da"]
+    for id in person_ids:
+        person = mongo_client.get_crawled_person_by_pid(id)
+        crawl_person_info([person], None)
+
+crawl_person()
+#export_data()
 # affs=mongo_client.db['aff'].find()
 # for aff in affs:
 #     print(aff['_id'])

@@ -98,23 +98,18 @@ def compare(org, url):
     if org!="" and url!="":
         aff = mongo_client.db['aff'].find_one({"name": org})
         if aff is not None and aff['domain'] != "":
-            domain_key = aff['domain'].replace("https://", "").replace("http://", "").split('.')[slice(1,2)]
-            item_key = url.replace("https://", "").replace("http://", "").split('.')[slice(1,2)]
-            short=len(domain_key) if len(domain_key)<len(item_key) else len(item_key)
-            s_key=domain_key if len(domain_key)<len(item_key) else item_key
-            l_key=item_key if len(domain_key)<len(item_key) else domain_key
-            if domain_key==item_key:
+            domain_key = aff['domain'].replace("https://", "").replace("http://", "").split('.')[1]
+            item_key = url.replace("https://", "").replace("http://", "")
+            print("fsdfsdf{}-{}".format(domain_key,item_key))
+            if domain_key in item_key:
                 return True
-            else:
-                if s_key in l_key:
-                    return True
     return False
 def get_name_rare(name):
     person=mongo_client.db['name_rare'].find_one({'name':name})
     if person is not None:
         return person['rare']
     else:
-        return 5
+        return 3
 
 if __name__ == "__main__":
     # with open(os.path.join(DATA_DIR, 'infoExample2000-2100.txt')) as file:

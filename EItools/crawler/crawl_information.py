@@ -266,7 +266,7 @@ def crawl_person_info(persons,task_id):
                 # mongo_client.save_crawled_person(p1)
             else:
                 def select(r):
-                    return r['label']==1
+                    return r['label']==1 and r['score']>0.9
                 result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))['res']
                 result_without_org=process.Get('{},'.format(person['name']))['res']
                 result_rest=list(filter(select,result))
@@ -353,7 +353,7 @@ def crawl_person_info(persons,task_id):
                     p['gender']=util.find_gender(p['info'])
                     email=util.find_email(p['info'])
                     p['email']=email[0] if len(email)>0 else ""
-                    p['edu']=detail_apart.find_edus(p['edu_region'])
+                    p['edu_exp']=detail_apart.find_edus(p['edu_region'])
                     p['exp']=detail_apart.find_works(p['exp_region'])
                     p['academic_org_exp']=detail_apart.find_socs(p['academic_org_exp_region'])
                     p['awards']=detail_apart.find_awards(p['awards_region'])

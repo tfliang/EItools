@@ -2,7 +2,7 @@ import sys, pickle, os, random
 import numpy as np
 
 ## tags, BIO
-tag2label2 = {"O": 0,
+tag2label= {"O": 0,
              # "B-PER": 1, "I-PER": 2,
              # "B-LOC": 3, "I-LOC": 4,
              # "B-ORG": 5, "I-ORG": 6
@@ -73,13 +73,13 @@ tag2label5 = {"O": 0,
 #              "B-CAT": 1, "I-CAT": 2,
 #              "B-TITLE": 3, "I-TITLE": 4
 #              }
-tag2label = {"O": 0,
-             # "B-PER": 'A', "I-PER": 'a',
-             # "B-ADR": 'B', "I-ADR": 'b',
-             #"B-AFF": 'C', "I-AFF": 'c',
-             "B-TITLE": 1, "I-TITLE": 2,
-             "B-NAME": 3, "I-NAME": 4
-             }
+# tag2label = {"O": 0,
+#              # "B-PER": 'A', "I-PER": 'a',
+#              # "B-ADR": 'B', "I-ADR": 'b',
+#              #"B-AFF": 'C', "I-AFF": 'c',
+#              "B-TITLE": 1, "I-TITLE": 2,
+#              "B-NAME": 3, "I-NAME": 4
+#              }
 def read_corpus(corpus_path):
     """
     read corpus and return the list of samples

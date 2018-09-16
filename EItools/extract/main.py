@@ -35,7 +35,7 @@ parser.add_argument('--pretrain_embedding', type=str, default='random', help='us
 parser.add_argument('--embedding_dim', type=int, default=300, help='random init char embedding_dim')
 parser.add_argument('--shuffle', type=str2bool, default=True, help='shuffle training data before each epoch')
 parser.add_argument('--mode', type=str, default='test', help='train/test/demo')
-parser.add_argument('--demo_model', type=str, default='1536043839', help='model for test and demo')
+parser.add_argument('--demo_model', type=str, default='1535130886', help='model for test and demo')
 args = parser.parse_args()
 
 path=os.path.dirname(os.path.abspath(__file__))
@@ -52,7 +52,7 @@ print(args.mode)
 ## read corpus and get training data
 if args.mode != 'demo':
     train_path = os.path.join(path, args.train_data, 'train_data_award_title')
-    test_path = os.path.join(path, args.test_data, 'train_data_award_title')
+    test_path = os.path.join(path, args.test_data, 'test_data1')
     train_data = read_corpus(train_path)
     test_data = read_corpus(test_path); test_size = len(test_data)
     print('read data:', len(train_data), train_path)

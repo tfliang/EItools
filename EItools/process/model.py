@@ -170,7 +170,7 @@ persons = mongo_client.get_uncrawled_person_by_taskId("5b9a33608d431508dea40b74"
 if len(persons) > 0:
     print(len(persons))
     # try:
-    #persons=persons[25:500]
+    persons=persons[300:700]
     crawl_person_info(persons, "5b9a33608d431508dea40b74")
     mongo_client.update_task(task_status_dict['finished'], "5b9a33608d431508dea40b74")
 
