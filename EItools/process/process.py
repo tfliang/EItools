@@ -260,9 +260,9 @@ def export_data():
         w.write(json.dumps(persons,ensure_ascii=False))
 
 def crawl_person():
-    person_ids = ["5b9a33778d431508dea40be2", "5b9a33768d431508dea40be0", "5b9a33768d431508dea40bdf",
-                 "5b9a33788d431508dea40be6", "5b9a33788d431508dea40be7","5b9a33788d431508dea40be8","5b9a341e8d431508dea40ee0","5b9abce9c3666e23ba80d3da"]
-    #person_ids=["5b9abce9c3666e23ba80d3da"]
+    #person_ids = ["5b9a33778d431508dea40be2", "5b9a33768d431508dea40be0", "5b9a33768d431508dea40bdf",
+     #            "5b9a33788d431508dea40be6", "5b9a33788d431508dea40be7","5b9a33788d431508dea40be8","5b9a341e8d431508dea40ee0","5b9abce9c3666e23ba80d3da"]
+    person_ids=["5b9a341e8d431508dea40ee0"]
     for id in person_ids:
         person = mongo_client.get_crawled_person_by_pid(id)
         crawl_person_info([person], None)

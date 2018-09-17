@@ -293,10 +293,10 @@ def crawl_person_info(persons,task_id):
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
                 result_sorted = sorted(p['result'], key=lambda s: s['score'], reverse=True)
 
-                if len(result_sorted) > 0:
+                if len(result_sorted) > 0.8:
                     selected_item=result_sorted[0]
                     for se in result_sorted:
-                        if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']):
+                        if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']) or 'baidu.com' in se['url']:
                             selected_item=se
                             break
                     p['url'] = selected_item['url']
@@ -338,7 +338,7 @@ def crawl_person_info(persons,task_id):
                     # p['AWD'] = AWD
                     # p['PAT'] = PAT
                     # p['PRJ'] = PRJ
-                    p['honors']=re.findall('(国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863专家|百千万人才工程国家级人选|创新人才推进计划)',p['info'])
+                    p['honors']=re.findall('(国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士)',p['info'])
                     p['aff']={}
                     p['aff']['inst'] = ' '.join(AFF) if AFF is not None else ""
                     p['title'] = ''.join(TIT) if TIT is not None else ""
