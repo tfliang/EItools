@@ -169,7 +169,8 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
     total_persons=[]
     crawled_persons_final=[]
     for person in crawled_persons:
-        del person['result']
+        if 'result' in person:
+            del person['result']
         if 'info' in person:
             del person['info']
         if 'email' in person and person['email']==[] and len(person['emails_prob'])>0:
