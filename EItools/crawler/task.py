@@ -15,7 +15,7 @@ from EItools import settings
 sys.path.append("..")
 from EItools.log.log import logger
 from EItools.client.mongo_client import MongoDBClient
-from EItools.crawler.crawl_information import save_task
+from EItools import celery_app
 task_status_dict={
     "finished":0,
     "failed":1,
@@ -43,6 +43,37 @@ def get_task_by_id(request,id):
         result=task
     return HttpResponse(json.dumps(result), content_type="application/json")
 
+
+@celery_app.task
+def save_task(task_id,file_path,task_name,creator,creator_id):
+    print(file_path)
+    total = 0
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            for i, row in enumerate(reader):#row[0] is person name row[1] is org name
+                total += 1
+                person = dict()
+                person['row_number']=i
+                person['name'] = row[0]
+                person['org'] = row[1]
+                person['task_id'] = task_id
+                mongo_client.db['uncrawled_person'].save(person)
+        logger.info("pulish task: {} total: {}".format(task_id, total))
+        task = dict()
+        task['_id'] = ObjectId(str(task_id))
+        task['task_name']=task_name
+        task['creator']=creator
+        task['creator_id']=creator_id
+        task['publish_time'] = strftime("%Y-%m-%d %H:%M")
+        task['file_name'] = "%s"%(file_path.split("/")[-1])
+        task['status'] = task_status_dict['not_started']
+        task['total']=total
+        mongo_client.save_task(task)
+    except Exception as e:
+        logger.info(e)
+
+
 def publish_task(request):
     def get_value(key,content):
         return content[key] if key in content else ""
@@ -56,26 +87,7 @@ def publish_task(request):
         file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
         total = 0
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                reader = csv.reader(f)
-                for i, row in enumerate(reader):  # row[0] is person name row[1] is org name
-                    total += 1
-                    person = dict()
-                    person['name'] = row[0]
-                    person['org'] = row[1]
-                    person['task_id'] = task_id
-                    mongo_client.person_col.save(person)
-            logger.info("pulish task: {} total: {}".format(task_id, total))
-            task = dict()
-            task['_id'] = task_id
-            task['task_name'] = task_name
-            task['creator'] = creator
-            task['creator_id'] = creator_id
-            task['publish_time'] = strftime("%Y-%m-%d %H:%M")
-            task['file_name'] = "%s" % (file_path.split("/")[-1])
-            task['status'] = task_status_dict['not_started']
-            task['total'] = total
-            mongo_client.save_task(task)
+            save_task.apply_async(args=[str(id)])(str(task_id),file_path,task_name,creator,creator_id)
             result = {
                 'info': "upload success",
                 'task_id': str(task_id)

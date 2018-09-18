@@ -1900,3 +1900,61 @@
 2018-09-11 07:34:50,477:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1535130886', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='demo', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
 2018-09-11 07:34:53,392:INFO: Restoring parameters from ./data_path_save/1535130886/checkpoints/model-118650
 2018-09-11 07:34:53,392:INFO: Restoring parameters from ./data_path_save/1535130886/checkpoints/model-118650
+2018-09-16 12:13:58,689:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1535130886', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-09-16 12:14:01,450:INFO: =========== testing ===========
+2018-09-16 12:14:01,450:INFO: =========== testing ===========
+2018-09-16 12:14:01,450:INFO: Restoring parameters from ./data_path_save/1535130886/checkpoints/model-118650
+2018-09-16 12:14:01,450:INFO: Restoring parameters from ./data_path_save/1535130886/checkpoints/model-118650
+2018-09-16 12:15:11,591:INFO: processed 81912 tokens with 371 phrases; found: 232 phrases; correct: 40.
+2018-09-16 12:15:11,591:INFO: processed 81912 tokens with 371 phrases; found: 232 phrases; correct: 40.
+2018-09-16 12:15:11,593:INFO: accuracy:  75.71%; precision:  17.24%; recall:  10.78%; FB1:  13.27
+2018-09-16 12:15:11,593:INFO: accuracy:  75.71%; precision:  17.24%; recall:  10.78%; FB1:  13.27
+2018-09-16 12:15:11,593:INFO: AFF: precision:   0.00%; recall:   0.00%; FB1:   0.00  9
+2018-09-16 12:15:11,593:INFO: AFF: precision:   0.00%; recall:   0.00%; FB1:   0.00  9
+2018-09-16 12:15:11,593:INFO: AWD: precision:   0.00%; recall:   0.00%; FB1:   0.00  29
+2018-09-16 12:15:11,593:INFO: AWD: precision:   0.00%; recall:   0.00%; FB1:   0.00  29
+2018-09-16 12:15:11,593:INFO: DOM: precision:  13.04%; recall:   9.52%; FB1:  11.01  46
+2018-09-16 12:15:11,593:INFO: DOM: precision:  13.04%; recall:   9.52%; FB1:  11.01  46
+2018-09-16 12:15:11,593:INFO: EDU: precision:  22.50%; recall:  13.04%; FB1:  16.51  40
+2018-09-16 12:15:11,593:INFO: EDU: precision:  22.50%; recall:  13.04%; FB1:  16.51  40
+2018-09-16 12:15:11,593:INFO: JOB: precision:  57.14%; recall:  12.12%; FB1:  20.00  7
+2018-09-16 12:15:11,593:INFO: JOB: precision:  57.14%; recall:  12.12%; FB1:  20.00  7
+2018-09-16 12:15:11,593:INFO: PAT: precision:   0.00%; recall:   0.00%; FB1:   0.00  8
+2018-09-16 12:15:11,593:INFO: PAT: precision:   0.00%; recall:   0.00%; FB1:   0.00  8
+2018-09-16 12:15:11,594:INFO: PRJ: precision:   0.00%; recall:   0.00%; FB1:   0.00  17
+2018-09-16 12:15:11,594:INFO: PRJ: precision:   0.00%; recall:   0.00%; FB1:   0.00  17
+2018-09-16 12:15:11,594:INFO: SOC: precision:   6.25%; recall:  14.29%; FB1:   8.70  16
+2018-09-16 12:15:11,594:INFO: SOC: precision:   6.25%; recall:  14.29%; FB1:   8.70  16
+2018-09-16 12:15:11,594:INFO: TIT: precision:  60.00%; recall:  19.48%; FB1:  29.41  25
+2018-09-16 12:15:11,594:INFO: TIT: precision:  60.00%; recall:  19.48%; FB1:  29.41  25
+2018-09-16 12:15:11,594:INFO: WRK: precision:  14.29%; recall:  10.20%; FB1:  11.90  35
+2018-09-16 12:15:11,594:INFO: WRK: precision:  14.29%; recall:  10.20%; FB1:  11.90  35
+2018-09-16 12:17:03,606:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1535130886', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-09-16 12:17:06,642:INFO: =========== testing ===========
+2018-09-16 12:17:06,642:INFO: =========== testing ===========
+2018-09-16 12:17:06,643:INFO: Restoring parameters from ./data_path_save/1535130886/checkpoints/model-118650
+2018-09-16 12:17:06,643:INFO: Restoring parameters from ./data_path_save/1535130886/checkpoints/model-118650
+2018-09-16 12:20:41,563:INFO: processed 96456 tokens with 676 phrases; found: 778 phrases; correct: 398.
+2018-09-16 12:20:41,563:INFO: processed 96456 tokens with 676 phrases; found: 778 phrases; correct: 398.
+2018-09-16 12:20:41,564:INFO: accuracy:  81.02%; precision:  51.16%; recall:  58.88%; FB1:  54.75
+2018-09-16 12:20:41,564:INFO: accuracy:  81.02%; precision:  51.16%; recall:  58.88%; FB1:  54.75
+2018-09-16 12:20:41,564:INFO: AFF: precision:   0.00%; recall:   0.00%; FB1:   0.00  27
+2018-09-16 12:20:41,564:INFO: AFF: precision:   0.00%; recall:   0.00%; FB1:   0.00  27
+2018-09-16 12:20:41,564:INFO: AWD: precision:  48.51%; recall:  72.22%; FB1:  58.04  134
+2018-09-16 12:20:41,564:INFO: AWD: precision:  48.51%; recall:  72.22%; FB1:  58.04  134
+2018-09-16 12:20:41,564:INFO: DOM: precision:  43.43%; recall:  53.75%; FB1:  48.04  99
+2018-09-16 12:20:41,564:INFO: DOM: precision:  43.43%; recall:  53.75%; FB1:  48.04  99
+2018-09-16 12:20:41,565:INFO: EDU: precision:  43.80%; recall:  53.00%; FB1:  47.96  121
+2018-09-16 12:20:41,565:INFO: EDU: precision:  43.80%; recall:  53.00%; FB1:  47.96  121
+2018-09-16 12:20:41,565:INFO: JOB: precision:  47.62%; recall:  31.25%; FB1:  37.74  21
+2018-09-16 12:20:41,565:INFO: JOB: precision:  47.62%; recall:  31.25%; FB1:  37.74  21
+2018-09-16 12:20:41,565:INFO: PAT: precision:  80.56%; recall:  53.70%; FB1:  64.44  36
+2018-09-16 12:20:41,565:INFO: PAT: precision:  80.56%; recall:  53.70%; FB1:  64.44  36
+2018-09-16 12:20:41,565:INFO: PRJ: precision:  78.57%; recall:  83.90%; FB1:  81.15  126
+2018-09-16 12:20:41,565:INFO: PRJ: precision:  78.57%; recall:  83.90%; FB1:  81.15  126
+2018-09-16 12:20:41,565:INFO: SOC: precision:  22.22%; recall:  77.78%; FB1:  34.57  63
+2018-09-16 12:20:41,565:INFO: SOC: precision:  22.22%; recall:  77.78%; FB1:  34.57  63
+2018-09-16 12:20:41,566:INFO: TIT: precision:  48.84%; recall:  27.27%; FB1:  35.00  43
+2018-09-16 12:20:41,566:INFO: TIT: precision:  48.84%; recall:  27.27%; FB1:  35.00  43
+2018-09-16 12:20:41,566:INFO: WRK: precision:  59.26%; recall:  59.81%; FB1:  59.53  108
+2018-09-16 12:20:41,566:INFO: WRK: precision:  59.26%; recall:  59.81%; FB1:  59.53  108

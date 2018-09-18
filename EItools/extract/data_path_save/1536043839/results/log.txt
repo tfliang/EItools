@@ -2407,3 +2407,19 @@
 2018-09-04 15:41:38,753:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1536043839', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='demo', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
 2018-09-04 15:41:41,985:INFO: Restoring parameters from ./data_path_save/1536043839/checkpoints/model-200
 2018-09-04 15:41:41,985:INFO: Restoring parameters from ./data_path_save/1536043839/checkpoints/model-200
+2018-09-16 10:44:47,947:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1536043839', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test_data4', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-09-16 10:45:28,976:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1536043839', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-09-16 10:45:31,772:INFO: =========== testing ===========
+2018-09-16 10:45:31,772:INFO: =========== testing ===========
+2018-09-16 10:45:31,773:INFO: Restoring parameters from ./data_path_save/1536043839/checkpoints/model-200
+2018-09-16 10:45:31,773:INFO: Restoring parameters from ./data_path_save/1536043839/checkpoints/model-200
+2018-09-16 12:11:04,818:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1536043839', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-09-16 12:11:07,591:INFO: =========== testing ===========
+2018-09-16 12:11:07,591:INFO: =========== testing ===========
+2018-09-16 12:11:07,592:INFO: Restoring parameters from ./data_path_save/1536043839/checkpoints/model-200
+2018-09-16 12:11:07,592:INFO: Restoring parameters from ./data_path_save/1536043839/checkpoints/model-200
+2018-09-16 12:11:54,874:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1536043839', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='test', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-09-16 12:11:57,598:INFO: =========== testing ===========
+2018-09-16 12:11:57,598:INFO: =========== testing ===========
+2018-09-16 12:11:57,598:INFO: Restoring parameters from ./data_path_save/1536043839/checkpoints/model-200
+2018-09-16 12:11:57,598:INFO: Restoring parameters from ./data_path_save/1536043839/checkpoints/model-200

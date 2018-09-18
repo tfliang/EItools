@@ -44,36 +44,6 @@ def crawl_file_info(request):
     return HttpResponse(json.dumps({"file_name": file_name}), content_type="application/json")
 
 
-@celery_app.task
-def save_task(task_id,file_path,task_name,creator,creator_id):
-    task_id = ObjectId(str(task_id))
-    print(file_path)
-    total = 0
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            for i, row in enumerate(reader):#row[0] is person name row[1] is org name
-                total += 1
-                person = dict()
-                person['name'] = row[0]
-                person['org'] = row[1]
-                person['task_id'] = task_id
-                mongo_client.db['uncrawled_person'].save(person)
-        logger.info("pulish task: {} total: {}".format(task_id, total))
-        task = dict()
-        task['_id'] = task_id
-        task['task_name']=task_name
-        task['creator']=creator
-        task['creator_id']=creator_id
-        task['publish_time'] = strftime("%Y-%m-%d %H:%M")
-        task['file_name'] = "%s"%(file_path.split("/")[-1])
-        task['status'] = task_status_dict['not_started']
-        task['total']=total
-        mongo_client.save_task(task)
-    except Exception as e:
-        logger.info(e)
-
-
 def get_data_from_aminer(person):
     post_json = {
         "action": "search.search", "parameters": {"advquery": {
@@ -293,7 +263,7 @@ def crawl_person_info(persons,task_id):
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
                 result_sorted = sorted(p['result'], key=lambda s: s['score'], reverse=True)
 
-                if len(result_sorted) > 0.8:
+                if len(result_sorted) > 0.7:
                     selected_item=result_sorted[0]
                     for se in result_sorted:
                         if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']) or 'baidu.com' in se['url']:
@@ -356,7 +326,7 @@ def crawl_person_info(persons,task_id):
                     p['edu_exp']=detail_apart.find_edus(p['edu_region'])
                     p['exp']=detail_apart.find_works(p['exp_region'])
                     p['academic_org_exp']=detail_apart.find_socs(p['academic_org_exp_region'])
-                    p['awards']=detail_apart.find_awards(p['awards_region'])
+                    p['awards']=detail_apart.find_awards_list(AWD)
                     p['patents']=detail_apart.find_patents(p['patents_region'])
                     p['projects'] = detail_apart.find_projects(p['projects_region'])
                 p['source'] = 'crawler'

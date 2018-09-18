@@ -59,9 +59,9 @@ def match(aff_list,time_list,text):
 #国务院学位委员会学科评议组(化学组)成员
 def find_soc(text):
     aff_list=find_aff(text)
-    # time=re.findall(pattern_time,text)
-    # for t in time:
-    #     text.replace(t,"")
+    time=re.findall(pattern_time,text)
+    for t in time:
+        text.replace(t,"")
     if aff_list is not None and len(aff_list)>0:
         aff=' '.join(aff_list)
         most_index=0
@@ -236,13 +236,13 @@ def find_award(text):
 
 def find_socs(text):
     socs=[]
-    # datas = re.findall(pattern_work_time, text)
-    # socs_all = []
-    # if len(datas) > 0:
-    #     indexs = [text.index(data) for data in datas]
-    #     socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
-    #     socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
-    # if len(socs_all) == 0:
+    #datas = re.findall(pattern_work_time, text)
+    #socs_all = []
+    #if len(datas) > 0:
+        #indexs = [m.span()[0] for m in re.finditer(pattern_work_time, text)]
+        #socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        #socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    #if len(socs_all) == 0:
     socs_all = re.split(r'[。.\n,，；;、]', text)
     for t in socs_all:
         if t!="":
@@ -328,7 +328,10 @@ def find_projects(text):
         projects_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
         projects_all.append(text[indexs[len(indexs) - 1]:len(text)])
     if len(projects_all) == 0:
-        projects_all = re.split(r'[。\n；;]', text)
+        if '。' in text:
+            projects_all = re.split(r'[。\n；;]', text)
+        else:
+            projects_all = re.split(r'[。\n；;,，]', text)
     print(projects_all)
     for t in projects_all:
         if t!="":
@@ -359,6 +362,14 @@ def find_awards(text):
                 awards.append(award)
     return awards
 
+def find_awards_list(awd_list):
+    awd_aparts=[]
+    if awd_list is not None:
+        for awd in awd_list:
+            awd_apart=find_awards(awd)
+            for a in awd_apart:
+                awd_aparts.append(a)
+    return awd_aparts
 #print("美国肯塔基大学制造研究中心 访问教授 ".replace("美国肯塔基大学制造研究中心",","))
 
 #print(find_project("3.国家基础研究计划（973）（2012CB910800）：炎症诱导肿瘤的分子调控网络研究, 240万元课题负责人2012.1-2016.12"))
