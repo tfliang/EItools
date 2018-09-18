@@ -98,6 +98,8 @@ class MongoDBClient(object):
             item['id'] = str(item['_id'])
             del item['_id']
             del item['task_id']
+            del item['result']
+            del item['info']
             persons.append(item)
         return persons
 
