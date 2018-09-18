@@ -34,7 +34,7 @@ def find_name(text):
     return PER
 patent_time=r'([1-2][0-9]{3})[年|.|/]?'
 pattern_time = r'([1-2][0-9]{3}[年|.|/]?[0-9]{0,2}[月]?|至今|今)'
-pattern_work_time=r'(同年|[1-2]{1}[0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|—|-|毕业|至)*\s*(?:(?:[1-2]{1}[0-9]{3}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
+pattern_work_time=r'(同年|[1-2]{1}[0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|—|-|～|毕业|至)*\s*(?:(?:[1-2]{1}[0-9]{3}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -290,7 +290,7 @@ def find_edus(text):
 
 def find_patents(text):
     patents=[]
-    sequence_pattern='(\d[．.]\s*[\u4e00-\u9fa5]+)'
+    sequence_pattern='(\d[．.、]\s*[\u4e00-\u9fa5]+)'
     sequence_pattern_second='([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5])'
     datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
     indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second,text)]
@@ -315,8 +315,8 @@ def find_patents(text):
 
 def find_projects(text):
     projects=[]
-    sequence_pattern = '(\d[．.]+\s*[\u4e00-\u9fa5]+)'
-    sequence_pattern_second = '([【[（\[]?\d\s*[\]）]】?\s*[\u4e00-\u9fa5])'
+    sequence_pattern = r'(\d[．.、]+\s*[\u4e00-\u9fa5]+)'
+    sequence_pattern_second = r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)'
     '[\d\s*]?\s*'
     datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
     indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second, text)]
@@ -345,7 +345,7 @@ def find_awards(text):
     awards=[]
     datas = re.findall(r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)', text)
     if len(datas)==0:
-        datas = re.findall(r'(\d[．.][\u4e00-\u9fa5^]?)', text)
+        datas = re.findall(r'(\d[．.、][\u4e00-\u9fa5^]?)', text)
     awards_all=[]
     if len(datas)>0:
         indexs=[text.index(data) for data in datas]

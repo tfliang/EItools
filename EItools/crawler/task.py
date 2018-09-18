@@ -105,6 +105,13 @@ def export_data(request,taskid):
     task=mongo_client.get_task_by_Id(taskid)
     if task is not None:
         persons=mongo_client.get_crawled_person_by_taskId(taskid)
+        persons_filter=[]
+        for person in persons:
+            if 'result' in person:
+                del person['result']
+            if 'info' in person:
+                del person['info']
+            persons_filter.append(person)
         logger.info(len(persons))
         return write_json(persons,task['task_name'])
     else:
