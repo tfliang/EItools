@@ -57,7 +57,7 @@ def save_task(task_id,file_path,task_name,creator,creator_id):
                 person['row_number']=i
                 person['name'] = row[0]
                 person['org'] = row[1]
-                person['task_id'] = task_id
+                person['task_id'] = ObjectId(task_id)
                 mongo_client.db['uncrawled_person'].save(person)
         logger.info("pulish task: {} total: {}".format(task_id, total))
         task = dict()
@@ -87,7 +87,7 @@ def publish_task(request):
         file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
         total = 0
         try:
-            save_task.apply_async(args=[str(id)])(str(task_id),file_path,task_name,creator,creator_id)
+            save_task.apply_async(args=[str(task_id),file_path,task_name,creator,creator_id])
             result = {
                 'info': "upload success",
                 'task_id': str(task_id)

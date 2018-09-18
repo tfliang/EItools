@@ -309,7 +309,7 @@ def crawl_person_info(persons,task_id):
                     # p['AWD'] = AWD
                     # p['PAT'] = PAT
                     # p['PRJ'] = PRJ
-                    p['honors']=re.findall('(国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士)',p['info'])
+                    p['honors']=re.findall('(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士)',p['info'])
                     p['aff']={}
                     p['aff']['inst'] = ' '.join(AFF) if AFF is not None else ""
                     p['title'] = ''.join(TIT) if TIT is not None else ""
