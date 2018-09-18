@@ -23,7 +23,7 @@ class MongoDBClient(object):
     def get_all_task(self,offset=0,size=0):
         tasks_info = []
         if size > 0 and offset >= 0:
-            tasks= self.task_col.find().sort({'publish_time':-1}).skip(offset).limit(size)
+            tasks= self.task_col.find().skip(offset).limit(size)
         else:
             tasks = self.task_col.find()
         for item in tasks:
