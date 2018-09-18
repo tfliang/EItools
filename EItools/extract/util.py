@@ -22,7 +22,7 @@ def clean_list(lst):
     for item in lst:
         if check_contain_chinese(clean_word(item)):
             new_lst.append(clean_word(item))
-    return list(new_lst)
+    return list(set(new_lst))
 
 def clean_list_sec(lst):
     for i, item in enumerate(lst):
