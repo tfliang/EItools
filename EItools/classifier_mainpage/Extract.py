@@ -1,10 +1,12 @@
+import json
+
 from EItools.config.globalvar import CLASSIFIER_DIR
 from .TextSlicer import TextSlicer
 
 class Extract:
 	name_slicer = None
 	aff_slicer = None
-	
+	position_slicer=None
 	def init():
 		name = set()
 		with open(CLASSIFIER_DIR+'/data/name.txt', 'r', encoding = 'utf-8') as f:
@@ -16,6 +18,11 @@ class Extract:
 			for line in f:
 				aff.add(line[:-1])
 		Extract.aff_slicer = TextSlicer(aff)
+		position=set()
+		with open(CLASSIFIER_DIR+'/data/position.json', 'r', encoding = 'utf-8') as f:
+			position_list=json.load(f)
+			position=set(position_list)
+		Extract.position_slicer = TextSlicer(position)
 	
 	def extract_name(str, block = None):
 		li = Extract.name_slicer.slice_prob(str)
@@ -28,6 +35,13 @@ class Extract:
 	def extract_aff(str, block = None):
 		li = Extract.aff_slicer.slice_prob(str)
 		nli = []
+		for x in li:
+			if block is None or len(block.findall(x)) == 0:
+				nli.append(x)
+		return nli
+	def extrac_position(str,block=None):
+		li=Extract.position_slicer.slice_prob(str)
+		nli=[]
 		for x in li:
 			if block is None or len(block.findall(x)) == 0:
 				nli.append(x)

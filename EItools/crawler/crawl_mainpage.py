@@ -1,3 +1,5 @@
+import datetime
+
 import bs4
 import re
 import requests
@@ -54,5 +56,19 @@ def get_mainpage_by_algo(url):
 	html, pval = pe.extract(soup, text_only=False, remove_img=False)
 	text, pval = pe.extract(soup)
 	return text
+
+year_now=datetime.datetime.now().year
+pattern_year='[1-2]{1}[0-9]{3}'
+def get_lasttime_from_mainpage(url):
+	text=get_main_page(url)
+	all_years=re.compile(pattern_year).findall(text)
+	all_years=sorted(set(all_years),reverse=True)
+	for year in all_years:
+		if int(year)<=year_now:
+			return year
+	return 0
+
+
+
 
 #print(get_mainpage_by_algo("http://dsxt.ustc.edu.cn/zj_js.asp?zzid=992"))

@@ -5,6 +5,7 @@ import re
 import jieba
 import tensorflow as tf
 
+from EItools.classifier_mainpage.Extract import Extract
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import extract_one_3, print_tag, interface, extract_project, extract_patent, \
     extract_award
@@ -106,7 +107,8 @@ def find_work(text):
         position=""
         for aff in aff_list:
             text=text.replace(aff,',')
-        position=text
+        text=text.replace(',，、。.','')
+        position=Extract.extrac_position(text)
         print("time is:{}".format(time))
         print("aff is:{}".format(aff))
         print("positon is:{}".format(position))
@@ -119,11 +121,6 @@ def find_work(text):
             exp = {"position": position,"inst": aff}
         return exp
 
-# with open("../data/social2.json",'r') as file:
-#     data=json.load(file)
-# for t in data:
-#     for text in re.split(r'，|。|、|, |',t):
-#         find_soc(text)
 
 #1981年本科毕业于湖南师范大学化学系
 def find_edu(text):

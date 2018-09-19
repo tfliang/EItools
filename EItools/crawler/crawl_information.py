@@ -263,17 +263,21 @@ def crawl_person_info(persons,task_id):
                     # 罕见度低，选取公共的
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
                 result_sorted = sorted(p['result'], key=lambda s: s['score'], reverse=True)
-
-                if len(result_sorted) > 0.7:
-                    selected_item=result_sorted[0]
+                result_sorted_final=[]
+                if len(result_sorted) > 0:
                     for se in result_sorted:
-                        if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']) or 'baidu.com' in se['url']:
-                            selected_item=se
-                            break
-                    p['url'] = selected_item['url']
-                    p['source'] = 'crawler'
-                    p['info'] = crawl_mainpage.get_main_page(p['url'],person)
-                    print("url is****"+p['url'])
+                        se['last_time']=crawl_mainpage.get_lasttime_from_mainpage(se['url'])
+                        result_sorted_final.append(se)
+                result_sorted_final=sorted(result_sorted_final,key=lambda s:s['last_time'],reverse=True)
+                selected_item=result_sorted_final[0]
+                p['url'] = selected_item['url']
+                p['source'] = 'crawler'
+                p['info'] = crawl_mainpage.get_main_page(p['url'], person)
+                print("url is****" + p['url'])
+
+                    # if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']) or 'baidu.com' in se['url']:
+                    #     selected_item=se
+                    #     break
                 # info, url = infoCrawler.get_info(person)
                 emails_prob = infoCrawler.get_emails(person)
                 #citation, h_index ,citation_in_recent_five_year = infoCrawler.get_scholar_info(person)
