@@ -2,6 +2,9 @@ import json
 import time
 from urllib import request
 
+import cchardet
+import requests
+
 
 class Proxy:
 
@@ -65,17 +68,29 @@ class ProxySwitcher:
         return False, ''
 
     def get_proxy_by_url(self,need=True):
-        if need==False:
-            proxy_id = "50246453887904920091"
-            content = request.urlopen(
-                "http://api.baibianip.com/api/changeip?apikey=8035c3345550bb41834c60a298c9df02&format=json&proxy_id={}".format(
-                    proxy_id))
-        proxy_id_content = request.urlopen(
-            "http://api.baibianip.com/api/getproxy?gettype=exclusive&apikey=8035c3345550bb41834c60a298c9df02&format=json").read()
-        proxy_id_data = json.loads(proxy_id_content)
-        if proxy_id_data['errmsg']=="SUCCESS":
-            return True,"{}:{}".format(proxy_id_data['proxy_list'][0]['proxy_ip'],proxy_id_data['proxy_list'][0]['proxy_port'])
-        return False,""
+        #if need==False:
+            #proxy_id = "50246453887904920091"
+            #content = request.urlopen(
+             #   "http://api.baibianip.com/api/changeip?apikey=8035c3345550bb41834c60a298c9df02&format=json&proxy_id={}".format(
+                    #proxy_id))
+        #proxy_id_content = request.urlopen(
+            #"http://api.baibianip.com/api/getproxy?gettype=exclusive&apikey=8035c3345550bb41834c60a298c9df02&format=json").read()
+        #proxy_id_data = json.loads(proxy_id_content)
+        #if proxy_id_data['errmsg']=="SUCCESS":
+            #return True,"{}:{}".format(proxy_id_data['proxy_list'][0]['proxy_ip'],proxy_id_data['proxy_list'][0]['proxy_port'])
+        #return False,""
+        r=requests.get("http://localhost:8899/api/v1/proxies")
+
+        content = r.content
+        charset = cchardet.detect(content)
+        text = content.decode(charset['encoding'])
+        proxy_ids = json.loads(str(text))
+        return "{}:{}".format(proxy_ids['proxies'][0]['ip'],proxy_ids['proxies'][0]['port'])
+
+# url=ProxySwitcher().get_proxy_by_url()
+# print("https://"+url)
+# print(requests.get("http://www.google.com",proxies={'https':"https://212.93.119.116:8080"}))
+
 
 
 

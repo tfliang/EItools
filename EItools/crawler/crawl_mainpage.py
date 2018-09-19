@@ -65,7 +65,7 @@ def get_lasttime_from_mainpage(url):
 	all_years=sorted(set(all_years),reverse=True)
 	for year in all_years:
 		if int(year)<=year_now:
-			return year
+			return int(year)
 	return 0
 
 
