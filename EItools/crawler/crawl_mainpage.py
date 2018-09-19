@@ -26,7 +26,7 @@ def get_main_page(url,person=None):
 		source_code = get_content(url,headers)
 		soup = bs4.BeautifulSoup(source_code, 'html.parser')
 		scripts = soup.find_all(name='div', attrs={
-			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu).*$')})
+			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu|before-content|polysemyAll).*$')})
 		scriptsId = soup.find_all(name='div', attrs={
 			"id": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu).*$')})
 		for script in scripts + scriptsId:
@@ -63,6 +63,7 @@ def get_lasttime_from_mainpage(url):
 	text=get_main_page(url)
 	all_years=re.compile(pattern_year).findall(text)
 	all_years=sorted(set(all_years),reverse=True)
+	print(all_years)
 	for year in all_years:
 		if int(year)<=year_now:
 			return int(year)

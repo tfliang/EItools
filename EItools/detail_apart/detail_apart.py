@@ -107,8 +107,8 @@ def find_work(text):
         position=""
         for aff in aff_list:
             text=text.replace(aff,',')
-        text=text.replace(',，、。.','')
-        position=Extract.extrac_position(text)
+        text=text.replace(',，、。.-','')
+        position='，'.join(Extract.extrac_position(text))
         print("time is:{}".format(time))
         print("aff is:{}".format(aff))
         print("positon is:{}".format(position))
@@ -349,7 +349,7 @@ def find_awards(text):
         awards_all=[text[indexs[i]:indexs[i+1]] for i,data in enumerate(indexs) if i<len(indexs)-1]
         awards_all.append(text[indexs[len(indexs)-1]:len(text)])
     if len(awards_all)==0:
-        awards_all=re.split(r'[。\n；;]', text)
+        awards_all=re.split(r'[。\n；;,，]', text)
     print(awards_all)
     for t in awards_all:
         if t!="":
@@ -367,8 +367,4 @@ def find_awards_list(awd_list):
             for a in awd_apart:
                 awd_aparts.append(a)
     return awd_aparts
-#print("美国肯塔基大学制造研究中心 访问教授 ".replace("美国肯塔基大学制造研究中心",","))
 
-#print(find_project("3.国家基础研究计划（973）（2012CB910800）：炎症诱导肿瘤的分子调控网络研究, 240万元课题负责人2012.1-2016.12"))
-
-#print(find_work("1998年至今任国家重大科学工程“兰州重离子加速器冷却储存环HIRFL-CSR”的总工程师兼CSR总体室主任"))

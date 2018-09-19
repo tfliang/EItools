@@ -237,7 +237,7 @@ def crawl_person_info(persons,task_id):
                 # mongo_client.save_crawled_person(p1)
             else:
                 def select(r):
-                    return r['label']==1 and r['score']>0.9
+                    return r['label']==1 and r['score']>0.8
                 result = process.Get('{},{}'.format(person['name'],person['simple_affiliation']))['res']
                 result_without_org=process.Get('{},'.format(person['name']))['res']
                 result_rest=list(filter(select,result))
@@ -254,21 +254,19 @@ def crawl_person_info(persons,task_id):
                 #if len(final_result)>0:
                     #罕见度高,选取最新的
                 if rare_value<4 :
-                    p['result']=result_without_org_rest
+                    result_sorted=result_without_org_rest
                 else:
-                    p['result']=result_rest
+                    result_sorted=result_rest
                     #罕见度低，选取公共的
                 # else:
                 #     p['result']=result_rest
                     # 罕见度低，选取公共的
                 #positive_result=[ r for r in result['res'] if r['label']==1.0]
-                result_sorted = sorted(p['result'], key=lambda s: s['score'], reverse=True)
-                result_sorted_final=[]
                 if len(result_sorted) > 0:
                     for se in result_sorted:
                         se['last_time']=crawl_mainpage.get_lasttime_from_mainpage(se['url'])
-                        result_sorted_final.append(se)
-                result_sorted_final=sorted(result_sorted_final,key=lambda s:s['last_time'],reverse=True)
+                result_sorted_final=sorted(result_sorted,key=lambda s:s['last_time'],reverse=True)
+                p['result']=result_sorted_final
                 if len(result_sorted_final)>0:
                     selected_item=result_sorted_final[0]
                     p['url'] = selected_item['url']
@@ -281,13 +279,13 @@ def crawl_person_info(persons,task_id):
                     #     break
                 # info, url = infoCrawler.get_info(person)
                 emails_prob = infoCrawler.get_emails(person)
-                #citation, h_index ,citation_in_recent_five_year = infoCrawler.get_scholar_info(person)
-                # if affs is not None:
-                # p['s_aff'] = affs
-                # p['url'] = url
-                # p['info'] = info
-                #p['citation'] = citation
-                #p['h_index'] = h_index
+                citation, h_index ,citation_in_recent_five_year = infoCrawler.get_scholar_info(person)
+                #if affs is not None:
+                    #p['s_aff'] = affs
+                    #p['url'] = url
+                    #p['info'] = info
+                p['citation'] = citation
+                p['h_index'] = h_index
                 # p = extract_information.extract(info, p)
                 if 'info' in p:
                     apart_result = interface(p['info'])
@@ -314,7 +312,7 @@ def crawl_person_info(persons,task_id):
                     # p['AWD'] = AWD
                     # p['PAT'] = PAT
                     # p['PRJ'] = PRJ
-                    p['honors']=re.findall('(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士)',p['info'])
+                    p['honors']=re.findall('(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士)',p['info'])
                     p['aff']={}
                     p['aff']['inst'] = ' '.join(AFF) if AFF is not None else ""
                     p['title'] = ''.join(TIT) if TIT is not None else ""

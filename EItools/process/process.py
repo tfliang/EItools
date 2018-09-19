@@ -262,12 +262,12 @@ def export_data():
 def crawl_person():
     #person_ids = ["5b9a33778d431508dea40be2", "5b9a33768d431508dea40be0", "5b9a33768d431508dea40bdf",
      #            "5b9a33788d431508dea40be6", "5b9a33788d431508dea40be7","5b9a33788d431508dea40be8","5b9a341e8d431508dea40ee0","5b9abce9c3666e23ba80d3da"]
-    person_ids=["5ba0c07d8d43155d30de03c7"]
+    person_ids=["5ba0c07d8d43155d30de03c9"]
     for id in person_ids:
         person = mongo_client.get_crawled_person_by_pid(id)
         crawl_person_info([person], None)
 
-crawl_person()
+#crawl_person()
 def get_data():
     data_list=[]
     with open('/Users/bcj/Documents/position_list.csv','r') as r:
@@ -278,7 +278,11 @@ def get_data():
         w.write(json.dumps(data_list,ensure_ascii=False))
 
 #get_data()
-
+def clear_status():
+    persons=mongo_client.db['uncrawled_person'].find({'task_id':ObjectId('5ba20fee8d4315163aba3cdd')})
+    for person in persons:
+        mongo_client.db['uncrawled_person'].update({'_id':person['_id']},{'$set':{"status":1}})
+clear_status()
 
 #export_data()
 # affs=mongo_client.db['aff'].find()
