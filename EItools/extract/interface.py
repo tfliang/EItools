@@ -131,7 +131,7 @@ def extract_one(text):
         PRJ = get_name_entitry('PRJ', tag, demo_sent)
         AFF = get_name_entitry('AFF', tag, demo_sent)
     sess.close()
-    return TIT, JOB, DOM, set(clean_list(EDU)), set(clean_list(WRK)), SOC, AWD, PAT, PRJ,AFF
+    return clean_list(TIT), clean_list(JOB), clean_list(DOM), clean_list(EDU), clean_list(WRK), clean_list(SOC), clean_list(AWD), clean_list(PAT), clean_list(PRJ),clean_list(AFF)
 
 def extract_one_3(text):
     text = clean_text(text).strip()
