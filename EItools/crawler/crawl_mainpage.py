@@ -4,8 +4,6 @@ import bs4
 import re
 import requests
 import pextract as pe
-
-from EItools.client.mongo_client import MongoDBClient
 from EItools.log.log import logger
 
 headers = {

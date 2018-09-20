@@ -75,7 +75,6 @@ def find_soc(text):
         title=text[text.index(aff[most_index])+len(aff):]
         if '编委' in aff and aff!="编委":
             aff=aff.replace("编委","")
-            title+="编委"
         if aff=='编委':
             return None
         #print("time is:{}".format(time))
@@ -233,14 +232,14 @@ def find_award(text):
 
 def find_socs(text):
     socs=[]
-    #datas = re.findall(pattern_work_time, text)
-    #socs_all = []
-    #if len(datas) > 0:
-        #indexs = [m.span()[0] for m in re.finditer(pattern_work_time, text)]
-        #socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
-        #socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
-    #if len(socs_all) == 0:
+    datas = re.findall(pattern_work_time, text)
     socs_all = re.split(r'[。.\n,，；;、]', text)
+    if len(socs_all) == 0:
+        socs_all = []
+        if len(datas) > 0:
+            indexs = [m.span()[0] for m in re.finditer(pattern_work_time, text)]
+            socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+            socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
     for t in socs_all:
         if t!="":
             soc=find_soc(t)
@@ -315,11 +314,11 @@ def find_projects(text):
     sequence_pattern = r'(\d[．.、]+\s*[\u4e00-\u9fa5]+)'
     sequence_pattern_second = r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)'
     '[\d\s*]?\s*'
-    datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
-    indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second, text)]
+    datas = [m.group() for m in re.finditer(sequence_pattern, text)]
+    indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
     if len(datas) == 0:
-        datas = [m.group() for m in re.finditer(sequence_pattern, text)]
-        indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
+        datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
+        indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second, text)]
     projects_all = []
     if len(datas) > 0:
         projects_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
@@ -328,7 +327,7 @@ def find_projects(text):
         if '。' in text:
             projects_all = re.split(r'[。\n；;]', text)
         else:
-            projects_all = re.split(r'[。\n；;,，]', text)
+            projects_all = re.split(r'[\n；;,，]', text)
     print(projects_all)
     for t in projects_all:
         if t!="":
@@ -368,4 +367,7 @@ def find_awards_list(awd_list):
                 awd_aparts.append(a)
     return awd_aparts
 
-find_awards("1） 2010年国家自然科学基金面上项目1项 (41073015)，项目名称“重要地质体系氧同位素质量分馏线位置的理论计算”： （2010－2013）（进行中）。2） 中国科学院重要方向项目1项（KZCX2-EW-103），项目名称“稳定同位素地球化学几个前沿方向的理论建设”： （2010－2013）（进行中）")
+
+mongo_client=MongoDBClient()
+person=mongo_client.get_crawled_person_by_pid("5ba20ff38d431516f831645a")
+find_projects(person['projects_region'])

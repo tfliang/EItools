@@ -124,7 +124,6 @@ class MongoDBClient(object):
     def get_person(self, pid):
         return self.person_col.find_one({"_id": ObjectId(pid)})
     def get_crawled_person_by_pid(self,pid):
-        print(self.crawed_person_col.find_one({"_id":ObjectId(pid)}))
         return self.crawed_person_col.find_one({"_id":ObjectId(pid)})
 
     def save_person(self, item):
