@@ -53,7 +53,7 @@ class InfoCrawler:
     def get_scholar_info(self,person,aff=True,crawler_key="google-scholar"):
         if aff:
             template = '{} {}'.format(chinese_helper.translate(person['name'], fromLang="zh", toLang="en")
-                                      ,chinese_helper.translate(' '.join(person['simple_affiliation']),fromLang="zh",toLang="en"))
+                                      ,chinese_helper.translate(' '.join(person['org']),fromLang="zh",toLang="en"))
         else:
             template=chinese_helper.translate(person['name'],fromLang="zh",toLang="en")
         crawler=self.crawlers[crawler_key]
@@ -70,7 +70,7 @@ class InfoCrawler:
     def get_snippets(self,crawler,person,aff=True):
         template='email'
         if aff:
-            template='{} '.format(person['simple_affiliation'])+template
+            template='{} '.format(person['org'])+template
         snippets=crawler.download_parse('{} '.format(person['name'])+template)
         if 'name_zh' in person and len(person['name_zh']):
             snippets2=crawler.download_parse(
@@ -80,7 +80,7 @@ class InfoCrawler:
 
     def get_information(self,crawler,person,aff=True):
         if aff:
-            template = '{} '.format(person['simple_affiliation'])
+            template = '{} '.format(person['org'])
         else:
             template=""
         snippets = crawler.download_parse('{} '.format(person['name']) + template)
@@ -171,12 +171,12 @@ class InfoCrawler:
         sim_nam=max(sim_arr_name)
         sim_arr_org = [0]
         for k_n in set(keywords_orgs):
-            org=person['simple_affiliation']
+            org=person['org']
             sim_arr_org.append(chinese_helper.simila_name(k_n,org))
         sim_org= max(sim_arr_org)
         logger.info("%f--%f"%(sim_nam,sim_org))
         if sim_nam>0.3 and sim_org>=0:
-            if ''.join(person['simple_affiliation']).find("公司")==-1:
+            if ''.join(person['org']).find("公司")==-1:
                 if snippet['title'].find("主页")!=-1 or snippet['title'].find("个人")!=-1 or snippet['title'].find("介绍")!=-1:
                     if snippet['title'].find(person['name'])!=-1:
                         if snippet['page_src'].find('baike.baidu.com')!=-1:
@@ -203,11 +203,11 @@ class InfoCrawler:
         score=0
         if snippet['title'].find(person['name']) !=-1:
             score=score+0.5
-        if snippet['title'].find(person['simple_affiliation'])!=-1:
+        if snippet['title'].find(person['org'])!=-1:
             score=score+0.5
         if snippet['content'].find(person['name'])!=-1:
             score=score+0.5
-        if snippet['content'].find(person['simple_affiliation'])!=-1:
+        if snippet['content'].find(person['org'])!=-1:
             score=score+0.5
         if snippet['page_src'].find('baike.baidu.com') != -1:
             score=score+0.2

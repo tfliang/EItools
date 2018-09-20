@@ -20,14 +20,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from EItools import view, settings
+from EItools import  settings
 from EItools.crawler import crawl_information, task
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^uploadfile/$', view.uploadFile),
     url(r'^download/crawldata/(.+)/$', task.export_data, name="download"),
-    url(r'^showtasks/$', view.showTask),
     url(r'^view/task/(.+)/',task.get_task_by_id),
 
     url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),

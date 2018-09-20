@@ -84,7 +84,7 @@ class MongoDBClient(object):
             c=c.skip(offset).limit(size)
         for item in c:
             item['id'] = str(item['_id'])
-            if 'status' not in item or item['status'] != 0:
+            if 'status' in item and item['status'] == 0:
                 #del item['_id']
                 #del item['task_id']
                 persons.append(item)
@@ -140,8 +140,6 @@ class MongoDBClient(object):
         self.person_col.update({"_id": ObjectId(person_id)}, {"$set": {key: value}})
 
     def update_crawled_person_by_keyvalue(self, person_id, key, value):
-        print(key)
-        print(value)
         self.crawed_person_col.update({"_id": ObjectId(person_id)}, {"$set": {key: value}})
 
     def is_crawled_person(self, name,org):

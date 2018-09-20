@@ -257,7 +257,7 @@ def interface(text):
     TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ,AFF= result if result is not None else (None,None,None,None,None,None,None,None,None,None)
     tf.reset_default_graph()
     result=extract_one_3(text)
-    PER, ADR, AFF2 = result if result is not None else (None,None,None)
+    PER, ADR, AFF_ALL= result if result is not None else (None,None,None)
     if PER is not None:
         print_tag(PER, 'PER', text)
     if ADR is not None:
@@ -283,7 +283,7 @@ def interface(text):
     if PRJ is not None:
         print_tag(PRJ, 'PRJ', text)
     
-    return PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ
+    return PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ,AFF_ALL
     
 #interface("(1)\n\r2014年度江西省科技进步二等奖，西杂牛乳加工的关键技术与应用，名列第一\n\r(2)\n\r2008年度教育部科技进步二等奖，新型乳制品加工关键技术集成创新与新产品开发，名列第四\n\r(3)\n\r2012年度江西省自然科学二等奖，纳米气泡及其与蛋白分子相互作用研究，名列第四(4)\n\r2001年度江西省技术发明二等奖，特异性鸡卵黄免疫球蛋白的研制，名列第三(5)\n\r1998年度江西省科技进步三等奖，水洗即食粉，名列第五(6)\n\r2008年度中国商业联合会科技进步二等奖，乳制品")
 

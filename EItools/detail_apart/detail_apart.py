@@ -61,8 +61,7 @@ def match(aff_list,time_list,text):
 def find_soc(text):
     aff_list=find_aff(text)
     time=re.findall(pattern_time,text)
-    for t in time:
-        text.replace(t,"")
+    text=re.sub(pattern_time,'',text)
     if aff_list is not None and len(aff_list)>0:
         aff=' '.join(aff_list)
         most_index=0
@@ -82,7 +81,13 @@ def find_soc(text):
         print("title is:{}".format(title))
         academic_org_exp=None
         if title!="" or aff !="":
-            academic_org_exp={"title":title,"org":aff,"duration":""}
+            if len(time)>=2:
+                academic_org_exp={"title":title,"org":aff,"duration":'-'.join(time)}
+            elif len(time)==1:
+                academic_org_exp={"title":title,"org":aff,"duration":time[0]}
+            else:
+                academic_org_exp = {"title": title, "org": aff, "duration": ""}
+
         return academic_org_exp
 
 
@@ -232,10 +237,10 @@ def find_award(text):
 
 def find_socs(text):
     socs=[]
-    datas = re.findall(pattern_work_time, text)
     socs_all = re.split(r'[。.\n,，；;、]', text)
     if len(socs_all) == 0:
         socs_all = []
+        datas = re.findall(pattern_work_time, text)
         if len(datas) > 0:
             indexs = [m.span()[0] for m in re.finditer(pattern_work_time, text)]
             socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
@@ -368,6 +373,6 @@ def find_awards_list(awd_list):
     return awd_aparts
 
 
-mongo_client=MongoDBClient()
-person=mongo_client.get_crawled_person_by_pid("5ba20ff38d431516f831645a")
-find_projects(person['projects_region'])
+# mongo_client=MongoDBClient()
+# person=mongo_client.get_crawled_person_by_pid("5ba20ff38d431516f831645a")
+# find_projects(person['projects_region'])

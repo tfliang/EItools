@@ -16,8 +16,7 @@ from datetime import timedelta
 from celery import Celery
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
+FILE_PATH = os.path.join(os.path.dirname(BASE_DIR), 'file/%s')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -177,7 +176,7 @@ LOGGING = {
             'when': 'midnight',
             'interval': 1,
             'backupCount': 100,
-            'filename': BASE_DIR+'/EItools/log/debug.log',
+            'filename': os.path.dirname(BASE_DIR)+'/log/debug.log',
             'formatter': 'verbose'
         },
     },

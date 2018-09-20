@@ -38,8 +38,8 @@ def get_main_page(url,person=None):
 		# for line in lines:
 		# 	if line !='':
 		# 		print(line)
-		if person is not None and 'simple_affiliation' in person and person['simple_affiliation'].find("公司") != -1:
-			text = '\n'.join(chunk for chunk in lines if chunk.find(person['simple_affiliation'].split()[0]) != -1)
+		if person is not None and 'org' in person and person['org'].find("公司") != -1:
+			text = '\n'.join(chunk for chunk in lines if chunk.find(person['org'].split()[0]) != -1)
 		else:
 			text = '\n'.join(chunk for chunk in lines if chunk!='')
 	except Exception as e:
