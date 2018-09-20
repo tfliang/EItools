@@ -36,10 +36,12 @@ urlpatterns = [
     url(r'^view/crawldetail/(.+)/(.+)/(.+)/$',crawl_information.get_crawled_persons_by_taskId),
     url(r'^update/persondetail/$',crawl_information.update_person_by_Id),
     url(r'^update/personfield/$',crawl_information.update_person_by_field),
+    url(r'^view/persondetail/(.+)/$',crawl_information.get_crawled_persons_by_personId),
 
     url(r'^show/tasks/(.+)/(.+)/', task.get_tasks_by_page),
     url(r'^save/task/$',task.publish_task),
     url(r'^publish/task/$', crawl_information.publish_task),
+
 
     url(r'^crawl/person/info/(.+)/$',crawl_information.crawl_person_by_id)
 ]

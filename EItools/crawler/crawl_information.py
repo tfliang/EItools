@@ -189,6 +189,13 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
     }
     return HttpResponse(json.dumps(result), content_type="application/json")
 
+def get_crawled_persons_by_personId(request,id):
+    person=mongo_client.get_crawled_person_by_pid(id)
+    if person is not None:
+        return HttpResponse(json.dumps(person), content_type="application/json")
+    return HttpResponse({}, content_type="application/json")
+
+
 def update_person_by_Id(request):
     def get_value(key,content):
         return content[key] if key in content else ""
