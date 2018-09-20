@@ -192,6 +192,16 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
 def get_crawled_persons_by_personId(request,id):
     person=mongo_client.get_crawled_person_by_pid(id)
     if person is not None:
+        person['id'] = str(person['_id'])
+        del person['_id']
+        del person['task_id']
+        if 'result' in person:
+            del person['result']
+        if 'info' in person:
+            del person['info']
+        if 'email' in person and person['email']==[] and len(person['emails_prob'])>0:
+            person['email']=person['emails_prob'][0][0]
+        person['status']=1
         return HttpResponse(json.dumps(person), content_type="application/json")
     return HttpResponse({}, content_type="application/json")
 
