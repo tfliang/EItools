@@ -154,10 +154,10 @@ def update_person_by_detail(request):
 def publish_task():
     for id in mongo_client.get_unfinished_task():
         logger.info("not finished task {}".format(id))
-        #total = mongo_client.get_person_num_by_taskId(id)
-        #logger.info("total:{}".format(total))
-        #if total>0:
-        start_crawl.apply_async(args=[str(id)])
+        total = mongo_client.get_person_num_by_taskId(id)
+        logger.info("total:{}".format(total))
+        if total>0:
+            start_crawl.apply_async(args=[str(id)])
 
 
 

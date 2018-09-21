@@ -373,6 +373,3 @@ def find_awards_list(awd_list):
     return awd_aparts
 
 
-# mongo_client=MongoDBClient()
-# person=mongo_client.get_crawled_person_by_pid("5ba20ff38d431516f831645a")
-# find_projects(person['projects_region'])

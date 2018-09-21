@@ -117,7 +117,7 @@ def get_data_from_web(person,info_crawler):
         PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ, AFF_ALL = apart_result if apart_result is not None else (
             None, None, None, None, None, None, None, None, None, None, None, None)
         p['honors'] = re.findall(
-            '(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士)', p['info'])
+            '(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士|诺贝尔奖|图灵奖|菲尔兹奖)', p['info'])
         p['aff'] = {}
         if AFF is not None:
             p['aff']['inst'] = ' '.join(AFF)
