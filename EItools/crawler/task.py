@@ -84,7 +84,7 @@ def publish_task(request):
         creator_id=get_value('creator_id',content)
         creator=get_value('creator',content)
         task_id=ObjectId()
-        file_path = os.path.join(settings.BASE_DIR, 'media/file/%s').replace("\\", "/") % (file_name)
+        file_path = settings.FILE_PATH.replace("\\", "/") % (file_name)
         total = 0
         try:
             save_task.apply_async(args=[str(task_id),file_path,task_name,creator,creator_id])
