@@ -37,12 +37,12 @@ def start_crawl(id):
     persons = mongo_client.get_uncrawled_person_by_taskId(id)
     logger.info("this task has {} person".format(len(persons)))
     if len(persons) > 0:
-        try:
-            crawl_service.crawl_person_info(persons,id)
-            mongo_client.update_task(task_status_dict['finished'], id)
-        except Exception as e:
-            logger.error("crawl info task exception: %s",e)
-            mongo_client.update_task(task_status_dict['failed'], id)
+        #try:
+        crawl_service.crawl_person_info(persons,id)
+        mongo_client.update_task(task_status_dict['finished'], id)
+        #except Exception as e:
+            #logger.error("crawl info task exception: %s",e)
+            #mongo_client.update_task(task_status_dict['failed'], id)
     logger.info("task exit" + id)
 
 def crawl_person_by_name(request):
