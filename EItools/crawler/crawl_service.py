@@ -115,7 +115,7 @@ def get_data_from_web(person,info_crawler):
     if 'info' in p:
         apart_result = interface(p['info'])
         PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ, AFF_ALL = apart_result if apart_result is not None else (
-            None, None, None, None, None, None, None, None, None, None, None, None)
+            None, None, None, None, None, None, None, None, None, None, None, None,None)
         honors=re.findall(
             '(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士|诺贝尔奖|图灵奖|菲尔兹奖)', p['info'])
         p['honors']=list(set(honors))
@@ -124,23 +124,24 @@ def get_data_from_web(person,info_crawler):
             p['aff']['inst'] = ' '.join(AFF)
         else:
             current_aff = []
-            for aff in AFF_ALL:
-                print("aff-{}".format(aff))
-                try:
-                    aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
-                                                                                                      '\]').replace(
-                        '+', '\+').replace('\\r', '\\\\r')
-                    pattern = '((现为)|(至今)|(现任职于)|(现任)|(-今于)|(目前为)|(现为)|(工作单位)|(-今)){1,2}[\s\S]{0,5}' + aff_filter
-                    result = re.search(pattern, p['exp_region'])
-                    if result is not None:
-                        current_aff.append(aff)
-                    else:
-                        pattern_back = aff_filter + '[\s\S]{0,5}((至今)){1,2}'
-                        result = re.search(pattern_back, p['exp_region'])
+            if AFF_ALL is not None:
+                for aff in AFF_ALL:
+                    print("aff-{}".format(aff))
+                    try:
+                        aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
+                                                                                                          '\]').replace(
+                            '+', '\+').replace('\\r', '\\\\r')
+                        pattern = '((现为)|(至今)|(现任职于)|(现任)|(-今于)|(目前为)|(现为)|(工作单位)|(-今)){1,2}[\s\S]{0,5}' + aff_filter
+                        result = re.search(pattern, p['exp_region'])
                         if result is not None:
                             current_aff.append(aff)
-                except Exception as e:
-                    print(e)
+                        else:
+                            pattern_back = aff_filter + '[\s\S]{0,5}((至今)){1,2}'
+                            result = re.search(pattern_back, p['exp_region'])
+                            if result is not None:
+                                current_aff.append(aff)
+                    except Exception as e:
+                        print(e)
             if len(current_aff) > 0:
                 p['aff']['inst'] = ' '.join(current_aff)
 
