@@ -4,6 +4,7 @@ import re
 
 import jieba
 import tensorflow as tf
+from bson import ObjectId
 
 from EItools.classifier_mainpage.Extract import Extract
 from EItools.client.mongo_client import MongoDBClient
@@ -237,14 +238,14 @@ def find_award(text):
 
 def find_socs(text):
     socs=[]
-    socs_all = re.split(r'[。.\n,，；;、]', text)
+    socs_all = []
+    datas = re.findall(pattern_work_time, text)
+    if len(datas) > 0:
+        indexs = [m.span()[0] for m in re.finditer(pattern_work_time, text)]
+        socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
     if len(socs_all) == 0:
-        socs_all = []
-        datas = re.findall(pattern_work_time, text)
-        if len(datas) > 0:
-            indexs = [m.span()[0] for m in re.finditer(pattern_work_time, text)]
-            socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
-            socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
+        socs_all = re.split(r'[。.\n,，；;、]', text)
     for t in socs_all:
         if t!="":
             soc=find_soc(t)
@@ -373,3 +374,9 @@ def find_awards_list(awd_list):
     return awd_aparts
 
 
+
+# mongo_client=MongoDBClient()
+# person=mongo_client.db['crawled_person_final'].find_one({ "_id": ObjectId("5ba48664c3666e0b4361d682") })
+# print(person['academic_org_exp_region'])
+# soc_content=find_socs(person['academic_org_exp_region'])
+# mongo_client.db['crawled_person_final'].update({ "_id": ObjectId("5ba48664c3666e0b4361d682")},{'$set':{'academic_org_exp':soc_content}})

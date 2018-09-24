@@ -78,7 +78,7 @@ def get_data_from_web(person,info_crawler):
     rare_value = int(util.get_name_rare(person['name']))
     # if len(final_result)>0:
     # 罕见度高,选取最新的
-    if rare_value < 4:
+    if rare_value <= 5:
         result_sorted = result_without_org_rest
     else:
         result_sorted = result_rest
@@ -104,20 +104,21 @@ def get_data_from_web(person,info_crawler):
         #     break
     # info, url = infoCrawler.get_info(person)
     emails_prob = info_crawler.get_emails(person)
-    citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
+    #citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
     # if affs is not None:
     # p['s_aff'] = affs
     # p['url'] = url
     # p['info'] = info
-    p['citation'] = citation
-    p['h_index'] = h_index
+    #p['citation'] = citation
+    #p['h_index'] = h_index
     # p = extract_information.extract(info, p)
     if 'info' in p:
         apart_result = interface(p['info'])
         PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ, AFF_ALL = apart_result if apart_result is not None else (
             None, None, None, None, None, None, None, None, None, None, None, None)
-        p['honors'] = re.findall(
+        honors=re.findall(
             '(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士|诺贝尔奖|图灵奖|菲尔兹奖)', p['info'])
+        p['honors']=list(set(honors))
         p['aff'] = {}
         if AFF is not None:
             p['aff']['inst'] = ' '.join(AFF)
@@ -146,7 +147,7 @@ def get_data_from_web(person,info_crawler):
         p['title'] = ''.join(TIT) if TIT is not None else ""
         p['position'] = ''.join(JOB) if JOB is not None else ""
         p['domain'] = ''.join(DOM) if DOM is not None else ""
-        p['edu_region'] = ''.join(EDU) if EDU is not None else ""
+        p['edu_exp_region'] = ''.join(EDU) if EDU is not None else ""
         p['exp_region'] = ''.join(WRK) if WRK is not None else ""
         p['academic_org_exp_region'] = ' '.join(SOC) if SOC is not None else ""
         p['awards_region'] = ''.join(AWD) if AWD is not None else ""
