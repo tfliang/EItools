@@ -156,7 +156,7 @@ def get_data_from_web(person,info_crawler):
         p['gender'] = util.find_gender(p['info'])
         email = util.find_email(p['info'])
         p['email'] = email[0] if len(email) > 0 else ""
-        p['edu_exp'] = detail_apart.find_edus(p['edu_region'])
+        p['edu_exp'] = detail_apart.find_edus(p['edu_exp_region'])
         p['exp'] = detail_apart.find_works(p['exp_region'])
         p['academic_org_exp'] = detail_apart.find_socs(p['academic_org_exp_region'])
         p['awards'] = detail_apart.find_awards_list(AWD)
