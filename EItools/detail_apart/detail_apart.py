@@ -60,9 +60,9 @@ def match(aff_list,time_list,text):
 
 #国务院学位委员会学科评议组(化学组)成员
 def find_soc(text):
-    aff_list=find_aff(text)
     time=re.findall(pattern_time,text)
     text=re.sub(pattern_time,'',text)
+    aff_list = find_aff(text)
     if aff_list is not None and len(aff_list)>0:
         aff=' '.join(aff_list)
         most_index=0
