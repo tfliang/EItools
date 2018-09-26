@@ -36,7 +36,7 @@ def find_name(text):
     return PER
 patent_time=r'([1-2][0-9]{3})[年|.|/]?'
 pattern_time = r'([1-2][0-9]{3}[年|.|/]?[0-9]{0,2}[月]?|至今|今)'
-pattern_work_time=r'(同年|[1-2]{1}[0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|—|-|～|毕业|至)*\s*(?:(?:[1-2]{1}[0-9]{3}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
+pattern_work_time=r'(现为|同年|[1-2]{1}[0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|—|-|～|毕业|至)*\s*(?:(?:[1-2]{1}[0-9]{3}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -375,8 +375,3 @@ def find_awards_list(awd_list):
 
 
 
-# mongo_client=MongoDBClient()
-# person=mongo_client.db['crawled_person_final'].find_one({ "_id": ObjectId("5ba48664c3666e0b4361d682") })
-# print(person['academic_org_exp_region'])
-# soc_content=find_socs(person['academic_org_exp_region'])
-# mongo_client.db['crawled_person_final'].update({ "_id": ObjectId("5ba48664c3666e0b4361d682")},{'$set':{'academic_org_exp':soc_content}})

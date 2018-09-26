@@ -9,7 +9,7 @@ def clean_text(text):
     return text
 
 def clean_word(text):
-    text = text.replace('\xa0', '').replace('\u3000', '').strip().replace('\n', '')
+    text = text.replace('\xa0', '').replace('\u3000', '').strip()#.replace('\n', '')
     text = re.sub(r'<[/a-zA-Z]+>', '', text)
     text = re.sub(r'[a-zA-Z]*<[/a-zA-Z]*', '', text)
     text = re.sub(r'[/a-zA-Z]*>[a-zA-Z]*', '', text)

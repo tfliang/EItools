@@ -1,5 +1,7 @@
 import json
 
+from bson import ObjectId
+
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import interface
 from EItools.extract import util
@@ -58,10 +60,11 @@ def get_data_from_aminer(person):
         logger.error("%s, %s", "request url error", e)
     return False, person
 
+def select(r):
+    return r['label'] == 1 and r['score'] > 0.85
+
 def get_data_from_web(person,info_crawler):
     p=person
-    def select(r):
-        return r['label'] == 1 and r['score'] > 0.8
 
     result = process.Get('{},{}'.format(person['name'], person['org']))['res']
     result_without_org = process.Get('{},'.format(person['name']))['res']
@@ -104,6 +107,8 @@ def get_data_from_web(person,info_crawler):
         #     break
     # info, url = infoCrawler.get_info(person)
     emails_prob = info_crawler.get_emails(person)
+    p['source'] = 'crawler'
+    p['emails_prob'] = emails_prob
     #citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
     # if affs is not None:
     # p['s_aff'] = affs
@@ -113,58 +118,60 @@ def get_data_from_web(person,info_crawler):
     #p['h_index'] = h_index
     # p = extract_information.extract(info, p)
     if 'info' in p:
-        apart_result = interface(p['info'])
-        PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ, AFF_ALL = apart_result if apart_result is not None else (
-            None, None, None, None, None, None, None, None, None, None, None, None,None)
-        honors=re.findall(
-            '(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863|百千万人才工程国家级人选|创新人才推进计划|中国工程院院士|中国科学院院士|诺贝尔奖|图灵奖|菲尔兹奖)', p['info'])
-        p['honors']=list(set(honors))
-        p['aff'] = {}
-        if AFF is not None:
-            p['aff']['inst'] = ' '.join(AFF)
-        else:
-            current_aff = []
-            if AFF_ALL is not None:
-                for aff in AFF_ALL:
-                    print("aff-{}".format(aff))
-                    try:
-                        aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
-                                                                                                          '\]').replace(
-                            '+', '\+').replace('\\r', '\\\\r')
-                        pattern = '((现为)|(至今)|(现任职于)|(现任)|(-今于)|(目前为)|(现为)|(工作单位)|(-今)){1,2}[\s\S]{0,5}' + aff_filter
-                        result = re.search(pattern, p['exp_region'])
+        apart_text(p)
+    return p
+
+def apart_text(p):
+    apart_result = interface(p['info'])
+    PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ, AFF_ALL = apart_result if apart_result is not None else (
+        None, None, None, None, None, None, None, None, None, None, None, None, None)
+    honors = re.findall(
+        '(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863领域专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院.*?院士|中国科学院.*?院士|诺贝尔奖|图灵奖|菲尔兹奖)',
+        p['info'])
+    p['honors'] = list(set(honors))
+    p['title'] = ','.join(TIT) if TIT is not None else ""
+    p['position'] = ','.join(JOB) if JOB is not None else ""
+    p['achieve'] = ','.join(DOM) if DOM is not None else ""
+    p['edu_exp_region'] = ','.join(EDU) if EDU is not None else ""
+    p['exp_region'] = ','.join(WRK) if WRK is not None else ""
+    p['academic_org_exp_region'] = ','.join(SOC) if SOC is not None else ""
+    p['awards_region'] = ','.join(AWD) if AWD is not None else ""
+    p['patents_region'] = ','.join(PAT) if PAT is not None else ""
+    p['projects_region'] = ','.join(PRJ) if PRJ is not None else ""
+    p['gender'] = util.find_gender(p['info'])
+    #email = util.find_email(p['info'])
+    #p['email'] = email[0] if len(email) > 0 else ""
+    p['edu_exp'] = detail_apart.find_edus(p['edu_exp_region'])
+    p['exp'] = detail_apart.find_works(p['exp_region'])
+    p['academic_org_exp'] = detail_apart.find_socs(p['academic_org_exp_region'])
+    p['awards'] = detail_apart.find_awards_list(AWD)
+    p['patents'] = detail_apart.find_patents(p['patents_region'])
+    p['projects'] = detail_apart.find_projects(p['projects_region'])
+    p['aff'] = {}
+    if AFF is not None and len(AFF) > 0:
+        p['aff']['inst'] = ' '.join(AFF)
+    else:
+        current_aff = []
+        if AFF_ALL is not None:
+            for aff in AFF_ALL:
+                print("aff-{}".format(aff))
+                try:
+                    aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
+                                                                                                      '\]').replace(
+                        '+', '\+').replace('\\r', '\\\\r')
+                    pattern = '((现为)|(至今)|(现任职于)|(现任)|(-今于)|(目前为)|(现为)|(工作单位)|(-今)){1,2}[\s\S]{0,5}' + aff_filter
+                    result = re.search(pattern, p['info'])
+                    if result is not None:
+                        current_aff.append(aff)
+                    else:
+                        pattern_back = aff_filter + '[\s\S]{0,5}((至今)){1,2}'
+                        result = re.search(pattern_back, p['info'])
                         if result is not None:
                             current_aff.append(aff)
-                        else:
-                            pattern_back = aff_filter + '[\s\S]{0,5}((至今)){1,2}'
-                            result = re.search(pattern_back, p['exp_region'])
-                            if result is not None:
-                                current_aff.append(aff)
-                    except Exception as e:
-                        print(e)
-            if len(current_aff) > 0:
-                p['aff']['inst'] = ' '.join(current_aff)
-
-        p['title'] = ''.join(TIT) if TIT is not None else ""
-        p['position'] = ''.join(JOB) if JOB is not None else ""
-        p['domain'] = ''.join(DOM) if DOM is not None else ""
-        p['edu_exp_region'] = ''.join(EDU) if EDU is not None else ""
-        p['exp_region'] = ''.join(WRK) if WRK is not None else ""
-        p['academic_org_exp_region'] = ' '.join(SOC) if SOC is not None else ""
-        p['awards_region'] = ''.join(AWD) if AWD is not None else ""
-        p['patents_region'] = ''.join(PAT) if PAT is not None else ""
-        p['projects_region'] = ''.join(PRJ) if PRJ is not None else ""
-        p['gender'] = util.find_gender(p['info'])
-        email = util.find_email(p['info'])
-        p['email'] = email[0] if len(email) > 0 else ""
-        p['edu_exp'] = detail_apart.find_edus(p['edu_exp_region'])
-        p['exp'] = detail_apart.find_works(p['exp_region'])
-        p['academic_org_exp'] = detail_apart.find_socs(p['academic_org_exp_region'])
-        p['awards'] = detail_apart.find_awards_list(AWD)
-        p['patents'] = detail_apart.find_patents(p['patents_region'])
-        p['projects'] = detail_apart.find_projects(p['projects_region'])
-    p['source'] = 'crawler'
-    p['emails_prob'] = emails_prob
+                except Exception as e:
+                    print(e)
+        if len(current_aff) > 0:
+            p['aff']['inst'] = ' '.join(current_aff)
     return p
 
 def save_data_to_expertbase(person):
@@ -226,3 +233,21 @@ def crawl_person_info(persons,task_id,from_api=False):
                 persons_info.append(p)
     info_crawler.shutdown_crawlers()
     return persons_info
+
+# mongo_client=MongoDBClient()
+# persons=mongo_client.get_crawled_person_by_taskId("5ba903392bf7cb164b61af7e")
+# for p in persons:
+#     p['_id']=ObjectId(p['id'])
+#     p['task_id'] = ObjectId("5ba903392bf7cb164b61af7e")
+#     p['result'] = list(filter(select, p['result']))
+#     if len(p['result']) > 0:
+#         selected_item = p['result'][0]
+#         p['url'] = selected_item['url']
+#         p['source'] = 'crawler'
+#         p['info'] = crawl_mainpage.get_main_page(p['url'], p)
+#         print("url is****" + p['url'])
+#     if 'info' in p:
+#         p=apart_text(p)
+#     mongo_client.save_crawled_person(p)
+
+

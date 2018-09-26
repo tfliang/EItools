@@ -1958,3 +1958,6 @@
 2018-09-16 12:20:41,566:INFO: TIT: precision:  48.84%; recall:  27.27%; FB1:  35.00  43
 2018-09-16 12:20:41,566:INFO: WRK: precision:  59.26%; recall:  59.81%; FB1:  59.53  108
 2018-09-16 12:20:41,566:INFO: WRK: precision:  59.26%; recall:  59.81%; FB1:  59.53  108
+2018-09-25 14:47:10,849:INFO: Namespace(CRF=True, batch_size=16, clip=5.0, demo_model='1535130886', dropout=0.5, embedding_dim=300, epoch=200, hidden_dim=300, lr=0.001, mode='demo', optimizer='Adam', pretrain_embedding='random', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2018-09-25 14:47:13,292:INFO: Restoring parameters from ./data_path_save/1535130886/checkpoints/model-118650
+2018-09-25 14:47:13,292:INFO: Restoring parameters from ./data_path_save/1535130886/checkpoints/model-118650

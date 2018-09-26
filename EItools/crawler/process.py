@@ -16,9 +16,9 @@ from EItools.extract.interface import interface
 clf = joblib.load(CLASSIFIER_DIR + '/data/classifier.pkl')
 
 PROXIES = [{
-    'http': 'http://159.203.174.2:3128'
-    #'http':'http://127.0.0.1:8123',
-    #'https':'http://127.0.0.1:8123'
+    #'http': 'http://159.203.174.2:3128'
+    'http':'http://127.0.0.1:8123',
+    'https':'http://127.0.0.1:8123'
 }]
 
 mg = MagicGoogle(PROXIES)

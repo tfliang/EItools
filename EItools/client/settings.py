@@ -12,7 +12,7 @@ MONGO_DBNAME_PROD = 'aminer'
 
 
 
-MONGO_HOST = os.environ.get('MONGO_HOST', '166.111.5.227')
+MONGO_HOST = os.environ.get('MONGO_HOST', '166.111.7.173')
 MONGO_PORT = os.environ.get('MONGO_PORT', 30019)
 MONGO_USERNAME = os.environ.get('MONGO_USERNAME', 'kegger_bigsci')
 MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD', 'datiantian123!@#')
