@@ -126,7 +126,7 @@ def apart_text(p):
     PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ, AFF_ALL = apart_result if apart_result is not None else (
         None, None, None, None, None, None, None, None, None, None, None, None, None)
     honors = re.findall(
-        '(国家杰出青年|国家杰青|百人计划|国务院政府特殊津贴|省部级以上科研院所二级研究员|973首席科学家|863领域专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院.*?院士|中国科学院.*?院士|诺贝尔奖|图灵奖|菲尔兹奖)',
+        '(国家杰出青年|国家杰青|百人计划|万人计划|国务院.*?政府特殊津贴|省部级以上科研院所二级研究员|973.*?首席科学家|863领域专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院.*?院士|中国科学院.*?院士|诺贝尔奖|图灵奖|菲尔兹奖)',
         p['info'])
     p['honors'] = list(set(honors))
     p['title'] = ','.join(TIT) if TIT is not None else ""
@@ -234,20 +234,23 @@ def crawl_person_info(persons,task_id,from_api=False):
     info_crawler.shutdown_crawlers()
     return persons_info
 
-# mongo_client=MongoDBClient()
-# persons=mongo_client.get_crawled_person_by_taskId("5ba903392bf7cb164b61af7e")
-# for p in persons:
-#     p['_id']=ObjectId(p['id'])
-#     p['task_id'] = ObjectId("5ba903392bf7cb164b61af7e")
-#     p['result'] = list(filter(select, p['result']))
-#     if len(p['result']) > 0:
-#         selected_item = p['result'][0]
-#         p['url'] = selected_item['url']
-#         p['source'] = 'crawler'
-#         p['info'] = crawl_mainpage.get_main_page(p['url'], p)
-#         print("url is****" + p['url'])
-#     if 'info' in p:
-#         p=apart_text(p)
-#     mongo_client.save_crawled_person(p)
+mongo_client=MongoDBClient()
+persons=mongo_client.get_crawled_person_by_taskId("5ba903392bf7cb164b61af7e")
+for i,p in enumerate(persons):
+    if p['row_number']>282:
+        p['_id']=ObjectId(p['id'])
+        p['task_id'] = ObjectId("5ba903392bf7cb164b61af7e")
+        p['result'] = list(filter(select, p['result']))
+        if len(p['result']) > 0:
+            selected_item = p['result'][0]
+            p['url'] = selected_item['url']
+            p['source'] = 'crawler'
+            p['info'] = crawl_mainpage.get_main_page(p['url'], p)
+            print(p['_id'])
+            print("{}-{}".format(p['name'],p['org']))
+            print("url is****" + p['url'])
+        if 'info' in p:
+            p=apart_text(p)
+        mongo_client.save_crawled_person(p)
 
 

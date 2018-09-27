@@ -36,7 +36,7 @@ def find_name(text):
     return PER
 patent_time=r'([1-2][0-9]{3})[年|.|/]?'
 pattern_time = r'([1-2][0-9]{3}[年|.|/]?[0-9]{0,2}[月]?|至今|今)'
-pattern_work_time=r'(现为|同年|[1-2]{1}[0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|—|-|～|毕业|至)*\s*(?:(?:[1-2]{1}[0-9]{3}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
+pattern_work_time=r'(曾任|现任|现为|同年|[1-2]{1}[0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|—|-|～|毕业|至)*\s*(?:(?:[1-2]{1}[0-9]{3}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -72,7 +72,7 @@ def find_soc(text):
             if index>index_value:
                 most_index=i
 
-        title=text[text.index(aff[most_index])+len(aff):]
+        title=text[text.index(aff_list[most_index])+len(aff):]
         if '编委' in aff and aff!="编委":
             aff=aff.replace("编委","")
         if aff=='编委':
@@ -103,27 +103,25 @@ def find_work(text):
     # else:
     #     time=[]
     if aff_list is not None and len(aff_list) > 0:
-        for aff in aff_list:
-            pattern_title = r''
         #aff = aff_list[0]
-        aff=",".join(aff_list)
+        aff_all=",".join(aff_list)
         #title = text[text.index(aff) + len(aff):]
         text=re.sub(pattern_time,'',text)
         position=""
         for aff in aff_list:
             text=text.replace(aff,',')
         text=text.replace(',，、。.-','')
-        position='，'.join(Extract.extrac_position(text))
+        position=','.join(Extract.extrac_position(text))
         print("time is:{}".format(time))
-        print("aff is:{}".format(aff))
+        print("aff is:{}".format(aff_all))
         print("positon is:{}".format(position))
         exp = None
         if len(time) >= 2:
-            exp = {"start": time[0], "end": time[1], "position": position,"inst": aff}
+            exp = {"start": time[0], "end": time[1], "position": position,"inst": aff_all}
         elif len(time) == 1:
-            exp = {"start": time[0], "position": position,"inst": aff}
+            exp = {"start": time[0], "position": position,"inst": aff_all}
         elif len(time) == 0:
-            exp = {"position": position,"inst": aff}
+            exp = {"position": position,"inst": aff_all}
         return exp
 
 
@@ -134,11 +132,10 @@ def find_edu(text):
     time = re.findall(pattern_time, text)
 
     if aff_list is not None and len(aff_list) > 0:
+        aff_all = ','.join(aff_list)
         for aff in aff_list:
-            pattern_title = r''
-        aff = aff_list[0]
+            rest_content = text.replace(aff,'',)
         try:
-            rest_content = text[text.index(aff) + len(aff):]
             degree=""
             diploma=""
             if '本科' in rest_content or '学士' in rest_content:
@@ -158,11 +155,11 @@ def find_edu(text):
 
             edu_exp = None
             if len(time) >= 2:
-                edu_exp = {"start":time[0] ,"end":time[1], "diploma": diploma, "degree": degree,"inst":aff}
+                edu_exp = {"start":time[0] ,"end":time[1], "diploma": diploma, "degree": degree,"inst":aff_all}
             elif len(time) == 1:
-                edu_exp ={"end":time[0],"diploma": diploma, "degree": degree,"inst":aff}
+                edu_exp ={"end":time[0],"diploma": diploma, "degree": degree,"inst":aff_all}
             elif len(time) == 0:
-                edu_exp = {"diploma": diploma, "degree": degree,"inst":aff}
+                edu_exp = {"diploma": diploma, "degree": degree,"inst":aff_all}
             return edu_exp
         except Exception as e:
             print(e)
@@ -227,8 +224,8 @@ def find_award(text):
     # title_all=re.findall(r'(国家|省|市|自治区|政府|协会|学会|国务院)[\u4e00-\u9fa5]*?(科学|技术|进步|自然|发明|科技){1,}\s*?奖',text)
     #title=title_all[0] if len(title_all)>0  else ""
     time= time[0] if len(time)>0 else ""
-    title=''.join(award_title) if award_title is not None else ""
-    name=''.join(award_name) if award_name is not None else ""
+    title=','.join(award_title) if award_title is not None else ""
+    name=','.join(award_name) if award_name is not None else ""
     award=None
     if title=="" and name=="":
         return award
@@ -243,6 +240,8 @@ def find_socs(text):
     if len(datas) > 0:
         indexs = [m.span()[0] for m in re.finditer(pattern_work_time, text)]
         socs_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        if len(text[0:indexs[0]]) > 3:
+            socs_all.append(text[0:indexs[0]])
         socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
     if len(socs_all) == 0:
         socs_all = re.split(r'[。.\n,，；;、]', text)
@@ -259,8 +258,10 @@ def find_works(text):
     datas = re.findall(pattern_work_time, text)
     works_all=[]
     if len(datas) > 0:
-        indexs = [text.index(data) for data in datas]
+        indexs = [m.span()[0] for m in re.finditer(pattern_work_time, text)]
         works_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        if len(text[0:indexs[0]]) > 3:
+            works_all.append(text[0:indexs[0]])
         works_all.append(text[indexs[len(indexs) - 1]:len(text)])
     if len(works_all)==0:
         works_all=re.split(r'[。\n；;]', text)
@@ -278,6 +279,8 @@ def find_edus(text):
     if len(datas) > 0:
         indexs = [m.span()[0] for m in re.finditer(pattern_work_time,text)]
         edus_all = [text[indexs[i]:indexs[i + 1]] for i, d in enumerate(indexs) if i < len(indexs) - 1]
+        if len(text[0:indexs[0]]) > 3:
+            edus_all.append(text[0:indexs[0]])
         edus_all.append(text[indexs[len(indexs) - 1]:len(text)])
     if len(edus_all) == 0:
         edus_all = re.split(r'[。\n；;]', text)
@@ -302,6 +305,8 @@ def find_patents(text):
     patents_all = []
     if len(datas) > 0:
          patents_all = [text[indexs[i]:indexs[i + 1]] for i, d in enumerate(indexs) if i < len(indexs) - 1]
+         if len(text[0:indexs[0]])>3:
+            patents_all.append(text[0:indexs[0]])
          patents_all.append(text[indexs[len(indexs) - 1]:len(text)])
     if len(patents_all) == 0:
         patents_all = re.split(r'[\n]', text)
@@ -328,6 +333,8 @@ def find_projects(text):
     projects_all = []
     if len(datas) > 0:
         projects_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+        if len(text[0:indexs[0]]) > 3:
+            projects_all.append(text[0:indexs[0]])
         projects_all.append(text[indexs[len(indexs) - 1]:len(text)])
     if len(projects_all) == 0:
         if '。' in text:
@@ -345,16 +352,22 @@ def find_projects(text):
 
 def find_awards(text):
     awards=[]
-    datas = re.findall(r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)', text)
-    if len(datas)==0:
-        datas = re.findall(r'(\d[．.、][\u4e00-\u9fa5^]?)', text)
+    sequence_pattern = r'(\d[．.、]+\s*[\u4e00-\u9fa5]+)'
+    sequence_pattern_second = r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)'
+    '[\d\s*]?\s*'
+    datas = [m.group() for m in re.finditer(sequence_pattern, text)]
+    indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
+    if len(datas) == 0:
+        datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
+        indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second, text)]
     awards_all=[]
     if len(datas)>0:
-        indexs=[text.index(data) for data in datas]
         awards_all=[text[indexs[i]:indexs[i+1]] for i,data in enumerate(indexs) if i<len(indexs)-1]
+        if len(text[0:indexs[0]]) > 3:
+            awards_all.append(text[0:indexs[0]])
         awards_all.append(text[indexs[len(indexs)-1]:len(text)])
     if len(awards_all)==0:
-        awards_all=re.split(r'[。\n；;,，]', text)
+        awards_all=re.split(r'[\n]', text)
     print(awards_all)
     for t in awards_all:
         if t!="":
@@ -373,5 +386,4 @@ def find_awards_list(awd_list):
                 awd_aparts.append(a)
     return awd_aparts
 
-
-
+print(find_awards("先后获得中国科学院自然科学二等奖（1993年），中国青年科学家奖（1993年），香港求是科技基金杰出青年学者奖（1997年），中国杰出青年科学家奖（1998年），国家科技发明二等奖（1999年），国际催化奖（2004年，国际催化领域的最高荣誉，每四年一次，每次一人），中国科学院杰出科技成就奖（2005年），何梁何利科学技术进步奖（2005年），国家自然科学二等奖（2011年），中国催化成就奖（2014），辽宁省自然科学一等奖（2015年）等。无党派人士，任中国人民政治协商会议第十一、十二、十三届全国委员会委员，曾任政协大连市第十一届委员会副主席（2007-2012）。全国“五一劳动奖章”获得者（1998年），并在2016年全国科技三会上荣获全国十大科技人才奖等"))

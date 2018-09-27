@@ -68,3 +68,8 @@ def get_lasttime_from_mainpage(url):
 			return int(year)
 	return 0
 
+
+
+
+
+
