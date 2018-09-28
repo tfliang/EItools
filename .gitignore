@@ -11,7 +11,8 @@ EItools/crawler/celerybeat*
 
 EItools/media/file/*
 
-EItools/process/*.txt
+EItools/temp/*.txt
+EItools/temp/*.json
 EItools/extract/data_path/*data*
 
 

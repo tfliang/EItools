@@ -234,23 +234,6 @@ def crawl_person_info(persons,task_id,from_api=False):
     info_crawler.shutdown_crawlers()
     return persons_info
 
-mongo_client=MongoDBClient()
-persons=mongo_client.get_crawled_person_by_taskId("5ba903392bf7cb164b61af7e")
-for i,p in enumerate(persons):
-    if p['row_number']>282:
-        p['_id']=ObjectId(p['id'])
-        p['task_id'] = ObjectId("5ba903392bf7cb164b61af7e")
-        p['result'] = list(filter(select, p['result']))
-        if len(p['result']) > 0:
-            selected_item = p['result'][0]
-            p['url'] = selected_item['url']
-            p['source'] = 'crawler'
-            p['info'] = crawl_mainpage.get_main_page(p['url'], p)
-            print(p['_id'])
-            print("{}-{}".format(p['name'],p['org']))
-            print("url is****" + p['url'])
-        if 'info' in p:
-            p=apart_text(p)
-        mongo_client.save_crawled_person(p)
+
 
 

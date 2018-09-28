@@ -71,5 +71,5 @@ def get_lasttime_from_mainpage(url):
 
 
 
-
+#print(get_main_page("https://baike.baidu.com/item/%E5%88%98%E9%9D%99/10464312"))
 
