@@ -302,11 +302,12 @@ def clear_status():
 
 def repeat():
     mongo_client = MongoDBClient()
-    persons = mongo_client.get_crawled_person_by_taskId("5ba903392bf7cb164b61af7e")
+    persons = mongo_client.get_crawled_person_by_taskId("5ba20fee8d4315163aba3cdd")
     for i, p in enumerate(persons):
-        if p['row_number'] > 947:
+        if 100>p['row_number'] > 0:
             p['_id'] = ObjectId(p['id'])
-            p['task_id'] = ObjectId("5ba903392bf7cb164b61af7e")
+            p['task_id'] = ObjectId("5ba20fee8d4315163aba3cdd")
+            p['result'] = sorted(p['result'], key=lambda s: s['last_time'], reverse=True)
             p['result'] = list(filter(select, p['result']))
             if len(p['result']) > 0:
                 selected_item = p['result'][0]
