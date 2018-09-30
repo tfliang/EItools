@@ -1,3 +1,4 @@
+#coding=utf-8
 import json
 
 import re
@@ -10,6 +11,7 @@ from EItools.classifier_mainpage.Extract import Extract
 from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import extract_one_3, print_tag, interface, extract_project, extract_patent, \
     extract_award
+from EItools.utils.chinese_helper import strQ2B
 
 
 def find_aff(text):
@@ -34,9 +36,9 @@ def find_name(text):
     if AFF is not None:
         print_tag(AFF, 'AFF', text)
     return PER
-patent_time=r'([1-2][0-9]{3})[年|.|/]?'
-pattern_time = r'([1-2][0-9]{3}[年|.|/]?[0-9]{0,2}[月]?|至今|今)'
-pattern_work_time=r'(曾任|现任|现为|同年|[1-2]{1}[0-9]{3}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|—|-|～|毕业|至)*\s*(?:(?:[1-2]{1}[0-9]{3}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
+patent_time=r'((?:19|20)[0-9]{2})[年|.|/]?'
+pattern_time = r'((?:19|20)[0-9]{2}[年|.|/]?[0-9]{0,2}[月]?|至今|今)'
+pattern_work_time=r'(曾任|现任|现为|同年|(?:19|20)[0-9]{2}[年./]?[0-9]{0,2}[月]?\s*(?:-|－|—|-|～|毕业|至|~)*\s*(?:(?:(?:19|20)[0-9]{2}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -110,7 +112,7 @@ def find_work(text):
         position=""
         for aff in aff_list:
             text=text.replace(aff,',')
-        text=text.replace(',，、。.-','')
+        text=re.sub(r'[,，、。.-]','',text)
         position=','.join(Extract.extrac_position(text))
         print("time is:{}".format(time))
         print("aff is:{}".format(aff_all))
@@ -167,10 +169,11 @@ def find_edu(text):
 
 
 def find_patent(text):
+    text=re.sub(' ','',text)
     inventor_names=find_name(text)
-    patent_number_pattern=r'((?:ZL|CN|JP)?[0-9X]{8,15}.{0,1}[0-9X]{0,1})'
+    patent_number_pattern=r'((?:ZL|CN|JP)?[0-9X\\s.]{7,15}.{0,1}[0-9X]{0,1})'
     patent_number=re.findall(patent_number_pattern,text)
-    text=re.sub(patent_number_pattern,"",text)
+    text = re.sub(patent_number_pattern, "", text)
     tf.reset_default_graph()
     patent_name=extract_patent(text)
     patent_name=''.join(patent_name) if patent_name is not None else ""
@@ -181,16 +184,18 @@ def find_patent(text):
     print("patent_name is:{}".format(patent_name))
     patent=None
     if len(time)>=2:
-        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":time[0] if time is not None and len(time)>0 else "","issue_by":"","title":patent_name}
+        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","code":''.join(patent_number) if patent_number is not None else "" ,"issue_date":time[0] if time is not None and len(time)>0 else "","issue_by":"","title":patent_name}
     elif len(time)==1:
-        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":time[0] if time is not None and len(time)>0 else "","issue_by":"","title":patent_name}
+        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","code":''.join(patent_number) if patent_number is not None else "" ,"issue_date":time[0] if time is not None and len(time)>0 else "","issue_by":"","title":patent_name}
     elif len(time)==0:
-        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","patent_number":''.join(patent_number) if patent_number is not None else "" ,"issue_date":time[0] if time is not None and len(time)>0 else "","issue_by":"","title":patent_name}
+        patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","code":''.join(patent_number) if patent_number is not None else "" ,"issue_date":time[0] if time is not None and len(time)>0 else "","issue_by":"","title":patent_name}
     return patent
 
 def find_project(text):
-    project_number=re.findall(r'[0-9a-zA-Z]{8,}',text)
-    text=re.sub(r'[0-9a-zA-Z]{8,}',"",text)
+    if len(text)<5:
+        return None
+    project_number=re.findall(r'[0-9a-zA-Z]{6,}',text)
+    text=re.sub(r'[0-9a-zA-Z]{6,}',"",text)
     time=re.findall(pattern_time,text)
     project_funds=re.findall(r'[\d]+[万元]+',text)
     tf.reset_default_graph()
@@ -209,7 +214,7 @@ def find_project(text):
     if project_name=="" and project_cat=="":
         return project
     if len(time)>=2:
-        project={"title":project_name,"cat":project_cat,"fund":project_funds,"start":time[0],"end":time[1],"role":"负责人","code":project_number}
+        project={"title":project_name,"cat":project_cat,"fund":project_funds,"start":time[0],"end":time[1],"role":"","code":project_number}
     elif len(time)==1:
         project = {"title": project_name, "cat": project_cat, "fund": project_funds, "start": time[0]}
     elif len(time)==0:
@@ -226,12 +231,21 @@ def find_award(text):
     time= time[0] if len(time)>0 else ""
     title=','.join(award_title) if award_title is not None else ""
     name=','.join(award_name) if award_name is not None else ""
+    awards=[]
     award=None
     if title=="" and name=="":
         return award
     if title!=""  or name !="":
-        award={'title':title,'year':time,'award':name}
-    return award
+        if len(award_title)>1:
+            for a_t in award_title:
+                award = {'title': a_t, 'year': "", 'award': ""}
+                awards.append(award)
+        else:
+            award = {'title': title, 'year': time, 'award': name}
+            awards.append(award)
+
+
+    return awards
 
 def find_socs(text):
     socs=[]
@@ -295,21 +309,22 @@ def find_edus(text):
 
 def find_patents(text):
     patents=[]
-    sequence_pattern='(\d[．.、]\s*[\u4e00-\u9fa5]+)'
-    sequence_pattern_second='([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5])'
-    datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
-    indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second,text)]
-    if len(datas) == 0:
-        datas = [m.group() for m in re.finditer(sequence_pattern, text)]
-        indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
-    patents_all = []
-    if len(datas) > 0:
-         patents_all = [text[indexs[i]:indexs[i + 1]] for i, d in enumerate(indexs) if i < len(indexs) - 1]
-         if len(text[0:indexs[0]])>3:
-            patents_all.append(text[0:indexs[0]])
-         patents_all.append(text[indexs[len(indexs) - 1]:len(text)])
-    if len(patents_all) == 0:
-        patents_all = re.split(r'[\n]', text)
+    #sequence_pattern='(\d[．.、]\s*[\u4e00-\u9fa5]+)'
+    #sequence_pattern_second='([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5])'
+    #datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
+    #indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second,text)]
+    #if len(datas) == 0:
+        #datas = [m.group() for m in re.finditer(sequence_pattern, text)]
+        #indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
+    #patents_all = []
+    #if len(datas) > 0:
+         #patents_all = [text[indexs[i]:indexs[i + 1]] for i, d in enumerate(indexs) if i < len(indexs) - 1]
+         #if len(text[0:indexs[0]])>3:
+            #patents_all.append(text[0:indexs[0]])
+         #patents_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    # patents_all = find_sentence(text)
+    # if len(patents_all) == 0:
+    patents_all = re.split(r'[\n]', text)
     print(patents_all)
     for t in patents_all:
         if t!="":
@@ -322,25 +337,29 @@ def find_patents(text):
 
 def find_projects(text):
     projects=[]
-    sequence_pattern = r'(\d[．.、]+\s*[\u4e00-\u9fa5]+)'
-    sequence_pattern_second = r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)'
-    '[\d\s*]?\s*'
-    datas = [m.group() for m in re.finditer(sequence_pattern, text)]
-    indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
-    if len(datas) == 0:
-        datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
-        indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second, text)]
-    projects_all = []
-    if len(datas) > 0:
-        projects_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
-        if len(text[0:indexs[0]]) > 3:
-            projects_all.append(text[0:indexs[0]])
-        projects_all.append(text[indexs[len(indexs) - 1]:len(text)])
-    if len(projects_all) == 0:
+    # text_trans = re.sub(r'[0-9a-zA-Z]{6,}', "*", text)
+    #text_trans = re.search(pattern_work_time,"*",text)
+    # print(text_trans)
+    # sequence_pattern = r'(\d[．.、]+\s*[\u4e00-\u9fa5]+)'
+    # sequence_pattern_second = r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)'
+    # '[\d\s*]?\s*'
+    # datas = [m.group() for m in re.finditer(sequence_pattern, text)]
+    # indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
+    # if len(datas) == 0:
+    #     datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
+    #     indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second, text)]
+    # projects_all = []
+    # if len(datas) > 0:
+    #     projects_all = [text[indexs[i]:indexs[i + 1]] for i, data in enumerate(indexs) if i < len(indexs) - 1]
+    #     if len(text[0:indexs[0]]) > 3:
+    #         projects_all.append(text[0:indexs[0]])
+    #     projects_all.append(text[indexs[len(indexs) - 1]:len(text)])
+    projects_all=find_sentence(text)
+    if len(projects_all) == 1:
         if '。' in text:
-            projects_all = re.split(r'[。\n；;]', text)
+            projects_all = re.split(r'[。]', text)
         else:
-            projects_all = re.split(r'[\n；;,，]', text)
+            projects_all = re.split(r'[\n]', text)
     print(projects_all)
     for t in projects_all:
         if t!="":
@@ -351,30 +370,33 @@ def find_projects(text):
     return projects
 
 def find_awards(text):
+    print(text)
     awards=[]
-    sequence_pattern = r'(\d[．.、]+\s*[\u4e00-\u9fa5]+)'
-    sequence_pattern_second = r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)'
-    '[\d\s*]?\s*'
-    datas = [m.group() for m in re.finditer(sequence_pattern, text)]
-    indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
-    if len(datas) == 0:
-        datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
-        indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second, text)]
-    awards_all=[]
-    if len(datas)>0:
-        awards_all=[text[indexs[i]:indexs[i+1]] for i,data in enumerate(indexs) if i<len(indexs)-1]
-        if len(text[0:indexs[0]]) > 3:
-            awards_all.append(text[0:indexs[0]])
-        awards_all.append(text[indexs[len(indexs)-1]:len(text)])
-    if len(awards_all)==0:
-        awards_all=re.split(r'[\n]', text)
+    # sequence_pattern = r'(\d[．.、]+\s*[\u4e00-\u9fa5]+)'
+    # sequence_pattern_second = r'([(【[（]?\d\s*[)）]】?\s*[\u4e00-\u9fa5]?)'
+    # '[\d\s*]?\s*'
+    # datas = [m.group() for m in re.finditer(sequence_pattern, text)]
+    # indexs = [m.span()[0] for m in re.finditer(sequence_pattern, text)]
+    # if len(datas) == 0:
+    #     datas = [m.group() for m in re.finditer(sequence_pattern_second, text)]
+    #     indexs = [m.span()[0] for m in re.finditer(sequence_pattern_second, text)]
+    # awards_all=[]
+    # if len(datas)>0:
+    #     awards_all=[text[indexs[i]:indexs[i+1]] for i,data in enumerate(indexs) if i<len(indexs)-1]
+    #     if len(text[0:indexs[0]]) > 3:
+    #         awards_all.append(text[0:indexs[0]])
+    #     awards_all.append(text[indexs[len(indexs)-1]:len(text)])
+    #awards_all=find_sentence(text)
+    #if len(awards_all)==0:
+    awards_all=re.split(r'[\n]', text)
     print(awards_all)
     for t in awards_all:
         if t!="":
             award=find_award(t)
             tf.reset_default_graph()
             if award is not None:
-                awards.append(award)
+                for a in award:
+                    awards.append(a)
     return awards
 
 def find_awards_list(awd_list):
@@ -386,3 +408,54 @@ def find_awards_list(awd_list):
                 awd_aparts.append(a)
     return awd_aparts
 
+
+def find_sentence(s):
+    now = 1
+    tj = {']': 0, ')': 0, '.': 0 }
+    res = {']': [], ')': [], '.': []}
+    for k in tj:
+        now = 0
+        last = 0
+        first=True
+        while True:
+            mats = '%d\s*\\%s' % (now + 1, k)
+            mat = re.search(mats, s[last:])
+            if now==2:
+                print(2)
+            if mat is None:
+                # res[k].append(s[last:].find('\n')) # 丢掉了最后一条
+                if first:
+                    first=False
+                    now+=1
+                    mats = '%d\\%s' % (now + 1, k)
+                    mat = re.search(mats, s[last:])
+                    if mat is None:
+                        now +=1
+                        mats = '%d\\%s' % (now + 1, k)
+                        mat = re.search(mats, s[last:])
+                        if mat is None:
+                            break
+                else:
+                    break
+            last += mat.start()
+            res[k].append(mat.start())
+            now += 1
+        tj[k] = now
+    print(res)
+    mac = ''
+    ma = 0
+    for k in tj:
+        if tj[k] > ma:
+            ma = tj[k]
+            mac = k
+    print(tj)
+    print(ma, mac)
+    paper = []
+    for i in range(0, len(res[mac])):
+        paper.append(s[:res[mac][i]])
+        s = s[res[mac][i]:]
+    paper.append(s)
+    print(paper)
+    return paper
+
+#find_work("2004.9-2008.1: 日本国家材料科学研究所,国际青年科学家中心(ICYS) ;Independent Research Fellow(1500万日元自主研究经费);")

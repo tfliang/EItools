@@ -7,6 +7,8 @@ import jieba
 import jieba.posseg as pseg
 import re
 
+from idna import unichr
+
 from EItools.utils.edit_distance import EditDistance
 
 APP_ID = '20170228000040045'
@@ -137,6 +139,38 @@ def simila_name(nl,nr):
                     return 0.5
                 else:
                     return 0
+
+
+# -*- coding: cp936 -*-
+def strQ2B(ustring):
+    """全角转半角"""
+    rstring = ""
+    for uchar in ustring:
+        inside_code = ord(uchar)
+        if inside_code == 12288:  # 全角空格直接转换
+            inside_code = 32
+        elif (inside_code >= 65281 and inside_code <= 65374):  # 全角字符（除空格）根据关系转化
+            inside_code -= 65248
+
+        rstring += unichr(inside_code)
+    return rstring
+
+
+def strB2Q(ustring):
+    """半角转全角"""
+    rstring = ""
+    for uchar in ustring:
+        inside_code = ord(uchar)
+        if inside_code == 32:  # 半角空格直接转化
+            inside_code = 12288
+        elif inside_code >= 32 and inside_code <= 126:  # 半角字符（除空格）根据关系转化
+            inside_code += 65248
+
+        rstring += unichr(inside_code)
+    return rstring
+
+
+
 
 
 

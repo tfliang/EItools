@@ -1,4 +1,5 @@
 import pymongo
+import re
 from bson import ObjectId
 from pymongo import MongoClient
 
@@ -101,6 +102,21 @@ class MongoDBClient(object):
             del item['task_id']
             persons.append(item)
         return persons
+
+    def search_crawled_person_by_taskId(self,id,name,offset=0,size=0):
+        persons = []
+        c = self.crawed_person_col.find({'$and':[{"task_id": ObjectId(id)},{"name":re.compile(name)}]})
+        if size > 0 and offset >= 0:
+            c = c.skip(offset).limit(size)
+        for item in c:
+            item['id'] = str(item['_id'])
+            del item['_id']
+            del item['task_id']
+            persons.append(item)
+        return persons
+
+    def search_crawled_person_num_by_taskId(self, id,name):
+        return self.crawed_person_col.find({'$and':[{"task_id": ObjectId(id)},{"name":re.compile(name)}]}).count()
 
     def get_crawled_person_num_by_taskId(self, id):
         return self.crawed_person_col.find({"$and": [{"task_id": ObjectId(id)}]}).count()

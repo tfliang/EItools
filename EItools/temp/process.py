@@ -10,7 +10,9 @@ from bson import ObjectId
 
 from EItools.client.mongo_client import MongoDBClient
 from EItools.crawler import crawl_mainpage
-from EItools.crawler.crawl_service import select, apart_text
+from EItools.crawler.crawl_service import select, apart_text, crawl_person_info
+from EItools.detail_apart import detail_apart
+from EItools.utils.chinese_helper import strQ2B
 
 mongoClient=MongoDBClient()
 def process_data():
@@ -263,7 +265,7 @@ def export_data():
 def crawl_person():
     #person_ids = ["5b9a33778d431508dea40be2", "5b9a33768d431508dea40be0", "5b9a33768d431508dea40bdf",
      #            "5b9a33788d431508dea40be6", "5b9a33788d431508dea40be7","5b9a33788d431508dea40be8","5b9a341e8d431508dea40ee0","5b9abce9c3666e23ba80d3da"]
-    person_ids=["5ba0c07d8d43155d30de03c9"]
+    person_ids=["5baee78a8d431506855d34e9"]
     for id in person_ids:
         person = mongo_client.get_crawled_person_by_pid(id)
         crawl_person_info([person], None)
@@ -320,7 +322,73 @@ def repeat():
             if 'info' in p:
                 p = apart_text(p)
             mongo_client.save_crawled_person(p)
-repeat()
+#repeat()
+def get_data():
+    mongo_client=MongoDBClient()
+    with open('/Users/bcj/Desktop/中国青年科技奖1-14届获得者名单-需添加数据-0926.csv','r') as f:
+        datas=csv.reader(f)
+        with open('/Users/bcj/Desktop/刘佳组数据.csv','w') as w:
+            writer=csv.writer(w)
+            for i,data in enumerate(datas):
+                if i>1:
+                    db_data=mongo_client.db['crawled_person_final'].find_one({'$and':[{'task_id':ObjectId("5ba903392bf7cb164b61af7e")},{'name':data[2]}]})
+                    print(i)
+                    if db_data is not None:
+                        if 'url' in db_data:
+                            data.append(db_data['url'])
+                        else:
+                            data.append("")
+                        if 'aff' in db_data and 'inst' in db_data['aff']:
+                            data.append(db_data['aff']['inst'])
+                        else:
+                            data.append("")
+                        if 'position' in db_data:
+                            data.append(db_data['position'])
+                        else:
+                            data.append("")
+                        if 'honors' in db_data:
+                            data.append(','.join(db_data['honors']))
+                        else:
+                            data.append("")
+                        if 'awards_region' in db_data:
+                            data.append(db_data['awards_region'])
+                        else:
+                            data.append("")
+                        if 'academic_org_exp_region' in db_data:
+                            data.append(db_data['academic_org_exp_region'])
+                        else:
+                            data.append("")
+                        writer.writerow(data)
+                    else:
+                        writer.writerow(data)
+
+
+#get_data()
+
+
+def generate_data():
+    mongo_client=MongoDBClient()
+    persons=mongo_client.get_crawled_person_by_taskId("5baee7878d43156d04522d01")
+    for person in persons:
+        print(person['id'])
+        if 'exp_region' in person:
+            person['exp']=detail_apart.find_works(strQ2B(person['exp_region']))
+            mongo_client.update_crawled_person_by_keyvalue(person['id'],'exp',person['exp'])
+#generate_data()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

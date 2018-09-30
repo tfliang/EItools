@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^update/persondetail/$',crawl_information.update_person_by_Id),
     url(r'^update/personfield/$',crawl_information.update_person_by_field),
     url(r'^view/persondetail/(.+)/$',crawl_information.get_crawled_persons_by_personId),
+    url(r'^search/person/$',crawl_information.search_crawled_persons),
 
     url(r'^show/tasks/(.+)/(.+)/', task.get_tasks_by_page),
     url(r'^save/task/$',task.publish_task),

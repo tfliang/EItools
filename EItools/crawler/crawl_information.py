@@ -105,6 +105,45 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
     }
     return HttpResponse(json.dumps(result), content_type="application/json")
 
+def search_crawled_persons(request):
+    def get_value(key,content):
+        return content[key] if key in content else ""
+    if request.method=='POST':
+        content=json.loads(request.body)
+        person_name=get_value('search_value',content)
+        task_id=get_value('task_id',content)
+        offset=get_value('offset',content)
+        size=get_value('size',content)
+        crawled_persons = mongo_client.search_crawled_person_by_taskId(task_id, person_name,int(offset), int(size))
+        # uncrawled_persons=mongo_client.get_uncrawled_person_by_taskId(id)
+        total_persons = []
+        crawled_persons_final = []
+        for person in crawled_persons:
+            if 'result' in person:
+                del person['result']
+            if 'info' in person:
+                del person['info']
+            if 'email' in person and person['email'] == [] and len(person['emails_prob']) > 0:
+                person['email'] = person['emails_prob'][0][0]
+            person['status'] = 1
+            total_persons.append(person)
+            # crawled_persons_final.append(person)
+        # for person in uncrawled_persons:
+        #     person['status']=0
+        #     total_persons.append(person)
+        result = {
+            'total': mongo_client.search_crawled_person_num_by_taskId(task_id,person_name),
+            'offset': offset,
+            'size': size,
+            'info': total_persons
+        }
+    else:
+        result = {
+            'info': "error search"
+        }
+
+    return HttpResponse(json.dumps(result), content_type="application/json")
+
 def get_crawled_persons_by_personId(request,id):
     person=mongo_client.get_crawled_person_by_pid(id)
     if person is not None:
