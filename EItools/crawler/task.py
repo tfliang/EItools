@@ -111,6 +111,24 @@ def export_data(request,taskid):
                 del person['result']
             if 'info' in person:
                 del person['info']
+            if 'edu_exp_region' in person:
+                del person['edu_exp_region']
+            if 'exp_region' in person:
+                del person['exp_region']
+            if 'academic_org_exp_region' in person:
+                del person['academic_org_exp_region']
+            if 'awards_region' in person:
+                del person['awards_region']
+            if 'patents_region' in person:
+                del person['patents_region']
+            if 'projects_region' in person:
+                del person['projects_region']
+            if 'citation' in person:
+                del person['citation']
+            if 'source' in person:
+                del person['source']
+            if 'status' in person:
+                del person['status']
             persons_filter.append(person)
         logger.info(len(persons))
         return write_json(persons,task['task_name'])
