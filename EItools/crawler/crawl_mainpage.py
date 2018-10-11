@@ -5,24 +5,13 @@ import re
 import requests
 import pextract as pe
 from EItools.log.log import logger
+from EItools.magic_search.magic_search import MagicSearch
 from EItools.extract.interface import interface
 
-headers = {
-		'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER'
-	}
-def get_content(url, headers):
-	'''''
-    @获取403禁止访问的网页
-    '''
-	res = requests.get(url, headers=headers)
-	# res.encoding='utf-8'
-	content = res.content
-	return content
-
+magic_search=MagicSearch()
 def get_main_page(url,person=None):
 	try:
-		print(url)
-		source_code = get_content(url,headers)
+		source_code = magic_search.get_webpage_content(url)
 		soup = bs4.BeautifulSoup(source_code, 'html.parser')
 		scripts = soup.find_all(name='div', attrs={
 			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu|before-content|polysemyAll).*$')})
@@ -50,7 +39,7 @@ def get_main_page(url,person=None):
 
 
 def get_mainpage_by_algo(url):
-	r = get_content(url,headers)
+	r =magic_search.get_webpage_content(url)
 	soup = bs4.BeautifulSoup(r, 'lxml')
 	html, pval = pe.extract(soup, text_only=False, remove_img=False)
 	text, pval = pe.extract(soup)

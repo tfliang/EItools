@@ -12,7 +12,7 @@ from EItools.utils import chinese_helper
 from EItools.chrome.crawler import InfoCrawler
 import time
 from time import strftime
-from EItools.crawler import crawl_mainpage, process
+from EItools.crawler import crawl_mainpage, search_items
 from EItools.log.log import logger
 from EItools import celery_app
 import csv
@@ -67,8 +67,8 @@ def select(r):
 def get_data_from_web(person,info_crawler):
     p=person
 
-    result = process.Get('{},{}'.format(person['name'], person['org']))['res']
-    result_without_org = process.Get('{},'.format(person['name']))['res']
+    result = search_items.Get('{},{}'.format(person['name'], person['org']))['res']
+    result_without_org = search_items.Get('{},'.format(person['name']))['res']
     result_rest = list(filter(select, result))
     result_without_org_rest = list(filter(select, result_without_org))
     # final_result=[]

@@ -10,13 +10,12 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
 import sys
 
-from EItools.MagicBaidu import MagicBaidu
-from EItools.MagicGoogle import MagicGoogle
 from EItools.log.log import logger
 
 from selenium.webdriver.common.keys import Keys
 
 from EItools.chrome import proxy
+from EItools.magic_search.magic_search import MagicSearch
 
 
 class ChromeCrawler:
@@ -37,14 +36,7 @@ class ChromeCrawler:
         # self.homepage=dict_options["homepage"]
         self.name=dict_options["name"]
         # self.start()
-        self.PROXIES = [{
-            # 'http': 'http://159.203.174.2:3128'
-            'http': 'http://127.0.0.1:8123',
-            'https': 'http://127.0.0.1:8123'
-        }]
-
-        self.mg = MagicGoogle(self.PROXIES)
-        self.mb = MagicBaidu()
+        self.search=MagicSearch()
 
     def start(self):
         logger.info("chrome [%s] starting,home is [%s]",self.name,self.homepage)
@@ -81,7 +73,7 @@ class ChromeCrawler:
         return self.parse_page(page)
 
     def download_parse2(self,keyword,retries=0):
-        page=self.mg.search_page(keyword)
+        page=self.search.search_page(keyword)
         return self.parse_page(page)
 
 
@@ -251,8 +243,7 @@ class ChromeCrawler:
 
     def get_scholar_citation(self,url):
         try:
-            res = requests.get(url, headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER'})
-            source_code = res.content
+            source_code = self.search.get_webpage_content(url)
             soup = bs4.BeautifulSoup(source_code, 'html.parser')
             content=soup.find(attrs={"id": "gsc_rsb_st"}).get_text(separator="<k>")
         except Exception as e:

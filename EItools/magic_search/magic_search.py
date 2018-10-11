@@ -5,6 +5,7 @@ import time
 
 import cchardet
 import requests
+from bs4 import BeautifulSoup
 
 from pyquery import PyQuery as pq
 from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT, URL_NUM, LOGGER
@@ -17,7 +18,7 @@ else:
     from EItools.chrome.proxy import proxy_switch
 
 
-class MagicGoogle():
+class MagicSearch():
     """
     Magic google search.
     """
@@ -89,6 +90,63 @@ class MagicGoogle():
             return text
         except Exception as e:
             LOGGER.exception(e)
+            return None
+
+    def search_baidu(self, query, start=0, pause=2):
+        """
+        Get the results you want,such as title,description,url
+        :param query:
+        :param start:
+        :return: Generator
+        """
+        start = start // 10 * 10
+        content = self.search_page(query, start, pause)
+        soup = BeautifulSoup(content, "html.parser")
+        now = start + 1
+        for item in soup.find_all(attrs={'class': 'c-container'}):
+            result = {}
+            result['title'] = item.h3.get_text()
+            result['url'] = item.h3.a['href']
+            ss = ''
+            for div in item.find_all('div'):
+                if div.has_attr('class') and (div['class'][0].find('abstract') != -1 or div['class'][0] == 'c-row'):
+                    ss += div.get_text()
+                domain = div.find(attrs={'class': 'c-showurl'})
+                if domain is not None:
+                    result['domain'] = domain.get_text()
+            result['text'] = ss
+            yield result
+
+    def search_page_baidu(self, query, start=0, pause=2):
+        """
+        Baidu search
+        :param query: Keyword
+        :param language: Language
+        :return: result
+        """
+        start = start // 10 * 10
+        time.sleep(pause)
+        param = {'wd': query, 'pn': str(start)}
+        url = 'https://www.baidu.com/s'
+        # Add headers
+        headers = {'user-agent': self.get_random_user_agent(),
+                   'host': 'www.baidu.com',
+                   'referer': 'https://www.baidu.com/s',
+                   'is_referer': 'https://www.baidu.com/s'
+                   }
+        try:
+            requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+            r = requests.get(url=url,
+                             params=param,
+                             headers=headers,
+                             allow_redirects=False,
+                             verify=False,
+                             timeout=10)
+            content = r.content
+            charset = cchardet.detect(content)
+            text = content.decode(charset['encoding'])
+            return text
+        except:
             return None
 
     def search_url(self, query, language=None, num=None, start=0, pause=2):
@@ -175,3 +233,13 @@ class MagicGoogle():
         except:
             data = [default]
         return data
+
+    def get_webpage_content(self,url):
+        headers = {'user-agent': self.get_random_user_agent()}
+        '''''
+               @获取403禁止访问的网页
+               '''
+        res = requests.get(url, headers=headers,proxys=self.proxies)
+        # res.encoding='utf-8'
+        content = res.content
+        return content

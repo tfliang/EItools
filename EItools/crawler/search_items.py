@@ -2,8 +2,7 @@ import bs4
 import re
 import requests
 
-from EItools.MagicBaidu import MagicBaidu
-from EItools.MagicGoogle import MagicGoogle
+from EItools.magic_search import MagicSearch
 from EItools.client.mongo_client import MongoDBClient
 from EItools.classifier_mainpage.Str2Query import Str2Query
 
@@ -22,14 +21,11 @@ PROXIES = [{
     'https':'http://127.0.0.1:8123'
 }]
 
-mg = MagicGoogle(PROXIES)
-mb = MagicBaidu()
-
-
+ms = MagicSearch(PROXIES)
 def get_res(query):
     res = []
     try:
-        for i in mg.search(query=query, pause=0.5):
+        for i in ms.search(query=query, pause=0.5):
             try:
                 th = {}
                 for k in i:
@@ -46,7 +42,7 @@ def get_res(query):
     except Exception as e:
         print(e)
     try:
-        for i in mb.search(query=query, pause=0.5):
+        for i in ms.search_baidu(query=query, pause=0.5):
             try:
                 th = i
                 th['source'] = 'baidu'
@@ -70,19 +66,6 @@ def Get(str):
     return cra
 
 
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER'
-}
-
-
-def get_content(url, headers):
-    '''''
-    @获取403禁止访问的网页
-    '''
-    res = requests.get(url, headers=headers)
-    # res.encoding='utf-8'
-    content = res.content
-    return content
 
 
 
