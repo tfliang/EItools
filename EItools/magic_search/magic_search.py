@@ -239,7 +239,7 @@ class MagicSearch():
         headers = {'user-agent': self.get_random_user_agent()}
         result, proxies = proxy_switch.get_proxy()
         self.proxies = {'http': "http://" + proxies}
-        res = requests.get(url, headers=headers,proxys=self.proxies)
+        res = requests.get(url, headers=headers,proxies=self.proxies)
         # res.encoding='utf-8'
         content = res.content
         return content

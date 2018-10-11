@@ -33,7 +33,7 @@ def get_main_page(url,person=None):
 		else:
 			text = '\n'.join(chunk for chunk in lines if chunk!='')
 	except Exception as e:
-		logger.info(e)
+		logger.error("when crawl mainpage: {}".format(e))
 		text = ""
 	return text
 
