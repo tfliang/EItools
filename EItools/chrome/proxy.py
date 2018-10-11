@@ -97,6 +97,13 @@ class ProxySwitcher:
         charset = cchardet.detect(content)
         text = content.decode(charset['encoding'])
         self.add_proxy(re.split(r'[\n\r]',text))
+    # def get_proxy_list(self):
+    #     PROXIES = [{
+    #         # 'http': 'http://159.203.174.2:3128'
+    #         'http': 'http://127.0.0.1:8123',
+    #         'https': 'http://127.0.0.1:8123'
+    #     }]
+    #     return PROXIES
 
 proxy_switch=ProxySwitcher()
 
