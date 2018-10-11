@@ -105,10 +105,7 @@ class ProxySwitcher:
     #     return PROXIES
 
 proxy_switch=ProxySwitcher()
-print(proxy_switch.get_proxy())
-print(len(proxy_switch.proxies))
-print(proxy_switch.get_proxy())
-print(proxy_switch.get_proxy())
+
 
 
 
