@@ -74,7 +74,7 @@ class MagicSearch():
         headers = {'user-agent': self.get_random_user_agent()}
         try:
             requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
-            result,self.proxies = proxy_switch.get_proxy()['server']
+            result,self.proxies = proxy_switch.get_proxy()
             r = requests.get(url=url,
                              proxies=self.proxies,
                              headers=headers,
