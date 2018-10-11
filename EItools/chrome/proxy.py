@@ -50,12 +50,9 @@ class ProxySwitcher:
 
     def get_proxy(self):
         def return_proxy(index):
-            if index != self.current_proxy_index:
-                self.current_proxy_index = index
-                self.proxies[index].last_time = time.time()
-                return True, self.proxies[index].server
-            else:
-                return False, ''
+            self.current_proxy_index = index
+            self.proxies[index].last_time = time.time()
+            return True, self.proxies[index].server
         if len(self.proxies) > 0:
             if self.current_proxy_index < 0:
                 return return_proxy(0)
@@ -96,7 +93,9 @@ class ProxySwitcher:
         content = r.content
         charset = cchardet.detect(content)
         text = content.decode(charset['encoding'])
+        print(re.split(r'[\n\r]',text))
         self.add_proxy(re.split(r'[\n\r]',text))
+
     # def get_proxy_list(self):
     #     PROXIES = [{
     #         # 'http': 'http://159.203.174.2:3128'
@@ -106,6 +105,10 @@ class ProxySwitcher:
     #     return PROXIES
 
 proxy_switch=ProxySwitcher()
+print(proxy_switch.get_proxy())
+print(len(proxy_switch.proxies))
+print(proxy_switch.get_proxy())
+print(proxy_switch.get_proxy())
 
 
 
