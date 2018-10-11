@@ -205,7 +205,7 @@ def find_edu(text):
                 edu_exp = {"diploma": diploma, "degree": degree,"inst":aff_all}
             return edu_exp
         except Exception as e:
-            logger.info(e)
+            logger.info("when extract education info:{}".format(e))
             return None
 
 

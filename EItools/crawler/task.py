@@ -16,6 +16,7 @@ sys.path.append("..")
 from EItools.log.log import logger
 from EItools.client.mongo_client import MongoDBClient
 from EItools import celery_app
+from urllib import parse
 task_status_dict={
     "finished":0,
     "failed":1,
@@ -46,7 +47,6 @@ def get_task_by_id(request,id):
 
 @celery_app.task
 def save_task(task_id,file_path,task_name,creator,creator_id):
-    print(file_path)
     total = 0
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -71,7 +71,7 @@ def save_task(task_id,file_path,task_name,creator,creator_id):
         task['total']=total
         mongo_client.save_task(task)
     except Exception as e:
-        logger.info(e)
+        logger.error("when publish crawl person task : {}".format(e))
 
 
 def publish_task(request):
@@ -93,7 +93,7 @@ def publish_task(request):
                 'task_id': str(task_id)
             }
         except Exception as e:
-            logger.info(e)
+            logger.error("when save task: {}".format(e))
             result = {
                 'info': "upload data error"
             }
@@ -130,7 +130,7 @@ def export_data(request,taskid):
             if 'status' in person:
                 del person['status']
             persons_filter.append(person)
-        logger.info(len(persons))
+        logger.info("export {} total {} person".format(taskid,len(persons)))
         return write_json(persons,task['task_name'])
     else:
         return HttpResponse(json.dumps({"message":"task error"}), content_type="application/json")
@@ -139,12 +139,11 @@ def write_json(data,file_name):
     try:
         json_stream=get_json_stream(data)
         response=HttpResponse(content_type='application/json')
-        from urllib import parse
         response['Content-Disposition']='attachment;filename='+parse.quote(file_name)+'.json'
         response.write(json_stream)
         return response
     except Exception as e:
-        logger.info(e)
+        logger.error("save upload file:{}".format(e))
         return HttpResponse(json.dumps({"message": "task error"}), content_type="application/json")
 
 def get_json_stream(data):

@@ -1,6 +1,6 @@
 import os, sys, re
 
-from EItools.client.mongo_client import MongoDBClient
+from EItools.client.mongo_client import MongoDBClient, mongo_client
 
 DATA_DIR = os.path.join(os.path.abspath('..'), 'data')
 
@@ -121,7 +121,6 @@ def find_title(text):
 def find_work_detail(text):
     pattern=re.compile(r'\d')
 
-mongo_client=MongoDBClient()
 def compare(org, url):
     if org!="" and url!="":
         aff = mongo_client.db['aff'].find_one({"name": org})

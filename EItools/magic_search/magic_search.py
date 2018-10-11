@@ -8,7 +8,9 @@ import requests
 from bs4 import BeautifulSoup
 
 from pyquery import PyQuery as pq
-from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT, URL_NUM, LOGGER
+from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT, URL_NUM
+
+from EItools.log.log import logger
 
 if sys.version_info[0] > 2:
     from urllib.parse import quote_plus, urlparse, parse_qs
@@ -35,7 +37,6 @@ class MagicSearch():
         :param start:
         :return: Generator
         """
-        self.proxies = proxy_switch.get_proxy()
         content = self.search_page(query, language, num, start, pause)
         pq_content = self.pq_html(content)
         for item in pq_content('div.g').items():
@@ -77,19 +78,20 @@ class MagicSearch():
         headers = {'user-agent': self.get_random_user_agent()}
         try:
             requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+            self.proxies = proxy_switch.get_proxy()
             r = requests.get(url=url,
                              proxies=self.proxies,
                              headers=headers,
                              allow_redirects=False,
                              verify=False,
                              timeout=30)
-            LOGGER.info(url)
+            logger.info(url)
             content = r.content
             charset = cchardet.detect(content)
             text = content.decode(charset['encoding'])
             return text
         except Exception as e:
-            LOGGER.exception(e)
+            logger.exception(e)
             return None
 
     def search_baidu(self, query, start=0, pause=2):
@@ -188,7 +190,7 @@ class MagicSearch():
                     return link
         # Otherwise, or on error, return None.
         except Exception as e:
-            LOGGER.exception(e)
+            logger.exception(e)
             return None
 
     def pq_html(self, content):
@@ -236,9 +238,6 @@ class MagicSearch():
 
     def get_webpage_content(self,url):
         headers = {'user-agent': self.get_random_user_agent()}
-        '''''
-               @获取403禁止访问的网页
-               '''
         res = requests.get(url, headers=headers,proxys=self.proxies)
         # res.encoding='utf-8'
         content = res.content

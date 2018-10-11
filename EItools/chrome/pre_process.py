@@ -10,7 +10,6 @@ def get_valid_aff(org):
         affiliation = chinese_helper.translate(org, 'zh', 'zh')
     else:
         affiliation = chinese_helper.translate(org, 'en', 'zh')
-    logger.info(affiliation)
     affs = [s for s in rest_client.recognize_entity(affiliation) if
             s.find("大学") != -1 or s.find("公司") != -1 or s.find("中心") != -1
             or s.find("医院") != -1 or s.find("研究") != -1]

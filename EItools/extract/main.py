@@ -5,7 +5,7 @@ import tensorflow as tf
 import numpy as np
 import os, argparse, time, random
 from EItools.extract.model import BiLSTM_CRF
-from EItools.extract.utils import str2bool, get_logger, get_entity, get_award_entity, get_social_entity, \
+from EItools.extract.get_entity_util import str2bool, get_logger, get_entity, get_award_entity, get_social_entity, \
     get_work_entity, get_project_entity
 from EItools.extract.data import read_corpus, read_dictionary, tag2label, random_embedding
 

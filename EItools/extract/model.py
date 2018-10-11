@@ -6,8 +6,9 @@ from tensorflow.contrib.crf import crf_log_likelihood
 from tensorflow.contrib.crf import viterbi_decode
 # sys.path.append('../zh-NER-TF/')
 from EItools.extract.data import pad_sequences, batch_yield
-from EItools.extract.utils import get_logger
+from EItools.extract.get_entity_util import get_logger
 from EItools.extract.eval import conlleval
+from EItools.log.log import logger
 
 
 class BiLSTM_CRF(object):
@@ -28,7 +29,6 @@ class BiLSTM_CRF(object):
         self.shuffle = args.shuffle
         self.model_path = paths['model_path']
         self.summary_path = paths['summary_path']
-        self.logger = get_logger(paths['log_path'])
         self.result_path = paths['result_path']
         self.restore_path = paths['restore_path']
         self.config = config
@@ -179,7 +179,7 @@ class BiLSTM_CRF(object):
     def test(self, test):
         saver = tf.train.Saver()
         with tf.Session(config=self.config) as sess:
-            self.logger.info('=========== testing ===========')
+            logger.info('=========== testing ===========')
             saver.restore(sess, self.model_path)
             label_list, seq_len_list = self.dev_one_epoch(sess, test)
             # print(label_list)
@@ -247,7 +247,7 @@ class BiLSTM_CRF(object):
             _, loss_train, summary, step_num_ = sess.run([self.train_op, self.loss, self.merged, self.global_step],
                                                          feed_dict=feed_dict)
             if step + 1 == 1 or (step + 1) % 300 == 0 or step + 1 == num_batches:
-                self.logger.info(
+                logger.info(
                     '{} epoch {}, step {}, loss: {:.4}, global_step: {}'.format(start_time, epoch + 1, step + 1,
                                                                                 loss_train, step_num))
             # label_list, seq_len_list = self.predict_one_batch(sess, seqs)
@@ -257,7 +257,7 @@ class BiLSTM_CRF(object):
             if step + 1 == num_batches:
                 saver.save(sess, self.model_path, global_step=step_num)
 
-        self.logger.info('===========validation / test===========')
+        logger.info('===========validation / test===========')
         label_list_dev, seq_len_list_dev = self.dev_one_epoch(sess, dev)
         self.evaluate(label_list_dev, seq_len_list_dev, dev, epoch)
 
@@ -358,7 +358,7 @@ class BiLSTM_CRF(object):
         label_path = os.path.join(self.result_path, 'label_' + epoch_num)
         metric_path = os.path.join(self.result_path, 'result_metric_' + epoch_num)
         for _ in conlleval(model_predict, label_path, metric_path):
-            self.logger.info(_)
+            logger.info(_)
 
 class Original_model(BiLSTM_CRF):
     def biLSTM_layer_op(self):

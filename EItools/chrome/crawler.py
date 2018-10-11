@@ -22,18 +22,18 @@ class InfoCrawler:
         for key,crawler_config in config_crawlers.items():
                 crawler=ChromeCrawler(crawler_config)
                 self.crawlers[key]=crawler
-    def shutdown_crawlers(self):
-        for _,c in self.crawlers.items():
-            c.shutdown()
-    def kill_crawlers(self):
-        for _,c in self.crawlers:
-            c.killed=True
+    # def shutdown_crawlers(self):
+    #     for _,c in self.crawlers.items():
+    #         c.shutdown()
+    # def kill_crawlers(self):
+    #     for _,c in self.crawlers:
+    #         c.killed=True
 
-    def get_info(self, person,crawler_key="google"):
-        eps = []
-        crawler=self.crawlers[crawler_key]
-        content, url = self.get_information(crawler, person, aff=True)
-        return content, url
+    # def get_info(self, person,crawler_key="google"):
+    #     eps = []
+    #     crawler=self.crawlers[crawler_key]
+    #     content, url = self.get_information(crawler, person, aff=True)
+    #     return content, url
 
     def get_emails(self,person,crawler_key="google"):
         eps = []
@@ -79,28 +79,28 @@ class InfoCrawler:
             snippets+=snippets2
         return self.filt_email(snippets)
 
-    def get_information(self,crawler,person,aff=True):
-        if aff:
-            template = '{} '.format(person['org'])
-        else:
-            template=""
-        snippets = crawler.download_parse2('{} '.format(person['name']) + template)
-        if 'name_zh' in person and len(person['name_zh']):
-            snippets_of_name_zh = crawler.download_parse2(
-                '{} '.format(person['name_zh']) + template)
-            snippets += snippets_of_name_zh
-        # go to main page
-        content= ""
-        url=""
-        page_snippets = self.filt_page(snippets,person)
-        for snippet in page_snippets:
-            logger.info("page_src  "+snippet["page_src"])
-            content = crawler.get_main_page(snippet["page_src"],person)
-            url=snippet["page_src"]
-            if content!="":
-                break
-        logger.info("final page_src " + url)
-        return content,url
+    # def get_information(self,crawler,person,aff=True):
+    #     if aff:
+    #         template = '{} '.format(person['org'])
+    #     else:
+    #         template=""
+    #     snippets = crawler.download_parse2('{} '.format(person['name']) + template)
+    #     if 'name_zh' in person and len(person['name_zh']):
+    #         snippets_of_name_zh = crawler.download_parse2(
+    #             '{} '.format(person['name_zh']) + template)
+    #         snippets += snippets_of_name_zh
+    #     # go to main page
+    #     content= ""
+    #     url=""
+    #     page_snippets = self.filt_page(snippets,person)
+    #     for snippet in page_snippets:
+    #         logger.info("page_src  "+snippet["page_src"])
+    #         content = crawler.get_main_page(snippet["page_src"],person)
+    #         url=snippet["page_src"]
+    #         if content!="":
+    #             break
+    #     logger.info("final page_src " + url)
+    #     return content,url
 
     def match_emails(self,content):
         emails = []
@@ -215,6 +215,7 @@ class InfoCrawler:
         score+=1/(pos+2)
         snippet['importance']=score
         return snippet
+
     def filt_page(self,snippets,person):
         def filter(snippet,pos):
             return self.match_page_simple(snippet,person,pos)

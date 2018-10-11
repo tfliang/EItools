@@ -7,7 +7,7 @@ sys.path.append('.')
 
 from EItools.extract.util import *
 from EItools.extract.model import BiLSTM_CRF, Original_model
-from EItools.extract.utils import str2bool, get_logger, get_entity, get_name_entitry
+from EItools.extract.get_entity_util import str2bool, get_logger, get_entity, get_name_entitry
 from EItools.extract.data import read_corpus, read_dictionary, random_embedding
 from EItools.extract import args
 
