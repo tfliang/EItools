@@ -12,12 +12,8 @@ from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL
 
 from EItools.log.log import logger
 
-if sys.version_info[0] > 2:
-    from urllib.parse import quote_plus, urlparse, parse_qs
-else:
-    from urllib import quote_plus
-    from urlparse import urlparse, parse_qs
-    from EItools.chrome.proxy import proxy_switch
+from urllib.parse import quote_plus, urlparse, parse_qs
+from EItools.chrome.proxy import proxy_switch
 
 
 class MagicSearch():
