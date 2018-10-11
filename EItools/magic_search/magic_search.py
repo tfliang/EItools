@@ -22,7 +22,7 @@ class MagicSearch():
     """
 
     def __init__(self, proxies=None):
-        self.proxies = proxy_switch.get_proxy()['server']
+        result,self.proxies = proxy_switch.get_proxy()
 
     def search(self, query, language=None, num=None, start=0, pause=2):
         """
@@ -74,7 +74,7 @@ class MagicSearch():
         headers = {'user-agent': self.get_random_user_agent()}
         try:
             requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
-            self.proxies = proxy_switch.get_proxy()['server']
+            result,self.proxies = proxy_switch.get_proxy()['server']
             r = requests.get(url=url,
                              proxies=self.proxies,
                              headers=headers,
