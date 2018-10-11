@@ -56,6 +56,10 @@ def find_gender(text):
     else:
         return ""
 
+def find_birthday(text):
+    pattern = re.compile(r'生\s*?【于][\.。,，:：\s]*(.+?)[\s\.。,，;；][出生]?]')
+    return pattern.findall(text)
+
 def find_name(text, PER):
     min_idx = 100000000000
     res = None
@@ -81,6 +85,30 @@ def find_email(text):
         return remove_sign([res.group()])
     else:
         return []
+
+def find_phone_number(text):
+    res=re.search(r'^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$',text)
+    if res != None:
+        return remove_sign([res.group()])
+    else:
+        return []
+
+
+def find_degree_and_diploma(text):
+    degree = ""
+    diploma = ""
+    if '本科' in text or '学士' in text:
+        degree = '学士'
+    if '研究生' in text or '硕士' in text:
+        degree = '硕士'
+    if '博士' in text and '博士后' not in text:
+        degree = '博士'
+    if degree == '学士':
+        diploma = '本科'
+    elif degree == '博士' or degree == '硕士':
+        diploma = '研究生'
+    return degree,diploma
+
 
 def find_address(text):
     pattern = re.compile(r'地\s*?址[\.。,，:：\s]*([^\n\.。,，:：;；个]+?)[\s\.。,，;；]')

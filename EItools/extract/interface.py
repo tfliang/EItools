@@ -115,7 +115,7 @@ def extract_one(text):
     saver = tf.train.Saver()
     with tf.Session(config=config) as sess:
         saver.restore(sess, ckpt_file)
-        
+
         demo_sent = list(text)
         demo_data = [(demo_sent, ['O'] * len(demo_sent))]
         tag = model.demo(sess, demo_data, tag2label)

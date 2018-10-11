@@ -1,4 +1,5 @@
 import json
+import re
 import time
 from urllib import request
 
@@ -13,7 +14,7 @@ class Proxy:
         if 'interval' in conf:
             self.interval = conf['interval']
         else:
-            self.interval = 0
+            self.interval = 300
         self.last_time = time.time()
 
     def is_available(self):
@@ -25,6 +26,7 @@ class ProxySwitcher:
     def __init__(self):
         self.proxies = []
         self.current_proxy_index = -1
+        self.get_proxy_list()
 
     def add_proxy(self, proxy):
         if type(proxy) is Proxy:
@@ -57,6 +59,8 @@ class ProxySwitcher:
         if len(self.proxies) > 0:
             if self.current_proxy_index < 0:
                 return return_proxy(0)
+            if time.time()-self.proxies[self.current_proxy_index].last_time<self.proxies[self.current_proxy_index].interval:
+                return return_proxy(self.current_proxy_index)
             index = self.current_proxy_index + 1
             for i in range(index, len(self.proxies) - 1):
                 if self.proxies[i].is_available():
@@ -67,7 +71,7 @@ class ProxySwitcher:
 
         return False, ''
 
-    def get_proxy_by_url(self,need=True):
+    def get_proxy_by_url(self):
         #if need==False:
             #proxy_id = "50246453887904920091"
             #content = request.urlopen(
@@ -86,6 +90,17 @@ class ProxySwitcher:
         text = content.decode(charset['encoding'])
         proxy_ids = json.loads(str(text))
         return "{}:{}".format(proxy_ids['proxies'][0]['ip'],proxy_ids['proxies'][0]['port'])
+
+    def get_proxy_list(self):
+        r=requests.get("https://luminati-china.io/api/get_route_ips",headers={"X-Hola-Auth": "lum-customer-hl_0079c473-zone-static-key-guuvbtwyulfj-country-us"})
+        content = r.content
+        charset = cchardet.detect(content)
+        text = content.decode(charset['encoding'])
+        self.add_proxy(re.split(r'[\n\r]',text))
+
+proxy_switch=ProxySwitcher()
+
+
 
 # url=ProxySwitcher().get_proxy_by_url()
 # print("https://"+url)

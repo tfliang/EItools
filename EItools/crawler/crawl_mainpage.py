@@ -62,7 +62,6 @@ def get_lasttime_from_mainpage(url):
 	text=get_main_page(url)
 	all_years=re.compile(pattern_year).findall(text)
 	all_years=sorted(set(all_years),reverse=True)
-	print(all_years)
 	for year in all_years:
 		if int(year)<=year_now:
 			return int(year)

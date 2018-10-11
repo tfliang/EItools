@@ -7,6 +7,7 @@ import os
 from datetime import timedelta
 
 from celery import Celery
+from kombu import Queue, Exchange
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'EItools.settings')
 
@@ -14,12 +15,29 @@ app = Celery('EItools',
              broker='redis://localhost:6379/0',
              backend='redis://localhost:6379/1')
 
+
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
+app.conf.task_default_queue='default'
+app.conf.task_queues=(
+    Queue('default',routing_key='default'),
+    Queue('person',routing_key='crawl.person'),
+    Queue('task',routing_key='crawl.task')
+)
+task_routes={
+    'EItools.crawler.crawl_information.start_crawl':{
+        'queue':'task',
+        'routing_key':'crawl.task',
+    },
+    'EItools.crawler.crawl_service.crawl_person_info':{
+        'queue':'person',
+        'routing_key':'crawl.person'
+    }
+}
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 app.conf.beat_schedule={
@@ -29,7 +47,7 @@ app.conf.beat_schedule={
     },
     'clean_task':{
         'task':'EItools.crawler.crawl_information.clean_task',
-        'schedule':timedelta(days=1),
+        'schedule':timedelta(minutes=20),
         'args':()
     },
 

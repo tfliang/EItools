@@ -185,7 +185,7 @@ def get_domain():
             inst['domain']=result
             mongo_client.db['aff'].save(inst)
 
-get_domain()
+#get_domain()
 def save_name():
     with open('/Users/bcj/Desktop/高校中英名单.csv','r') as f:
         reader=csv.reader(f)
@@ -265,7 +265,7 @@ def export_data():
 def crawl_person():
     #person_ids = ["5b9a33778d431508dea40be2", "5b9a33768d431508dea40be0", "5b9a33768d431508dea40bdf",
      #            "5b9a33788d431508dea40be6", "5b9a33788d431508dea40be7","5b9a33788d431508dea40be8","5b9a341e8d431508dea40ee0","5b9abce9c3666e23ba80d3da"]
-    person_ids=["5baee78a8d431506855d34e9"]
+    person_ids=["5baee78b8d431506855d34f0"]
     for id in person_ids:
         person = mongo_client.get_crawled_person_by_pid(id)
         crawl_person_info([person], None)
@@ -282,10 +282,10 @@ def get_data():
 
 #get_data()
 def clear_status():
-    persons=mongo_client.db['uncrawled_person'].find({'task_id':ObjectId('5ba20fee8d4315163aba3cdd')})
+    persons=mongo_client.db['uncrawled_person'].find({'task_id':ObjectId('5b9a33608d431508dea40b74')})
     for person in persons:
         mongo_client.db['uncrawled_person'].update({'_id':person['_id']},{'$set':{"status":1}})
-#clear_status()
+clear_status()
 
 #export_data()
 # affs=mongo_client.db['aff'].find()
@@ -371,10 +371,29 @@ def generate_data():
     persons=mongo_client.get_crawled_person_by_taskId("5baee7878d43156d04522d01")
     for person in persons:
         print(person['id'])
-        if 'exp_region' in person:
-            person['exp']=detail_apart.find_works(strQ2B(person['exp_region']))
-            mongo_client.update_crawled_person_by_keyvalue(person['id'],'exp',person['exp'])
+        if 'academic_org_exp_region' in person:
+            person['academic_org_exp']=detail_apart.find_socs(strQ2B(person['academic_org_exp_region']))
+            mongo_client.update_crawled_person_by_keyvalue(person['id'],'academic_org_exp',person['academic_org_exp'])
 #generate_data()
+
+def process_position():
+    titles=set()
+    datas=mongo_client.db['crawled_person_final'].find({ "academic_org_exp.title": {'$exists': True }},{'academic_org_exp.title':1})
+    for data in datas:
+        if 'academic_org_exp' in data:
+            for t in data['academic_org_exp']:
+                if 'title' in t and 1<len(re.sub('[\\d（）《》() \\n,，－-]','',t['title']))<6:
+                    titles.add(re.sub('[\\d（）《》() \\n,，－-]','',t['title']))
+    with open("/Users/bcj/Documents/科技部/EItools/EItools/classifier_mainpage/data/soc_position.json",'w') as w:
+        json.dump(list(titles),w,ensure_ascii=False)
+#process_position()
+
+import urllib.request
+opener = urllib.request.build_opener(
+    urllib.request.ProxyHandler(
+        {'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
+print(opener.open('http://lumtest.com/myip.json').read())
+
 
 
 

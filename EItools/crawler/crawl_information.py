@@ -1,7 +1,9 @@
 # coding:utf-8
+import multiprocessing
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from EItools.client.mongo_client import mongo_client
 import time
 from EItools.crawler import crawl_service
 import json
@@ -9,7 +11,6 @@ from django.http import HttpResponse
 from bson import ObjectId
 from EItools.log.log import logger
 from EItools import celery_app, settings
-from EItools.client.mongo_client import MongoDBClient
 
 
 task_status_dict={
@@ -18,7 +19,7 @@ task_status_dict={
     "doing":2,
     "not_started":3
 }
-mongo_client = MongoDBClient()
+
 
 
 def crawl_file_info(request):
@@ -36,14 +37,18 @@ def crawl_file_info(request):
 def start_crawl(id):
     persons = mongo_client.get_uncrawled_person_by_taskId(id)
     logger.info("this task has {} person".format(len(persons)))
+    size=1
+    offset=0
     if len(persons) > 0:
-        #try:
-        crawl_service.crawl_person_info(persons,id)
-        mongo_client.update_task(task_status_dict['finished'], id)
-        #except Exception as e:
-            #logger.error("crawl info task exception: %s",e)
+        try:
+            while(offset<len(persons)):
+                crawl_service.crawl_person_info.apply_async(args=[persons[offset:offset+size],id])
+                offset+=size
+        except Exception as e:
+            logger.error("crawl info task exception: %s",e)
             #mongo_client.update_task(task_status_dict['failed'], id)
-    logger.info("task exit" + id)
+    #mongo_client.update_task(task_status_dict['finished'], id)
+    #logger.info("task exit" + id)
 
 def crawl_person_by_name(request):
     name=request.GET.get('name','')

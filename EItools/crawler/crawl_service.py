@@ -1,8 +1,9 @@
 import json
 
+from bs4 import BeautifulSoup
 from bson import ObjectId
 
-from EItools.client.mongo_client import MongoDBClient
+from EItools.client.mongo_client import  mongo_client
 from EItools.extract.interface import interface
 from EItools.extract import util
 from EItools.detail_apart import detail_apart
@@ -13,12 +14,12 @@ import time
 from time import strftime
 from EItools.crawler import crawl_mainpage, process
 from EItools.log.log import logger
+from EItools import celery_app
 import csv
 import os
+import heapq
 import requests
 import re
-
-mongo_client=MongoDBClient()
 
 def get_data_from_aminer(person):
     post_json = {
@@ -53,7 +54,7 @@ def get_data_from_aminer(person):
                     person_name = candidate['name']
                     sim_name = chinese_helper.simila_name(person_name, person['name'])
                     sim_aff = chinese_helper.simila_name(org, ''.join(person['org']))
-                    if sim_name > 0 and sim_aff > 0:
+                    if sim_name > 0.3 and sim_aff > 0.3:
                         return True, candidate
     except Exception as e:
         print(e)
@@ -90,10 +91,11 @@ def get_data_from_web(person,info_crawler):
         #     p['result']=result_rest
         # 罕见度低，选取公共的
     # positive_result=[ r for r in result['res'] if r['label']==1.0]
-    if len(result_sorted) > 0:
-        for se in result_sorted:
-            se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
-    result_sorted_final = sorted(result_sorted, key=lambda s: s['last_time'], reverse=True)
+    #if len(result_sorted) > 0:
+        #for se in result_sorted:
+            #se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
+    #result_sorted_final = sorted(result_sorted, key=lambda s: s['last_time'], reverse=True)
+    result_sorted_final=result_sorted
     p['result'] = result_sorted_final
     if len(result_sorted_final) > 0:
         selected_item = result_sorted_final[0]
@@ -109,13 +111,15 @@ def get_data_from_web(person,info_crawler):
     emails_prob = info_crawler.get_emails(person)
     p['source'] = 'crawler'
     p['emails_prob'] = emails_prob
-    #citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
+    if 'email' not in p and len(p['emails_prob'])>0:
+        p['email']=p['emails_prob'][0]
+    citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
     # if affs is not None:
     # p['s_aff'] = affs
-    # p['url'] = url
+    #p['url'] = url
     # p['info'] = info
-    #p['citation'] = citation
-    #p['h_index'] = h_index
+    p['citation'] = citation
+    p['h_index'] = h_index
     # p = extract_information.extract(info, p)
     if 'info' in p:
         apart_text(p)
@@ -128,6 +132,9 @@ def apart_text(p):
     honors = re.findall(
         '(国家杰出青年|国家杰青|百人计划|万人计划|国务院.*?政府特殊津贴|省部级以上科研院所二级研究员|973.*?首席科学家|863领域专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院.*?院士|中国科学院.*?院士|诺贝尔奖|图灵奖|菲尔兹奖)',
         p['info'])
+    p['birth_time']=util.find_birthday(p['info'])
+    p['mobile']=util.find_phone_number(p['info'])
+    p['degree'],p['diploma']=util.find_degree_and_diploma(p['info'])
     p['honors'] = list(set(honors))
     p['title'] = ','.join(TIT) if TIT is not None else ""
     p['position'] = ','.join(JOB) if JOB is not None else ""
@@ -139,14 +146,15 @@ def apart_text(p):
     p['patents_region'] = ','.join(PAT) if PAT is not None else ""
     p['projects_region'] = ','.join(PRJ) if PRJ is not None else ""
     p['gender'] = util.find_gender(p['info'])
-    #email = util.find_email(p['info'])
-    #p['email'] = email[0] if len(email) > 0 else ""
+    email = util.find_email(p['info'])
+    p['email'] = email[0] if len(email) > 0 else ""
     p['edu_exp'] = detail_apart.find_edus(p['edu_exp_region'])
     p['exp'] = detail_apart.find_works(p['exp_region'])
     p['academic_org_exp'] = detail_apart.find_socs(p['academic_org_exp_region'])
     p['awards'] = detail_apart.find_awards_list(AWD)
     p['patents'] = detail_apart.find_patents(p['patents_region'])
     p['projects'] = detail_apart.find_projects(p['projects_region'])
+    p['pubs']=detail_apart.fetch_pubs_from_webpage(p['info'])
     p['aff'] = {}
     if AFF is not None and len(AFF) > 0:
         p['aff']['inst'] = ' '.join(AFF)
@@ -205,9 +213,10 @@ def get_resp_result(resp):
         logger.error("request %s error: %s", resp.url, resp.text)
     return False, None
 
+info_crawler = InfoCrawler()
+info_crawler.load_crawlers()
+@celery_app.task
 def crawl_person_info(persons,task_id,from_api=False):
-    info_crawler = InfoCrawler()
-    info_crawler.load_crawlers()
     persons_info = []
     for i, p in enumerate(persons):
         if 'name' in p:
@@ -217,13 +226,13 @@ def crawl_person_info(persons,task_id,from_api=False):
             # # person['org'] = ' '.join(affs)
             # person['org'] = p['org']
             success, person_of_aminer = get_data_from_aminer(p)
-            if False:
-                p = person_of_aminer
+            if success:
+                p['aminer_url'] = person_of_aminer['id']
                 p['source'] = 'aminer'
                 # mongo_client.save_crawled_person(p1)
-            else:
-                p=get_data_from_web(p,info_crawler)
-                mongo_client.crawed_person_col.save(p)
+
+            p=get_data_from_web(p,info_crawler)
+            mongo_client.crawed_person_col.save(p)
                 # 存入智库
             # mongo_client.rm_person_by_id(p['_id'])
             if task_id is not None:
@@ -231,8 +240,12 @@ def crawl_person_info(persons,task_id,from_api=False):
             if from_api:
                 del p['_id']
                 persons_info.append(p)
-    info_crawler.shutdown_crawlers()
+    #info_crawler.shutdown_crawlers()
     return persons_info
+
+
+
+
 
 
 

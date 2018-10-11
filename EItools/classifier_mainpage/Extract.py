@@ -7,6 +7,7 @@ class Extract:
 	name_slicer = None
 	aff_slicer = None
 	position_slicer=None
+	soc_position_slicer = None
 	def init():
 		name = set()
 		with open(CLASSIFIER_DIR+'/data/name.txt', 'r', encoding = 'utf-8') as f:
@@ -23,6 +24,11 @@ class Extract:
 			position_list=json.load(f)
 			position=set(position_list)
 		Extract.position_slicer = TextSlicer(position)
+		soc_position = set()
+		with open(CLASSIFIER_DIR + '/data/soc_position.json', 'r', encoding='utf-8') as f:
+			soc_position_list = json.load(f)
+			soc_position = set(soc_position_list)
+		Extract.soc_position_slicer = TextSlicer(soc_position)
 	
 	def extract_name(str, block = None):
 		li = Extract.name_slicer.slice_prob(str)
@@ -46,3 +52,11 @@ class Extract:
 			if block is None or len(block.findall(x)) == 0:
 				nli.append(x)
 		return nli
+	def extract_soc_position(str,block=None):
+		li = Extract.soc_position_slicer.slice_prob(str)
+		nli = []
+		for x in li:
+			if block is None or len(block.findall(x)) == 0:
+				nli.append(x)
+		return nli
+

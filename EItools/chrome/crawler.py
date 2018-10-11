@@ -16,6 +16,7 @@ from EItools.utils import chinese_helper
 class InfoCrawler:
     crawlers = dict()
     def load_crawlers(self):
+        print(1)
         with open(globalvar.FILE_CONFIG) as f:
             config_crawlers=json.load(f)
         for key,crawler_config in config_crawlers.items():
@@ -57,7 +58,7 @@ class InfoCrawler:
         else:
             template=chinese_helper.translate(person['name'],fromLang="zh",toLang="en")
         crawler=self.crawlers[crawler_key]
-        snippets=crawler.download_parse(template)
+        snippets=crawler.download_parse2(template)
         citation,h_index, citation_in_recent_five_year=0,0,0
         if len(snippets)>0:
             content=crawler.get_scholar_citation("https://scholar.google.com/"+snippets[0]['page_src'])
@@ -71,9 +72,9 @@ class InfoCrawler:
         template='email'
         if aff:
             template='{} '.format(person['org'])+template
-        snippets=crawler.download_parse('{} '.format(person['name'])+template)
+        snippets=crawler.download_parse2('{} '.format(person['name'])+template)
         if 'name_zh' in person and len(person['name_zh']):
-            snippets2=crawler.download_parse(
+            snippets2=crawler.download_parse2(
                 '{} '.format(person['name_zh'])+template)
             snippets+=snippets2
         return self.filt_email(snippets)
@@ -83,9 +84,9 @@ class InfoCrawler:
             template = '{} '.format(person['org'])
         else:
             template=""
-        snippets = crawler.download_parse('{} '.format(person['name']) + template)
+        snippets = crawler.download_parse2('{} '.format(person['name']) + template)
         if 'name_zh' in person and len(person['name_zh']):
-            snippets_of_name_zh = crawler.download_parse(
+            snippets_of_name_zh = crawler.download_parse2(
                 '{} '.format(person['name_zh']) + template)
             snippets += snippets_of_name_zh
         # go to main page

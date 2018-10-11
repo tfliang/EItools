@@ -85,8 +85,9 @@ class MongoDBClient(object):
             c=c.skip(offset).limit(size)
         for item in c:
             item['id'] = str(item['_id'])
+            item['task_id']=str(item['task_id'])
             if 'status' not in item or item['status'] != 0:
-                #del item['_id']
+                del item['_id']
                 #del item['task_id']
                 persons.append(item)
         return persons
@@ -187,4 +188,6 @@ class MongoDBClient(object):
 
     def save_pub(self, item):
         self.pub_col.save(item)
+
+mongo_client = MongoDBClient()
 

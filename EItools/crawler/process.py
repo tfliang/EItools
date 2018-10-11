@@ -2,10 +2,11 @@ import bs4
 import re
 import requests
 
+from EItools.MagicBaidu import MagicBaidu
+from EItools.MagicGoogle import MagicGoogle
 from EItools.client.mongo_client import MongoDBClient
 from EItools.classifier_mainpage.Str2Query import Str2Query
-from MagicGoogle import MagicGoogle
-from MagicBaidu import MagicBaidu
+
 from EItools.classifier_mainpage.Feature import Feature
 from sklearn.externals import joblib
 

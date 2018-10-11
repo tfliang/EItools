@@ -27,7 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^download/crawldata/(.+)/$', task.export_data, name="download"),
     url(r'^view/task/(.+)/',task.get_task_by_id),
-
     url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),
 
     url(r'^crawl/person/info/$',crawl_information.crawl_person_by_name),

@@ -3,10 +3,15 @@ import time
 
 import bs4
 import re
+
+import requests
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
 import sys
+
+from EItools.MagicBaidu import MagicBaidu
+from EItools.MagicGoogle import MagicGoogle
 from EItools.log.log import logger
 
 from selenium.webdriver.common.keys import Keys
@@ -17,21 +22,29 @@ from EItools.chrome import proxy
 class ChromeCrawler:
     def __init__(self,dict_options):
         self.killed=False
-        chrome_options=Options()
-        chrome_options.add_argument('--disable-extensions')
-        if 'debug' not in str(sys.argv):
-            chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--disable-gpu')
-        chrome_options.add_argument('--no-sandbox')
-        self.options=chrome_options
-        self.proxy_switcher = proxy.ProxySwitcher()
-        if "proxy" in dict_options:
-            self.proxy_switcher.add_proxy(dict_options["proxy"])
-        self.switch_proxy(need=False)
+        # chrome_options=Options()
+        # chrome_options.add_argument('--disable-extensions')
+        # if 'debug' not in str(sys.argv):
+        #     chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--disable-gpu')
+        # chrome_options.add_argument('--no-sandbox')
+        # self.options=chrome_options
+        # self.proxy_switcher = proxy.ProxySwitcher()
+        # if "proxy" in dict_options:
+        #     self.proxy_switcher.add_proxy(dict_options["proxy"])
+        # self.switch_proxy(need=False)
         self.parse_info=dict_options["parse_info"]
-        self.homepage=dict_options["homepage"]
+        # self.homepage=dict_options["homepage"]
         self.name=dict_options["name"]
-        self.start()
+        # self.start()
+        self.PROXIES = [{
+            # 'http': 'http://159.203.174.2:3128'
+            'http': 'http://127.0.0.1:8123',
+            'https': 'http://127.0.0.1:8123'
+        }]
+
+        self.mg = MagicGoogle(self.PROXIES)
+        self.mb = MagicBaidu()
 
     def start(self):
         logger.info("chrome [%s] starting,home is [%s]",self.name,self.homepage)
@@ -66,6 +79,12 @@ class ChromeCrawler:
         logger.info(keyword)
         page=self.download_page(keyword)
         return self.parse_page(page)
+
+    def download_parse2(self,keyword,retries=0):
+        page=self.mg.search_page(keyword)
+        return self.parse_page(page)
+
+
 
     def download_page(self,keyword,retries=0):
         def retry(count):
@@ -232,21 +251,20 @@ class ChromeCrawler:
 
     def get_scholar_citation(self,url):
         try:
-            self.driver.get(url)
-            element=self.driver.find_element_by_id("gsc_rsb_st")
-            source_code = element.get_attribute("outerHTML")
+            res = requests.get(url, headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER'})
+            source_code = res.content
             soup = bs4.BeautifulSoup(source_code, 'html.parser')
-            content=soup.get_text(separator="<k>")
+            content=soup.find(attrs={"id": "gsc_rsb_st"}).get_text(separator="<k>")
         except Exception as e:
-            logger.info(e)
+            logger.error("get google scholar information is blank : %s"%(e))
             content=""
-        try:
-            self.driver.get(self.homepage)
-        except Exception as e:
-            time.sleep(3)
-            logger.info(e)
-            self.shutdown()
-            self.start()
+        # try:
+        #     self.driver.get(self.homepage)
+        # except Exception as e:
+        #     time.sleep(3)
+        #     logger.info(e)
+        #     self.shutdown()
+        #     self.start()
         return content
 
 
