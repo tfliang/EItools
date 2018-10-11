@@ -6,7 +6,6 @@ from tensorflow.contrib.crf import crf_log_likelihood
 from tensorflow.contrib.crf import viterbi_decode
 # sys.path.append('../zh-NER-TF/')
 from EItools.extract.data import pad_sequences, batch_yield
-from EItools.extract.get_entity_util import get_logger
 from EItools.extract.eval import conlleval
 from EItools.log.log import logger
 

@@ -3,11 +3,13 @@ import tensorflow as tf
 import numpy as np
 import os, sys, argparse, time, random
 
+from EItools.log.log import logger
+
 sys.path.append('.')
 
 from EItools.extract.util import *
 from EItools.extract.model import BiLSTM_CRF, Original_model
-from EItools.extract.get_entity_util import str2bool, get_logger, get_entity, get_name_entitry
+from EItools.extract.get_entity_util import str2bool, get_entity, get_name_entitry
 from EItools.extract.data import read_corpus, read_dictionary, random_embedding
 from EItools.extract import args
 
@@ -64,9 +66,7 @@ paths['model_path'] = ckpt_prefix
 result_path = os.path.join(output_path, "results")
 paths['result_path'] = result_path
 if not os.path.exists(result_path): os.makedirs(result_path)
-log_path = os.path.join(result_path, "log.txt")
-paths['log_path'] = log_path
-get_logger(log_path).info(str(args))
+logger.info(str(args))
 paths['restore_path'] = ''
 
 word2id = read_dictionary(os.path.join(NER_PATH, args.train_data, 'word2id.pkl'))
