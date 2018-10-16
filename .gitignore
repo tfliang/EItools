@@ -18,6 +18,10 @@ EItools/extract/data_path/*data*
 
 *test*
 
+*db.sqlite3*
+
+*.swp
+
 
 [http]
 postBuffer = 524288000
