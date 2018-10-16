@@ -237,9 +237,6 @@ class MagicSearch():
 
     def get_webpage_content(self,url):
         headers = {'user-agent': self.get_random_user_agent()}
-        result, proxies = proxy_switch.get_proxy()
-        self.proxies = proxies
-        print(self.proxies)
         res = requests.get(url, headers=headers,proxies=self.proxies)
         # res.encoding='utf-8'
         content = res.content
