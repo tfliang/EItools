@@ -89,25 +89,18 @@ class ProxySwitcher:
         proxy_ids = json.loads(str(text))
         return "{}:{}".format(proxy_ids['proxies'][0]['ip'],proxy_ids['proxies'][0]['port'])
 
-    def get_proxy_list2(self):
-        import urllib.request
-        opener = urllib.request.build_opener(
-            urllib.request.ProxyHandler(
-                {'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
-        print(opener.open('http://lumtest.com/myip.json').read())
-        # import urllib.request
-        # opener = urllib.request.build_opener(
-        #     urllib.request.ProxyHandler(
-        #         {'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
-        # print(opener.open('http://lumtest.com/myip.json').read())
-        # r=requests.get("https://luminati-china.io/api/get_route_ips",headers={"X-Hola-Auth": "lum-customer-hl_0079c473-zone-static-key-guuvbtwyulfj-country-us"})
-        # content = r.content
-        # charset = cchardet.detect(content)
-        # text = content.decode(charset['encoding'])
-        # print(re.split(r'[\n\r]',text))
-        # self.add_proxy(re.split(r'[\n\r]',text))
-
     def get_proxy_list(self):
+        r=requests.get("https://luminati-china.io/api/get_route_ips",headers={"X-Hola-Auth": "lum-customer-hl_0079c473-zone-static-key-guuvbtwyulfj-country-us"})
+        content = r.content
+        charset = cchardet.detect(content)
+        text = content.decode(charset['encoding'])
+        ip_list=re.split(r'[\n\r]',text)
+        for ip in ip_list:
+            proxy_ip={'http':'https://{}'.format(ip)}
+            self.add_proxy(proxy_ip)
+
+
+    def get_proxy_list2(self):
         PROXIES = [{  # Linux or Mac: Polipo (http->socks5) + ss (socks5->google)
             'http': 'http://127.0.0.1:1087',
             'https': 'http://127.0.0.1:1087'
@@ -116,7 +109,6 @@ class ProxySwitcher:
         return PROXIES
 
 proxy_switch=ProxySwitcher()
-proxy_switch.get_proxy_list()
 
 
 

@@ -5,10 +5,9 @@ import re
 import requests
 import pextract as pe
 from EItools.log.log import logger
-from EItools.magic_search.magic_search import MagicSearch
-from EItools.extract.interface import interface
+from EItools.magic_search.magic_search import magic_search
 
-magic_search=MagicSearch()
+
 def get_main_page(url,person=None):
 	try:
 		source_code = magic_search.get_webpage_content(url)

@@ -15,7 +15,7 @@ from EItools.log.log import logger
 from selenium.webdriver.common.keys import Keys
 
 from EItools.chrome import proxy
-from EItools.magic_search.magic_search import MagicSearch
+from EItools.magic_search.magic_search import MagicSearch, magic_search
 
 
 class ChromeCrawler:
@@ -35,8 +35,8 @@ class ChromeCrawler:
         self.parse_info=dict_options["parse_info"]
         # self.homepage=dict_options["homepage"]
         self.name=dict_options["name"]
+        self.search=magic_search()
         # self.start()
-        self.search=MagicSearch()
 
     # def start(self):
     #     logger.info("chrome [%s] starting,home is [%s]",self.name,self.homepage)

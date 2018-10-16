@@ -18,13 +18,7 @@ from EItools.classifier_mainpage.Name import Name
 
 clf = joblib.load(CLASSIFIER_DIR + '/data/classifier.pkl')
 
-PROXIES = [{
-    #'http': 'http://159.203.174.2:3128'
-    'http':'http://127.0.0.1:8123',
-    'https':'http://127.0.0.1:8123'
-}]
-print(random.choice(PROXIES))
-ms = MagicSearch(PROXIES)
+ms = magic_search()
 def get_res(fakequery, query):
     res = []
     try:

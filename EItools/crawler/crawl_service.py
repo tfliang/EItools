@@ -34,7 +34,7 @@ def get_data_from_aminer(person):
     headers = {
         'Content-Type':"application/json",
         'Debug':"1",
-        'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyLSt0ZTl2SHRVSGIycWhBM2ZlMVM4MGQrWWFIVlhCUkZjT1BHZTZhVDlmRytZZktadEs2dDNOSDdJSk5NZUtBa3NZXC9tSTFmcE1rTWJZQ0toZHlQN1lkQ2UwNjQyemhzK0xCdVBFRkVXRSIsInVpZCI6IjU2YTA0MmJlYzM1ZjRmNjVmNzdmNzhkYiIsInNyYyI6ImFtaW5lciIsInJvbGVzIjpbInJvc3Rlcl9lZGl0b3IiXSwiaXNzIjoiYXBpLmFtaW5lci5vcmciLCJleHAiOjE1MzIwNTE1OTEsImlhdCI6MTUyOTQ1OTU5MSwianRpIjoiMDMzMDdmMjM5MjQzZDhhNjQzMmZlOWMxOGVlNGQ4M2E5NDdhYzQwMzJmNzA1ODlkNWI0YzNkOWU0NjMwNThmNDgzNDAyZmE3ODFjMGNiNWJkY2QxMjMwM2MwZjUzOTZlNmRjZjA2ZmRhZWZkMjMzYTkwZmZlYzczYzA4NGI3M2Q0MTFhZmQyZGM3NGM2NjJjNTU2YTdkZGRlZjM5ZmFmMWUxZmRhYjQ4YTg0YmU0MWY5YTMxOWJkMjFhYWU4ZWUwZGVhNWU2ZDhkOGNiNGFmMjcxMmY4ZWQ4ZmE0MzExODJhN2I4NjVkNWE1NDVkMDVjOTY0OTI0YzkzNDExYzk0MCIsImVtYWlsIjoiMjcxODU4Mzc0MUBxcS5jb20ifQ.tU-8icEsCvR_88RNFdpVrk-xNBk3_Ovxtq-wegmzo28'}
+        'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyLXpuVGk4SlwvVzlYMkVIS1k5MTgwVTRnb2RHR0pzR3hDKzVPdmhWK25rWkMrSG1WZE1cL1JqSkdYeEdPQ2Q4TW9PNzFmS0lkeGxGb2s0QU8zZjBCZkxrZHp2YnZOblwvQzh6NUV2Vml6NmhrIiwidWlkIjoiNTZhMDQyYmVjMzVmNGY2NWY3N2Y3OGRiIiwic3JjIjoiYW1pbmVyIiwicm9sZXMiOlsicm9zdGVyX2VkaXRvciJdLCJpc3MiOiJhcGkuYW1pbmVyLm9yZyIsImV4cCI6MTU0MjI2MTA5MiwiaWF0IjoxNTM5NjY5MDkyLCJqdGkiOiJiYWEzZWE2MDA3NTU5NzZjY2YwZTY1YmI0MzVkYTQyY2Q1YjU2YmNiZTgwZWUzNmNlN2UyNDI5YWNmYzBhOGNiY2NhN2M0MWFhNmM0ZDc1ZTU3MjgyNDhkZDIzN2Q4NzBmYWU5NDMxYTE2OGU4YTQyNzNmMGY0YWIyNjBhMDNlODIzYWEwMWJmYTI3NzViZGVmMGQyZjFmYWJjZGNmOGI2NjdjNzY3YjYwNjNlYTJlNTk5MThhZDljZTUwZWVhNTVlYmE5ZDY0OTQ3MjU5OTJkMGNlZTMwMGU5ZjA1NGMzNmYzMGY2NjU4ZjVhNzNmYmZhYjU4YmNiZWE1M2FlZGVhIiwiZW1haWwiOiIyNzE4NTgzNzQxQHFxLmNvbSJ9.gws9Q4aow34EtggsY35gtEPg6aklbU8WgEh0BkvVOig'}
     try:
         post_json['parameters']['advquery']['texts'][0]['text'] = person['name']
         post_json['parameters']['advquery']['texts'][1]['text'] = person['org']
@@ -50,15 +50,13 @@ def get_data_from_aminer(person):
                     org = candidate['profile']['org']
                 else:
                     org = ''
-                if 'name' in candidate:
-                    person_name = candidate['name']
-                    sim_name = chinese_helper.simila_name(person_name, person['name'])
-                    sim_aff = chinese_helper.simila_name(org, ''.join(person['org']))
-                    if sim_name > 0.3 and sim_aff > 0.3:
-                        return True, candidate
+                if 'name_zh' in candidate:
+                    person_name = candidate['name_zh']
+                    if person_name==person['name'] and (person['org'] in org or org in person['org']) :
+                        person['aminer-url']="https://www.aminer.cn/profile/%s"%candidate['id']
+                        return True, person
     except Exception as e:
-        print(e)
-        logger.error("%s, %s", "request url error", e)
+        logger.error("%s, %s", "request aminer query error", e)
     return False, person
 
 def select(r):
@@ -244,9 +242,6 @@ def crawl_person_info(persons,task_id,from_api=False):
                 persons_info.append(p)
     #info_crawler.shutdown_crawlers()
     return persons_info
-
-# person={"_id":ObjectId("5baee78a8d431506855d34eb"),"name":"李铁","org":"上海交通大学","task_id":ObjectId("5baee7878d43156d04522d01")}
-# crawl_person_info([person],None)
 
 
 

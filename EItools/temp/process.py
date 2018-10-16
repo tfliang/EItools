@@ -5,10 +5,10 @@ import string
 import re
 
 import cchardet
+import requests
 from MagicBaidu import MagicBaidu
 from MagicGoogle import MagicGoogle
 from bson import ObjectId
-from celery.worker.state import requests
 
 from EItools.client.mongo_client import mongo_client
 from EItools.crawler import crawl_mainpage
@@ -383,19 +383,11 @@ def process_position():
                     titles.add(re.sub('[\\d（）《》() \\n,，－-]','',t['title']))
     with open("/Users/bcj/Documents/科技部/EItools/EItools/classifier_mainpage/data/soc_position.json",'w') as w:
         json.dump(list(titles),w,ensure_ascii=False)
-#process_position()
 
-# import urllib.request
-# opener = urllib.request.build_opener(
-#     urllib.request.ProxyHandler(
-#         {'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
-# print(opener.open('http://lumtest.com/myip.json').read())
-#mongo_client.update_person_by_id("5b9a336b8d431508dea40ba9","5b9a33608d431508dea40b74")
-#import urllib.request
-#opener = urllib.request.build_opener(
-    #urllib.request.ProxyHandler(
-        #{'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
-#print(opener.open('http://lumtest.com/myip.json').read())
+
+
+
+
 
 
 
