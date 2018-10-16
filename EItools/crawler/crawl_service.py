@@ -60,7 +60,7 @@ def get_data_from_aminer(person):
     return False, person
 
 def select(r):
-    return r['label'] == 1 and r['score'] > 0.8
+    return r['label'] == 1 and r['score'] > 0.6
 
 def get_data_from_web(person,info_crawler):
     p=person
