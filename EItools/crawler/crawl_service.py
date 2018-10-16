@@ -62,15 +62,15 @@ def get_data_from_aminer(person):
     return False, person
 
 def select(r):
-    return r['label'] == 1 and r['score'] > 0.85
+    return r['label'] == 1 and r['score'] > 0.8
 
 def get_data_from_web(person,info_crawler):
     p=person
 
     result = search_items.Get('{},{}'.format(person['name'], person['org']))['res']
-    result_without_org = search_items.Get('{},'.format(person['name']))['res']
+    #result_without_org = search_items.Get('{},'.format(person['name']))['res']
     result_rest = list(filter(select, result))
-    result_without_org_rest = list(filter(select, result_without_org))
+    #result_without_org_rest = list(filter(select, result_without_org))
     # final_result=[]
     # for r in result_rest:
     #     for j in result_without_org_rest:
@@ -79,13 +79,13 @@ def get_data_from_web(person,info_crawler):
     #             final_result.append(r)
     # mongo_client.db['search'].update({"_id": p['_id']}, {"$set": {"result": result}})
     # p['result'] = final_result if len(final_result)>0 and else result_rest
-    rare_value = int(util.get_name_rare(person['name']))
-    # if len(final_result)>0:
-    # 罕见度高,选取最新的
-    if rare_value <= 5:
-        result_sorted = result_without_org_rest
-    else:
-        result_sorted = result_rest
+    # rare_value = int(util.get_name_rare(person['name']))
+    # # if len(final_result)>0:
+    # # 罕见度高,选取最新的
+    # if rare_value <= 5:
+    #     result_sorted = result_without_org_rest
+    # else:
+    #     result_sorted = result_rest
         # 罕见度低，选取公共的
         # else:
         #     p['result']=result_rest
@@ -95,19 +95,19 @@ def get_data_from_web(person,info_crawler):
         #for se in result_sorted:
             #se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
     #result_sorted_final = sorted(result_sorted, key=lambda s: s['last_time'], reverse=True)
-    result_sorted_final=result_sorted
+    result_sorted_final=result_rest
     p['result'] = result_sorted_final
     if len(result_sorted_final) > 0:
         selected_item = result_sorted_final[0]
         p['url'] = selected_item['url']
         p['source'] = 'crawler'
         p['info'] = crawl_mainpage.get_main_page(p['url'], person)
-        print("url is****" + p['url'])
+        logger.info("url is****{}".format(p['url']))
 
         # if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']) or 'baidu.com' in se['url']:
         #     selected_item=se
         #     break
-    # info, url = infoCrawler.get_info(person)
+    #info, url = infoCrawler.get_info(person)
     emails_prob = info_crawler.get_emails(person)
     p['source'] = 'crawler'
     p['emails_prob'] = emails_prob
@@ -120,7 +120,7 @@ def get_data_from_web(person,info_crawler):
     # p['info'] = info
     p['citation'] = citation
     p['h_index'] = h_index
-    # p = extract_information.extract(info, p)
+    #p = extract_information.extract(info, p)
     if 'info' in p:
         apart_text(p)
     return p
@@ -138,7 +138,7 @@ def apart_text(p):
     p['honors'] = list(set(honors))
     p['title'] = ','.join(TIT) if TIT is not None else ""
     p['position'] = ','.join(JOB) if JOB is not None else ""
-    p['achieve'] = ','.join(DOM) if DOM is not None else ""
+    p['research'] = ','.join(DOM) if DOM is not None else ""
     p['edu_exp_region'] = ','.join(EDU) if EDU is not None else ""
     p['exp_region'] = ','.join(WRK) if WRK is not None else ""
     p['academic_org_exp_region'] = ','.join(SOC) if SOC is not None else ""
@@ -225,12 +225,14 @@ def crawl_person_info(persons,task_id,from_api=False):
             # # affs = pre_process.get_valid_aff(p['org'])
             # # person['org'] = ' '.join(affs)
             # person['org'] = p['org']
+            print("id is {}".format(p['id']))
             success, person_of_aminer = get_data_from_aminer(p)
             if success:
                 p['aminer_url'] = person_of_aminer['id']
                 p['source'] = 'aminer'
                 # mongo_client.save_crawled_person(p1)
-
+            p['_id']=ObjectId(p['id'])
+            p['task_id']=ObjectId(task_id)
             p=get_data_from_web(p,info_crawler)
             mongo_client.crawed_person_col.save(p)
                 # 存入智库
@@ -242,6 +244,9 @@ def crawl_person_info(persons,task_id,from_api=False):
                 persons_info.append(p)
     #info_crawler.shutdown_crawlers()
     return persons_info
+
+# person={"_id":ObjectId("5baee78a8d431506855d34eb"),"name":"李铁","org":"上海交通大学","task_id":ObjectId("5baee7878d43156d04522d01")}
+# crawl_person_info([person],None)
 
 
 

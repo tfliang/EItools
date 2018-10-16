@@ -34,7 +34,8 @@ class ProxySwitcher:
         if type(proxy) is str:
             self.add_proxy_by_server(proxy)
         if type(proxy) is dict:
-            self.add_proxy_by_conf(proxy)
+            self.add_proxy_by_server(proxy)
+            #self.add_proxy_by_conf(proxy)
         if type(proxy) is list:
             for p in proxy:
                 self.add_proxy(p)
@@ -59,7 +60,7 @@ class ProxySwitcher:
             if time.time()-self.proxies[self.current_proxy_index].last_time<self.proxies[self.current_proxy_index].interval:
                 return return_proxy(self.current_proxy_index)
             index = self.current_proxy_index + 1
-            for i in range(index, len(self.proxies) - 1):
+            for i in range(index, len(self.proxies)):
                 if self.proxies[i].is_available():
                     return return_proxy(i)
             for i in range(0, index):
@@ -88,23 +89,34 @@ class ProxySwitcher:
         proxy_ids = json.loads(str(text))
         return "{}:{}".format(proxy_ids['proxies'][0]['ip'],proxy_ids['proxies'][0]['port'])
 
-    def get_proxy_list(self):
-        r=requests.get("https://luminati-china.io/api/get_route_ips",headers={"X-Hola-Auth": "lum-customer-hl_0079c473-zone-static-key-guuvbtwyulfj-country-us"})
-        content = r.content
-        charset = cchardet.detect(content)
-        text = content.decode(charset['encoding'])
-        print(re.split(r'[\n\r]',text))
-        self.add_proxy(re.split(r'[\n\r]',text))
+    def get_proxy_list2(self):
+        import urllib.request
+        opener = urllib.request.build_opener(
+            urllib.request.ProxyHandler(
+                {'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
+        print(opener.open('http://lumtest.com/myip.json').read())
+        # import urllib.request
+        # opener = urllib.request.build_opener(
+        #     urllib.request.ProxyHandler(
+        #         {'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
+        # print(opener.open('http://lumtest.com/myip.json').read())
+        # r=requests.get("https://luminati-china.io/api/get_route_ips",headers={"X-Hola-Auth": "lum-customer-hl_0079c473-zone-static-key-guuvbtwyulfj-country-us"})
+        # content = r.content
+        # charset = cchardet.detect(content)
+        # text = content.decode(charset['encoding'])
+        # print(re.split(r'[\n\r]',text))
+        # self.add_proxy(re.split(r'[\n\r]',text))
 
-    # def get_proxy_list(self):
-    #     PROXIES = [{
-    #         # 'http': 'http://159.203.174.2:3128'
-    #         'http': 'http://127.0.0.1:8123',
-    #         'https': 'http://127.0.0.1:8123'
-    #     }]
-    #     return PROXIES
+    def get_proxy_list(self):
+        PROXIES = [{  # Linux or Mac: Polipo (http->socks5) + ss (socks5->google)
+            'http': 'http://127.0.0.1:1087',
+            'https': 'http://127.0.0.1:1087'
+        }]
+        self.add_proxy(PROXIES)
+        return PROXIES
 
 proxy_switch=ProxySwitcher()
+proxy_switch.get_proxy_list()
 
 
 

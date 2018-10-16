@@ -392,8 +392,9 @@ def find_projects(text):
     #     if len(text[0:indexs[0]]) > 3:
     #         projects_all.append(text[0:indexs[0]])
     #     projects_all.append(text[indexs[len(indexs) - 1]:len(text)])
-    projects_all=find_sentence(text)
-    if len(projects_all) == 1:
+    projects_all=[]
+    #projects_all=find_sentence(text)
+    if len(projects_all) <= 1:
         if '。' in text:
             projects_all = re.split(r'[。]', text)
         else:

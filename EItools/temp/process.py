@@ -4,19 +4,20 @@ import string
 
 import re
 
+import cchardet
 from MagicBaidu import MagicBaidu
 from MagicGoogle import MagicGoogle
 from bson import ObjectId
+from celery.worker.state import requests
 
-from EItools.client.mongo_client import MongoDBClient
+from EItools.client.mongo_client import mongo_client
 from EItools.crawler import crawl_mainpage
 from EItools.crawler.crawl_service import select, apart_text, crawl_person_info
 from EItools.detail_apart import detail_apart
 from EItools.utils.chinese_helper import strQ2B
 
-mongoClient=MongoDBClient()
 def process_data():
-    collection_person=mongoClient.db['crawled_person_final'].find()
+    collection_person=mongo_client.db['crawled_person_final'].find()
     for i,p in enumerate(collection_person):
         print(i)
         if 'is_new_aff' in p and p['is_new_aff']==1:
@@ -26,11 +27,11 @@ def process_data():
                 if c_aff.find(aff) !=-1 or aff.find(c_aff) !=-1:
                     record=False
                     break
-            mongoClient.db['crawled_person_final'].update({'_id':p['_id']},{'$set':{'change':record}})
+            mongo_client.db['crawled_person_final'].update({'_id':p['_id']},{'$set':{'change':record}})
 
 #process_data()
 def write_csv():
-    collection_person = mongoClient.db['crawled_person_final'].find({'change':True})
+    collection_person = mongo_client.db['crawled_person_final'].find({'change':True})
     csvFile2 = open('csvFile2.csv', 'w', newline='',encoding='utf-8')  # 设置newline，否则两行之间会空一行
     writer = csv.writer(csvFile2)
     for p in collection_person:
@@ -102,7 +103,7 @@ def transform_data():
                 reader=csv.reader(f)
                 for i,r in enumerate(reader):
                     id=r[0]
-                    person=mongoClient.db['crawled_person_final'].find_one({'_id':ObjectId(id)})
+                    person=mongo_client.db['crawled_person_final'].find_one({'_id':ObjectId(id)})
                     if person is not None and 'pos' in person:
                         print(i)
                         r.append(person['pos'])
@@ -151,7 +152,6 @@ def caculate_rest():
                         print(e)
 
 #caculate_rest()
-mongo_client=MongoDBClient()
 PROXIES = [{
     'http': 'http://159.203.174.2:3128'
 }]
@@ -282,7 +282,7 @@ def get_data():
 
 #get_data()
 def clear_status():
-    persons=mongo_client.db['uncrawled_person'].find({'task_id':ObjectId('5b9a33608d431508dea40b74')})
+    persons=mongo_client.db['uncrawled_person'].find({'task_id':ObjectId('5ba20fee8d4315163aba3cdd')})
     for person in persons:
         mongo_client.db['uncrawled_person'].update({'_id':person['_id']},{'$set':{"status":1}})
 #clear_status()
@@ -303,7 +303,6 @@ def clear_status():
 #         mongo_client.db['crawled_person_final'].update({"_id":p['_id']},{'$rename':{'domain':'achieve'}})
 
 def repeat():
-    mongo_client = MongoDBClient()
     persons = mongo_client.get_crawled_person_by_taskId("5ba20fee8d4315163aba3cdd")
     for i, p in enumerate(persons):
         if 100>p['row_number'] > 0:
@@ -324,7 +323,6 @@ def repeat():
             mongo_client.save_crawled_person(p)
 #repeat()
 def get_data():
-    mongo_client=MongoDBClient()
     with open('/Users/bcj/Desktop/中国青年科技奖1-14届获得者名单-需添加数据-0926.csv','r') as f:
         datas=csv.reader(f)
         with open('/Users/bcj/Desktop/刘佳组数据.csv','w') as w:
@@ -367,7 +365,6 @@ def get_data():
 
 
 def generate_data():
-    mongo_client=MongoDBClient()
     persons=mongo_client.get_crawled_person_by_taskId("5baee7878d43156d04522d01")
     for person in persons:
         print(person['id'])
@@ -388,12 +385,17 @@ def process_position():
         json.dump(list(titles),w,ensure_ascii=False)
 #process_position()
 
-import urllib.request
-opener = urllib.request.build_opener(
-    urllib.request.ProxyHandler(
-        {'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
-print(opener.open('http://lumtest.com/myip.json').read())
-
+# import urllib.request
+# opener = urllib.request.build_opener(
+#     urllib.request.ProxyHandler(
+#         {'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
+# print(opener.open('http://lumtest.com/myip.json').read())
+#mongo_client.update_person_by_id("5b9a336b8d431508dea40ba9","5b9a33608d431508dea40b74")
+#import urllib.request
+#opener = urllib.request.build_opener(
+    #urllib.request.ProxyHandler(
+        #{'http': 'http://lum-customer-hl_0079c473-zone-static:guuvbtwyulfj@zproxy.lum-superproxy.io:22225'}))
+#print(opener.open('http://lumtest.com/myip.json').read())
 
 
 

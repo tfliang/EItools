@@ -36,7 +36,7 @@ def crawl_file_info(request):
 @celery_app.task
 def start_crawl(id):
     persons = mongo_client.get_uncrawled_person_by_taskId(id)
-    logger.info("this task has {} person".format(len(persons)))
+    logger.info("not finished is {},this task has {} person".format(id,len(persons)))
     size=1
     offset=0
     if len(persons) > 0:

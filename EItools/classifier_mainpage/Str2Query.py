@@ -42,4 +42,4 @@ class Str2Query:
 	@staticmethod
 	def get_query(str):
 		name, aff = Str2Query.prepare(str).split(',')
-		return ' '.join([Str2Query.get_query_name(name), Str2Query.get_query_aff(aff)])
+		return [Str2Query.get_query_name(name), Str2Query.get_query_aff(aff)]
