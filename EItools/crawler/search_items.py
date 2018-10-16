@@ -15,10 +15,11 @@ from EItools.config.globalvar import CLASSIFIER_DIR
 from EItools.log.log import logger
 from EItools.extract.interface import interface
 from EItools.classifier_mainpage.Name import Name
+from EItools.magic_search.magic_search import magic_search
 
 clf = joblib.load(CLASSIFIER_DIR + '/data/classifier.pkl')
 
-ms = magic_search()
+ms = magic_search
 def get_res(fakequery, query):
     res = []
     try:

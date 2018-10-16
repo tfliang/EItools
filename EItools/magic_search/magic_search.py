@@ -22,7 +22,7 @@ class MagicSearch():
     """
 
     def __init__(self, proxies=None):
-        proxy_switch.current_proxy_index=random.choice(range(len(self.proxies)))
+        proxy_switch.current_proxy_index=random.choice(range(len(proxy_switch.proxies)))
         result, proxies = proxy_switch.get_proxy()
         self.proxies = proxies
 
