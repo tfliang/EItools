@@ -285,7 +285,7 @@ def clear_status():
     persons=mongo_client.db['uncrawled_person'].find({'task_id':ObjectId('5ba20fee8d4315163aba3cdd')})
     for person in persons:
         mongo_client.db['uncrawled_person'].update({'_id':person['_id']},{'$set':{"status":1}})
-#clear_status()
+clear_status()
 
 #export_data()
 # affs=mongo_client.db['aff'].find()

@@ -53,7 +53,7 @@ def get_data_from_aminer(person):
                 if 'name_zh' in candidate:
                     person_name = candidate['name_zh']
                     if person_name==person['name'] and (person['org'] in org or org in person['org']) :
-                        person['aminer-url']="https://www.aminer.cn/profile/%s"%candidate['id']
+                        person['aminer_url']="https://www.aminer.cn/profile/%s"%candidate['id']
                         return True, person
     except Exception as e:
         logger.error("%s, %s", "request aminer query error", e)
@@ -226,7 +226,6 @@ def crawl_person_info(persons,task_id,from_api=False):
             print("id is {}".format(p['id']))
             success, person_of_aminer = get_data_from_aminer(p)
             if success:
-                p['aminer_url'] = person_of_aminer['id']
                 p['source'] = 'aminer'
                 # mongo_client.save_crawled_person(p1)
             p['_id']=ObjectId(p['id'])

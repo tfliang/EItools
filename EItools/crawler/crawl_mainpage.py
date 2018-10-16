@@ -20,7 +20,7 @@ def get_main_page(url,person=None):
 			script.extract()
 		for script in soup(["script", "style","select"]):
 			script.extract()
-		text = soup.find(name='body').get_text()
+		text = soup.get_text()
 		#lines = (line.strip() for line in text.splitlines())
 		# text = '\n\r'.join(chunk for chunk in lines if chunk)
 		lines = (line.strip() for line in text.split('\n'))
@@ -58,5 +58,5 @@ def get_lasttime_from_mainpage(url):
 
 
 
-#print(get_main_page("https://baike.baidu.com/item/%E5%88%98%E9%9D%99/10464312"))
+print(get_main_page("http://sourcedb.naoc.cas.cn/cn/naoexpert/201309/t20130909_3928562.html"))
 
