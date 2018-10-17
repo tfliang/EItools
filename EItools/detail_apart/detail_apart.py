@@ -21,6 +21,7 @@ from EItools.utils import chinese_helper
 
 
 def find_aff(text):
+    tf.reset_default_graph()
     result = extract_one_3(text)
     PER, ADR, AFF = result if result is not None else (None, None, None)
     if PER is not None:
@@ -31,6 +32,7 @@ def find_aff(text):
         print_tag(AFF, 'AFF', text)
     return AFF
 def find_name(text):
+    tf.reset_default_graph()
     result = extract_one_3(text)
     PER, ADR, AFF = result if result is not None else (None, None, None)
     if PER is not None:
