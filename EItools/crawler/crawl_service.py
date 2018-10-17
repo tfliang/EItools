@@ -60,7 +60,7 @@ def get_data_from_aminer(person):
     return False, person
 
 def select(r):
-    return r['label'] == 1 and r['score'] > 0.6
+    return r['label'] == 1 and r['score'] > 0
 
 def get_data_from_web(person,info_crawler):
     p=person
@@ -128,10 +128,10 @@ def apart_text(p):
     PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ, AFF_ALL = apart_result if apart_result is not None else (
         None, None, None, None, None, None, None, None, None, None, None, None, None)
     honors = re.findall(
-        '(国家杰出青年|国家杰青|百人计划|万人计划|国务院.*?政府特殊津贴|省部级以上科研院所二级研究员|973.*?首席科学家|863领域专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院.*?院士|中国科学院.*?院士|诺贝尔奖|图灵奖|菲尔兹奖)',
+        '(国家杰出青年|国家杰青|中科院百人计划|中国科学院百人计划|万人计划|国务院.*?政府特殊津贴|省部级以上科研院所二级研究员|973.*?首席科学家[\s\.。,，;；]+|863领域专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院.*?院士|中国科学院.*?院士|诺贝尔奖|图灵奖|菲尔兹奖)',
         p['info'])
-    p['birth_time']=util.find_birthday(p['info'])
-    p['mobile']=util.find_phone_number(p['info'])
+    p['birth_time']=' '.join(util.find_birthday(p['info']))
+    p['mobile']=' '.join(util.find_phone_number(p['info']))
     p['degree'],p['diploma']=util.find_degree_and_diploma(p['info'])
     p['honors'] = list(set(honors))
     p['title'] = ','.join(TIT) if TIT is not None else ""
@@ -166,16 +166,16 @@ def apart_text(p):
                                                                                                       '\]').replace(
                         '+', '\+').replace('\\r', '\\\\r')
                     pattern = '((现为)|(至今)|(现任职于)|(现任)|(-今于)|(目前为)|(现为)|(工作单位)|(-今)){1,2}[\s\S]{0,5}' + aff_filter
-                    result = re.search(pattern, p['info'])
+                    result = re.search(pattern, p['exp_region'])
                     if result is not None:
                         current_aff.append(aff)
                     else:
                         pattern_back = aff_filter + '[\s\S]{0,5}((至今)){1,2}'
-                        result = re.search(pattern_back, p['info'])
+                        result = re.search(pattern_back, p['exp_region'])
                         if result is not None:
                             current_aff.append(aff)
                 except Exception as e:
-                    print(e)
+                    logger.error("when find current aff:{}".format(e))
         if len(current_aff) > 0:
             p['aff']['inst'] = ' '.join(current_aff)
     return p
@@ -198,7 +198,6 @@ def save_data_to_expertbase(person):
         if ok and 'items' in result["data"][0]:
             return ok
     except Exception as e:
-        print(e)
         logger.error("%s, %s", "request url error", e)
     return False
 

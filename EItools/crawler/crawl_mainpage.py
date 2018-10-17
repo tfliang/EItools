@@ -58,5 +58,5 @@ def get_lasttime_from_mainpage(url):
 
 
 
-print(get_main_page("http://sourcedb.naoc.cas.cn/cn/naoexpert/201309/t20130909_3928562.html"))
+
 

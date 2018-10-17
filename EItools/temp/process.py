@@ -11,7 +11,7 @@ from MagicGoogle import MagicGoogle
 from bson import ObjectId
 
 from EItools.client.mongo_client import mongo_client
-from EItools.crawler import crawl_mainpage
+from EItools.crawler import crawl_mainpage, crawl_service
 from EItools.crawler.crawl_service import select, apart_text, crawl_person_info
 from EItools.detail_apart import detail_apart
 from EItools.utils.chinese_helper import strQ2B
@@ -383,6 +383,12 @@ def process_position():
                     titles.add(re.sub('[\\d（）《》() \\n,，－-]','',t['title']))
     with open("/Users/bcj/Documents/科技部/EItools/EItools/classifier_mainpage/data/soc_position.json",'w') as w:
         json.dump(list(titles),w,ensure_ascii=False)
+
+def test_crawl_person(id):
+    person=mongo_client.get_crawled_person_by_pid(id)
+    if person is not None:
+        persons_info=crawl_service.crawl_person_info([person],None)
+test_crawl_person("5ba20fef8d431516f8316449")
 
 
 

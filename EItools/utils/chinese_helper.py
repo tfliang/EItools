@@ -9,13 +9,14 @@ import re
 
 from idna import unichr
 
+from EItools.log.log import logger
 from EItools.utils.edit_distance import EditDistance
 
 APP_ID = '20170228000040045'
 SECRET_KEY = 'SxYBqtNq6V4JehH_JmBy'
 URL = 'https://api.fanyi.baidu.com/api/trans/vip/translate'
 
-def translate(q,fromLang,toLang):
+def translate(q,fromLang='en',toLang='zh'):
     salt = random.randint(32768, 65536)
     sign = APP_ID + q + str(salt) + SECRET_KEY
     m1 = hashlib.md5()
@@ -28,7 +29,7 @@ def translate(q,fromLang,toLang):
         result=json.loads(result)
         return result['trans_result'][0]['dst']
     except Exception as e:
-        print(e)
+        logger.error("when translate:{}".format(e))
 
 ZH_PATTERN = re.compile(u'[\u4e00-\u9fa5]+')
 
@@ -168,6 +169,8 @@ def strB2Q(ustring):
 
         rstring += unichr(inside_code)
     return rstring
+
+
 
 
 

@@ -57,8 +57,13 @@ def find_gender(text):
         return ""
 
 def find_birthday(text):
-    pattern = re.compile(r'生\s*?【于][\.。,，:：\s]*(.+?)[\s\.。,，;；][出生]?]')
-    return pattern.findall(text)
+    pattern = re.compile(r'生\s*?[于][\.。,，:：\s]*(.+?)[\s\.。,，;；]+')
+    pattern_other=re.compile(r'[\.。,，:：\s]+(.+?)[\s\.。,，;；]?[出生]{1,1}')
+    birth_time=pattern.findall(text)
+    if birth_time is None or len(birth_time)>=1:
+        return birth_time
+    else:
+        return pattern_other.findall(text)
 
 def find_name(text, PER):
     min_idx = 100000000000
@@ -127,7 +132,6 @@ def compare(org, url):
         if aff is not None and aff['domain'] != "":
             domain_key = aff['domain'].replace("https://", "").replace("http://", "").split('.')[1]
             item_key = url.replace("https://", "").replace("http://", "")
-            print("fsdfsdf{}-{}".format(domain_key,item_key))
             if domain_key in item_key:
                 return True
     return False
@@ -146,4 +150,5 @@ if __name__ == "__main__":
     # print(check_contain_chinese('中国'))
     # print(check_contain_chinese('xxx'))
     # print(check_contain_chinese('xx中国'))
-    print(compare("中国科学技术大学","http://dsxt.ustc.edu.cn/zj_js.asp?zzid=992"))
+    #print(compare("中国科学技术大学","http://dsxt.ustc.edu.cn/zj_js.asp?zzid=992"))
+    print(find_birthday("张中杰，男，出生于1964年4月， 研究室主任， 研究员。1993年3月从中国科学院地球物理研究所地球物理学博士后流动站出站，现工作单位中国科学院地质与地球物理研究所"))

@@ -17,11 +17,10 @@ from EItools.client.mongo_client import MongoDBClient
 from EItools.extract.interface import extract_one_3, print_tag, interface, extract_project, extract_patent, \
     extract_award
 from EItools.log.log import logger
-from EItools.utils.chinese_helper import strQ2B
+from EItools.utils import chinese_helper
 
 
 def find_aff(text):
-    tf.reset_default_graph()
     result = extract_one_3(text)
     PER, ADR, AFF = result if result is not None else (None, None, None)
     if PER is not None:
@@ -32,7 +31,6 @@ def find_aff(text):
         print_tag(AFF, 'AFF', text)
     return AFF
 def find_name(text):
-    tf.reset_default_graph()
     result = extract_one_3(text)
     PER, ADR, AFF = result if result is not None else (None, None, None)
     if PER is not None:
@@ -134,10 +132,15 @@ def find_soc(text):
 
             return academic_org_exp
 
+def find_word_en(text):
+    match_data=re.findall('[a-zA-Z]',text)
+    part_en=''.join(match_data)
+    return len(part_en)/len(text)>0.5
 
 #1985.7 南开大学研究生
 def find_work(text):
-    print(text)
+    if find_word_en(text):
+        text=chinese_helper.translate(text)
     aff_list = find_aff(text)
 
     time = re.findall(pattern_time, text)
@@ -545,7 +548,7 @@ def crawl(query):
             source = item.find(name='a', attrs={'data-click': "{'button_tp':'publish'}"}).get('title', None)
         else:
             source = None
-        return {'title': title, 'author': author, 'year': year, 'source': source, 'label': label, 'count': count}
+        return {'title': title, 'authors': author, 'year': year, 'source': source, 'label': label, 'count': count}
 
 def fetch_pubs_from_webpage(text):
     pubs_new=[]
