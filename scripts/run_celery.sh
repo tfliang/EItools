@@ -1,4 +1,4 @@
 #!/bin/bash
 cd ../EItools/crawler/
 
-celery -A crawl_information worker -B
+celery worker -A crawl_information  -B

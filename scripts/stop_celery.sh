@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ../EItools/crawler/
 
-celery stop crawl_information
+ps aux | grep 'celery worker -A ' | awk '{print $2}' | xargs kill -9
 
 

@@ -388,7 +388,7 @@ def test_crawl_person(id):
     person=mongo_client.get_crawled_person_by_pid(id)
     if person is not None:
         persons_info=crawl_service.crawl_person_info([person],None)
-test_crawl_person("5ba20fef8d431516f8316449")
+#test_crawl_person("5ba20fef8d431516f8316449")
 
 
 
