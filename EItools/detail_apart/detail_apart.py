@@ -408,7 +408,6 @@ def find_projects(text):
     for t in projects_all:
         if t!="":
             project=find_project(t)
-            tf.reset_default_graph()
             if project is not None:
                 projects.append(project)
     return projects
@@ -436,7 +435,6 @@ def find_awards(text):
     for t in awards_all:
         if t!="":
             award=find_award(t)
-            tf.reset_default_graph()
             if award is not None:
                 for a in award:
                     awards.append(a)
