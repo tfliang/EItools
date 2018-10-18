@@ -5,9 +5,10 @@ import re
 import requests
 import pextract as pe
 from EItools.log.log import logger
-from EItools.magic_search.magic_search import magic_search
+from EItools.magic_search.magic_search import MagicSearch
+from EItools.extract.interface import interface
 
-
+magic_search=MagicSearch()
 def get_main_page(url,person=None):
 	try:
 		source_code = magic_search.get_webpage_content(url)
@@ -20,7 +21,7 @@ def get_main_page(url,person=None):
 			script.extract()
 		for script in soup(["script", "style","select"]):
 			script.extract()
-		text = soup.get_text()
+		text = soup.find(name='body').get_text()
 		#lines = (line.strip() for line in text.splitlines())
 		# text = '\n\r'.join(chunk for chunk in lines if chunk)
 		lines = (line.strip() for line in text.split('\n'))
@@ -32,7 +33,7 @@ def get_main_page(url,person=None):
 		else:
 			text = '\n'.join(chunk for chunk in lines if chunk!='')
 	except Exception as e:
-		logger.error("when crawl mainpage: {}".format(e))
+		logger.info(e)
 		text = ""
 	return text
 
@@ -58,5 +59,5 @@ def get_lasttime_from_mainpage(url):
 
 
 
-
+#print(get_main_page("https://baike.baidu.com/item/%E5%88%98%E9%9D%99/10464312"))
 

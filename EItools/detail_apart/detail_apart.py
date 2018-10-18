@@ -183,35 +183,38 @@ def find_edu(text):
         aff_all = ','.join(aff_list)
         for aff in aff_list:
             rest_content = text.replace(aff,'',)
-        try:
-            degree=""
-            diploma=""
-            if '本科' in rest_content or '学士' in rest_content:
-                degree='学士'
-            if '研究生' in rest_content or '硕士' in rest_content :
-                degree='硕士'
-            if '博士' in rest_content and '博士后' not in rest_content:
-                degree='博士'
-            if degree=='学士':
-                diploma='本科'
-            elif degree=='博士' or degree=='硕士':
-                diploma='研究生'
-            print("time is:{}".format(time))
-            print("aff is:{}".format(aff))
-            print("degree is:{}".format(degree))
-            print("diploma is:{}".format(diploma))
+    else:
+        rest_content=text
+    try:
+        degree=""
+        diploma=""
+        if '本科' in rest_content or '学士' in rest_content:
+            degree='学士'
+        if '研究生' in rest_content or '硕士' in rest_content :
+            degree='硕士'
+        if '博士' in rest_content or '博士后' in rest_content:
+            degree='博士'
+        if degree=='学士':
+            diploma='本科'
+        elif degree=='博士' or degree=='硕士':
+            diploma='研究生'
+        print("time is:{}".format(time))
+        print("aff is:{}".format(aff))
+        print("degree is:{}".format(degree))
+        print("diploma is:{}".format(diploma))
 
-            edu_exp = None
+        edu_exp = None
+        if  degree !="" or aff_all!="":
             if len(time) >= 2:
                 edu_exp = {"start":time[0] ,"end":time[1], "diploma": diploma, "degree": degree,"inst":aff_all}
             elif len(time) == 1:
                 edu_exp ={"end":time[0],"diploma": diploma, "degree": degree,"inst":aff_all}
             elif len(time) == 0:
                 edu_exp = {"diploma": diploma, "degree": degree,"inst":aff_all}
-            return edu_exp
-        except Exception as e:
-            logger.info("when extract education info:{}".format(e))
-            return None
+        return edu_exp
+    except Exception as e:
+        logger.info("when extract education info:{}".format(e))
+        return None
 
 
 def find_patent(text):
@@ -402,6 +405,8 @@ def find_projects(text):
     if len(projects_all) <= 1:
         if '。' in text:
             projects_all = re.split(r'[。]', text)
+        if '；' in text:
+            projects_all=re.split(r';',text)
         else:
             projects_all = re.split(r'[\n]', text)
     print(projects_all)

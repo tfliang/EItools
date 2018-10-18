@@ -57,13 +57,16 @@ def find_gender(text):
         return ""
 
 def find_birthday(text):
-    pattern = re.compile(r'生\s*?[于][\.。,，:：\s]*(.+?)[\s\.。,，;；]+')
-    pattern_other=re.compile(r'[\.。,，:：\s]+(.+?)[\s\.。,，;；]?[出生]{1,1}')
-    birth_time=pattern.findall(text)
-    if birth_time is None or len(birth_time)>=1:
+    pattern = re.compile(r'生\s*?[于年月]*[\.。,，:：\s]*((?:19|20)[0-9]{2}[年|.|/]?[0-9]{0,2}[月]?)[\s\.。,，;；]+')
+    pattern_other=re.compile(r'((?:19|20)[0-9]{2}[年|.|/]?[0-9]{0,2}[月]?)[出]?生')
+    search_item=pattern.search(text)
+    if search_item is not None:
+        birth_time=search_item.group(0)
         return birth_time
     else:
-        return pattern_other.findall(text)
+        search_item=pattern_other.search(text)
+        if  search_item is not None:
+            return search_item.group(0)
 
 def find_name(text, PER):
     min_idx = 100000000000
@@ -92,7 +95,7 @@ def find_email(text):
         return []
 
 def find_phone_number(text):
-    res=re.search(r'^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$',text)
+    res = re.search(r'(电话|联系方式)[\.。,，:：\s]*\d{1}(.+?)[\s\.。,，;；]+',text)
     if res != None:
         return remove_sign([res.group()])
     else:
@@ -106,7 +109,7 @@ def find_degree_and_diploma(text):
         degree = '学士'
     if '研究生' in text or '硕士' in text:
         degree = '硕士'
-    if '博士' in text and '博士后' not in text:
+    if '博士' in text or '博士后' in text:
         degree = '博士'
     if degree == '学士':
         diploma = '本科'
@@ -151,4 +154,4 @@ if __name__ == "__main__":
     # print(check_contain_chinese('xxx'))
     # print(check_contain_chinese('xx中国'))
     #print(compare("中国科学技术大学","http://dsxt.ustc.edu.cn/zj_js.asp?zzid=992"))
-    print(find_birthday("张中杰，男，出生于1964年4月， 研究室主任， 研究员。1993年3月从中国科学院地球物理研究所地球物理学博士后流动站出站，现工作单位中国科学院地质与地球物理研究所"))
+    print(find_degree_and_diploma("安景文，男，满族，1964年3月生，1990年8月参加工作，1993年4月加入中国共产党，研究生学历，硕士学位，研究员，现任辽宁省农业科学院科研管理处处长，拟任辽宁省农业科学院党组成员、总农艺师"))

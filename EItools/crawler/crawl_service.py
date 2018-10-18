@@ -3,6 +3,7 @@ import json
 from bs4 import BeautifulSoup
 from bson import ObjectId
 
+from EItools.classifier_mainpage.Extract import Extract
 from EItools.client.mongo_client import  mongo_client
 from EItools.extract.interface import interface
 from EItools.extract import util
@@ -28,7 +29,7 @@ def get_data_from_aminer(person):
             "offset": 0, "size": 10, "searchType": "SimilarPerson"},
         "schema": {
             "person": ["id", "name", "name_zh", "profile.affiliation", "avatar", "profile.affiliation_zh",
-                       "profile.position", "profile.position_zh", {"indices": ["hindex", "pubs", "citations"]}]}
+                       "profile.position","profile.email" "profile.position_zh", {"indices": ["hindex", "pubs", "citations"]}]}
     }
     url = "https://apiv2.aminer.cn/magic"
     headers = {
@@ -54,20 +55,33 @@ def get_data_from_aminer(person):
                     person_name = candidate['name_zh']
                     if person_name==person['name'] and (person['org'] in org or org in person['org']) :
                         person['aminer_url']="https://www.aminer.cn/profile/%s"%candidate['id']
+                        if 'profile' in candidate and 'email' in candidate['profile']:
+                            person['email']=candidate['profile']['email']
+                        if 'profile' in candidate and 'position' in candidate['profile']:
+                            person['position']=candidate['profile']['position']
+
                         return True, person
     except Exception as e:
         logger.error("%s, %s", "request aminer query error", e)
     return False, person
 
 def select(r):
-    return r['label'] == 1 and r['score'] > 0
+    return r['label'] == 1 and r['score'] > 0 and 'kaoyan' not in r['url'] and '考研' not in r['title'] and '考研' not in r['text']
 
+def select_website(r):
+    return len(re.findall('ac\.cn|edu\.cn|cas\.cn|baidu.com',r['url']))>0 or len(re.findall('ac\.cn|edu\.cn|cas\.cn|baidu.com',r['domain']))>0
 def get_data_from_web(person,info_crawler):
+    success, person_of_aminer = get_data_from_aminer(person)
+    if success:
+        person['source'] = 'aminer'
     p=person
 
     result = search_items.Get('{},{}'.format(person['name'], person['org']))['res']
     #result_without_org = search_items.Get('{},'.format(person['name']))['res']
     result_rest = list(filter(select, result))
+    result_rest=list(filter(select,result_rest))
+
+
     #result_without_org_rest = list(filter(select, result_without_org))
     # final_result=[]
     # for r in result_rest:
@@ -90,9 +104,9 @@ def get_data_from_web(person,info_crawler):
         # 罕见度低，选取公共的
     # positive_result=[ r for r in result['res'] if r['label']==1.0]
     #if len(result_sorted) > 0:
-        #for se in result_sorted:
-            #se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
-    #result_sorted_final = sorted(result_sorted, key=lambda s: s['last_time'], reverse=True)
+    # for se in result_rest:
+    #     se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
+    # result_sorted_final = sorted(result_rest, key=lambda s: s['last_time'], reverse=True)
     result_sorted_final=result_rest
     p['result'] = result_sorted_final
     if len(result_sorted_final) > 0:
@@ -106,21 +120,23 @@ def get_data_from_web(person,info_crawler):
         #     selected_item=se
         #     break
     #info, url = infoCrawler.get_info(person)
-    emails_prob = info_crawler.get_emails(person)
-    p['source'] = 'crawler'
-    p['emails_prob'] = emails_prob
-    if 'email' not in p and len(p['emails_prob'])>0:
-        p['email']=p['emails_prob'][0]
-    citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
-    # if affs is not None:
-    # p['s_aff'] = affs
-    #p['url'] = url
-    # p['info'] = info
-    p['citation'] = citation
-    p['h_index'] = h_index
+    # citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
+    # # if affs is not None:
+    # # p['s_aff'] = affs
+    # #p['url'] = url
+    # # p['info'] = info
+    # p['citation'] = citation
+    # p['h_index'] = h_index
     #p = extract_information.extract(info, p)
     if 'info' in p:
         apart_text(p)
+        #if 'email'not in p and p['email']=="" and 'url' in p and p['url']!="" and len(re.findall('(edu.cn|cas.cn)',p['url']))<1:
+    emails_prob = info_crawler.get_emails(person)
+    p['source'] = 'crawler'
+    p['emails_prob'] = emails_prob
+    if 'email' not in p and len(p['emails_prob']) > 0:
+        p['email'] = p['emails_prob'][0]
+
     return p
 
 def apart_text(p):
@@ -130,12 +146,25 @@ def apart_text(p):
     honors = re.findall(
         '(国家杰出青年|国家杰青|中科院百人计划|中国科学院百人计划|万人计划|国务院.*?政府特殊津贴|省部级以上科研院所二级研究员|973.*?首席科学家[\s\.。,，;；]+|863领域专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院.*?院士|中国科学院.*?院士|诺贝尔奖|图灵奖|菲尔兹奖)',
         p['info'])
-    p['birth_time']=' '.join(util.find_birthday(p['info']))
+    p['birth_time']=util.find_birthday(p['info'])
     p['mobile']=' '.join(util.find_phone_number(p['info']))
     p['degree'],p['diploma']=util.find_degree_and_diploma(p['info'])
     p['honors'] = list(set(honors))
     p['title'] = ','.join(TIT) if TIT is not None else ""
-    p['position'] = ','.join(JOB) if JOB is not None else ""
+    if p['title']=="":
+        search_items=re.search(p['name'], p['info'])
+        if search_items is not None:
+            name_first_position=search_items.span()[0]
+            text_part_info=p['info'][name_first_position:name_first_position+70]
+            p['title']=','.join(Extract.extrac_title(text_part_info))
+    if 'position' not in p or p['position'] == "":
+        p['position'] = ','.join(JOB) if JOB is not None else ""
+        if p['position']=="":
+            search_items=re.search(p['name'], p['info'])
+            if search_items is not None:
+                name_first_position = search_items.span()[0]
+                text_part_info = p['info'][name_first_position:name_first_position + 30]
+                p['position'] = ','.join(Extract.extrac_position(text_part_info))
     p['research'] = ','.join(DOM) if DOM is not None else ""
     p['edu_exp_region'] = ','.join(EDU) if EDU is not None else ""
     p['exp_region'] = ','.join(WRK) if WRK is not None else ""
@@ -144,8 +173,9 @@ def apart_text(p):
     p['patents_region'] = ','.join(PAT) if PAT is not None else ""
     p['projects_region'] = ','.join(PRJ) if PRJ is not None else ""
     p['gender'] = util.find_gender(p['info'])
-    email = util.find_email(p['info'])
-    p['email'] = email[0] if len(email) > 0 else ""
+    if 'email' not in p or p['email']=="":
+        email = util.find_email(p['info'])
+        p['email'] = email[0] if len(email) > 0 else ""
     p['edu_exp'] = detail_apart.find_edus(p['edu_exp_region'])
     p['exp'] = detail_apart.find_works(p['exp_region'])
     p['academic_org_exp'] = detail_apart.find_socs(p['academic_org_exp_region'])
@@ -165,19 +195,24 @@ def apart_text(p):
                     aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
                                                                                                       '\]').replace(
                         '+', '\+').replace('\\r', '\\\\r')
-                    pattern = '((现为)|(至今)|(现任职于)|(现任)|(-今于)|(目前为)|(现为)|(工作单位)|(-今)){1,2}[\s\S]{0,5}' + aff_filter
+                    pattern = '(现为|至今|现任职于|现任|-今于|目前为|现为|工作单位|-今){1,2}[\s\S]{0,5}' + aff_filter
+                    filter_pattern=r'(大学|研究院|公司|研究所|科学院)'
                     result = re.search(pattern, p['exp_region'])
                     if result is not None:
-                        current_aff.append(aff)
+                        if len(re.findall(filter_pattern,aff))>0:
+                            current_aff.append(aff)
                     else:
-                        pattern_back = aff_filter + '[\s\S]{0,5}((至今)){1,2}'
+                        pattern_back = aff_filter + '[\s\S]{0,5}(至今){1,2}'
                         result = re.search(pattern_back, p['exp_region'])
                         if result is not None:
-                            current_aff.append(aff)
+                            if len(re.findall(filter_pattern, aff)) >0:
+                                current_aff.append(aff)
                 except Exception as e:
                     logger.error("when find current aff:{}".format(e))
         if len(current_aff) > 0:
             p['aff']['inst'] = ' '.join(current_aff)
+    if 'inst' not in p['aff'] or p['aff']['inst']=="":
+        p['aff']['inst']=p['org']
     return p
 
 def save_data_to_expertbase(person):
@@ -223,14 +258,11 @@ def crawl_person_info(persons,task_id,from_api=False):
             # # person['org'] = ' '.join(affs)
             # person['org'] = p['org']
             print("id is {}".format(p['id']))
-            success, person_of_aminer = get_data_from_aminer(p)
-            if success:
-                p['source'] = 'aminer'
                 # mongo_client.save_crawled_person(p1)
             p['_id']=ObjectId(p['id'])
             p['task_id']=ObjectId(task_id)
             p=get_data_from_web(p,info_crawler)
-            mongo_client.crawed_person_col.save(p)
+            mongo_client.save_crawled_person(p)
                 # 存入智库
             # mongo_client.rm_person_by_id(p['_id'])
             if task_id is not None:

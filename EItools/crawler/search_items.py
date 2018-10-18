@@ -23,36 +23,71 @@ ms = magic_search
 def get_res(fakequery, query):
     res = []
     try:
-        for i in ms.search(query=query, pause=0.5):
-            try:
-                th = {}
-                for k in i:
-                    if i[k] is None:
-                        th[k] = ''
-                    else:
-                        th[k] = i[k]
-                th['source'] = 'google'
-                th['label'] = int(clf.predict([Feature.get_feature(fakequery, th)])[0])
-                th['score']=clf.predict_proba([Feature.get_feature(fakequery, th)])[0][1]
-                res.append(th)
-            except Exception as e:
-                print(e)
-    except Exception as e:
-        print(e)
-    try:
         for i in ms.search_baidu(query=query, pause=0.5):
             try:
                 th = i
                 th['source'] = 'baidu'
                 th['url'] = i['url']
                 th['label'] = int(clf.predict([Feature.get_feature(fakequery, th)])[0])
-                th['score']=clf.predict_proba([Feature.get_feature(fakequery, th)])[0][1]
+                th['score'] = clf.predict_proba([Feature.get_feature(fakequery, th)])[0][1]
                 res.append(th)
             except Exception as e:
                 print(e)
     except Exception as e:
         print(e)
+    # try:
+    #     for i in ms.search(query=query, pause=0.5):
+    #         try:
+    #             th = {}
+    #             for k in i:
+    #                 if i[k] is None:
+    #                     th[k] = ''
+    #                 else:
+    #                     th[k] = i[k]
+    #             th['source'] = 'google'
+    #             th['label'] = int(clf.predict([Feature.get_feature(fakequery, th)])[0])
+    #             th['score']=clf.predict_proba([Feature.get_feature(fakequery, th)])[0][1]
+    #             res.append(th)
+    #         except Exception as e:
+    #             print(e)
+    # except Exception as e:
+    #     print(e)
     return res
+
+def Get_all(str):
+    name, aff = Str2Query.get_query(str)
+    cra = {}
+    cra['ini'] = str
+    fakequery = name + ' ' + aff
+    if aff.find('中国科学院') != -1 or aff.find('中科院') != -1:
+        cra['type'] = 'cas.cn'
+        # if Name.iscommon(name):
+        query = ' '.join([name, "中国科学院",' .cas.cn',' baidu.com'])
+    # else:
+    #	query = ' '.join([name, 'site:*.cas.cn'])
+    elif aff.find('大学') != -1 or aff.find('学院') != -1:
+        cra['type'] = 'edu.cn'
+        if Name.iscommon(name):
+            query = ' '.join([name, aff, ' .edu.cn', ' baidu.com'])
+        else:
+            query = ' '.join([name, ' .edu.cn', ' baidu.com'])
+    else:
+        cra['type'] = 'other'
+        query = ' '.join([name, aff])
+    cra['query'] = query
+    cra['res'] = get_res(fakequery, query)
+    ok = False
+    for d in cra['res']:
+        # print(d['title'], d['label'])
+        # input()
+        if d['label'] > 0.7:
+            ok = True
+            break
+    if (not ok) and cra['type'] != 'other':
+        cra['query'] = fakequery
+        cra['type'] = 'other'
+        cra['res'] = get_res(fakequery, fakequery)
+    return cra
 
 
 def Get(str):
@@ -69,15 +104,15 @@ def Get(str):
     if aff.find('中国科学院') != -1 or aff.find('中科院') != -1:
         cra['type'] = 'cas.cn'
         # if Name.iscommon(name):
-        query = ' '.join([name, aff, ' .cas.cn', ' .ac.cn'])
+        query = ' '.join([name, "中国科学院"])
     # else:
     #	query = ' '.join([name, 'site:*.cas.cn'])
     elif aff.find('大学') != -1 or aff.find('学院') != -1:
         cra['type'] = 'edu.cn'
         if Name.iscommon(name):
-            query = ' '.join([name, aff, ' .edu.cn'])
+            query = ' '.join([name, aff, ' .edu.cn',' baidu.com'])
         else:
-            query = ' '.join([name, ' .edu.cn'])
+            query = ' '.join([name, ' .edu.cn',' baidu.com'])
     else:
         cra['type'] = 'other'
         query = ' '.join([name, aff])

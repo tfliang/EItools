@@ -77,10 +77,10 @@ class MagicSearch():
         headers = {'user-agent': self.get_random_user_agent()}
         try:
             requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
-            result, proxies = proxy_switch.get_proxy()
-            self.proxies = proxies
+            # result, proxies = proxy_switch.get_proxy()
+            # self.proxies = proxies
             r = requests.get(url=url,
-                             proxies=self.proxies,
+                             # proxies=self.proxies,
                              headers=headers,
                              allow_redirects=False,
                              verify=False,
@@ -101,7 +101,7 @@ class MagicSearch():
         :return: Generator
         """
         start = start // 10 * 10
-        content = self.search_page(query, start, pause)
+        content = self.search_page_baidu(query, start, pause)
         soup = BeautifulSoup(content, "html.parser")
         now = start + 1
         for item in soup.find_all(attrs={'class': 'c-container'}):
