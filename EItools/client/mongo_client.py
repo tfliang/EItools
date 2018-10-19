@@ -100,9 +100,9 @@ class MongoDBClient(object):
         c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"task_id": ObjectId(id)})
         if size > 0 and offset >= 0:
             c = c.skip(offset).limit(size)
-        person_simple = {}
         for person in c:
-            person['id'] = str(person['_id'])
+            person_simple = {}
+            person_simple['id'] = str(person['_id'])
             del person['_id']
             del person['task_id']
             person_simple['status'] = 1
