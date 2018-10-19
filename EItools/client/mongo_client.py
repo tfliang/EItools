@@ -100,11 +100,21 @@ class MongoDBClient(object):
         c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"task_id": ObjectId(id)})
         if size > 0 and offset >= 0:
             c = c.skip(offset).limit(size)
-        for item in c:
-            item['id'] = str(item['_id'])
-            del item['_id']
-            del item['task_id']
-            persons.append(item)
+        person_simple = {}
+        for person in c:
+            person['id'] = str(person['_id'])
+            del person['_id']
+            del person['task_id']
+            person_simple['status'] = 1
+            person_simple['name'] = person['name'] if 'name' in person else ""
+            person_simple['org'] = person['org'] if 'org' in person else ""
+            person_simple['gender'] = person['gender'] if 'gender' in person else ""
+            person_simple['email'] = person['email'] if 'email' in person else ""
+            person_simple['position'] = person['position'] if 'position' in person else ""
+            person_simple['h_index'] = person['h_index'] if 'h_index' in person else ""
+            person_simple['citation'] = person['citaition'] if 'citation' in person else ""
+            person_simple['emails_prob']=person['emails_prob'] if 'emails_prob'in person else []
+            persons.append(person_simple)
         return persons
 
     def search_crawled_person_by_taskId(self,id,name,offset=0,size=0):
