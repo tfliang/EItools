@@ -98,13 +98,13 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
         if 'email' in person and person['email']==[] and len(person['emails_prob'])>0:
             person['email']=person['emails_prob'][0][0]
         person_simple['status']=1
-        person_simple['name']=person['name']
-        person_simple['org']=person['org']
-        person_simple['gender']=person['gender']
-        person_simple['email']=person['email']
-        person_simple['position']=person['position']
-        person_simple['h_index']=person['h_index']
-        person_simple['citation']=person['citaition']
+        person_simple['name']=person['name'] if 'name' in person else ""
+        person_simple['org']=person['org'] if 'org' in person else ""
+        person_simple['gender']=person['gender'] if 'gender' in person else ""
+        person_simple['email']=person['email'] if 'email' in person else ""
+        person_simple['position']=person['position'] if 'position' in person else ""
+        person_simple['h_index']=person['h_index'] if 'h_index' in person else ""
+        person_simple['citation']=person['citaition'] if 'citation' in person else ""
         total_persons.append(person)
         #crawled_persons_final.append(person)
     # for person in uncrawled_persons:
