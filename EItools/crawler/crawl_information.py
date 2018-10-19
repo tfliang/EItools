@@ -88,6 +88,7 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
     crawled_persons=mongo_client.get_crawled_person_by_taskId(id,int(offset),int(size))
     #uncrawled_persons=mongo_client.get_uncrawled_person_by_taskId(id)
     total_persons=[]
+    person_simple={}
     crawled_persons_final=[]
     for person in crawled_persons:
         if 'result' in person:
@@ -96,7 +97,14 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
             del person['info']
         if 'email' in person and person['email']==[] and len(person['emails_prob'])>0:
             person['email']=person['emails_prob'][0][0]
-        person['status']=1
+        person_simple['status']=1
+        person_simple['name']=person['name']
+        person_simple['org']=person['org']
+        person_simple['gender']=person['gender']
+        person_simple['email']=person['email']
+        person_simple['position']=person['position']
+        person_simple['h_index']=person['h_index']
+        person_simple['citation']=person['citaition']
         total_persons.append(person)
         #crawled_persons_final.append(person)
     # for person in uncrawled_persons:

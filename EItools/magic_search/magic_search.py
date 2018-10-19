@@ -239,6 +239,6 @@ class MagicSearch():
         headers = {'user-agent': self.get_random_user_agent()}
         res = requests.get(url, headers=headers)
         # res.encoding='utf-8'
-        content = res.content
+        content = res.content.decode('utf-8')
         return content
 magic_search=MagicSearch()

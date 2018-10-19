@@ -44,7 +44,7 @@ def find_name(text):
     return PER
 patent_time=r'((?:19|20)[0-9]{2})[年|.|/]?'
 pattern_time = r'((?:19|20)[0-9]{2}[年|.|/]?[0-9]{0,2}[月]?|至今|今)'
-pattern_work_time=r'(曾任|现任|现为|同年|(?:19|20)[0-9]{2}[年./]?[0-9]{0,2}(月|.)?\s*(?:-|－|—|-|～|--|毕业|至|~)*\s*(?:(?:(?:19|20)[0-9]{2}[年|.|/]?[0-9]{0,2}[月]?)|至今|今)?)'
+pattern_work_time=r'(曾任|现任|现为|同年|(?:19|20)[0-9]{2}[年./-]?[0-9]{0,2}(月|.)?\s*(?:-|－|—|--|-|～|--|毕业|至|~)+\s*(?:(?:(?:19|20)[0-9]{2}[年|.|/|-]?[0-9]{0,2}[月]?)|至今|今|现在)?)'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -76,63 +76,25 @@ def find_soc(text):
     is_contain_en=re.compile(r'[A-Za-z]',re.S)
     match=re.findall(is_contain_en,text)
     time = re.findall(pattern_time, text)
-    if True:
-        titles=Extract.extract_soc_position(text)
-        title=""
-        if titles is not None and len(titles)>0:
-            title=' '.join(titles)
-            for title in titles:
-                text=text.replace(title,',')
-            text = re.sub(r'[,，、。.-]', '', text)
-        aff=text
-        academic_org_exp = None
-        if  aff != "" and is_soc_aff(aff):
-            if len(time) >= 2:
-                academic_org_exp = {"title": title, "org": aff, "duration": '-'.join(time)}
-            elif len(time) == 1:
-                academic_org_exp = {"title": title, "org": aff, "duration": time[0]}
-            else:
-                academic_org_exp = {"title": title, "org": aff, "duration": ""}
+    text = re.sub(pattern_time, '', text)
+    titles=Extract.extract_soc_position(text)
+    title=""
+    if titles is not None and len(titles)>0:
+        title=' '.join(titles)
+        for title in titles:
+            text=text.replace(title,',')
+        text = re.sub(r'[,，、。.-]', '', text)
+    aff=text
+    academic_org_exp = None
+    if  aff != "" and is_soc_aff(aff) and title!="":
+        if len(time) >= 2:
+            academic_org_exp = {"title": title, "org": aff, "duration": '-'.join(time)}
+        elif len(time) == 1:
+            academic_org_exp = {"title": title, "org": aff, "duration": time[0]}
+        else:
+            academic_org_exp = {"title": title, "org": aff, "duration": ""}
 
-        return academic_org_exp
-    else:
-        text=re.sub(pattern_time,'',text)
-        aff_list = find_aff(text)
-        if aff_list is not None and len(aff_list)>0:
-            aff=' '.join(aff_list)
-            for aff in aff_list:
-                text=text.replace(aff,',')
-            text=re.sub(r'[,，、。.-]','',text)
-            titles=Extract.extract_soc_position(text)
-            title=','.join(titles)
-            for title in titles:
-                re.sub(r'','',text)
-
-            # most_index=0
-            # index_value=0
-            # for i,aff_one in enumerate(aff_list):
-            #     index=text.index(aff_one)
-            #     if index>index_value:
-            #         most_index=i
-
-            # title=text[text.index(aff_list[most_index])+len(aff):]
-            # if '编委' in aff and aff!="编委":
-            #     aff=aff.replace("编委","")
-            # if aff=='编委':
-            #     return None
-            #print("time is:{}".format(time))
-            print("aff is:{}".format(aff))
-            print("title is:{}".format(title))
-            academic_org_exp=None
-            if title!="" or aff !="":
-                if len(time)>=2:
-                    academic_org_exp={"title":title,"org":aff,"duration":'-'.join(time)}
-                elif len(time)==1:
-                    academic_org_exp={"title":title,"org":aff,"duration":time[0]}
-                else:
-                    academic_org_exp = {"title": title, "org": aff, "duration": ""}
-
-            return academic_org_exp
+    return academic_org_exp
 
 def find_word_en(text):
     match_data=re.findall('[a-zA-Z]',text)

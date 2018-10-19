@@ -389,6 +389,13 @@ def test_crawl_person(id):
     if person is not None:
         persons_info=crawl_service.crawl_person_info([person],None)
 #test_crawl_person("5ba20fef8d431516f8316449")
+def get_text_from_url(url):
+    p={'name':"刘继峰"}
+    p['info']=crawl_mainpage.get_main_page(url)
+    print(p['info'])
+    apart_text(p)
+
+get_text_from_url("http://people.ucas.ac.cn/~liujifeng")
 
 
 

@@ -12,6 +12,9 @@ magic_search=MagicSearch()
 def get_main_page(url,person=None):
 	try:
 		source_code = magic_search.get_webpage_content(url)
+		source_code=re.sub(r'(<br>|</br>)','\n\r',source_code)
+		source_code=re.sub(r'(<ul>)','<ol>',source_code)
+		source_code=re.sub(r'<ur/>','<ol/>',source_code)
 		soup = bs4.BeautifulSoup(source_code, 'html.parser')
 		scripts = soup.find_all(name='div', attrs={
 			"class": re.compile(r'.*(foot|nav|Nav|footer|bottom|menu|before-content|polysemyAll).*$')})
@@ -21,7 +24,9 @@ def get_main_page(url,person=None):
 			script.extract()
 		for script in soup(["script", "style","select"]):
 			script.extract()
-		text = soup.find(name='body').get_text()
+
+		text = soup.text
+
 		#lines = (line.strip() for line in text.splitlines())
 		# text = '\n\r'.join(chunk for chunk in lines if chunk)
 		lines = (line.strip() for line in text.split('\n'))
@@ -35,6 +40,7 @@ def get_main_page(url,person=None):
 	except Exception as e:
 		logger.info(e)
 		text = ""
+	text=re.sub('&nbsp','',text)
 	return text
 
 
