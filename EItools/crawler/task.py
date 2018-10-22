@@ -58,7 +58,7 @@ def save_task(task_id,file_path,task_name,creator,creator_id):
                 person['name'] = row[0]
                 person['org'] = row[1]
                 person['task_id'] = ObjectId(task_id)
-                mongo_client.db['uncrawled_person'].save(person)
+                mongo_client.save_person(person)
         logger.info("pulish task: {} total: {}".format(task_id, total))
         task = dict()
         task['_id'] = ObjectId(str(task_id))
