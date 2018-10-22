@@ -77,10 +77,10 @@ class MagicSearch():
         headers = {'user-agent': self.get_random_user_agent()}
         try:
             requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
-            # result, proxies = proxy_switch.get_proxy()
-            # self.proxies = proxies
+            result, proxies = proxy_switch.get_proxy()
+            self.proxies = proxies
             r = requests.get(url=url,
-                             # proxies=self.proxies,
+                             proxies=self.proxies,
                              headers=headers,
                              allow_redirects=False,
                              verify=False,
@@ -237,8 +237,11 @@ class MagicSearch():
 
     def get_webpage_content(self,url):
         headers = {'user-agent': self.get_random_user_agent()}
-        res = requests.get(url, headers=headers)
+        requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+        res = requests.get(url, headers=headers,verify=False,timeout=10)
         # res.encoding='utf-8'
-        content = res.content.decode('utf-8')
-        return content
+        content = res.content
+        charset = cchardet.detect(content)
+        text = content.decode(charset['encoding'])
+        return text
 magic_search=MagicSearch()

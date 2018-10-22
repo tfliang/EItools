@@ -5,7 +5,8 @@ from EItools.client.mongo_client import MongoDBClient, mongo_client
 DATA_DIR = os.path.join(os.path.abspath('..'), 'data')
 
 def clean_text(text):
-    text = text.replace('\xa0', '').replace('\u3000', '').strip()#.replace('\n', '')
+    if text is not None:
+        text = text.replace('\xa0', '').replace('\u3000', '').strip()#.replace('\n', '')
     return text
 
 def clean_word(text):

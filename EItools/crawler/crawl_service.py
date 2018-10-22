@@ -79,7 +79,6 @@ def get_data_from_web(person,info_crawler):
     result = search_items.Get('{},{}'.format(person['name'], person['org']))['res']
     #result_without_org = search_items.Get('{},'.format(person['name']))['res']
     result_rest = list(filter(select, result))
-    result_rest=list(filter(select,result_rest))
 
 
     #result_without_org_rest = list(filter(select, result_without_org))
@@ -108,6 +107,7 @@ def get_data_from_web(person,info_crawler):
     #     se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
     # result_sorted_final = sorted(result_rest, key=lambda s: s['last_time'], reverse=True)
     result_sorted_final=result_rest
+    p['raw_result']=result
     p['result'] = result_sorted_final
     if len(result_sorted_final) > 0:
         selected_item = result_sorted_final[0]

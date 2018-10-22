@@ -23,6 +23,23 @@ ms = magic_search
 def get_res(fakequery, query):
     res = []
     try:
+        for i in ms.search(query=query, pause=0.5):
+            try:
+                th = {}
+                for k in i:
+                    if i[k] is None:
+                        th[k] = ''
+                    else:
+                        th[k] = i[k]
+                th['source'] = 'google'
+                th['label'] = int(clf.predict([Feature.get_feature(fakequery, th)])[0])
+                th['score'] = clf.predict_proba([Feature.get_feature(fakequery, th)])[0][1]
+                res.append(th)
+            except Exception as e:
+                logger.error("when search google:{}".format(e))
+    except Exception as e:
+        print(e)
+    try:
         for i in ms.search_baidu(query=query, pause=0.5):
             try:
                 th = i
@@ -32,26 +49,9 @@ def get_res(fakequery, query):
                 th['score'] = clf.predict_proba([Feature.get_feature(fakequery, th)])[0][1]
                 res.append(th)
             except Exception as e:
-                print(e)
+                logger.error("when search baidu:{}".format(e))
     except Exception as e:
         print(e)
-    # try:
-    #     for i in ms.search(query=query, pause=0.5):
-    #         try:
-    #             th = {}
-    #             for k in i:
-    #                 if i[k] is None:
-    #                     th[k] = ''
-    #                 else:
-    #                     th[k] = i[k]
-    #             th['source'] = 'google'
-    #             th['label'] = int(clf.predict([Feature.get_feature(fakequery, th)])[0])
-    #             th['score']=clf.predict_proba([Feature.get_feature(fakequery, th)])[0][1]
-    #             res.append(th)
-    #         except Exception as e:
-    #             print(e)
-    # except Exception as e:
-    #     print(e)
     return res
 
 def Get_all(str):

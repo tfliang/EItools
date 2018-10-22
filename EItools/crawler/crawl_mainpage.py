@@ -12,7 +12,9 @@ magic_search=MagicSearch()
 def get_main_page(url,person=None):
 	try:
 		source_code = magic_search.get_webpage_content(url)
-		source_code=re.sub(r'(<br>|</br>)','\n\r',source_code)
+		source_code=re.sub(r'(<BR>|<br>|</br>|<br />|<br/>)','\n\r',source_code)
+		source_code = re.sub(r'(<li>|</li>)', '\n\r', source_code)
+		source_code = re.sub(r'(<p>|</p>)', '\n\r', source_code)
 		source_code=re.sub(r'(<ul>)','<ol>',source_code)
 		source_code=re.sub(r'<ur/>','<ol/>',source_code)
 		soup = bs4.BeautifulSoup(source_code, 'html.parser')
@@ -25,7 +27,7 @@ def get_main_page(url,person=None):
 		for script in soup(["script", "style","select"]):
 			script.extract()
 
-		text = soup.text
+		text = soup.get_text()
 
 		#lines = (line.strip() for line in text.splitlines())
 		# text = '\n\r'.join(chunk for chunk in lines if chunk)
@@ -40,7 +42,7 @@ def get_main_page(url,person=None):
 	except Exception as e:
 		logger.info(e)
 		text = ""
-	text=re.sub('&nbsp','',text)
+	text=re.sub('&nbsp',' ',text)
 	return text
 
 
@@ -65,5 +67,6 @@ def get_lasttime_from_mainpage(url):
 
 
 
-#print(get_main_page("https://baike.baidu.com/item/%E5%88%98%E9%9D%99/10464312"))
+#print(get_main_page("http://www.genetics.cas.cn/huangxun/"))
+#print(get_main_page("http://people.ucas.edu.cn/~pchen1901"))
 

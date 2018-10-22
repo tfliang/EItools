@@ -285,7 +285,7 @@ def clear_status():
     persons=mongo_client.get_collection('uncrawled_person').find({'task_id':ObjectId('5ba20fee8d4315163aba3cdd')})
     for person in persons:
         mongo_client.db['uncrawled_person'].update({'_id':person['_id']},{'$set':{"status":1}})
-clear_status()
+#clear_status()
 
 #export_data()
 # affs=mongo_client.db['aff'].find()
@@ -395,7 +395,35 @@ def get_text_from_url(url):
     print(p['info'])
     apart_text(p)
 
-get_text_from_url("http://people.ucas.ac.cn/~liujifeng")
+#get_text_from_url("http://people.ucas.ac.cn/~liujifeng")
+
+def run_data():
+    db=mongo_client.get_collection("crawled_person_final")
+    db_url=mongo_client.get_collection("url2").find()
+    for i,data in enumerate(db_url):
+        if i<67:
+            continue
+        print(data)
+        p=db.find_one({'_id':data['_id']})
+        p['url']=data['url']
+        p['info'] = crawl_mainpage.get_main_page(p['url'], p)
+        if p['info']!="":
+            p=apart_text(p)
+            mongo_client.get_collection("url2").save(p)
+#run_data()
+
+def test_award():
+    db = mongo_client.get_collection("crawled_person_final")
+    db_collection=db.find({'task_id':ObjectId("5ba20fee8d4315163aba3cdd")})
+    for data in db_collection:
+        print(data['_id'])
+        if 'patents_region' in data and data['patents_region'] !="":
+            print(data['patents_region'])
+            print(detail_apart.find_patents(data['patents_region']))
+test_award()
+
+
+
 
 
 

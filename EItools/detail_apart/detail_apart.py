@@ -43,8 +43,8 @@ def find_name(text):
         print_tag(AFF, 'AFF', text)
     return PER
 patent_time=r'((?:19|20)[0-9]{2})[年|.|/]?'
-pattern_time = r'((?:19|20)[0-9]{2}[年|.|/]?[0-9]{0,2}[月]?|至今|今)'
-pattern_work_time=r'(曾任|现任|现为|同年|(?:19|20)[0-9]{2}[年./-]?[0-9]{0,2}(月|.)?\s*(?:-|－|—|--|-|～|--|毕业|至|~)+\s*(?:(?:(?:19|20)[0-9]{2}[年|.|/|-]?[0-9]{0,2}[月]?)|至今|今|现在)?)'
+pattern_time = r'((?:19|20)[0-9]{2}[年|.|/|-]?[0-9]{0,2}[月]?|至今|今|现在)'
+pattern_work_time=r'(曾任|现任|现为|同年|(?:19|20)[0-9]{2}[年./-]?[0-9]{0,2}(月|.)?\s*(?:-|－|—|--|-|～|--|毕业|至|~)?\s*(?:(?:(?:19|20)[0-9]{2}[年|.|/|-]?[0-9]{0,2}[月]?)|至今|今|现在)?)'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -137,10 +137,12 @@ def find_work(text):
 
 #1981年本科毕业于湖南师范大学化学系
 def find_edu(text):
+    if find_word_en(text):
+        text = chinese_helper.translate(text)
     aff_list = find_aff(text)
 
     time = re.findall(pattern_time, text)
-
+    aff_all=""
     if aff_list is not None and len(aff_list) > 0:
         aff_all = ','.join(aff_list)
         for aff in aff_list:
@@ -154,14 +156,14 @@ def find_edu(text):
             degree='学士'
         if '研究生' in rest_content or '硕士' in rest_content :
             degree='硕士'
-        if '博士' in rest_content or '博士后' in rest_content:
+        if '博士' in rest_content and '博士后' not in rest_content:
             degree='博士'
         if degree=='学士':
             diploma='本科'
         elif degree=='博士' or degree=='硕士':
             diploma='研究生'
         print("time is:{}".format(time))
-        print("aff is:{}".format(aff))
+        print("aff is:{}".format(aff_all))
         print("degree is:{}".format(degree))
         print("diploma is:{}".format(diploma))
 
@@ -180,14 +182,13 @@ def find_edu(text):
 
 
 def find_patent(text):
-    text=re.sub(' ','',text)
     inventor_names=find_name(text)
     patent_number_pattern=r'((?:ZL|CN|JP)?[0-9X\\s.]{7,15}.{0,1}[0-9X]{0,1})'
     patent_number=re.findall(patent_number_pattern,text)
     text = re.sub(patent_number_pattern, "", text)
-    tf.reset_default_graph()
-    patent_name=extract_patent(text)
-    patent_name=''.join(patent_name) if patent_name is not None else ""
+    #tf.reset_default_graph()
+    patent_name=find_longest(re.split(r'[,:，：]',text))#extract_patent(text)
+    patent_name=patent_name[0] if patent_name is not None else ""
     time = re.findall(patent_time, text)
     print("time is:{}".format(time))
     print("inventor is:{}".format(inventor_names))
@@ -232,7 +233,7 @@ def find_project(text):
         project = {"title": project_name, "cat": project_cat, "fund": project_funds,"start":"","end":"","role":"","code":project_number}
     return project
 
-def find_award(text):
+def find_award2(text):
     time=re.findall(pattern_time,text)
     tf.reset_default_graph()
     result = extract_award(text)
@@ -248,12 +249,43 @@ def find_award(text):
     if title!=""  or name !="":
         if len(award_title)>1:
             for a_t in award_title:
-                award = {'title': a_t, 'year': time, 'award': ""}
+                award = {'title': "", 'year': time, 'award': a_t}
                 awards.append(award)
         else:
-            award = {'title': title, 'year': time, 'award': name}
+            award = {'title': name, 'year': time, 'award': title}
             awards.append(award)
     return awards
+
+
+def find_award(text):
+    awards = []
+    if '获' in text:
+        award_title_item=re.search(r'获(.+?)奖',text)
+        if award_title_item:
+            award_title=award_title_item.group(0)
+            time = re.findall(pattern_time, text)
+            time = time[0] if len(time) > 0 else ""
+            award = {'title':"", 'year': time, 'award': award_title}
+            awards.append(award)
+    else:
+        time = re.findall(pattern_time, text)
+        time = time[0] if len(time) > 0 else ""
+        text=re.sub(pattern_time,'',text)
+        text_part=re.split(r'[，,；;\s+]',text)
+        award_title=""
+        for part in text_part:
+            if re.search(r'奖',part) is not None and len(part)>3:
+                award_title=re.search(r'(.*?)奖',part).group(0)
+                continue
+        if award_title !="":
+            award = {'title': "", 'year': time, 'award': award_title}
+            awards.append(award)
+    return awards
+
+
+
+
+
 
 def find_socs(text):
     socs=[]
@@ -397,7 +429,10 @@ def find_awards(text):
     #     awards_all.append(text[indexs[len(indexs)-1]:len(text)])
     #awards_all=find_sentence(text)
     #if len(awards_all)==0:
-    awards_all=re.split(r'[\n]', text)
+    if '获' not in text:
+        awards_all=re.split(r'[\n]', text)
+    else:
+        awards_all=re.split(r'[,;、，；]',text)
     print(awards_all)
     for t in awards_all:
         if t!="":
@@ -583,7 +618,6 @@ def fetch_pubs_from_webpage(text):
     return res
 
 
-
-
+#find_projects("国家自然科学基金杰出青年科学基金项目：地震波非弱散射理论及地震散射层析成象研究 （2001.1—2004.12）")
 
 

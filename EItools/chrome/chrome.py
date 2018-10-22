@@ -73,7 +73,7 @@ class ChromeCrawler:
     #     return self.parse_page(page)
 
     def download_parse2(self,keyword,retries=0):
-        page=self.search.search_page_baidu(keyword)
+        page=self.search.search_page(keyword)
         return self.parse_page(page)
 
 
