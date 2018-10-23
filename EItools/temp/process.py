@@ -412,16 +412,21 @@ def run_data():
             mongo_client.get_collection("url2").save(p)
 #run_data()
 
-def test_award():
-    db = mongo_client.get_collection("crawled_person_final")
-    db_collection=db.find({'task_id':ObjectId("5ba20fee8d4315163aba3cdd")})
-    for data in db_collection:
-        print(data['_id'])
-        if 'patents_region' in data and data['patents_region'] !="":
-            print(data['patents_region'])
-            print(detail_apart.find_patents(data['patents_region']))
-test_award()
+#def test_award():
+    # db = mongo_client.get_collection("crawled_person_final")
+    # db_collection=db.find({'task_id':ObjectId("5ba20fee8d4315163aba3cdd")})
+    # for data in db_collection:
+    #     print(data['_id'])
+    #     if 'patents_region' in data and data['patents_region'] !="":
+    #         print(data['patents_region'])
+    #         print(detail_apart.find_patents(data['patents_region']))
+#test_award()
 
+def find_awards():
+    person=mongo_client.get_crawled_person_by_pid("5bcdc9438d43152c1b6c418e")
+    if person is not None:
+        print(detail_apart.find_awards(person['awards_region']))
+find_awards()
 
 
 

@@ -43,8 +43,8 @@ def find_name(text):
         print_tag(AFF, 'AFF', text)
     return PER
 patent_time=r'((?:19|20)[0-9]{2})[年|.|/]?'
-pattern_time = r'((?:19|20)[0-9]{2}[年|.|/|-]?[0-9]{0,2}[月]?|至今|今|现在)'
-pattern_work_time=r'(曾任|现任|现为|同年|(?:19|20)[0-9]{2}[年./-]?[0-9]{0,2}(月|.)?\s*(?:-|－|—|--|-|～|--|毕业|至|~)?\s*(?:(?:(?:19|20)[0-9]{2}[年|.|/|-]?[0-9]{0,2}[月]?)|至今|今|现在)?)'
+pattern_time = r'((?:19|20)[0-9]{2}[年|.|/|-]?(?:0[1-9]|1[0-2})[月]?|至今|今|现在)'
+pattern_work_time=r'(曾任|现任|现为|同年|(?:19|20)[0-9]{2}[年./-]?(?:0[1-9]|1[0-2})(月|.)?\s*(?:-|－|—|--|-|～|--|毕业|至|~)?\s*(?:(?:(?:19|20)[0-9]{2}[年|.|/|-]?(?:0[1-9]|1[0-2})[月]?)|至今|今|现在)?)'
 
 def match(aff_list,time_list,text):
     aff_list_with_index=zip(aff_list,[text.index(aff) for aff in aff_list])
@@ -429,7 +429,7 @@ def find_awards(text):
     #     awards_all.append(text[indexs[len(indexs)-1]:len(text)])
     #awards_all=find_sentence(text)
     #if len(awards_all)==0:
-    if '获' not in text:
+    if '\n' in text:
         awards_all=re.split(r'[\n]', text)
     else:
         awards_all=re.split(r'[,;、，；]',text)
