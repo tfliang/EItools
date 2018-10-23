@@ -184,33 +184,33 @@ def apart_text(p):
     p['projects'] = detail_apart.find_projects(p['projects_region'])
     p['pubs']=detail_apart.fetch_pubs_from_webpage(p['info'])
     p['aff'] = {}
+    current_aff = []
     if AFF is not None and len(AFF) > 0:
-        p['aff']['inst'] = ' '.join(AFF)
-    else:
-        current_aff = []
-        if AFF_ALL is not None:
-            for aff in AFF_ALL:
-                print("aff-{}".format(aff))
-                try:
-                    aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
-                                                                                                      '\]').replace(
-                        '+', '\+').replace('\\r', '\\\\r')
-                    pattern = '(现为|至今|现任职于|现任|-今于|目前为|现为|工作单位|-今){1,2}[\s\S]{0,5}' + aff_filter
-                    filter_pattern=r'(大学|研究院|公司|研究所|科学院)'
-                    result = re.search(pattern, p['exp_region'])
+        for aff in AFF:
+            current_aff.append(aff)
+    if AFF_ALL is not None:
+        for aff in AFF_ALL:
+            print("aff-{}".format(aff))
+            try:
+                aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
+                                                                                                  '\]').replace(
+                    '+', '\+').replace('\\r', '\\\\r')
+                pattern = '(现为|至今|现任职于|现任|-今于|目前为|现为|工作单位|-今){1,2}[\s\S]{0,5}' + aff_filter
+                filter_pattern=r'(大学|研究院|公司|研究所|科学院)'
+                result = re.search(pattern, p['exp_region'])
+                if result is not None:
+                    if len(re.findall(filter_pattern,aff))>0:
+                        current_aff.append(aff)
+                else:
+                    pattern_back = aff_filter + '[\s\S]{0,5}(至今){1,2}'
+                    result = re.search(pattern_back, p['exp_region'])
                     if result is not None:
-                        if len(re.findall(filter_pattern,aff))>0:
+                        if len(re.findall(filter_pattern, aff)) >0:
                             current_aff.append(aff)
-                    else:
-                        pattern_back = aff_filter + '[\s\S]{0,5}(至今){1,2}'
-                        result = re.search(pattern_back, p['exp_region'])
-                        if result is not None:
-                            if len(re.findall(filter_pattern, aff)) >0:
-                                current_aff.append(aff)
-                except Exception as e:
-                    logger.error("when find current aff:{}".format(e))
-        if len(current_aff) > 0:
-            p['aff']['inst'] = ' '.join(current_aff)
+            except Exception as e:
+                logger.error("when find current aff:{}".format(e))
+    if len(current_aff) > 0:
+        p['aff']['inst'] = ' '.join(set(current_aff))
     if 'inst' not in p['aff'] or p['aff']['inst']=="":
         p['aff']['inst']=p['org']
     return p
