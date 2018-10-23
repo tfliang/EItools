@@ -282,10 +282,10 @@ def get_data():
 
 #get_data()
 def clear_status():
-    persons=mongo_client.get_collection('uncrawled_person').find({'task_id':ObjectId('5ba20fee8d4315163aba3cdd')})
+    persons=mongo_client.get_collection('uncrawled_person').find({'task_id':ObjectId('5bcea3b38d43152bf8876575')})
     for person in persons:
         mongo_client.db['uncrawled_person'].update({'_id':person['_id']},{'$set':{"status":1}})
-#clear_status()
+clear_status()
 
 #export_data()
 # affs=mongo_client.db['aff'].find()
@@ -426,7 +426,7 @@ def find_awards():
     person=mongo_client.get_crawled_person_by_pid("5bcdc9438d43152c1b6c418e")
     if person is not None:
         print(detail_apart.find_awards(person['awards_region']))
-find_awards()
+#find_awards()
 
 
 
