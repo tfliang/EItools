@@ -104,15 +104,15 @@ def Get(str):
     if aff.find('中国科学院') != -1 or aff.find('中科院') != -1:
         cra['type'] = 'cas.cn'
         # if Name.iscommon(name):
-        query = ' '.join([name, "中国科学院","cas.cn","ac.cn"])
+        query = ' '.join([name, "中国科学院","site.*.cas.cn","site.*.ac.cn"])
     # else:
     #	query = ' '.join([name, 'site:*.cas.cn'])
     elif aff.find('大学') != -1 or aff.find('学院') != -1:
         cra['type'] = 'edu.cn'
         if Name.iscommon(name):
-            query = ' '.join([name, aff, ' .edu.cn'])
+            query = ' '.join([name, aff, 'site.*.edu.cn'])
         else:
-            query = ' '.join([name, ' .edu.cn'])
+            query = ' '.join([name, 'site.*.edu.cn'])
     else:
         cra['type'] = 'other'
         query = ' '.join([name, aff])
