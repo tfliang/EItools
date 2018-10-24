@@ -191,13 +191,13 @@ def apart_text(p):
                     '+', '\+').replace('\\r', '\\\\r')
                 pattern = '(现为|至今|现任职于|现任|-今于|目前为|现为|工作单位|-今|现在|当前){1,2}[\s\S]{0,5}' + aff_filter
                 filter_pattern=r'(大学|研究院|公司|研究所|科学院)'
-                result = re.search(pattern, p['exp_region'])
+                result = re.search(pattern, p['info'])
                 if result is not None:
                     if len(re.findall(filter_pattern,aff))>0:
                         current_aff.append(aff)
                 else:
                     pattern_back = aff_filter + '[\s\S]{0,5}(至今){1,2}'
-                    result = re.search(pattern_back, p['exp_region'])
+                    result = re.search(pattern_back, p['info'])
                     if result is not None:
                         if len(re.findall(filter_pattern, aff)) >0:
                             current_aff.append(aff)
