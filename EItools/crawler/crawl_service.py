@@ -122,13 +122,13 @@ def get_data_from_web(person,info_crawler):
         #     selected_item=se
         #     break
     #info, url = infoCrawler.get_info(person)
-    citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
+    #citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
     # # if affs is not None:
     # # p['s_aff'] = affs
     # #p['url'] = url
     # # p['info'] = info
-    p['citation'] = citation
-    p['h_index'] = h_index
+    # p['citation'] = citation
+    # p['h_index'] = h_index
     #p = extract_information.extract(info, p)
     if 'info' in p:
         apart_text(p)
