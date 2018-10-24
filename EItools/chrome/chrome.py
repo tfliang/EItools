@@ -76,6 +76,10 @@ class ChromeCrawler:
         page=self.search.search_page(keyword)
         return self.parse_page(page)
 
+    def download_parse_scholar(self,keyword,retries=0):
+        page=self.search.search_google_scholar(keyword)
+        return self.parse_page(page)
+
 
 
     # def download_page(self,keyword,retries=0):

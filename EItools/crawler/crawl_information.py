@@ -193,6 +193,13 @@ def update_person_by_detail(request):
         else:
             return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
 
+def crawl_google_scholar():
+    person={}
+    person['name']="李涓子"
+    person['org']="清华"
+    crawl_service.crawl_google_scholar(person)
+
+
 @celery_app.task
 def publish_task():
     for id in mongo_client.get_unfinished_task():
@@ -210,5 +217,8 @@ def clean_task():
         total = mongo_client.get_person_num_by_taskId(id)
         if total==0:
             mongo_client.update_task(task_status_dict['finished'],id)
+
+
+crawl_google_scholar()
 
 

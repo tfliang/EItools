@@ -66,7 +66,9 @@ def get_data_from_aminer(person):
     return False, person
 
 def select(r):
-    return r['label'] == 1 and r['score'] > 0.6 and 'kaoyan' not in r['domain'] if 'domain' in r else True and 'kaoyan' not in r['url'] if 'url' in r else True and '考研' not in r['title'] if 'title' in r else True and '考研' not in r['text'] if 'text' in r else True
+    if r['url']=="http://www.siom.ac.cn/":
+        print(1)
+    return r['label'] == 1 and r['score'] > 0.6 and ('kaoyan' not in r['domain'] if 'domain' in r else True) and ('kaoyan' not in r['url'] if 'url' in r else True) and ('考研' not in r['title'] if 'title' in r else True) and ('考研' not in r['text'] if 'text' in r else True)
 
 def select_website(r):
     return len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['url'] if 'url' in r else ""))>0 or len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['domain'] if 'domain' in r else ""))>0
@@ -122,13 +124,13 @@ def get_data_from_web(person,info_crawler):
         #     selected_item=se
         #     break
     #info, url = infoCrawler.get_info(person)
-    # citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
+    citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
     # # if affs is not None:
     # # p['s_aff'] = affs
     # #p['url'] = url
     # # p['info'] = info
-    # p['citation'] = citation
-    # p['h_index'] = h_index
+    p['citation'] = citation
+    p['h_index'] = h_index
     #p = extract_information.extract(info, p)
     if 'info' in p:
         apart_text(p)
@@ -238,6 +240,10 @@ def get_resp_result(resp):
     else:
         logger.error("request %s error: %s", resp.url, resp.text)
     return False, None
+
+def crawl_google_scholar(person):
+    citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
+    return h_index
 
 info_crawler = InfoCrawler()
 info_crawler.load_crawlers()

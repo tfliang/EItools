@@ -93,6 +93,36 @@ class MagicSearch():
             logger.exception(e)
             return None
 
+    def search_google_scholar(self,query):
+        url="https://scholar.google.com/citations"
+        param={
+            "hl": "en",
+            "view_op": "search_authors",
+            "mauthors": query,
+            "btnG":""
+        }
+        headers = {'user-agent': self.get_random_user_agent(),
+                   'host': 'scholar.google.com',
+                   'referer': 'https://scholar.google.com/citations?view_op=search_authors',
+                   }
+        result, proxies = proxy_switch.get_proxy()
+        self.proxies = proxies
+        try:
+            requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+            r = requests.get(url=url,
+                             params=param,
+                             headers=headers,
+                             proxies=self.proxies,
+                             allow_redirects=False,
+                             verify=False,
+                             timeout=10)
+            content = r.content
+            charset = cchardet.detect(content)
+            text = content.decode(charset['encoding'])
+            return text
+        except:
+            return None
+
     def search_baidu(self, query, start=0, pause=2):
         """
         Get the results you want,such as title,description,url
@@ -238,10 +268,13 @@ class MagicSearch():
     def get_webpage_content(self,url):
         headers = {'user-agent': self.get_random_user_agent()}
         requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
-        res = requests.get(url,headers=headers,verify=False,timeout=10)
+        result, proxies = proxy_switch.get_proxy()
+        self.proxies = proxies
+        res = requests.get(url,proxies=self.proxies,headers=headers,verify=False,timeout=10)
         res.encoding='utf-8'
         content = res.content
         charset = cchardet.detect(content)
         text = content.decode(charset['encoding'])
         return text
 magic_search=MagicSearch()
+

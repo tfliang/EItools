@@ -140,10 +140,7 @@ class MongoDBClient(object):
         c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"task_id": ObjectId(id)})
         if size > 0 and offset >= 0:
             c = c.skip(offset).limit(size)
-        for item in c:
-            item['id'] = str(item['_id'])
-            persons.append(item)
-        return persons
+        return c
 
     def get_person_num_by_taskId(self, id):
         return self.get_collection(settings.MONGO_UNCRAWLED_PERSON).find({"$and": [{"task_id": ObjectId(id)},{"status":{'$ne':0}}]}).count()

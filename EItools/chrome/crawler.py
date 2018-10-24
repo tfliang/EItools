@@ -54,11 +54,11 @@ class InfoCrawler:
     def get_scholar_info(self,person,aff=True,crawler_key="google-scholar"):
         if aff:
             template = '{} {}'.format(chinese_helper.translate(person['name'], fromLang="zh", toLang="en")
-                                      ,chinese_helper.translate(' '.join(person['org']),fromLang="zh",toLang="en"))
+                                      ,chinese_helper.translate(person['org'],fromLang="zh",toLang="en"))
         else:
             template=chinese_helper.translate(person['name'],fromLang="zh",toLang="en")
         crawler=self.crawlers[crawler_key]
-        snippets=crawler.download_parse2(template)
+        snippets=crawler.download_parse_scholar(template)
         citation,h_index, citation_in_recent_five_year=0,0,0
         if len(snippets)>0:
             content=crawler.get_scholar_citation("https://scholar.google.com/"+snippets[0]['page_src'])

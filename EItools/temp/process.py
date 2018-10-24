@@ -466,14 +466,37 @@ def caculate_data():
     print(count)
 #caculate_data()
 
+def select_website(r):
+    return len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['url'] if 'url' in r else ""))>0 or len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['domain'] if 'domain' in r else ""))>0
+
 def process1_data():
     task_id="5bcea3b38d43152bf8876575"
     persons=mongo_client.get_crawled_person(task_id)
     for i,person in enumerate(persons):
-        if 1000<i<2000:
-            crawl_service.crawl_person_info([person], task_id)
+        if 1000<i<1099:
+            result = person['result']
+            result_rest = list(filter(select, result))
+            result_rest = list(filter(select_website, result_rest))
+            # for se in result_rest:
+            #     se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
+            result_sorted_final = sorted(result_rest, key=lambda s: s['last_time'], reverse=True)
+            if len(result_sorted_final) > 0:
+                selected_item = result_sorted_final[0]
+                if selected_item['url']!=person['url']:
+                    print(i)
+                    person['result']=result_sorted_final
+                    person['url'] = selected_item['url']
+                    person['source'] = 'crawler'
+                    person['info'] = crawl_mainpage.get_main_page(p['url'], person)
+                    crawl_service.crawl_person_info([person], task_id)
 #process1_data()
 
+
+def get():
+    person=mongo_client.get_crawled_person_by_pid("5bcea4a68d4315560edcf16b")
+
+
+#get()
 
 
 
