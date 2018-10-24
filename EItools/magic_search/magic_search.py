@@ -268,9 +268,9 @@ class MagicSearch():
     def get_webpage_content(self,url):
         headers = {'user-agent': self.get_random_user_agent()}
         requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
-        result, proxies = proxy_switch.get_proxy()
-        self.proxies = proxies
-        res = requests.get(url,proxies=self.proxies,headers=headers,verify=False,timeout=10)
+        # result, proxies = proxy_switch.get_proxy()
+        # self.proxies = proxies
+        res = requests.get(url,headers=headers,verify=False,timeout=10)
         res.encoding='utf-8'
         content = res.content
         charset = cchardet.detect(content)

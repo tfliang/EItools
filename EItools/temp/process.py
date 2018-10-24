@@ -473,7 +473,7 @@ def process1_data():
     task_id="5bcea3b38d43152bf8876575"
     persons=mongo_client.get_crawled_person(task_id)
     for i,person in enumerate(persons):
-        if 1000<i<1099:
+        if 1097<i<1099 or 0<0<465:
             result = person['result']
             result_rest = list(filter(select, result))
             result_rest = list(filter(select_website, result_rest))
@@ -487,9 +487,9 @@ def process1_data():
                     person['result']=result_sorted_final
                     person['url'] = selected_item['url']
                     person['source'] = 'crawler'
-                    person['info'] = crawl_mainpage.get_main_page(p['url'], person)
+                    person['info'] = crawl_mainpage.get_main_page(person['url'], person)
                     crawl_service.crawl_person_info([person], task_id)
-#process1_data()
+process1_data()
 
 
 def get():
