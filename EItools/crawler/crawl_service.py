@@ -69,7 +69,7 @@ def select(r):
     return r['label'] == 1 and r['score'] > 0.6 and 'kaoyan' not in r['domain'] if 'domain' in r else True and 'kaoyan' not in r['url'] if 'url' in r else True and '考研' not in r['title'] if 'title' in r else True and '考研' not in r['text'] if 'text' in r else True
 
 def select_website(r):
-    return len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['url']))>0 or len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['domain'] if 'domain' in r else ""))>0
+    return len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['url'] if 'url' in r else ""))>0 or len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['domain'] if 'domain' in r else ""))>0
 
 def get_data_from_web(person,info_crawler):
     success, person_of_aminer = get_data_from_aminer(person)
