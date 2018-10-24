@@ -66,8 +66,6 @@ def get_data_from_aminer(person):
     return False, person
 
 def select(r):
-    if r['url']=="http://www.siom.ac.cn/":
-        print(1)
     return r['label'] == 1 and r['score'] > 0.6 and ('kaoyan' not in r['domain'] if 'domain' in r else True) and ('kaoyan' not in r['url'] if 'url' in r else True) and ('考研' not in r['title'] if 'title' in r else True) and ('考研' not in r['text'] if 'text' in r else True)
 
 def select_website(r):
