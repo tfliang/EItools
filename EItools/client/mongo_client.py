@@ -135,14 +135,14 @@ class MongoDBClient(object):
     def get_crawled_person_num_by_taskId(self, id):
         return self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"$and": [{"task_id": ObjectId(id)}]}).count()
 
-    def get_crawled_person(self,  offset=0, size=0):
+    def get_crawled_person(self, id,offset=0, size=0):
         persons = []
-        c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find()
+        c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"task_id": ObjectId(id)})
         if size > 0 and offset >= 0:
             c = c.skip(offset).limit(size)
         for item in c:
             item['id'] = str(item['_id'])
-            persons.append(item['id'])
+            persons.append(item)
         return persons
 
     def get_person_num_by_taskId(self, id):

@@ -66,10 +66,11 @@ def get_data_from_aminer(person):
     return False, person
 
 def select(r):
-    return r['label'] == 1 and r['score'] > 0 and 'kaoyan' not in r['url'] and '考研' not in r['title'] and '考研' not in r['text']
+    return r['label'] == 1 and r['score'] > 0.6 and 'kaoyan' not in r['domain'] if 'domain' in r else True and 'kaoyan' not in r['url'] if 'url' in r else True and '考研' not in r['title'] if 'title' in r else True and '考研' not in r['text'] if 'text' in r else True
 
 def select_website(r):
-    return len(re.findall('ac\.cn|edu\.cn|cas\.cn|baidu.com',r['url']))>0 or len(re.findall('ac\.cn|edu\.cn|cas\.cn|baidu.com',r['domain']))>0
+    return len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['url']))>0 or len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['domain'] if 'domain' in r else ""))>0
+
 def get_data_from_web(person,info_crawler):
     success, person_of_aminer = get_data_from_aminer(person)
     if success:
@@ -79,6 +80,7 @@ def get_data_from_web(person,info_crawler):
     result = search_items.Get('{},{}'.format(person['name'], person['org']))['res']
     #result_without_org = search_items.Get('{},'.format(person['name']))['res']
     result_rest = list(filter(select, result))
+    result_rest=list(filter(select_website,result_rest))
 
 
     #result_without_org_rest = list(filter(select, result_without_org))
@@ -103,10 +105,10 @@ def get_data_from_web(person,info_crawler):
         # 罕见度低，选取公共的
     # positive_result=[ r for r in result['res'] if r['label']==1.0]
     #if len(result_sorted) > 0:
-    # for se in result_rest:
-    #     se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
-    # result_sorted_final = sorted(result_rest, key=lambda s: s['last_time'], reverse=True)
-    result_sorted_final=result_rest
+    for se in result_rest:
+        se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
+    result_sorted_final = sorted(result_rest, key=lambda s: s['last_time'], reverse=True)
+    #result_sorted_final=result_rest
     p['raw_result']=result
     p['result'] = result_sorted_final
     if len(result_sorted_final) > 0:
@@ -134,8 +136,8 @@ def get_data_from_web(person,info_crawler):
     emails_prob = info_crawler.get_emails(person)
     p['source'] = 'crawler'
     p['emails_prob'] = emails_prob
-    if 'email' not in p and len(p['emails_prob']) > 0:
-        p['email'] = p['emails_prob'][0]
+    if ('email' not in p or p['email']=="") and len(p['emails_prob']) > 0:
+        p['email'] = p['emails_prob'][0][0]
 
     return p
 
@@ -144,27 +146,20 @@ def apart_text(p):
     PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ, AFF_ALL = apart_result if apart_result is not None else (
         None, None, None, None, None, None, None, None, None, None, None, None, None)
     honors = re.findall(
-        '(国家杰出青年|国家杰青|中科院百人计划|中国科学院百人计划|万人计划|国务院.*?政府特殊津贴|省部级以上科研院所二级研究员|973.*?首席科学家[\s\.。,，;；]+|863领域专家|百千万人才工程国家级人选|创新人才推进计划|中国工程院.*?院士|中国科学院.*?院士|诺贝尔奖|图灵奖|菲尔兹奖)',
+        '(长江学者|国家杰出青年|国家杰青|中科院百人计划|中国科学院百人计划|万人计划|国务院.*?政府特殊津贴|省部级以上科研院所二级研究员|973.*?首席科学家[\s\.。,，;；]+|863领域专家|百千万人才工程.*?人选者|创新人才推进计划|中国工程院院士|中国科学院院士|诺贝尔奖|图灵奖|菲尔兹奖)',
         p['info'])
     p['birth_time']=util.find_birthday(p['info'])
     p['mobile']=' '.join(util.find_phone_number(p['info']))
     p['degree'],p['diploma']=util.find_degree_and_diploma(p['info'])
     p['honors'] = list(set(honors))
-    p['title'] = ','.join(TIT) if TIT is not None else ""
-    if p['title']=="":
-        search_items=re.search(p['name'], p['info'])
-        if search_items is not None:
-            name_first_position=search_items.span()[0]
-            text_part_info=p['info'][name_first_position:name_first_position+70]
-            p['title']=','.join(Extract.extrac_title(text_part_info))
-    if 'position' not in p or p['position'] == "":
-        p['position'] = ','.join(JOB) if JOB is not None else ""
-        if p['position']=="":
-            search_items=re.search(p['name'], p['info'])
-            if search_items is not None:
-                name_first_position = search_items.span()[0]
-                text_part_info = p['info'][name_first_position:name_first_position + 30]
-                p['position'] = ','.join(Extract.extrac_position(text_part_info))
+    p['title'] = ""
+    p['position'] = ','.join(JOB) if JOB is not None else ""
+    search_items=re.search(p['name'], p['info'])
+    if search_items is not None:
+        name_first_position=search_items.span()[0]
+        text_part_info=p['info'][name_first_position:name_first_position+70]
+        p['title']+=','.join(set(Extract.extrac_title(text_part_info)))
+        p['position']+= ','.join(set(Extract.extrac_position(text_part_info)+JOB))
     p['research'] = ','.join(DOM) if DOM is not None else ""
     p['edu_exp_region'] = ','.join(EDU) if EDU is not None else ""
     p['exp_region'] = ','.join(WRK) if WRK is not None else ""
@@ -173,9 +168,8 @@ def apart_text(p):
     p['patents_region'] = ','.join(PAT) if PAT is not None else ""
     p['projects_region'] = ','.join(PRJ) if PRJ is not None else ""
     p['gender'] = util.find_gender(p['info'])
-    if 'email' not in p or p['email']=="":
-        email = util.find_email(p['info'])
-        p['email'] = email[0] if len(email) > 0 else ""
+    email = util.find_email(p['info'])
+    p['email'] = email[0] if len(email) > 0 else ""
     p['edu_exp'] = detail_apart.find_edus(p['edu_exp_region'])
     p['exp'] = detail_apart.find_works(p['exp_region'])
     p['academic_org_exp'] = detail_apart.find_socs(p['academic_org_exp_region'])
@@ -195,7 +189,7 @@ def apart_text(p):
                 aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
                                                                                                   '\]').replace(
                     '+', '\+').replace('\\r', '\\\\r')
-                pattern = '(现为|至今|现任职于|现任|-今于|目前为|现为|工作单位|-今){1,2}[\s\S]{0,5}' + aff_filter
+                pattern = '(现为|至今|现任职于|现任|-今于|目前为|现为|工作单位|-今|现在|当前){1,2}[\s\S]{0,5}' + aff_filter
                 filter_pattern=r'(大学|研究院|公司|研究所|科学院)'
                 result = re.search(pattern, p['exp_region'])
                 if result is not None:

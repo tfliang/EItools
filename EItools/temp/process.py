@@ -1,6 +1,9 @@
 import csv
 import json
 import string
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 
 import re
 
@@ -282,10 +285,10 @@ def get_data():
 
 #get_data()
 def clear_status():
-    persons=mongo_client.get_collection('uncrawled_person').find({'task_id':ObjectId('5bcea3b38d43152bf8876575')})
+    persons=mongo_client.get_collection('uncrawled_person').find({'task_id':ObjectId('5bcdc78a8d43152bf8876574')})
     for person in persons:
         mongo_client.db['uncrawled_person'].update({'_id':person['_id']},{'$set':{"status":1}})
-clear_status()
+#clear_status()
 
 #export_data()
 # affs=mongo_client.db['aff'].find()
@@ -427,6 +430,59 @@ def find_awards():
     if person is not None:
         print(detail_apart.find_awards(person['awards_region']))
 #find_awards()
+
+def caculate_data():
+    persons=mongo_client.get_crawled_person("5bcea3b38d43152bf8876575")
+    print(len(persons))
+    count=0
+    for person in persons:
+        value=0
+        if 'info' in person and person['info']!="":
+            value+=1
+        if 'edu_exp_region' in person and person['edu_exp_region']!="":
+            value+=1
+        if 'degree' in person and person['degree']!="":
+            value+=1
+        if 'exp_region' in person and person['exp_region']!="":
+            value+=1
+        if 'position' in person and person['position']!="":
+            value+=1
+        if 'title' in person and person['title']!="":
+            value+=1
+        if 'email' in person and person['email'] !="":
+            value+=1
+        if 'awards_region' in person and person['awards_region']!="":
+            value+=1
+        if 'patents_region' in person and person['patents_region']!="":
+            value+=1
+        if 'projects_region' in person and person['projects_region']!="":
+            value+=1
+        if 'pubs' in person and person['pubs'] is not None and len(person['pubs'])>0:
+            value+=1
+        if 'gender' in person and person['gender']!="":
+            value+=1
+        if value>7:
+            count+=1
+    print(count)
+#caculate_data()
+
+def process1_data():
+    task_id="5bcea3b38d43152bf8876575"
+    persons=mongo_client.get_crawled_person(task_id)
+    for i,person in enumerate(persons):
+        if 1000<i<2000:
+            crawl_service.crawl_person_info([person], task_id)
+#process1_data()
+
+
+
+
+
+
+
+
+
+
 
 
 

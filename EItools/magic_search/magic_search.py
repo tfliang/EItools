@@ -57,7 +57,7 @@ class MagicSearch():
         :return: result
         """
         time.sleep(pause)
-        domain = self.get_random_domain()
+        domain = "www.google.com"
         if start > 0:
             url = URL_NEXT
             url = url.format(
@@ -238,8 +238,8 @@ class MagicSearch():
     def get_webpage_content(self,url):
         headers = {'user-agent': self.get_random_user_agent()}
         requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
-        res = requests.get(url, headers=headers,verify=False,timeout=10)
-        # res.encoding='utf-8'
+        res = requests.get(url,headers=headers,verify=False,timeout=10)
+        res.encoding='utf-8'
         content = res.content
         charset = cchardet.detect(content)
         text = content.decode(charset['encoding'])

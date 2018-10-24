@@ -68,5 +68,5 @@ def get_lasttime_from_mainpage(url):
 
 
 #print(get_main_page("http://www.genetics.cas.cn/huangxun/"))
-#print(get_main_page("http://people.ucas.edu.cn/~pchen1901"))
+#print(get_main_page("http://www.cumt.edu.cn/09/f7/c13796a461303/page.htm"))
 
