@@ -155,4 +155,5 @@ if __name__ == "__main__":
     # print(check_contain_chinese('xxx'))
     # print(check_contain_chinese('xx中国'))
     #print(compare("中国科学技术大学","http://dsxt.ustc.edu.cn/zj_js.asp?zzid=992"))
-    print(find_degree_and_diploma("安景文，男，满族，1964年3月生，1990年8月参加工作，1993年4月加入中国共产党，研究生学历，硕士学位，研究员，现任辽宁省农业科学院科研管理处处长，拟任辽宁省农业科学院党组成员、总农艺师"))
+    #print(find_degree_and_diploma("安景文，男，满族，1964年3月生，1990年8月参加工作，1993年4月加入中国共产党，研究生学历，硕士学位，研究员，现任辽宁省农业科学院科研管理处处长，拟任辽宁省农业科学院党组成员、总农艺师"))
+    print(find_title("职称 :研究员."))

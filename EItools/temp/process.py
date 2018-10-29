@@ -285,7 +285,7 @@ def get_data():
 
 #get_data()
 def clear_status():
-    persons=mongo_client.get_collection('uncrawled_person').find({'task_id':ObjectId('5bcdc78a8d43152bf8876574')})
+    persons=mongo_client.get_collection('uncrawled_person').find({'task_id':ObjectId('5bd58e9b8d431508e304d60a')})
     for person in persons:
         mongo_client.db['uncrawled_person'].update({'_id':person['_id']},{'$set':{"status":1}})
 #clear_status()
@@ -489,7 +489,7 @@ def process1_data():
                     person['source'] = 'crawler'
                     person['info'] = crawl_mainpage.get_main_page(person['url'], person)
                     crawl_service.crawl_person_info([person], task_id)
-process1_data()
+#process1_data()
 
 
 def get():

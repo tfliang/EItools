@@ -183,13 +183,13 @@ def find_edu(text):
 
 def find_patent(text):
     inventor_names=find_name(text)
-    patent_number_pattern=r'((?:ZL|CN|JP)?[0-9X\\s.]{7,15}.{0,1}[0-9X]{0,1})'
+    patent_number_pattern=r'((?:ZL|CN|JP)?[0-9X\\s]{7,15}.{0,1}[0-9X.]{1,2})'
     patent_number=re.findall(patent_number_pattern,text)
     text = re.sub(patent_number_pattern, "", text)
     #tf.reset_default_graph()
-    patent_name=find_longest(re.split(r'[,:，：]',text))#extract_patent(text)
+    patent_name=find_longest(re.split(r'[,:，；。.：\(\)\[\]]',text))#extract_patent(text)
     patent_name=patent_name[0] if patent_name is not None else ""
-    time = re.findall(patent_time, text)
+    time = re.findall(pattern_time, text)
     print("time is:{}".format(time))
     print("inventor is:{}".format(inventor_names))
     print("patent_number is:{}".format(patent_number))
@@ -237,55 +237,70 @@ def find_award2(text):
     time=re.findall(pattern_time,text)
     tf.reset_default_graph()
     result = extract_award(text)
-    award_name, award_title = result if result is not None else (None, None)
+    award_kind, award_name = result if result is not None else (None, None)
     # title_all=re.findall(r'(国家|省|市|自治区|政府|协会|学会|国务院)[\u4e00-\u9fa5]*?(科学|技术|进步|自然|发明|科技){1,}\s*?奖',text)
     #title=title_all[0] if len(title_all)>0  else ""
     time= time[0] if len(time)>0 else ""
     name=','.join(award_name) if award_name is not None else ""
-    title=','.join(award_title) if award_title is not None else ""
+    print("name is"+name)
+    title=','.join(award_kind) if award_kind is not None else ""
     awards=[]
     if title=="" and name=="":
         return name
     if title!=""  or name !="":
-        if len(award_title)>1:
-            for a_t in award_title:
-                award = {'title': "", 'year': time, 'award': a_t}
+        if len(award_kind)>1:
+            for a_k in award_kind:
+                award = {'title': "", 'year': time, 'award': a_k}
                 awards.append(award)
         else:
             award = {'title': name, 'year': time, 'award': title}
             awards.append(award)
     return awards
 
-
 def find_award(text):
     awards = []
+    # result = extract_award(text)
+    # _, award_name = result if result is not None else (None, None)
+
     if '获' in text:
-        award_title_item=re.search(r'获(.+?)奖',text)
-        if award_title_item:
-            award_title=award_title_item.group(0)
-            time = re.findall(pattern_time, text)
-            time = time[0] if len(time) > 0 else ""
-            award = {'title':"", 'year': time, 'award': award_title}
+        time = re.findall(pattern_time, text)
+        time = time[0] if len(time) > 0 else ""
+        text = re.sub(pattern_time, '', text)
+        text_part = re.split(r'[，,；;\s+"'']', text)
+        award_kind=""
+        award_title=""
+        for part in text_part:
+            if re.search(r'奖', part) is not None and len(part) > 3:
+                award_kind = part
+                continue
+            if re.search(r'奖|排名',part) is None and len(part)>4:
+                award_title=part
+        if award_kind != "":
+            award = {'title': award_title, 'year': time, 'award': award_kind}
             awards.append(award)
     else:
         time = re.findall(pattern_time, text)
         time = time[0] if len(time) > 0 else ""
         text=re.sub(pattern_time,'',text)
         text_part=re.split(r'[，,；;\s+]',text)
+        award_kind=""
         award_title=""
         for part in text_part:
             if re.search(r'奖',part) is not None and len(part)>3:
-                award_title=re.search(r'(.*?)奖',part).group(0)
+                award_kind=part
                 continue
-        if award_title !="":
-            award = {'title': "", 'year': time, 'award': award_title}
+            if re.search(r'奖|排名',part) is None and len(part)>4:
+                award_title=part
+        if award_kind !="":
+            award = {'title': award_title, 'year': time, 'award': award_kind}
             awards.append(award)
     return awards
 
 
-
-
-
+def find_longest(li):
+    nums = [len(x) for x in li]
+    max_num_index_list = map(nums.index, heapq.nlargest(2, nums))
+    return [li[x] for x in list(max_num_index_list)]
 
 def find_socs(text):
     socs=[]
@@ -373,7 +388,6 @@ def find_patents(text):
             if patent is not None:
                 patents.append(patent)
     return patents
-
 
 def find_projects(text):
     projects=[]
@@ -506,10 +520,7 @@ pat = re.compile('[,，.。;；、:：]')
 def find_year(text):
     return pat_time.findall(' ' + text + ' ')
 
-def find_longest(li):
-    nums = [len(x) for x in li]
-    max_num_index_list = map(nums.index, heapq.nlargest(2, nums))
-    return [li[x] for x in list(max_num_index_list)]
+
 
 def isPaper(text):
     pat = re.compile('该文档|本站不保证|万元|基金|项目|专利|ZL[0-9]+|考研网|新闻网|爱学术|简介|https?://|万人计划|奖|创业|专项|主持|参与|攻读|助教|讲师|校长|大夫|教授|主任|学位|学者|负责|课题|目录|院长|所长|书记|工作|简历')
@@ -616,7 +627,6 @@ def fetch_pubs_from_webpage(text):
             res.append(th)
         time.sleep(1)
     return res
-
 
 
 

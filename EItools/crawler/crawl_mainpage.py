@@ -14,7 +14,10 @@ def get_main_page(url,person=None):
 		source_code = magic_search.get_webpage_content(url)
 		source_code=re.sub(r'(<BR>|<br>|</br>|<br />|<br/>)','\n\r',source_code)
 		source_code = re.sub(r'(<li>|</li>)', '\n\r', source_code)
-		source_code = re.sub(r'(<p>|</p>)', '\n\r', source_code)
+		source_code = re.sub(r'(<td.*?>|</td>)', ' ', source_code)
+		source_code = re.sub(r'(<tr.*?>|</tr>)', '\n\r', source_code)
+		source_code = re.sub(r'(<p .*?>|</p>)', '\n\r', source_code)
+		source_code=re.sub(r'<span.*?>|</span>',' ',source_code)
 		source_code=re.sub(r'(<ul>)','<ol>',source_code)
 		source_code=re.sub(r'<ur/>','<ol/>',source_code)
 		soup = bs4.BeautifulSoup(source_code, 'html.parser')
@@ -26,7 +29,6 @@ def get_main_page(url,person=None):
 			script.extract()
 		for script in soup(["script", "style","select"]):
 			script.extract()
-
 		text = soup.get_text()
 
 		#lines = (line.strip() for line in text.splitlines())
@@ -68,5 +70,5 @@ def get_lasttime_from_mainpage(url):
 
 
 #print(get_main_page("http://www.genetics.cas.cn/huangxun/"))
-#print(get_main_page("http://www.cumt.edu.cn/09/f7/c13796a461303/page.htm"))
+#print(get_main_page("http://people.ucas.edu.cn/~0002749"))
 
