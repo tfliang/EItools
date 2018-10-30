@@ -127,7 +127,6 @@ class MongoDBClient(object):
             person['id']=str(person['_id'])
             person['task_id']=str(person['task_id'])
             persons.append(person)
-        print(persons)
         return persons
 
     def search_crawled_person_by_taskId(self,id,name,offset=0,size=0):
