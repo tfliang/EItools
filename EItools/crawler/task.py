@@ -136,15 +136,15 @@ def export_data(request,taskid):
         return HttpResponse(json.dumps({"message":"task error"}), content_type="application/json")
 
 def write_json(data,file_name):
-    try:
-        json_stream=get_json_stream(data)
-        response=HttpResponse(content_type='application/json')
-        response['Content-Disposition']='attachment;filename='+parse.quote(file_name)+'.json'
-        response.write(json_stream)
-        return response
-    except Exception as e:
-        logger.error("save upload file:{}".format(e))
-        return HttpResponse(json.dumps({"message": "task error"}), content_type="application/json")
+    # try:
+    json_stream=get_json_stream(data)
+    response=HttpResponse(content_type='application/json')
+    response['Content-Disposition']='attachment;filename='+parse.quote(file_name)+'.json'
+    response.write(json_stream)
+    return response
+    # except Exception as e:
+    #     logger.error("save upload file:{}".format(e))
+    #     return HttpResponse(json.dumps({"message": "task error"}), content_type="application/json")
 
 def get_json_stream(data):
     file= StringIO()
