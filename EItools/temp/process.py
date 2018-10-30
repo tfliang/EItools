@@ -1,4 +1,5 @@
 import csv
+import heapq
 import json
 import string
 import sys
@@ -497,6 +498,51 @@ def get():
 
 
 #get()
+def find_longest(li):
+    nums = [len(x) for x in li]
+    max_num_index_list = map(nums.index, heapq.nlargest(2, nums))
+    return [li[x] for x in list(max_num_index_list)]
+
+def gen_data():
+    with open('/Users/bcj/Desktop/data(1000条).json','r') as f:
+        datas=json.load(f)
+    with open('/Users/bcj/Desktop/data3(1000条).json','w') as w:
+        for i,data in enumerate(datas):
+            # data['awards']=detail_apart.find_awards_list([data['awards_region']])
+            # patents=[]
+            # for d in data['patents']:
+            #     d['title']=find_longest(d['title'])[0]
+            #     d['code']=find_longest(re.sp)
+            #     d['code']=re.sub('[\(\)（）]','',d['code'])
+            #     if len(d['title'])>4:
+            #         patents.append(d)
+            #data['patents']=patents
+            del data['patents_region']
+            del data['awards_region']
+            del data['projects_region']
+            del data['edu_exp_region']
+            del data['exp_region']
+            if 'status' in data:
+                del data['status']
+            del data['row_number']
+            del data['academic_org_exp_region']
+
+        w.write(json.dumps(datas,ensure_ascii=False))
+#gen_data()
+
+def open_file():
+    with open('/Users/bcj/Desktop/data_final(1000条).json','r') as f:
+        datas=json.load(f)
+    with open('/Users/bcj/Desktop/test_data.csv','w') as w:
+        writer=csv.writer(w)
+        for data in datas:
+            writer.writerow([data['name']])
+open_file()
+
+
+
+
+
 
 
 

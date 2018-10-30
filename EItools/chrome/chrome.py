@@ -206,7 +206,7 @@ class ChromeCrawler:
     def get_scholar_citation(self,url):
         content = ""
         try:
-            source_code = self.search.get_webpage_content(url)
+            source_code = self.search.get_webpage_content(url,to_foreign=True)
             soup = bs4.BeautifulSoup(source_code, 'html.parser')
             content=soup.find(attrs={"id": "gsc_rsb_st"}).get_text(separator="<k>")
         except Exception as e:

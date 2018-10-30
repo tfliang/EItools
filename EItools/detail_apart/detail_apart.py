@@ -257,50 +257,72 @@ def find_award2(text):
             awards.append(award)
     return awards
 
+def find_longest(li):
+    nums = [len(x) for x in li]
+    max_num_index_list = map(nums.index, heapq.nlargest(2, nums))
+    return [li[x] for x in list(max_num_index_list)]
+
 def find_award(text):
     awards = []
     # result = extract_award(text)
     # _, award_name = result if result is not None else (None, None)
 
+
     if '获' in text:
         time = re.findall(pattern_time, text)
         time = time[0] if len(time) > 0 else ""
         text = re.sub(pattern_time, '', text)
-        text_part = re.split(r'[，,；;\s+"'']', text)
-        award_kind=""
-        award_title=""
+        text_part = re.split(r'[和\(\)\[\]【】（）：、:，,；.。;\s+”“"\']', text)
+        award_kinds=[]
+        award_title = ""
+        text_part = re.split(r'[和\(\)\[\]【】（）：、:，,；.。;”“"\']', text)
+        award_titles = find_longest(text_part)
+        for part in award_titles:
+            if re.search(r'奖|排名|论文|国家|完成|先后|届|教授|当选|主要', part) is None and len(part) > 4:
+                award_title = part
+                break
         for part in text_part:
-            if re.search(r'奖', part) is not None and len(part) > 3:
+            if re.search(r'奖', part) is not None and len(part) > 3 and len(part)<20 and re.search(r'获奖人|个人奖励|奖励名称|奖励单位|奖励年度|类别|荣誉|记录|专利|信息|博士|美金', part) is None:
                 award_kind = part
+                award_kinds.append(award_kind)
                 continue
-            if re.search(r'奖|排名',part) is None and len(part)>4:
-                award_title=part
-        if award_kind != "":
-            award = {'title': award_title, 'year': time, 'award': award_kind}
-            awards.append(award)
+
+        if len(award_kinds)>0:
+            for award_k in award_kinds:
+                award_k=re.sub('[度获得年项\d]','',award_k)
+                award = {'title': award_title, 'year': time, 'award': award_k}
+                awards.append(award)
     else:
         time = re.findall(pattern_time, text)
         time = time[0] if len(time) > 0 else ""
         text=re.sub(pattern_time,'',text)
-        text_part=re.split(r'[，,；;\s+]',text)
-        award_kind=""
-        award_title=""
+        text_part=re.split(r'[\(\)\[\]【】（）：、:，,；.。;\s+”“"\']',text)
+        award_kinds = []
+        award_title = ""
+        text_part = re.split(r'[和\(\)\[\]【】（）：、:，,；.。;”“"\']', text)
+        award_titles = find_longest(text_part)
+        for part in award_titles:
+            if re.search(r'奖|排名|论文|国家|完成|先后|届|授教|当选|主要', part) is None and len(part) > 4:
+                award_title = part
+                break
+        # award_title = ""
         for part in text_part:
-            if re.search(r'奖',part) is not None and len(part)>3:
-                award_kind=part
+            if re.search(r'奖', part) is not None and len(part) > 3 and len(part)<20 and re.search(r'获奖人|个人奖励|名称|单位|年度|类别|荣誉|记录|专利|信息|博士|美金', part) is None:
+                award_kind = part
+                award_kinds.append(award_kind)
                 continue
-            if re.search(r'奖|排名',part) is None and len(part)>4:
-                award_title=part
-        if award_kind !="":
-            award = {'title': award_title, 'year': time, 'award': award_kind}
-            awards.append(award)
+            # if re.search(r'奖|排名|论文|国家|完成|先后', part) is None and len(part) > 4:
+            #     award_title = part
+        if len(award_kinds) > 0:
+            for award_k in award_kinds:
+                award_k = re.sub('[度获得年项\d]', '', award_k)
+                award = {'title': award_title, 'year': time, 'award': award_k}
+                awards.append(award)
+    print(awards)
     return awards
 
+#find_award("湖北省自然科学二等奖“催化材料的纳米裁剪及其性能研究”（第一完成人）")
 
-def find_longest(li):
-    nums = [len(x) for x in li]
-    max_num_index_list = map(nums.index, heapq.nlargest(2, nums))
-    return [li[x] for x in list(max_num_index_list)]
 
 def find_socs(text):
     socs=[]
@@ -414,7 +436,7 @@ def find_projects(text):
         if '。' in text:
             projects_all = re.split(r'[。]', text)
         if '；' in text:
-            projects_all=re.split(r';',text)
+            projects_all=re.split(r'；',text)
         else:
             projects_all = re.split(r'[\n]', text)
     print(projects_all)
