@@ -123,9 +123,9 @@ class MongoDBClient(object):
         if size > 0 and offset >= 0:
             c = c.skip(offset).limit(size)
         for person in c:
-            del person['_id']
             person['id']=str(person['_id'])
             person['task_id']=str(person['task_id'])
+            del person['_id']
             persons.append(person)
         return persons
 
