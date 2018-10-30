@@ -542,15 +542,15 @@ def open_file():
             writer.writerow([data['name']])
 #open_file()
 
-def process_data_title():
-    persons=mongo_client.get_crawled_person_all_data_by_taskId("5bd58e9b8d431508e304d60a")
-    for p in persons:
-        p=mongo_client.get_crawled_person_by_pid(p['id'])
-        p['title'] = ""
-        if 'info' in p:
+# def process_data_title():
+#     persons=mongo_client.get_crawled_person_all_data_by_taskId("5bd58e9b8d431508e304d60a")
+#     for p in persons:
+#         p=mongo_client.get_crawled_person_by_pid(p['id'])
+#         p['title'] = ""
+#         if 'info' in p:
 
 
-process_data_title()
+#process_data_title()
 
 
 
