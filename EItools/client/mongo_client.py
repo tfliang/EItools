@@ -117,12 +117,14 @@ class MongoDBClient(object):
             persons.append(person_simple)
         return persons
 
-    def download_crawled_person_by_taskId(self,id, offset=0, size=0):
+    def get_crawled_person_all_data_by_taskId(self,id, offset=0, size=0):
         persons = []
         c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"task_id": ObjectId(id)})
         if size > 0 and offset >= 0:
             c = c.skip(offset).limit(size)
         for person in c:
+            person['id']=str(person['_id'])
+            person['task_id']=str(person['task_id'])
             persons.append(person)
         return persons
 

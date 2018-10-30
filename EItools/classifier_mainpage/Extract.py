@@ -66,7 +66,7 @@ class Extract:
 				nli.append(x)
 		return nli
 	def extrac_title(str,block=None):
-		li=Extract.position_slicer.slice_prob(str)
+		li=Extract.title_slicer.slice_prob(str)
 		nli=[]
 		for x in li:
 			if block is None or len(block.findall(x)) == 0:

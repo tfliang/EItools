@@ -278,7 +278,7 @@ def find_award(text):
         text_part = re.split(r'[和\(\)\[\]【】（）：、:，,；.。;”“"\']', text)
         award_titles = find_longest(text_part)
         for part in award_titles:
-            if re.search(r'奖|排名|论文|国家|完成|先后|届|教授|当选|主要', part) is None and len(part) > 4:
+            if re.search(r'奖|排名|论文|国家|完成|先后|届|教授|当选|主要|评为', part) is None and len(part) > 4:
                 award_title = part
                 break
         for part in text_part:
@@ -302,7 +302,7 @@ def find_award(text):
         text_part = re.split(r'[和\(\)\[\]【】（）：、:，,；.。;”“"\']', text)
         award_titles = find_longest(text_part)
         for part in award_titles:
-            if re.search(r'奖|排名|论文|国家|完成|先后|届|授教|当选|主要', part) is None and len(part) > 4:
+            if re.search(r'奖|排名|论文|国家|完成|先后|届|授教|当选|主要|评为', part) is None and len(part) > 4:
                 award_title = part
                 break
         # award_title = ""

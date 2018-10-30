@@ -4,6 +4,9 @@ import json
 import string
 import sys
 import os
+
+from EItools.classifier_mainpage.Extract import Extract
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 
 import re
@@ -537,7 +540,17 @@ def open_file():
         writer=csv.writer(w)
         for data in datas:
             writer.writerow([data['name']])
-open_file()
+#open_file()
+
+def process_data_title():
+    persons=mongo_client.get_crawled_person_all_data_by_taskId("5bd58e9b8d431508e304d60a")
+    for p in persons:
+        p=mongo_client.get_crawled_person_by_pid(p['id'])
+        p['title'] = ""
+        if 'info' in p:
+
+
+process_data_title()
 
 
 
