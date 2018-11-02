@@ -4,7 +4,7 @@ from bson import ObjectId
 from pymongo import MongoClient
 
 from EItools.client import settings
-
+from EItools.model.task import Task
 
 class MongoDBClient(object):
     def __init__(self, host=settings.MONGO_HOST, port=settings.MONGO_PORT):
@@ -56,7 +56,8 @@ class MongoDBClient(object):
         return task_ids
 
     def save_task(self, item):
-        self.get_collection(settings.MONGO_ALL_TASK).save(item)
+        task=Task(item)
+        task.save()
 
     def update_task(self, status, id):
         self.get_collection(settings.MONGO_ALL_TASK).update({"_id": ObjectId(id)}, {"$set": {"status": status}})
@@ -95,7 +96,7 @@ class MongoDBClient(object):
                 persons.append(item)
         return persons
 
-    def get_crawled_person_by_taskId(self,id, offset=0, size=0):
+    def get_crawled_person_by_taskId(self,id,offset=0, size=0,fields=[]):
         persons = []
         c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"task_id": ObjectId(id)})
         if size > 0 and offset >= 0:
@@ -162,8 +163,15 @@ class MongoDBClient(object):
 
     def get_person(self, pid):
         return self.get_collection(settings.MONGO_UNCRAWLED_PERSON).find_one({"_id": ObjectId(pid)})
+
     def get_crawled_person_by_pid(self,pid):
         return self.get_collection(settings.MONGO_CRAWLED_PERSON).find_one({"_id":ObjectId(pid)})
+
+    def get_changeinfo_list(self):
+        return self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"changed":'true'})
+
+    def get_changeinfo_num(self):
+        return self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"changed": 'true'}).count()
 
     def save_person(self, item):
         self.get_collection(settings.MONGO_UNCRAWLED_PERSON).save(item)

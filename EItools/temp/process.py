@@ -5,6 +5,7 @@ import string
 import sys
 import os
 
+from EItools.chrome.crawler import InfoCrawler
 from EItools.classifier_mainpage.Extract import Extract
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
@@ -19,7 +20,7 @@ from bson import ObjectId
 
 from EItools.client.mongo_client import mongo_client
 from EItools.crawler import crawl_mainpage, crawl_service
-from EItools.crawler.crawl_service import select, apart_text, crawl_person_info
+from EItools.crawler.crawl_service import select, apart_text, crawl_person_info, get_data_from_web
 from EItools.detail_apart import detail_apart
 from EItools.utils.chinese_helper import strQ2B
 
@@ -430,7 +431,7 @@ def run_data():
 #test_award()
 
 def find_awards():
-    person=mongo_client.get_crawled_person_by_pid("5bcdc9438d43152c1b6c418e")
+    person=mongo_client.get_crawled_person_by_pid("5bd58e9f8d4315256ec9c9a3")
     if person is not None:
         print(detail_apart.find_awards(person['awards_region']))
 #find_awards()
@@ -496,9 +497,14 @@ def process1_data():
 #process1_data()
 
 
+info_crawler = InfoCrawler()
+info_crawler.load_crawlers()
 def get():
-    person=mongo_client.get_crawled_person_by_pid("5bcea4a68d4315560edcf16b")
-
+    #p=mongo_client.get_crawled_person_by_pid("5bd58e9f8d4315256ec9c9a3")
+    p={"name":"唐杰","org":"清华大学"}
+    p = get_data_from_web(p, info_crawler)
+    #mongo_client.save_crawled_person(p)
+#get()
 
 #get()
 def find_longest(li):
@@ -551,6 +557,48 @@ def open_file():
 
 
 #process_data_title()
+
+def get_h_index():
+    offset=0
+    size=99
+    persons=[]
+    while(offset<99):
+        headers = {
+            'Content-Type': "application/json",
+            'Debug': "1",
+            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyLXpuVGk4SlwvVzlYMkVIS1k5MTgwVTRnb2RHR0pzR3hDKzVPdmhWK25rWkMrSG1WZE1cL1JqSkdYeEdPQ2Q4TW9PNzFmS0lkeGxGb2s0QU8zZjBCZkxrZHp2YnZOblwvQzh6NUV2Vml6NmhrIiwidWlkIjoiNTZhMDQyYmVjMzVmNGY2NWY3N2Y3OGRiIiwic3JjIjoiYW1pbmVyIiwicm9sZXMiOlsicm9zdGVyX2VkaXRvciJdLCJpc3MiOiJhcGkuYW1pbmVyLm9yZyIsImV4cCI6MTU0MjI2MTA5MiwiaWF0IjoxNTM5NjY5MDkyLCJqdGkiOiJiYWEzZWE2MDA3NTU5NzZjY2YwZTY1YmI0MzVkYTQyY2Q1YjU2YmNiZTgwZWUzNmNlN2UyNDI5YWNmYzBhOGNiY2NhN2M0MWFhNmM0ZDc1ZTU3MjgyNDhkZDIzN2Q4NzBmYWU5NDMxYTE2OGU4YTQyNzNmMGY0YWIyNjBhMDNlODIzYWEwMWJmYTI3NzViZGVmMGQyZjFmYWJjZGNmOGI2NjdjNzY3YjYwNjNlYTJlNTk5MThhZDljZTUwZWVhNTVlYmE5ZDY0OTQ3MjU5OTJkMGNlZTMwMGU5ZjA1NGMzNmYzMGY2NjU4ZjVhNzNmYmZhYjU4YmNiZWE1M2FlZGVhIiwiZW1haWwiOiIyNzE4NTgzNzQxQHFxLmNvbSJ9.gws9Q4aow34EtggsY35gtEPg6aklbU8WgEh0BkvVOig'}
+        response=requests.get(headers=headers,url="https://api.aminer.cn/api/roster/58f46d249ed5dbe8d7c841f1/order-by/h_index/offset/{}/size/{}".format(offset,size))
+        content=response.content
+        datas=json.loads(content)
+        for i,p in enumerate(datas['result']):
+            print(i)
+            person={'id':p['id'],'name':p['name'],'org':'Tsinghua university'}
+            citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
+            person['citation'] = citation
+            person['h_index'] = h_index
+            print(person)
+            persons.append(person)
+        offset+=size
+    with open('result/h_index.json','w') as f:
+        f.write(json.dumps(persons,ensure_ascii=False))
+
+#get_h_index()
+
+def process():
+    with open('/Users/bcj/Desktop/重新测试16个.json','r') as f:
+        datas=json.load(f)
+    datas_new=[]
+    for data in datas:
+        if 'pubs' in data and data['pubs'] is not None:
+            for pub in data['pubs'] :
+                if 'authors' in pub  and pub['authors'] is not None:
+                    print(pub['authors'])
+                    pub['authors']=','.join(pub['authors'])
+        datas_new.append(data)
+    with open('/Users/bcj/Desktop/重新测试16个.json','w') as w:
+        w.write(json.dumps(datas_new,ensure_ascii=False))
+#process()
+
 
 
 

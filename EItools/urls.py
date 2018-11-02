@@ -28,6 +28,8 @@ urlpatterns = [
     url(r'^download/crawldata/(.+)/$', task.export_data, name="download"),
     url(r'^view/task/(.+)/',task.get_task_by_id),
     url(r'^upload/crawlfile/$', crawl_information.crawl_file_info),
+    url(r'^show/tasks/(.+)/(.+)/', task.get_tasks_by_page),
+    url(r'^save/task/$', task.publish_task),
 
     url(r'^crawl/person/info/$',crawl_information.crawl_person_by_name),
     url(r'^view/crawldetail/(.+)/(.+)/(.+)/$',crawl_information.get_crawled_persons_by_taskId),
@@ -35,11 +37,8 @@ urlpatterns = [
     url(r'^update/personfield/$',crawl_information.update_person_by_field),
     url(r'^view/persondetail/(.+)/$',crawl_information.get_crawled_persons_by_personId),
     url(r'^search/person/$',crawl_information.search_crawled_persons),
-
-    url(r'^show/tasks/(.+)/(.+)/', task.get_tasks_by_page),
-    url(r'^save/task/$',task.publish_task),
-    url(r'^publish/task/$', crawl_information.publish_task),
-
+    url(r'^view/person/changeinfo/$', crawl_information.view_person_changeinfo),
+    url(r'^view/person/changeinfo/list/$', crawl_information.view_person_changeinfo_list),
 
     url(r'^crawl/person/info/(.+)/$',crawl_information.crawl_person_by_id)
 ]

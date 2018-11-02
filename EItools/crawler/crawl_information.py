@@ -21,6 +21,8 @@ task_status_dict={
 }
 
 
+def get_value(key, content):
+    return content[key] if key in content else ""
 
 def crawl_file_info(request):
     logger.info("save file start")
@@ -110,8 +112,6 @@ def get_crawled_persons_by_taskId(request,id,offset,size):
     return HttpResponse(json.dumps(result), content_type="application/json")
 
 def search_crawled_persons(request):
-    def get_value(key,content):
-        return content[key] if key in content else ""
     if request.method=='POST':
         content=json.loads(request.body)
         person_name=get_value('search_value',content)
@@ -166,8 +166,6 @@ def get_crawled_persons_by_personId(request,id):
 
 
 def update_person_by_Id(request):
-    def get_value(key,content):
-        return content[key] if key in content else ""
     if request.method == 'POST':
         person = json.loads(request.body)
         person_id = get_value('id', person)
@@ -180,8 +178,6 @@ def update_person_by_Id(request):
             return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
 
 def update_person_by_detail(request):
-    def get_value(key,content):
-        return content[key] if key in content else ""
     if request.method == 'POST':
         person = json.loads(request.body)
         person_id = get_value('id', person)
@@ -193,11 +189,38 @@ def update_person_by_detail(request):
         else:
             return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
 
-def crawl_google_scholar():
-    person={}
-    person['name']="李涓子"
-    person['org']="清华"
-    crawl_service.crawl_google_scholar(person)
+def view_person_changeinfo(request):
+    crawled_person_changeinfo_list=mongo_client.get_changeinfo_list()
+    return HttpResponse(json.dumps(crawled_person_changeinfo_list), content_type="application/json")
+
+def view_person_changeinfo_list(request):
+    if request.method=='POST':
+        content=json.loads(request.body)
+        offset = get_value('offset', content)
+        size = get_value('size', content)
+        crawled_persons_changeinfo_list = mongo_client.get_changeinfo_list()
+        result = {
+            'total': mongo_client.get_changeinfo_num(),
+            'offset': offset,
+            'size': size,
+            'info': crawled_persons_changeinfo_list
+        }
+    else:
+        result = {
+            'info': "error search"
+        }
+
+    return HttpResponse(json.dumps(result), content_type="application/json")
+
+
+
+
+def crawl_google_scholar(request):
+    if request.method == 'POST':
+        person={}
+        person['name']="李涓子"
+        person['org']="清华"
+        crawl_service.crawl_google_scholar(person)
 
 
 @celery_app.task
@@ -219,6 +242,6 @@ def clean_task():
             mongo_client.update_task(task_status_dict['finished'],id)
 
 
-crawl_google_scholar()
+
 
 

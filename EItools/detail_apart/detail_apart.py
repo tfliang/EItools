@@ -72,6 +72,7 @@ def is_soc_aff(text):
     if len(pat.findall(text)) != 0:
         return False
     return True
+
 def find_soc(text):
     is_contain_en=re.compile(r'[A-Za-z]',re.S)
     match=re.findall(is_contain_en,text)
@@ -183,7 +184,7 @@ def find_edu(text):
 
 def find_patent(text):
     inventor_names=find_name(text)
-    patent_number_pattern=r'((?:ZL|CN|JP)?[0-9X\\s]{7,15}.{0,1}[0-9X.]{1,2})'
+    patent_number_pattern=r'((?:ZL|CN|JP)?[0-9X\s]{7,20}[0-9X.]{1,2})'
     patent_number=re.findall(patent_number_pattern,text)
     text = re.sub(patent_number_pattern, "", text)
     #tf.reset_default_graph()
@@ -266,8 +267,6 @@ def find_award(text):
     awards = []
     # result = extract_award(text)
     # _, award_name = result if result is not None else (None, None)
-
-
     if '获' in text:
         time = re.findall(pattern_time, text)
         time = time[0] if len(time) > 0 else ""
@@ -289,7 +288,7 @@ def find_award(text):
 
         if len(award_kinds)>0:
             for award_k in award_kinds:
-                award_k=re.sub('[度获得年项\d]','',award_k)
+                award_k=re.sub('[度获得项\d]','',award_k)
                 award = {'title': award_title, 'year': time, 'award': award_k}
                 awards.append(award)
     else:
@@ -315,13 +314,11 @@ def find_award(text):
             #     award_title = part
         if len(award_kinds) > 0:
             for award_k in award_kinds:
-                award_k = re.sub('[度获得年项\d]', '', award_k)
+                award_k = re.sub('[度获得项\d]', '', award_k)
                 award = {'title': award_title, 'year': time, 'award': award_k}
                 awards.append(award)
-    print(awards)
     return awards
 
-#find_award("湖北省自然科学二等奖“催化材料的纳米裁剪及其性能研究”（第一完成人）")
 
 
 def find_socs(text):
@@ -335,7 +332,7 @@ def find_socs(text):
     #         socs_all.append(text[0:indexs[0]])
     #     socs_all.append(text[indexs[len(indexs) - 1]:len(text)])
     # if len(socs_all) == 0:
-    socs_all = re.split(r'[。\n,，；;、]', text)
+    socs_all = re.split(r'[。.\n,，；;、]', text)
     for t in socs_all:
         if t!="":
             soc=find_soc(t)
@@ -468,8 +465,7 @@ def find_awards(text):
     if '\n' in text:
         awards_all=re.split(r'[\n]', text)
     else:
-        awards_all=re.split(r'[,;、，；]',text)
-    print(awards_all)
+        awards_all=re.split(r'[。.,;、，；]',text)
     for t in awards_all:
         if t!="":
             award=find_award(t)
@@ -649,6 +645,5 @@ def fetch_pubs_from_webpage(text):
             res.append(th)
         time.sleep(1)
     return res
-
 
 

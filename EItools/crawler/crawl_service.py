@@ -11,8 +11,6 @@ from EItools.detail_apart import detail_apart
 from EItools import settings
 from EItools.utils import chinese_helper
 from EItools.chrome.crawler import InfoCrawler
-import time
-from time import strftime
 from EItools.crawler import crawl_mainpage, search_items
 from EItools.log.log import logger
 from EItools import celery_app
@@ -66,15 +64,17 @@ def get_data_from_aminer(person):
     return False, person
 
 def select(r):
-    return r['label'] == 1 and r['score'] > 0.6 and ('kaoyan' not in r['domain'] if 'domain' in r else True) and ('kaoyan' not in r['url'] if 'url' in r else True) and ('考研' not in r['title'] if 'title' in r else True) and ('考研' not in r['text'] if 'text' in r else True)
+    return r['label'] == 1 and r['score'] > 0.6 and ('kaoyan' not in r['domain'] if 'domain' in r else True) and ('kaoyan' not in r['url'] if 'url' in r else True) and (len(re.findall('考研|报告|访问|会议|应邀|授予|交流|招聘',r['title']))<1 if 'title' in r else True) and (len(re.findall('考研|报告|访问|会议|应邀|授予|交流|招聘',r['text']))<1 if 'text' in r else True)
 
 def select_website(r):
     return len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['url'] if 'url' in r else ""))>0 or len(re.findall('ac\.cn|edu\.cn|cas\.cn|baike',r['domain'] if 'domain' in r else ""))>0
 
 def get_data_from_web(person,info_crawler):
     success, person_of_aminer = get_data_from_aminer(person)
+
     if success:
         person['source'] = 'aminer'
+
     p=person
 
     result = search_items.Get('{},{}'.format(person['name'], person['org']))['res']
@@ -122,13 +122,13 @@ def get_data_from_web(person,info_crawler):
         #     selected_item=se
         #     break
     #info, url = infoCrawler.get_info(person)
-    #citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
+    citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
     # # if affs is not None:
     # # p['s_aff'] = affs
-    # #p['url'] = url
-    # # p['info'] = info
-    # p['citation'] = citation
-    # p['h_index'] = h_index
+    ##p['url'] = url
+    ##p['info'] = info
+    p['citation'] = citation
+    p['h_index'] = h_index
     #p = extract_information.extract(info, p)
     if 'info' in p:
         apart_text(p)
@@ -243,6 +243,39 @@ def crawl_google_scholar(person):
     citation, h_index, citation_in_recent_five_year = info_crawler.get_scholar_info(person)
     return h_index
 
+def compare_change(old,new,key):
+    change_item={}
+    if type(old) is str:
+        if old!=new:
+            change_item['key'] = key
+            change_item['old'] = old
+            change_item['new'] = new
+    elif type(old) is list:
+        for n in new:
+            if n not in old:
+                change_item['key'] = key
+                change_item['old'] = old
+                change_item['new'] = new
+    return change_item
+
+def constrast_change(person):
+    success, person_of_aminer = get_data_from_aminer(person)
+    change_items=[]
+    if success:
+        person['source'] = 'aminer'
+        change_item=compare_change(person_of_aminer['email'], person['email'], 'email')
+        if change_item is not {}:
+            change_items.append(change_item)
+        change_item=change_items.append(compare_change(person_of_aminer['aff']['inst'], person['aff']['inst'], 'inst'))
+        if change_item is not {}:
+            change_items.append(change_item)
+        change_item=change_items.append(compare_change(person_of_aminer['position'], person['position'], 'position'))
+        if change_item is not {}:
+            change_items.append(change_item)
+    person['change_info']=change_items
+    return person
+
+
 info_crawler = InfoCrawler()
 info_crawler.load_crawlers()
 @celery_app.task
@@ -260,6 +293,7 @@ def crawl_person_info(persons,task_id,from_api=False):
             p['_id']=ObjectId(p['id'])
             p['task_id']=ObjectId(task_id)
             p=get_data_from_web(p,info_crawler)
+            p=constrast_change(p)
             mongo_client.save_crawled_person(p)
                 # 存入智库
             # mongo_client.rm_person_by_id(p['_id'])
