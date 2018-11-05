@@ -37,8 +37,8 @@ urlpatterns = [
     url(r'^update/personfield/$',crawl_information.update_person_by_field),
     url(r'^view/persondetail/(.+)/$',crawl_information.get_crawled_persons_by_personId),
     url(r'^search/person/$',crawl_information.search_crawled_persons),
-    url(r'^view/person/changeinfo/$', crawl_information.view_person_changeinfo),
-    url(r'^view/person/changeinfo/list/$', crawl_information.view_person_changeinfo_list),
+    url(r'^view/person/changeinfolist/(.+)/(.+)/$', crawl_information.view_person_changeinfo_list),
+    url(r'^view/person/changeinfo/(.+)/$', crawl_information.view_person_changeinfo),
 
     url(r'^crawl/person/info/(.+)/$',crawl_information.crawl_person_by_id)
 ]

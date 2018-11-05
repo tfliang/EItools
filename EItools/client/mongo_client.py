@@ -158,17 +158,28 @@ class MongoDBClient(object):
     def get_person_num_by_taskId(self, id):
         return self.get_collection(settings.MONGO_UNCRAWLED_PERSON).find({"$and": [{"task_id": ObjectId(id)},{"status":{'$ne':0}}]}).count()
 
-
-    #person function
-
     def get_person(self, pid):
         return self.get_collection(settings.MONGO_UNCRAWLED_PERSON).find_one({"_id": ObjectId(pid)})
 
     def get_crawled_person_by_pid(self,pid):
         return self.get_collection(settings.MONGO_CRAWLED_PERSON).find_one({"_id":ObjectId(pid)})
 
-    def get_changeinfo_list(self):
-        return self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"changed":'true'})
+    def get_changeinfo_list(self,id=None,offset=0,size=0):
+        if id is not None:
+            c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find({'$and':[{"changed": True},{"_id":ObjectId(id)}]},{'change_info':1,'task_id':1,'_id':1,'name':1})
+        else:
+            c=self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"changed":True},{'change_info':1,'task_id':1,'_id':1,'name':1})
+        if size>0 and offset>=0:
+            c=c.skip(offset).limit(size)
+        persons=[]
+        for i,person in enumerate(c):
+            person['id']=str(person['_id'])
+            person['task_id']=str(person['task_id'])
+            task=self.get_task_by_Id(person['task_id'])
+            person['task_name']=task['task_name']
+            del person['_id']
+            persons.append(person)
+        return persons
 
     def get_changeinfo_num(self):
         return self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"changed": 'true'}).count()
@@ -200,24 +211,6 @@ class MongoDBClient(object):
 
     def update_crawled_person_status(self,id):
         self.get_collection(settings.MONGO_CRAWLED_PERSON).update({"_id":ObjectId(id)},{"$set":{"status":0}})
-
-    # def update_person_projects(self, pid, projects):
-    #     p_item = self.get_person(pid)
-    #     p_item["projs"] = projects
-    #     self.get_collection(settings.MONGO_UNCRAWLED_PERSON).save(p_item)
-    #     self.ins_col.remove(ObjectId(p_item["_id"]))
-    #
-    # def get_patent(self, pid):
-    #     return self.patent_col.find_one({"_id": ObjectId(pid)})
-    #
-    # def get_project(self, pid):
-    #     return self.proj_col.find_one({"_id": ObjectId(pid)})
-    #
-    # def get_pub(self, pid):
-    #     return self.pub_col.find_one({"_id": ObjectId(pid)})
-    #
-    # def save_pub(self, item):
-    #     self.pub_col.save(item)
 
 mongo_client = MongoDBClient()
 

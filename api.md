@@ -105,17 +105,69 @@ output:{
     'info': total_persons
 }
 ```
-10.查看人的变更信息
+10.查看所有人的变更信息
 ```
-url:view/person/changeinfo/list/ POST
-input:{
-    'offset':"",
-    "size":""
-}
+url:/view/person/changeinfolist/0/10/ GET
 output:{
-    'total': 100,
-    'offset': offset,
-    'size': size,
-    'info': total_persons /"error search"
+    "total": 0,
+    "offset": "0",
+    "size": "10",
+    "info": [
+        {
+            "name": "王炜",
+            "task_id": "5bcea3b38d43152bf8876575",
+            "change_info": [
+                {
+                    "key": "email",
+                    "old": "kf@people.cn",
+                    "new": "wangwei@nju.edu.cn"
+                },
+                {
+                    "key": "title",
+                    "old": "副主任",
+                    "new": "主任"
+                },
+                {
+                    "key": "position",
+                    "old": "教授,主任",
+                    "new": "教授,科长"
+                }
+            ],
+            "id": "5bcea3b58d4315560edced35",
+            "task_name": "换用主页模式"
+        }
+    ]
 }
+```
+11.查看单个人的信息
+
+```
+url:view/person/changeinfo/5bcea3b58d4315560edced35/
+input:person_id
+output:
+   [
+    {
+        "name": "王炜",
+        "task_id": "5bcea3b38d43152bf8876575",
+        "change_info": [
+            {
+                "key": "email",
+                "old": "kf@people.cn",
+                "new": "wangwei@nju.edu.cn"
+            },
+            {
+                "key": "title",
+                "old": "副主任",
+                "new": "主任"
+            },
+            {
+                "key": "position",
+                "old": "教授,主任",
+                "new": "教授,科长"
+            }
+        ],
+        "id": "5bcea3b58d4315560edced35",
+        "task_name": "换用主页模式"
+    }
+]
 ```

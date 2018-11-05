@@ -189,26 +189,18 @@ def update_person_by_detail(request):
         else:
             return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
 
-def view_person_changeinfo(request):
-    crawled_person_changeinfo_list=mongo_client.get_changeinfo_list()
+def view_person_changeinfo(request,id):
+    crawled_person_changeinfo_list=mongo_client.get_changeinfo_list(id)
     return HttpResponse(json.dumps(crawled_person_changeinfo_list), content_type="application/json")
 
-def view_person_changeinfo_list(request):
-    if request.method=='POST':
-        content=json.loads(request.body)
-        offset = get_value('offset', content)
-        size = get_value('size', content)
-        crawled_persons_changeinfo_list = mongo_client.get_changeinfo_list()
-        result = {
-            'total': mongo_client.get_changeinfo_num(),
-            'offset': offset,
-            'size': size,
-            'info': crawled_persons_changeinfo_list
-        }
-    else:
-        result = {
-            'info': "error search"
-        }
+def view_person_changeinfo_list(request,offset,size):
+    crawled_persons_changeinfo_list = mongo_client.get_changeinfo_list(offset=int(offset),size=int(size))
+    result = {
+        'total': mongo_client.get_changeinfo_num(),
+        'offset': offset,
+        'size': size,
+        'info': crawled_persons_changeinfo_list
+    }
 
     return HttpResponse(json.dumps(result), content_type="application/json")
 
