@@ -22,9 +22,8 @@ app = Celery('EItools',
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
-app.conf.task_default_queue='default'
+
 app.conf.task_queues=(
-    Queue('default',routing_key='default'),
     Queue('person',routing_key='crawl.person'),
     Queue('task',routing_key='crawl.task')
 )

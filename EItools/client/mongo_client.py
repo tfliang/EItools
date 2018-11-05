@@ -177,6 +177,7 @@ class MongoDBClient(object):
             person['task_id']=str(person['task_id'])
             task=self.get_task_by_Id(person['task_id'])
             person['task_name']=task['task_name']
+            person['changed']=person['changed'] if 'changed' in person else False
             del person['_id']
             persons.append(person)
         return persons

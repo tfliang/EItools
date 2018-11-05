@@ -222,7 +222,17 @@ def publish_task():
         total = mongo_client.get_person_num_by_taskId(id)
         logger.info("total:{}".format(total))
         if total>0:
-            start_crawl.apply_async(args=[str(id)])
+            persons = mongo_client.get_uncrawled_person_by_taskId(id)
+            logger.info("not finished is {},this task has {} person".format(id, len(persons)))
+            size = 1
+            offset = 0
+            if len(persons) > 0:
+                try:
+                    while (offset < len(persons)):
+                        crawl_service.crawl_person_info.apply_async(args=[persons[offset:offset + size], id])
+                        offset += size
+                except Exception as e:
+                    logger.error("crawl info task exception: %s", e)
 
 
 

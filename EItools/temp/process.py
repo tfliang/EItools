@@ -599,6 +599,19 @@ def process():
         w.write(json.dumps(datas_new,ensure_ascii=False))
 #process()
 
+def del_data():
+    persons=mongo_client.get_collection("crawled_person_final").find()
+    for i,person in enumerate(persons):
+        print(i)
+        if 'pubs_new' in person:
+            del person['pubs_new']
+        if 'pubs_ini' in person:
+            del person['pubs_ini']
+        mongo_client.save_crawled_person(person)
+del_data()
+
+
+
 
 
 

@@ -1,12 +1,13 @@
 from mongoengine import Document, StringField, IntField, ObjectIdField, ListField, EmbeddedDocumentField, \
     EmbeddedDocument, connect
+from mongoengine.context_managers import switch_db
 from peewee import DoubleField
 
 from EItools.common.db_base import DBBase
 
 from EItools.common.connection import *
 
-class crawl_result(EmbeddedDocument):
+class Crawl_result(EmbeddedDocument):
     title=StringField()
     url=StringField()
     domain=StringField()
@@ -16,7 +17,7 @@ class crawl_result(EmbeddedDocument):
     score=DoubleField()
     last_time=IntField()
 
-class edu(EmbeddedDocument):
+class Edu(EmbeddedDocument):
     start=StringField()
     end=StringField()
     diploma=StringField()
@@ -24,21 +25,23 @@ class edu(EmbeddedDocument):
     inst=StringField()
     country=StringField()
 
-class exp(EmbeddedDocument):
+class Exp(EmbeddedDocument):
     position=StringField()
     inst=StringField()
+    end=StringField()
+    start=StringField()
 
-class academic_org_exp(EmbeddedDocument):
+class Academic_org_exp(EmbeddedDocument):
     title=StringField()
     org=StringField()
     duration=StringField()
 
-class award(EmbeddedDocument):
+class Award(EmbeddedDocument):
     title=StringField()
     year=StringField()
     award=StringField()
 
-class patent(EmbeddedDocument):
+class Patent(EmbeddedDocument):
     title=StringField()
     inventors=StringField()
     issue_data=StringField()
@@ -46,7 +49,7 @@ class patent(EmbeddedDocument):
     code=StringField()
     ipc=StringField()
 
-class project(EmbeddedDocument):
+class Project(EmbeddedDocument):
     code=StringField()
     title=StringField()
     role=StringField()
@@ -56,13 +59,34 @@ class project(EmbeddedDocument):
     end=StringField()
 
 
-class pub(EmbeddedDocument):
+class Pub(EmbeddedDocument):
     title=StringField()
     authors=StringField()
     venue=StringField()
     volume=StringField()
 
-class crawled_person (Document):
+    source=StringField()
+    count=IntField()
+    label=StringField()
+    author=StringField()
+    year=IntField()
+
+class Aff(EmbeddedDocument):
+    inst=StringField()
+    dept=StringField()
+
+class Academic_org_exp(EmbeddedDocument):
+    org=StringField()
+    title=StringField()
+    duration=StringField()
+
+
+
+
+class Crawled_person(Document):
+    meta = {
+        'collection': 'crawled_person_final',
+    }
     _id=ObjectIdField()
     name=StringField()
     org=StringField()
@@ -70,7 +94,7 @@ class crawled_person (Document):
     h_index=IntField()
     citation=IntField()
     status=IntField()  #0 完成
-    result=ListField(EmbeddedDocumentField(crawl_result))
+    #result=ListField(EmbeddedDocumentField(Crawl_result))
     url=StringField()
     source=StringField()
     info=StringField()
@@ -90,20 +114,29 @@ class crawled_person (Document):
     awards_region = StringField()
     patents_region = StringField()
     projects_region = StringField()
-    edu_exp=ListField(EmbeddedDocumentField(edu))
-    exp=ListField(EmbeddedDocumentField(exp))
-    awards=ListField(EmbeddedDocumentField(award))
-    patents=ListField(EmbeddedDocumentField(patent))
-    projects=ListField(EmbeddedDocumentField(project))
-    pubs = ListField(EmbeddedDocumentField(pub))
+
+    edu_exp=ListField(EmbeddedDocumentField(Edu))
+    exp=ListField(EmbeddedDocumentField(Exp))
+    academic_org_exp=ListField(EmbeddedDocumentField(Academic_org_exp))
+    awards=ListField(EmbeddedDocumentField(Award))
+    patents=ListField(EmbeddedDocumentField(Patent))
+    projects=ListField(EmbeddedDocumentField(Project))
+    pubs = ListField(EmbeddedDocumentField(Pub))
+
+    emails_prob = ListField()
+    achieve = StringField()
+    result = ListField()
+    row_number=IntField()
+    aff=EmbeddedDocumentField(Aff)
 
 
 
 
 
-class crawled_person_opt(DBBase):
+
+class Crawled_person_opt(DBBase):
     def __init__(self):
-        super(crawled_person_opt,self).__init__(crawled_person)
+        super(Crawled_person_opt,self).__init__(Crawled_person)
     def get_crawled_person_by_taskId(self,id,offset=0,size=0):
         field_dict={
             'status': 1,
@@ -115,11 +148,13 @@ class crawled_person_opt(DBBase):
             'h_index':1,
             'citation':1
         }
-        crawled_persons=self.get({"task_id":id})
+        data=dict()
+        data['name']="胡俊青"
+        crawled_persons=self.get(data)
         return crawled_persons
 
-# c_l_o=crawled_person_opt()
-# print(c_l_o.get_crawled_person_by_taskId(ObjectIdField("5bcdc78a8d43152bf8876574")))
+c_l_o=Crawled_person_opt()
+print(c_l_o.get_crawled_person_by_taskId("5b642f1da4af2607336f7e2a"))
 
 
 
