@@ -115,6 +115,7 @@ class MongoDBClient(object):
             person_simple['h_index'] = person['h_index'] if 'h_index' in person else ""
             person_simple['citation'] = person['citation'] if 'citation' in person else ""
             person_simple['emails_prob']=person['emails_prob'] if 'emails_prob'in person else []
+            person_simple['changed'] = person['changed'] if 'changed' in person else False
             persons.append(person_simple)
         return persons
 
