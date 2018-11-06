@@ -204,6 +204,17 @@ def view_person_changeinfo_list(request,offset,size):
 
     return HttpResponse(json.dumps(result), content_type="application/json")
 
+def search_person_changeinfo_list(request,offset,size):
+    crawled_persons_changeinfo_list = mongo_client.get_changeinfo_list(offset=int(offset),size=int(size))
+    result = {
+        'total': mongo_client.get_changeinfo_num(),
+        'offset': offset,
+        'size': size,
+        'info': crawled_persons_changeinfo_list
+    }
+
+    return HttpResponse(json.dumps(result), content_type="application/json")
+
 
 
 

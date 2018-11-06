@@ -600,13 +600,15 @@ def process():
 #process()
 
 def del_data():
-    persons=mongo_client.get_collection("crawled_person_final").find()
+    persons=mongo_client.get_collection("crawled_person_final").find({ "patents": {'$exists': True}})
     for i,person in enumerate(persons):
-        print(i)
-        if 'pubs_new' in person:
-            del person['pubs_new']
-        if 'pubs_ini' in person:
-            del person['pubs_ini']
+        list=[]
+        for l in person['patents']:
+            l['inventors']=l['inventor_names']
+            del l['key']
+            del l['inventor_names']
+            list.append(l)
+        person['patents']=list
         mongo_client.save_crawled_person(person)
 del_data()
 

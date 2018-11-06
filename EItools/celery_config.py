@@ -22,19 +22,18 @@ app = Celery('EItools',
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
-
 app.conf.task_queues=(
-    Queue('person',routing_key='crawl.person'),
-    Queue('task',routing_key='crawl.task')
+    Queue('person',routing_key='crawl.person.#'),
+    Queue('task',routing_key='crawl.task.#')
 )
-task_routes={
-    'EItools.crawler.crawl_information.start_crawl':{
+app.conf.task_routes={
+    'EItools.crawler.crawl_information.publish_task':{
         'queue':'task',
-        'routing_key':'crawl.task',
+        'routing_key':'crawl.task.publish',
     },
     'EItools.crawler.crawl_service.crawl_person_info':{
         'queue':'person',
-        'routing_key':'crawl.person'
+        'routing_key':'crawl.person.info'
     }
 }
 # Load task modules from all registered Django app configs.

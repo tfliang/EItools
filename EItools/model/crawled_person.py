@@ -44,7 +44,7 @@ class Award(EmbeddedDocument):
 class Patent(EmbeddedDocument):
     title=StringField()
     inventors=StringField()
-    issue_data=StringField()
+    issue_date=StringField()
     issue_by=StringField()
     code=StringField()
     ipc=StringField()
@@ -154,7 +154,7 @@ class Crawled_person_opt(DBBase):
         return crawled_persons
 
 c_l_o=Crawled_person_opt()
-print(c_l_o.get_crawled_person_by_taskId("5b642f1da4af2607336f7e2a"))
+print(c_l_o.get_crawled_person_by_taskId("5bcdcb8c8d43152c1b6c4b3b"))
 
 
 

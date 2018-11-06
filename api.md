@@ -139,11 +139,48 @@ output:{
     ]
 }
 ```
-11.查看单个人的信息
+11.查看单个人变化的信息
 
 ```
 url:view/person/changeinfo/5bcea3b58d4315560edced35/
 input:person_id
+output:
+   [
+    {
+        "name": "王炜",
+        "task_id": "5bcea3b38d43152bf8876575",
+        "change_info": [
+            {
+                "key": "email",
+                "old": "kf@people.cn",
+                "new": "wangwei@nju.edu.cn"
+            },
+            {
+                "key": "title",
+                "old": "副主任",
+                "new": "主任"
+            },
+            {
+                "key": "position",
+                "old": "教授,主任",
+                "new": "教授,科长"
+            }
+        ],
+        "id": "5bcea3b58d4315560edced35",
+        "task_name": "换用主页模式"
+    }
+]
+```
+12.搜索变化的信息
+
+```
+url:search/person/changeinfo/ POST
+input:
+input:{
+    'search_value':"",
+    'offset':"",
+    "size":""
+}
 output:
    [
     {
