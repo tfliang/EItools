@@ -11,6 +11,7 @@ from bson import ObjectId
 from django.http import HttpResponse
 
 from EItools import settings
+from EItools.model.task import Task_opt
 
 sys.path.append("..")
 from EItools.log.log import logger
@@ -102,7 +103,7 @@ def publish_task(request):
 
 
 def export_data(request,taskid):
-    task=mongo_client.get_task_by_Id(taskid)
+    task=Task_opt()
     if task is not None:
         persons=mongo_client.get_crawled_person_all_data_by_taskId(taskid)
         persons_filter=[]

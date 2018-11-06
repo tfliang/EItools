@@ -52,3 +52,7 @@ class DBBase(object):
     def get_require_fields(self, query, data):
         query = Operation.query_fields(query, **data)
         return query
+
+    def get_count(self,data):
+        return Operation.filter(self.model,**data).count()
+

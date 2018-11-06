@@ -137,22 +137,38 @@ class Crawled_person(Document):
 class Crawled_person_opt(DBBase):
     def __init__(self):
         super(Crawled_person_opt,self).__init__(Crawled_person)
-    def get_crawled_person_by_taskId(self,id,offset=0,size=0,part=True):
-        if part:
-            data=dict()
-            data['task_id']=id
+
+
+    def get_crawled_person(self,data,offset=0,size=0,part="all"):
+        if part=="list":
+
             crawled_persons=self.get(data,offset=offset,size=size).fields(_id = 1, status = 1, name = 1, org = 1, gender = 1,email=1,position=1,h_index=1,citation=1,task_id=1)\
                                          .to_json(ensure_ascii=False)
-        else:
-            data = dict()
-            data['task_id'] = id
-            crawled_persons = self.get(data, offset=offset, size=size).exclude("result").exclude("info") \
+        elif part=="dowload":
+            crawled_persons = self.get(data, offset=offset, size=size).fields(_id=1,name=1,org=1,task_id=1,h_index=1,citation=1,status=1,url=1,source=1,birth_time=1,mobile=1,degree=1,
+                                                                              diploma=1,honors=1,title=1,position=1,research=1,gender=1,email=1,edu_exp=1,exp=1,academic_org_exp=1,awards=1,
+                                                                              patents=1,projects=1,pubs=1,achieve=1,row_number=1,aff=1)\
                 .to_json(ensure_ascii=False)
+        elif part=="one":
+            crawled_persons = self.get(data, offset=offset, size=size).exclude("result").exclude("info").\
+                to_json(ensure_ascii=False)
+        else:
+            crawled_persons = self.get(data, offset=offset, size=size).\
+                to_json(ensure_ascii=False)
         return crawled_persons
 
 
-c_l_o=Crawled_person_opt()
-print(c_l_o.get_crawled_person_by_taskId("5bd58e9b8d431508e304d60a",0,1,part=False))
+
+    def get_count(self,data):
+        return self.get_count(data)
+
+    def save_crawled_person(self,data):
+        return self.add(data)
+
+
+
+
+
 
 
 
