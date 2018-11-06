@@ -14,7 +14,7 @@ class DBBase(object):
         return Operation.update(query, **data)
 
     def get(self,data,offset=0,size=0):
-        return Operation.filter(self.model,offset,size,**data)
+        return Operation.filter(self.model,offset=offset,size=size,**data)
 
     def object_filter_or(self, key1, value1, key2, value2):
         """高级查询 key1 key2 字段为字符串"""

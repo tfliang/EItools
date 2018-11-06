@@ -94,7 +94,7 @@ class Crawled_person(Document):
     h_index=IntField()
     citation=IntField()
     status=IntField()  #0 完成
-    #result=ListField(EmbeddedDocumentField(Crawl_result))
+    result=ListField(EmbeddedDocumentField(Crawl_result))
     url=StringField()
     source=StringField()
     info=StringField()
@@ -137,24 +137,22 @@ class Crawled_person(Document):
 class Crawled_person_opt(DBBase):
     def __init__(self):
         super(Crawled_person_opt,self).__init__(Crawled_person)
-    def get_crawled_person_by_taskId(self,id,offset=0,size=0):
-        field_dict={
-            'status': 1,
-            'name': 1,
-            'org': 1,
-            'gender': 1,
-            'email': 1,
-            'position':1,
-            'h_index':1,
-            'citation':1
-        }
-        data=dict()
-        data['name']="胡俊青"
-        crawled_persons=self.get(data)
+    def get_crawled_person_by_taskId(self,id,offset=0,size=0,part=True):
+        if part:
+            data=dict()
+            data['task_id']=id
+            crawled_persons=self.get(data,offset=offset,size=size).fields(_id = 1, status = 1, name = 1, org = 1, gender = 1,email=1,position=1,h_index=1,citation=1,task_id=1)\
+                                         .to_json(ensure_ascii=False)
+        else:
+            data = dict()
+            data['task_id'] = id
+            crawled_persons = self.get(data, offset=offset, size=size).exclude("result").exclude("info") \
+                .to_json(ensure_ascii=False)
         return crawled_persons
 
+
 c_l_o=Crawled_person_opt()
-print(c_l_o.get_crawled_person_by_taskId("5bcdcb8c8d43152c1b6c4b3b"))
+print(c_l_o.get_crawled_person_by_taskId("5bd58e9b8d431508e304d60a",0,1,part=False))
 
 
 

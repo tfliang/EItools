@@ -204,14 +204,23 @@ def view_person_changeinfo_list(request,offset,size):
 
     return HttpResponse(json.dumps(result), content_type="application/json")
 
-def search_person_changeinfo_list(request,offset,size):
-    crawled_persons_changeinfo_list = mongo_client.get_changeinfo_list(offset=int(offset),size=int(size))
-    result = {
-        'total': mongo_client.get_changeinfo_num(),
-        'offset': offset,
-        'size': size,
-        'info': crawled_persons_changeinfo_list
-    }
+def search_person_changeinfo_list(request):
+    if request.method == 'POST':
+        content = json.loads(request.body)
+        person_name = get_value('search_value', content)
+        offset = get_value('offset', content)
+        size = get_value('size', content)
+        crawled_persons = mongo_client.search_changeinfo_list(person_name, int(offset), int(size))
+        result = {
+            'total': mongo_client.search_changeinfo_list_num(person_name),
+            'offset': offset,
+            'size': size,
+            'info': crawled_persons
+        }
+    else:
+        result = {
+            'info': "error search"
+        }
 
     return HttpResponse(json.dumps(result), content_type="application/json")
 

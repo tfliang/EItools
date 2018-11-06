@@ -183,6 +183,26 @@ class MongoDBClient(object):
             persons.append(person)
         return persons
 
+    def search_changeinfo_list(self,name=None,offset=0,size=0):
+        if name is not None:
+            c = self.get_collection(settings.MONGO_CRAWLED_PERSON).find({'$and':[{"changed": True},{"name":re.compile(name)}]},{'change_info':1,'task_id':1,'_id':1,'name':1})
+        else:
+            c=self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"changed":True},{'change_info':1,'task_id':1,'_id':1,'name':1})
+        if size>0 and offset>=0:
+            c=c.skip(offset).limit(size)
+        persons=[]
+        for i,person in enumerate(c):
+            person['id']=str(person['_id'])
+            person['task_id']=str(person['task_id'])
+            task=self.get_task_by_Id(person['task_id'])
+            person['task_name']=task['task_name']
+            person['changed']=person['changed'] if 'changed' in person else False
+            del person['_id']
+            persons.append(person)
+        return persons
+    def search_changeinfo_list_num(self,name):
+        return self.get_collection(settings.MONGO_CRAWLED_PERSON).find({'$and':[{"changed": True},{"name":re.compile(name)}]}).count()
+
     def get_changeinfo_num(self):
         return self.get_collection(settings.MONGO_CRAWLED_PERSON).find({"changed": 'true'}).count()
 
