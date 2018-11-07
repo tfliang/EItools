@@ -23,7 +23,7 @@ class TaskOpt(DBBase):
         super(TaskOpt,self).__init__(Task)
 
     def get_task(self,data,offset=0,size=0):
-        tasks = self.get(data, offset=offset, size=size).\
+        tasks = self.get(data, offset=offset, size=size).order_by('-publish_time').\
             as_pymongo()
         tasks_final = []
         for task in tasks:

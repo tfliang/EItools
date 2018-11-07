@@ -38,12 +38,12 @@ def get_tasks_by_page(request,offset,size):
 
 def get_task_by_id(request,id):
     task=TaskOpt().get_task({"_id":id})
-    if task is None:
+    if len(task)<1:
         result={
            'info':"task not exsits"
         }
     else:
-        result=task
+        result=task[0]
     return HttpResponse(json.dumps(result), content_type="application/json")
 
 
