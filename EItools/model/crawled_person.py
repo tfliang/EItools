@@ -153,7 +153,7 @@ class CrawledPersonOpt(DBBase):
             crawled_persons=self.get(data,offset=offset,size=size).fields(_id = 1, status = 1, name = 1, org = 1, gender = 1,email=1,position=1,h_index=1,citation=1,task_id=1)\
                                          .as_pymongo()
         elif part=="dowload":
-            crawled_persons = self.get(data, offset=offset, size=size).fields(_id=1,name=1,org=1,task_id=1,h_index=1,citation=1,status=1,url=1,source=1,birth_time=1,mobile=1,degree=1,
+            crawled_persons = self.get(data, offset=offset, size=size).fields(_id=1,changed=1,name=1,org=1,task_id=1,h_index=1,citation=1,status=1,url=1,source=1,birth_time=1,mobile=1,degree=1,
                                                                               diploma=1,honors=1,title=1,position=1,research=1,gender=1,email=1,edu_exp=1,exp=1,academic_org_exp=1,awards=1,
                                                                               patents=1,projects=1,pubs=1,achieve=1,row_number=1,aff=1)\
                 .as_pymongo()
