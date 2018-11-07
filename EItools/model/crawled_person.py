@@ -1,4 +1,4 @@
-from mongoengine import Document, tringField, IntField, ObjectIdField, ListField, EmbeddedDocumentField, \
+from mongoengine import Document, StringField, IntField, ObjectIdField, ListField, EmbeddedDocumentField, \
     EmbeddedDocument, connect
 from mongoengine.context_managers import switch_db
 
