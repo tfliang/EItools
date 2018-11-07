@@ -1,4 +1,3 @@
-from EItools.common.operation import Operation
 from mongoengine.queryset.visitor import Q
 
 
@@ -8,21 +7,26 @@ class DBBase(object):
 
     def add(self, data):
         if isinstance(data, dict):
-            Operation.add(self.model, **data)
+            model = self.model(**data)
+            model.save()
 
     def update(self, query, data):
-        return Operation.update(query, **data)
+        return query.update(**data)
 
     def get(self,data,offset=0,size=0):
-        return Operation.filter(self.model,offset=offset,size=size,**data)
+        if size > 0 and offset >= 0:
+            query = self.model.objects(**data).skip(offset).limit(size)
+        else:
+            query=self.model.objects(**data)
+        return query
 
-    def object_filter_or(self, key1, value1, key2, value2):
+    def object_filter(self, data,offset=0,size=0):
         """高级查询 key1 key2 字段为字符串"""
         # query = Model.objects.filter(Q(age=10) | Q(grade=80))
-        a = {key1: value1}
-        b = {key2: value2}
-        c = Q(**a) | Q(**b)
-        query = self.model.objects.filter(c)
+        if size > 0 and offset >= 0:
+            query = self.model.objects.filter(data).skip(offset).limit(size)
+        else:
+            query = self.model.objects.filter(data)
         return query
 
     def get_between(self, key, left, right):
@@ -50,9 +54,9 @@ class DBBase(object):
         return self.get(data)
 
     def get_require_fields(self, query, data):
-        query = Operation.query_fields(query, **data)
+        query = query.fields(**data)
         return query
 
     def get_count(self,data):
-        return Operation.filter(self.model,**data).count()
+        return self.model.objects(**data).count()
 

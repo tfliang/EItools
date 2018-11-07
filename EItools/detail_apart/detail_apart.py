@@ -24,23 +24,11 @@ def find_aff(text):
     tf.reset_default_graph()
     result = extract_one_3(text)
     PER, ADR, AFF = result if result is not None else (None, None, None)
-    if PER is not None:
-        print_tag(PER, 'PER', text)
-    if ADR is not None:
-        print_tag(ADR, 'ADR', text)
-    if AFF is not None:
-        print_tag(AFF, 'AFF', text)
     return AFF
 def find_name(text):
     tf.reset_default_graph()
     result = extract_one_3(text)
     PER, ADR, AFF = result if result is not None else (None, None, None)
-    if PER is not None:
-        print_tag(PER, 'PER', text)
-    if ADR is not None:
-        print_tag(ADR, 'ADR', text)
-    if AFF is not None:
-        print_tag(AFF, 'AFF', text)
     return PER
 patent_time=r'((?:19|20)[0-9]{2})[年|.|/]?'
 pattern_time = r'((?:19|20)[0-9]{2}[年|.|/]?\s*\d{0,2}[月]?|至今|今|现在)'
@@ -66,7 +54,6 @@ def match(aff_list,time_list,text):
                 i=i+1
                 j=j+1
 
-#国务院学位委员会学科评议组(化学组)成员
 def is_soc_aff(text):
     pat = re.compile('编辑|本站不保证|万元|基金|项目|专利')
     if len(pat.findall(text)) != 0:
@@ -102,7 +89,6 @@ def find_word_en(text):
     part_en=''.join(match_data)
     return len(part_en)/len(text)>0.5
 
-#1985.7 南开大学研究生
 def find_work(text):
     if find_word_en(text):
         text=chinese_helper.translate(text)
@@ -123,9 +109,6 @@ def find_work(text):
             text=text.replace(aff,',')
         text=re.sub(r'[,，、。.-]','',text)
         position=','.join(Extract.extrac_position(text))
-        print("time is:{}".format(time))
-        print("aff is:{}".format(aff_all))
-        print("positon is:{}".format(position))
         exp = None
         if len(time) >= 2:
             exp = {"start": time[0], "end": time[1], "position": position,"inst": aff_all}
@@ -135,8 +118,6 @@ def find_work(text):
             exp = {"position": position,"inst": aff_all}
         return exp
 
-
-#1981年本科毕业于湖南师范大学化学系
 def find_edu(text):
     if find_word_en(text):
         text = chinese_helper.translate(text)
@@ -163,11 +144,6 @@ def find_edu(text):
             diploma='本科'
         elif degree=='博士' or degree=='硕士':
             diploma='研究生'
-        print("time is:{}".format(time))
-        print("aff is:{}".format(aff_all))
-        print("degree is:{}".format(degree))
-        print("diploma is:{}".format(diploma))
-
         edu_exp = None
         if  degree !="" or aff_all!="":
             if len(time) >= 2:
@@ -191,10 +167,6 @@ def find_patent(text):
     patent_name=find_longest(re.split(r'[,:，；。.：\(\)\[\]]',text))#extract_patent(text)
     patent_name=patent_name[0] if patent_name is not None else ""
     time = re.findall(pattern_time, text)
-    print("time is:{}".format(time))
-    print("inventor is:{}".format(inventor_names))
-    print("patent_number is:{}".format(patent_number))
-    print("patent_name is:{}".format(patent_name))
     patent=None
     if len(time)>=2:
         patent = {"inventor_names":','.join(inventor_names) if inventor_names is not None else "","code":''.join(patent_number) if patent_number is not None else "" ,"issue_date":time[0] if time is not None and len(time)>0 else "","issue_by":"","title":patent_name}
@@ -214,11 +186,6 @@ def find_project(text):
     tf.reset_default_graph()
     result=extract_project(text)
     project_cat,project_name= result if result is not None else (None,None)
-    print("number is:{}".format(project_number))
-    print("funds is:{}".format(project_funds))
-    print("project name is:{}".format(project_name))
-    print("project cat is:{}".format(project_cat))
-    print("project time is:{}".format(time))
     project_name=''.join(project_name) if project_name is not None else""
     project_cat=''.join(project_cat) if project_cat is not None else ""
     project_funds=''.join(project_funds) if project_funds is not None else ""
@@ -271,7 +238,6 @@ def find_award(text):
         time = re.findall(pattern_time, text)
         time = time[0] if len(time) > 0 else ""
         text = re.sub(pattern_time, '', text)
-        text_part = re.split(r'[和\(\)\[\]【】（）：、:，,；.。;\s+”“"\']', text)
         award_kinds=[]
         award_title = ""
         text_part = re.split(r'[和\(\)\[\]【】（）：、:，,；.。;”“"\']', text)
@@ -295,7 +261,6 @@ def find_award(text):
         time = re.findall(pattern_time, text)
         time = time[0] if len(time) > 0 else ""
         text=re.sub(pattern_time,'',text)
-        text_part=re.split(r'[\(\)\[\]【】（）：、:，,；.。;\s+”“"\']',text)
         award_kinds = []
         award_title = ""
         text_part = re.split(r'[和\(\)\[\]【】（）：、:，,；.。;”“"\']', text)

@@ -6,8 +6,10 @@ from peewee import DoubleField
 from EItools.common.db_base import DBBase
 
 from EItools.common.connection import *
+from EItools.model.task import TaskOpt
 
-class Crawl_result(EmbeddedDocument):
+
+class CrawlResult(EmbeddedDocument):
     title=StringField()
     url=StringField()
     domain=StringField()
@@ -31,7 +33,7 @@ class Exp(EmbeddedDocument):
     end=StringField()
     start=StringField()
 
-class Academic_org_exp(EmbeddedDocument):
+class AcademicOrgExp(EmbeddedDocument):
     title=StringField()
     org=StringField()
     duration=StringField()
@@ -75,15 +77,18 @@ class Aff(EmbeddedDocument):
     inst=StringField()
     dept=StringField()
 
-class Academic_org_exp(EmbeddedDocument):
+class AcademicOrgExp(EmbeddedDocument):
     org=StringField()
     title=StringField()
     duration=StringField()
 
+class ChangeItem(EmbeddedDocument):
+    key=StringField()
+    new=StringField()
+    old=StringField()
 
 
-
-class Crawled_person(Document):
+class CrawledPerson(Document):
     meta = {
         'collection': 'crawled_person_final',
     }
@@ -94,7 +99,7 @@ class Crawled_person(Document):
     h_index=IntField()
     citation=IntField()
     status=IntField()  #0 完成
-    result=ListField(EmbeddedDocumentField(Crawl_result))
+    result=ListField(EmbeddedDocumentField(CrawlResult))
     url=StringField()
     source=StringField()
     info=StringField()
@@ -117,7 +122,7 @@ class Crawled_person(Document):
 
     edu_exp=ListField(EmbeddedDocumentField(Edu))
     exp=ListField(EmbeddedDocumentField(Exp))
-    academic_org_exp=ListField(EmbeddedDocumentField(Academic_org_exp))
+    academic_org_exp=ListField(EmbeddedDocumentField(AcademicOrgExp))
     awards=ListField(EmbeddedDocumentField(Award))
     patents=ListField(EmbeddedDocumentField(Patent))
     projects=ListField(EmbeddedDocumentField(Project))
@@ -129,41 +134,72 @@ class Crawled_person(Document):
     row_number=IntField()
     aff=EmbeddedDocumentField(Aff)
 
+    change_info=ListField(EmbeddedDocumentField(ChangeItem))
+    changed=BooleanField()
 
 
 
 
 
-class Crawled_person_opt(DBBase):
+
+
+class CrawledPersonOpt(DBBase):
     def __init__(self):
-        super(Crawled_person_opt,self).__init__(Crawled_person)
+        super(CrawledPersonOpt,self).__init__(CrawledPerson)
 
 
     def get_crawled_person(self,data,offset=0,size=0,part="all"):
         if part=="list":
 
             crawled_persons=self.get(data,offset=offset,size=size).fields(_id = 1, status = 1, name = 1, org = 1, gender = 1,email=1,position=1,h_index=1,citation=1,task_id=1)\
-                                         .to_json(ensure_ascii=False)
+                                         .as_pymongo()
         elif part=="dowload":
             crawled_persons = self.get(data, offset=offset, size=size).fields(_id=1,name=1,org=1,task_id=1,h_index=1,citation=1,status=1,url=1,source=1,birth_time=1,mobile=1,degree=1,
                                                                               diploma=1,honors=1,title=1,position=1,research=1,gender=1,email=1,edu_exp=1,exp=1,academic_org_exp=1,awards=1,
                                                                               patents=1,projects=1,pubs=1,achieve=1,row_number=1,aff=1)\
-                .to_json(ensure_ascii=False)
+                .as_pymongo()
         elif part=="one":
-            crawled_persons = self.get(data, offset=offset, size=size).exclude("result").exclude("info").\
-                to_json(ensure_ascii=False)
+            crawled_persons = self.get(data, offset=offset, size=size).exclude("result").exclude("info"). \
+                as_pymongo()
+        elif part=="change":
+            crawled_persons=self.get(data,offset=offset,size=size).fields(change_info=1,task_id=1,_id=1,name=1).\
+            as_pymongo()
         else:
-            crawled_persons = self.get(data, offset=offset, size=size).\
-                to_json(ensure_ascii=False)
-        return crawled_persons
+            crawled_persons = self.get(data, offset=offset, size=size). \
+                as_pymongo()
+        persons=[]
+        for person in crawled_persons:
+            person['id']=str(person['_id'])
+            del person['_id']
+            if 'task_id' in person:
+                person['task_id']=str(person['task_id'])
+            persons.append(person)
 
+        return persons
 
-
-    def get_count(self,data):
+    def get_crawled_person_count(self,data):
         return self.get_count(data)
 
     def save_crawled_person(self,data):
         return self.add(data)
+
+    def filter_person(self,data,offset=0,size=0):
+        crawled_persons = self.get(data, offset=offset, size=size). \
+            as_pymongo()
+        persons = []
+        for person in crawled_persons:
+            person['id'] = str(person['_id'])
+            del person['_id']
+            if 'task_id' in person:
+                person['task_id'] = str(person['task_id'])
+                tasks=TaskOpt().get({'_id':person['task_id']})
+                if len(tasks)>0:
+                    person['task_name'] =tasks[0].task_name
+            persons.append(person)
+
+        return persons
+
+
 
 
 

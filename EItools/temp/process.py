@@ -7,6 +7,7 @@ import os
 
 from EItools.chrome.crawler import InfoCrawler
 from EItools.classifier_mainpage.Extract import Extract
+from EItools.model.task import  TaskOpt
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 
@@ -600,20 +601,29 @@ def process():
 #process()
 
 def del_data():
-    persons=mongo_client.get_collection("crawled_person_final").find({ "pubs.0.key": {'$exists': True}})
+    persons=mongo_client.get_collection("crawled_person_final").find()
     for i,person in enumerate(persons):
         list=[]
-        if len(person['pubs'])>0:
-            for l in person['pubs']:
-                try:
-                    if 'key' in l:
-                        del l['key']
-                    list.append(l)
-                except Exception as e:
-                    print(l)
-            person['pubs']=list
+        if 'raw_result' in person:
+            del person['raw_result']
+        # if len(person['pubs'])>0:
+        #     for l in person['pubs']:
+        #         try:
+        #             if 'key' in l:
+        #                 del l['key']
+        #             list.append(l)
+        #         except Exception as e:
+        #             print(l)
+        #     person['pubs']=list
             mongo_client.save_crawled_person(person)
-del_data()
+
+def test_task(task_id):
+    task_opt = TaskOpt()
+    task = task_opt.get_task({})
+    print(task)
+
+if __name__ == '__main__':
+    del_data()
 
 
 

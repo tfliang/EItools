@@ -5,10 +5,14 @@ from bson import ObjectId
 
 from EItools.classifier_mainpage.Extract import Extract
 from EItools.client.mongo_client import  mongo_client
+from EItools.crawler.task import task_status_dict
 from EItools.extract.interface import interface
 from EItools.extract import util
 from EItools.detail_apart import detail_apart
 from EItools import settings
+from EItools.model.crawled_person import CrawledPersonOpt
+from EItools.model.task import TaskOpt
+from EItools.model.uncrawled_person import UncrawledPersonOpt
 from EItools.utils import chinese_helper
 from EItools.chrome.crawler import InfoCrawler
 from EItools.crawler import crawl_mainpage, search_items
@@ -21,13 +25,14 @@ import requests
 import re
 
 def get_data_from_aminer(person):
+    person_of_aminer={}
     post_json = {
         "action": "search.search", "parameters": {"advquery": {
             "texts": [{"source": "name", "text": ""}, {"source": "org", "text": ""}]},
             "offset": 0, "size": 10, "searchType": "SimilarPerson"},
         "schema": {
             "person": ["id", "name", "name_zh", "profile.affiliation", "avatar", "profile.affiliation_zh",
-                       "profile.position","profile.email" "profile.position_zh", {"indices": ["hindex", "pubs", "citations"]}]}
+                       "profile.position","profile.email","profile.position_zh", {"indices": ["hindex", "pubs", "citations"]}]}
     }
     url = "https://apiv2.aminer.cn/magic"
     headers = {
@@ -39,7 +44,6 @@ def get_data_from_aminer(person):
         post_json['parameters']['advquery']['texts'][1]['text'] = person['org']
         resp = requests.post(url, headers=headers, json=[post_json])
         ok, result = get_resp_result(resp)
-        print(ok)
         if ok and 'items' in result["data"][0]:
             sleepTime = 0  # have data, don't sleep
             for candidate in result["data"][0]["items"]:
@@ -52,16 +56,16 @@ def get_data_from_aminer(person):
                 if 'name_zh' in candidate:
                     person_name = candidate['name_zh']
                     if person_name==person['name'] and (person['org'] in org or org in person['org']) :
-                        person['aminer_url']="https://www.aminer.cn/profile/%s"%candidate['id']
+                        person_of_aminer['aminer_url']="https://www.aminer.cn/profile/%s"%candidate['id']
                         if 'profile' in candidate and 'email' in candidate['profile']:
-                            person['email']=candidate['profile']['email']
+                            person_of_aminer['email']=candidate['profile']['email']
                         if 'profile' in candidate and 'position' in candidate['profile']:
-                            person['position']=candidate['profile']['position']
-
-                        return True, person
+                            person_of_aminer['position']=candidate['profile']['position']
+                        person_of_aminer['inst']=org
+                        return True, person_of_aminer
     except Exception as e:
         logger.error("%s, %s", "request aminer query error", e)
-    return False, person
+    return False, person_of_aminer
 
 def select(r):
     return r['label'] == 1 and r['score'] > 0.6 and ('kaoyan' not in r['domain'] if 'domain' in r else True) and ('kaoyan' not in r['url'] if 'url' in r else True) and (len(re.findall('考研|报告|访问|会议|应邀|授予|交流|招聘',r['title']))<1 if 'title' in r else True) and (len(re.findall('考研|报告|访问|会议|应邀|授予|交流|招聘',r['text']))<1 if 'text' in r else True)
@@ -109,14 +113,14 @@ def get_data_from_web(person,info_crawler):
         se['last_time'] = crawl_mainpage.get_lasttime_from_mainpage(se['url'])
     result_sorted_final = sorted(result_rest, key=lambda s: s['last_time'], reverse=True)
     #result_sorted_final=result_rest
-    p['raw_result']=result
+    #p['raw_result']=result
     p['result'] = result_sorted_final
     if len(result_sorted_final) > 0:
         selected_item = result_sorted_final[0]
         p['url'] = selected_item['url']
         p['source'] = 'crawler'
         p['info'] = crawl_mainpage.get_main_page(p['url'], person)
-        logger.info("url is****{}".format(p['url']))
+        logger.info("url is: {}".format(p['url']))
 
         # if util.compare(p['org'],se['domain'] if 'domain' in se else se['url']) or 'baidu.com' in se['url']:
         #     selected_item=se
@@ -263,15 +267,18 @@ def constrast_change(person):
     change_items=[]
     if success:
         person['source'] = 'aminer'
-        change_item=compare_change(person_of_aminer['email'], person['email'], 'email')
-        if change_item is not {}:
-            change_items.append(change_item)
-        change_item=change_items.append(compare_change(person_of_aminer['aff']['inst'], person['aff']['inst'], 'inst'))
-        if change_item is not {}:
-            change_items.append(change_item)
-        change_item=change_items.append(compare_change(person_of_aminer['position'], person['position'], 'position'))
-        if change_item is not {}:
-            change_items.append(change_item)
+        if 'email' in person_of_aminer:
+            change_item=compare_change(person_of_aminer['email'], person['email'], 'email')
+            if change_item is not {}:
+                change_items.append(change_item)
+        if 'inst' in person_of_aminer and 'aff' in person and 'inst' in person['aff']:
+            change_item=change_items.append(compare_change(person_of_aminer['inst'], person['aff']['inst'], 'inst'))
+            if change_item is not {}:
+                change_items.append(change_item)
+        if 'position' in person_of_aminer:
+            change_item=change_items.append(compare_change(person_of_aminer['position'], person['position'], 'position'))
+            if change_item is not {}:
+                change_items.append(change_item)
     person['change_info']=change_items
     return person
 
@@ -288,22 +295,21 @@ def crawl_person_info(persons,task_id,from_api=False):
             # # affs = pre_process.get_valid_aff(p['org'])
             # # person['org'] = ' '.join(affs)
             # person['org'] = p['org']
-            print("id is {}".format(p['id']))
                 # mongo_client.save_crawled_person(p1)
-            p['_id']=ObjectId(p['id'])
-            p['task_id']=ObjectId(task_id)
+            if not from_api:
+                p['_id']=ObjectId(p['id'])
+                p['task_id']=ObjectId(task_id)
             p=get_data_from_web(p,info_crawler)
             p=constrast_change(p)
-            mongo_client.save_crawled_person(p)
-                # 存入智库
-            # mongo_client.rm_person_by_id(p['_id'])
+            CrawledPersonOpt().save_crawled_person(p)
             if task_id is not None:
-                mongo_client.update_person_by_id(str(p['_id']),task_id)
+                UncrawledPersonOpt().update_uncrawled_person({"_id":p['_id']},{"status":task_status_dict['finished']})
+                TaskOpt().update_task({"_id":p['task_id']},{"$inc":{"has_finished":1}})
             if from_api:
-                del p['_id']
                 persons_info.append(p)
+                return persons_info
     #info_crawler.shutdown_crawlers()
-    return persons_info
+
 
 
 
