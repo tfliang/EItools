@@ -1,7 +1,6 @@
-from mongoengine import Document, StringField, IntField, ObjectIdField, ListField, EmbeddedDocumentField, \
+from mongoengine import Document, tringField, IntField, ObjectIdField, ListField, EmbeddedDocumentField, \
     EmbeddedDocument, connect
 from mongoengine.context_managers import switch_db
-from peewee import DoubleField
 
 from EItools.common.db_base import DBBase
 
@@ -16,7 +15,7 @@ class CrawlResult(EmbeddedDocument):
     text=StringField()
     source=StringField()
     label=IntField()
-    score=DoubleField()
+    score=FloatField()
     last_time=IntField()
 
 class Edu(EmbeddedDocument):
