@@ -161,7 +161,7 @@ class CrawledPersonOpt(DBBase):
             crawled_persons = self.get(data, offset=offset, size=size).exclude("result").exclude("info"). \
                 as_pymongo()
         elif part=="change":
-            crawled_persons=self.get(data,offset=offset,size=size).fields(change_info=1,task_id=1,_id=1,name=1).\
+            crawled_persons=self.get(data,offset=offset,size=size).fields(changed=1,change_info=1,task_id=1,_id=1,name=1).\
             as_pymongo()
         else:
             crawled_persons = self.get(data, offset=offset, size=size). \
