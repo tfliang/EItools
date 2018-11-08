@@ -83,8 +83,7 @@ class AcademicOrgExp(EmbeddedDocument):
 
 class ChangeItem(EmbeddedDocument):
     key=StringField()
-    new=StringField()
-    old=StringField()
+
 
 
 class CrawledPerson(Document):
