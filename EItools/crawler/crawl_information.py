@@ -9,12 +9,10 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 from EItools.model.crawled_person import CrawledPersonOpt
 from EItools.model.task import TaskOpt
 from EItools.model.uncrawled_person import UncrawledPersonOpt
-from EItools.client.mongo_client import mongo_client
 import time
 from EItools.crawler import crawl_service
 import json
 from django.http import HttpResponse
-from bson import ObjectId
 from EItools.log.log import logger
 from EItools import celery_app, settings
 
@@ -44,22 +42,6 @@ def crawl_file_info(request):
     logger.info("save file end")
     return HttpResponse(json.dumps({"file_name": file_name}), content_type="application/json")
 
-@celery_app.task
-def start_crawl(id):
-    persons = UncrawledPersonOpt().get_uncrawled_person({})
-    logger.info("not finished is {},this task has {} person".format(id,len(persons)))
-    size=1
-    offset=0
-    if len(persons) > 0:
-        try:
-            while(offset<len(persons)):
-                crawl_service.crawl_person_info.apply_async(args=[persons[offset:offset+size],id])
-                offset+=size
-        except Exception as e:
-            logger.error("crawl info task exception: %s",e)
-            #mongo_client.update_task(task_status_dict['failed'], id)
-    #mongo_client.update_task(task_status_dict['finished'], id)
-    #logger.info("task exit" + id)
 
 def crawl_person_by_name(request):
     name=request.GET.get('name','')
@@ -195,17 +177,18 @@ def crawl_google_scholar(request):
 
 @celery_app.task
 def publish_task():
-    for id in TaskOpt().filter_task(Q(status=task_status_dict['failed'])|Q(status=task_status_dict['not_started'])):
-        total = UncrawledPersonOpt().get_count({"task_id":id})
+    for task in TaskOpt().filter_task(Q(status=task_status_dict['failed'])|Q(status=task_status_dict['not_started']),{"_id":1}):
+        total = UncrawledPersonOpt().get_count({"task_id":task['id']})
         if total>0:
-            persons = UncrawledPersonOpt().get_uncrawled_person({'task_id':person_status_dict['failed']})
-            logger.info("not finished is {},this task has {} person".format(id, len(persons)))
+            persons = UncrawledPersonOpt().get_uncrawled_person({'task_id':task['id']})
+            TaskOpt().update_task({'_id':task['id']},{'status':task_status_dict['doing']})
+            logger.info("not finished is {},this task has {} person".format(task['id'], len(persons)))
             size = 1
             offset = 0
             if len(persons) > 0:
                 try:
                     while (offset < len(persons)):
-                        crawl_service.crawl_person_info.apply_async(args=[persons[offset:offset + size], id])
+                        crawl_service.crawl_person_info.apply_async(args=[persons[offset:offset + size], task['id']])
                         offset += size
                 except Exception as e:
                     logger.error("crawl info task exception: %s", e)

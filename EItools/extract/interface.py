@@ -258,30 +258,30 @@ def interface(text):
     tf.reset_default_graph()
     result=extract_one_3(text)
     PER, ADR, AFF_ALL= result if result is not None else (None,None,None)
-    if PER is not None:
-        print_tag(PER, 'PER', text)
-    if ADR is not None:
-        print_tag(ADR, 'ADR', text)
-    if AFF is not None:
-        print_tag(AFF, 'AFF', text)
-    if TIT is not None:
-        print_tag(TIT, 'TIT', text)
-    if JOB is not None:
-        print_tag(JOB, 'JOB', text)
-    if DOM is not None:
-        print_tag(DOM, 'DOM', text)
-    if EDU is not None:
-        print_tag(EDU, 'EDU', text)
-    if WRK is not None:
-        print_tag(WRK, 'WRK', text)
-    if SOC is not None:
-        print_tag(SOC, 'SOC', text)
-    if AWD is not None:
-        print_tag(AWD, 'AWD', text)
-    if PAT is not None:
-        print_tag(PAT, 'PAT', text)
-    if PRJ is not None:
-        print_tag(PRJ, 'PRJ', text)
+    # if PER is not None:
+    #     print_tag(PER, 'PER', text)
+    # if ADR is not None:
+    #     print_tag(ADR, 'ADR', text)
+    # if AFF is not None:
+    #     print_tag(AFF, 'AFF', text)
+    # if TIT is not None:
+    #     print_tag(TIT, 'TIT', text)
+    # if JOB is not None:
+    #     print_tag(JOB, 'JOB', text)
+    # if DOM is not None:
+    #     print_tag(DOM, 'DOM', text)
+    # if EDU is not None:
+    #     print_tag(EDU, 'EDU', text)
+    # if WRK is not None:
+    #     print_tag(WRK, 'WRK', text)
+    # if SOC is not None:
+    #     print_tag(SOC, 'SOC', text)
+    # if AWD is not None:
+    #     print_tag(AWD, 'AWD', text)
+    # if PAT is not None:
+    #     print_tag(PAT, 'PAT', text)
+    # if PRJ is not None:
+    #     print_tag(PRJ, 'PRJ', text)
     
     return PER, ADR, AFF, TIT, JOB, DOM, EDU, WRK, SOC, AWD, PAT, PRJ,AFF_ALL
     

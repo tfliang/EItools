@@ -188,7 +188,6 @@ def apart_text(p):
             current_aff.append(aff)
     if AFF_ALL is not None:
         for aff in AFF_ALL:
-            print("aff-{}".format(aff))
             try:
                 aff_filter = aff.replace('(', '\(').replace(')', '\)').replace('[', '\[').replace(']',
                                                                                                   '\]').replace(
@@ -269,15 +268,15 @@ def constrast_change(person):
         person['source'] = 'aminer'
         if 'email' in person_of_aminer:
             change_item=compare_change(person_of_aminer['email'], person['email'], 'email')
-            if change_item is not {}:
+            if change_item is not None:
                 change_items.append(change_item)
         if 'inst' in person_of_aminer and 'aff' in person and 'inst' in person['aff']:
             change_item=change_items.append(compare_change(person_of_aminer['inst'], person['aff']['inst'], 'inst'))
-            if change_item is not {}:
+            if change_item is not None:
                 change_items.append(change_item)
         if 'position' in person_of_aminer:
             change_item=change_items.append(compare_change(person_of_aminer['position'], person['position'], 'position'))
-            if change_item is not {}:
+            if change_item is not None:
                 change_items.append(change_item)
     person['change_info']=change_items
     return person
@@ -297,14 +296,14 @@ def crawl_person_info(persons,task_id,from_api=False):
             # person['org'] = p['org']
                 # mongo_client.save_crawled_person(p1)
             if not from_api:
-                p['_id']=ObjectId(p['id'])
-                p['task_id']=ObjectId(task_id)
+                p['_id']=p['id']
+                p['task_id']=task_id
             p=get_data_from_web(p,info_crawler)
             p=constrast_change(p)
             CrawledPersonOpt().save_crawled_person(p)
             if task_id is not None:
                 UncrawledPersonOpt().update_uncrawled_person({"_id":p['_id']},{"status":task_status_dict['finished']})
-                TaskOpt().update_task({"_id":p['task_id']},{"$inc":{"has_finished":1}})
+                TaskOpt().update_task({"_id":p['task_id']},{"inc__has_finished":1})
             if from_api:
                 persons_info.append(p)
                 return persons_info
