@@ -98,7 +98,7 @@ def update_person_by_field(request):
 def get_crawled_persons_by_taskId(request,id,offset,size):
     crawled_persons=CrawledPersonOpt().get_crawled_person({'task_id':id},offset=int(offset),size=int(size),part='list')
     result = {
-        'total': CrawledPersonOpt().get_count({'_id':id}),
+        'total': CrawledPersonOpt().get_count({'task_id':id}),
         'offset': offset,
         'size': size,
         'info': crawled_persons
