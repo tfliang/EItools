@@ -190,7 +190,8 @@ class CrawledPersonOpt(DBBase):
         return self.add(data)
 
     def filter_person(self, data, offset=0, size=0):
-        crawled_persons = self.get(data, offset=offset, size=size). \
+        crawled_persons = self.get(data, offset=offset, size=size).fields(_id=1, changed=1, change_info=1,
+                                                                              task_id=1, name=1). \
             as_pymongo()
         persons = []
         for person in crawled_persons:

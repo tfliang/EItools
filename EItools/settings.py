@@ -24,7 +24,7 @@ FILE_PATH = os.path.join(os.path.dirname(BASE_DIR), 'file/%s')
 SECRET_KEY = '%yk&t4npi7$x2!w=2y63qh3(nn@iv+ki$m16&om1z=d5^%6vb@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'corsheaders',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [

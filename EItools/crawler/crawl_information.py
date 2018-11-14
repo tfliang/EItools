@@ -130,18 +130,17 @@ def update_person_by_Id(request):
             return HttpResponse(json.dumps({"info": "id not exists"}), content_type="application/json")
 
 def view_person_changeinfo(request,id):
-    crawled_person_changeinfo_list=CrawledPersonOpt().get({"changed":True,"_id":id})
+    crawled_person_changeinfo_list=CrawledPersonOpt().filter_person({"changed":True,"_id":id})
     return HttpResponse(json.dumps(crawled_person_changeinfo_list), content_type="application/json")
 
 def view_person_changeinfo_list(request,offset,size):
-    crawled_persons_changeinfo_list = CrawledPersonOpt().get_crawled_person({"changed":True},offset=int(offset),size=int(size),part="change")
+    crawled_persons_changeinfo_list = CrawledPersonOpt().filter_person({"changed":True},offset=int(offset),size=int(size))
     result = {
         'total': CrawledPersonOpt().get_count({"changed":True}),
         'offset': offset,
         'size': size,
         'info': crawled_persons_changeinfo_list
     }
-
     return HttpResponse(json.dumps(result), content_type="application/json")
 
 def search_person_changeinfo_list(request):
@@ -150,7 +149,7 @@ def search_person_changeinfo_list(request):
         person_name = get_value('search_value', content)
         offset = get_value('offset', content)
         size = get_value('size', content)
-        crawled_persons = CrawledPersonOpt().get_crawled_person({"changed": True,"name":re.compile(person_name)}, offset=int(offset), size=int(size))
+        crawled_persons = CrawledPersonOpt().filter_person({"changed": True,"name":re.compile(person_name)}, offset=int(offset), size=int(size))
         result = {
             'total': CrawledPersonOpt().get_count({"changed": True,"name":re.compile(person_name)}),
             'offset': offset,

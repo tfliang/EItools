@@ -68,8 +68,6 @@ def is_soc_aff(text):
 
 
 def find_soc(text):
-    is_contain_en = re.compile(r'[A-Za-z]', re.S)
-    match = re.findall(is_contain_en, text)
     time = re.findall(pattern_time, text)
     text = re.sub(pattern_time, '', text)
     titles = Extract.extract_soc_position(text)
