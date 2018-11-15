@@ -7,7 +7,6 @@ class DBBase(object):
 
     def add(self, data):
         if isinstance(data, dict):
-            print(data)
             model = self.model(**data)
             model.save()
 

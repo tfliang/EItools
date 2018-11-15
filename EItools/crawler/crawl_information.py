@@ -123,6 +123,7 @@ def update_person_by_Id(request):
         person_id = get_value('id', person)
         del person['id']
         if CrawledPersonOpt().get_count({'_id':person_id})>0:
+
             for key,value in person.items():
                CrawledPersonOpt().update(CrawledPersonOpt().get({'_id':person_id}),{key:value})
             return HttpResponse(json.dumps({"info": "save success"}), content_type="application/json")

@@ -91,7 +91,7 @@ class ChangeItem(EmbeddedDocument):
     new = StringField()
 
 
-class CrawledPerson(Document):
+class CrawledPerson(DynamicDocument):
     meta = {
         'collection': 'crawled_person_final',
         'strict':False
