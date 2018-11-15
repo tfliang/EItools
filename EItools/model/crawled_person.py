@@ -94,6 +94,7 @@ class ChangeItem(EmbeddedDocument):
 class CrawledPerson(Document):
     meta = {
         'collection': 'crawled_person_final',
+        'strict':False
     }
     _id = ObjectIdField()
     name = StringField()

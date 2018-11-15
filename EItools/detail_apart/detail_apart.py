@@ -200,7 +200,7 @@ def find_project(text):
     project_number = re.findall(r'[0-9a-zA-Z]{6,}', text)
     text = re.sub(r'[0-9a-zA-Z]{6,}', "", text)
     time = re.findall(pattern_time, text)
-    project_funds = re.findall(r'[\d]+[万元]+', text)
+    project_funds = re.findall(r'[\d.]+[万元]+', text)
     tf.reset_default_graph()
     result = extract_project(text)
     project_cat, project_name = result if result is not None else (None, None)

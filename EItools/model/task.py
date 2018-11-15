@@ -5,6 +5,7 @@ from EItools.common.connection import *
 class Task(Document):
     meta = {
         'collection': 'task',
+        'strict': False
     }
     _id = ObjectIdField()
     task_name = StringField()

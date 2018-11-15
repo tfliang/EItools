@@ -5,6 +5,7 @@ from EItools.common.connection import *
 class uncrawled_person(Document):
     meta = {
         'collection': 'uncrawled_person',
+        'strict': False
     }
     _id = ObjectIdField()
     name = StringField()
