@@ -27,6 +27,8 @@ class Edu(EmbeddedDocument):
 class Exp(EmbeddedDocument):
     position = StringField()
     inst = StringField()
+    country = StringField()
+    title = StringField()
     end = StringField()
     start = StringField()
 
@@ -39,8 +41,13 @@ class AcademicOrgExp(EmbeddedDocument):
 
 class Award(EmbeddedDocument):
     title = StringField()
-    year = StringField()
     award = StringField()
+    from_inst = StringField()
+    sid=StringField()
+    year=StringField()
+    grade=StringField()
+    rank=StringField()
+
 
 
 class Patent(EmbeddedDocument):
@@ -98,6 +105,14 @@ class CrawledPerson(DynamicDocument):
     }
     _id = ObjectIdField()
     name = StringField()
+    name_en=StringField()
+    age=StringField()
+    gender = StringField()
+    email = StringField()
+    mobile=StringField()
+    diploma=StringField()
+    position = StringField()
+    cert=StringField()
     org = StringField()
     task_id = ObjectIdField()
     h_index = IntField()
@@ -108,15 +123,10 @@ class CrawledPerson(DynamicDocument):
     source = StringField()
     info = StringField()
     birth_time = StringField()
-    mobile = StringField()
     degree = StringField()
-    diploma = StringField()
     honors = ListField(StringField())
     title = StringField()
-    position = StringField()
     research = StringField()
-    gender = StringField()
-    email = StringField()
     edu_exp_region = StringField()
     exp_region = StringField()
     academic_org_exp_region = StringField()
@@ -134,7 +144,6 @@ class CrawledPerson(DynamicDocument):
 
     emails_prob = ListField()
     achieve = StringField()
-    result = ListField()
     row_number = IntField()
     aff = EmbeddedDocumentField(Aff)
 
