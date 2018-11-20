@@ -71,7 +71,7 @@ class Project(EmbeddedDocument):
 
 class Pub(EmbeddedDocument):
     title = StringField()
-    authors = ListField(StringField())
+    authors = StringField()
     venue = StringField()
     volume = StringField()
 
