@@ -41,7 +41,8 @@ urlpatterns = [
     url(r'^search/person/changeinfo/$', crawl_information.search_person_changeinfo_list),
     url(r'^view/person/changeinfo/(.+)/$', crawl_information.view_person_changeinfo),
 
-    url(r'^crawl/person/info/(.+)/$',crawl_information.crawl_person_by_id)
+    url(r'^crawl/person/info/(.+)/$',crawl_information.crawl_person_by_id),
+    url(r'^crawl/person/mainpages/$', crawl_information.mainpages_for_person),
 ]
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
