@@ -11,6 +11,7 @@ from EItools.model.task import TaskOpt
 from EItools.model.uncrawled_person import UncrawledPersonOpt
 import time
 from EItools.crawler import crawl_service
+from EItools.crawler.search_items import Get as get_mainpage
 import json
 from django.http import HttpResponse
 from EItools.log.log import logger
@@ -41,6 +42,25 @@ def crawl_file_info(request):
             f.write(chunk)
     logger.info("save file end")
     return HttpResponse(json.dumps({"file_name": file_name}), content_type="application/json")
+
+
+def mainpages_for_person(request):
+    name = request.GET.get('name', '')
+    org = request.GET.get('org', '')
+    if name == "" or org == "":
+        return HttpResponse(json.dumps({'message': 'check input argvs: name, org'}), content_type='application/json')
+    else:
+        query = {'name': name, 'org': org}
+        try:
+            pages = get_mainpage('{},{}'.format(name, org))
+            pages = pages.get('res', [])
+            if pages:
+                pages.sort(key=lambda x: x.get('score', 0), reverse=True)
+                main_urls = [x['url'] for x in pages]
+                return HttpResponse(json.dumps({'urls': main_urls, 'querry': query}), content_type='application/json')
+        except Exception as e:
+            logger.error(e)
+    return HttpResponse(json.dumps({'urls': [], 'query': query}), content_type="application/json")
 
 
 def crawl_person_by_name(request):
