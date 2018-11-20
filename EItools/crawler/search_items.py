@@ -52,6 +52,7 @@ def get_res(fakequery, query):
                 logger.error("when search baidu:{}".format(e))
     except Exception as e:
         print(e)
+    print(res)
     return res
 
 def Get_all(str):
@@ -131,6 +132,7 @@ def Get(str):
         cra['query'] = fakequery
         cra['type'] = 'other'
         cra['res'] = get_res(fakequery, fakequery)
+        print(cra['res'])
     return cra
 
 

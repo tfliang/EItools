@@ -16,6 +16,7 @@ EItools/temp/*.json
 EItools/extract/data_path/*data*
 EItools/temp/result/*
 
+
 *results/*
 *test*
 

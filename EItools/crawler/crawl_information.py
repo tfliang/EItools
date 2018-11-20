@@ -55,8 +55,9 @@ def mainpages_for_person(request):
             pages = get_mainpage('{},{}'.format(name, org))
             pages = pages.get('res', [])
             if pages:
-                pages.sort(key=lambda x: x.get('score', 0), reverse=True)
-                main_urls = [x['url'] for x in pages]
+                #pages.sort(key=lambda x: x.get('score', 0), reverse=True)
+
+                main_urls = [x['url'] for x in pages if x['label'] ==1]
                 return HttpResponse(json.dumps({'urls': main_urls, 'querry': query}), content_type='application/json')
         except Exception as e:
             logger.error(e)
