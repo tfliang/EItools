@@ -1,6 +1,0 @@
-processed 899 tokens with 87 phrases; found: 89 phrases; correct: 57.
-accuracy:  94.88%; precision:  64.04%; recall:  65.52%; FB1:  64.77
-             FROM: precision:  69.57%; recall:  76.19%; FB1:  72.73  23
-              INT: precision:  67.74%; recall:  67.74%; FB1:  67.74  31
-              POS: precision:  57.89%; recall:  64.71%; FB1:  61.11  19
-               TO: precision:  56.25%; recall:  50.00%; FB1:  52.94  16
