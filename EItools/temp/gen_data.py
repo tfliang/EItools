@@ -3,6 +3,9 @@ import os
 import re
 
 # from util import *
+from bson import ObjectId
+
+from EItools.client.mongo_client import mongo_client
 
 DATA_DIR = os.path.join(os.path.abspath('..'), 'data')
 
@@ -142,35 +145,34 @@ def clean_text(text):
 #              }
 ############
 #project
-# tag = {
-#     # 'name' : 'PER',
-#     # 'address' : 'ADR',
-#     #'aff' : 'AFF',
-#     'cat': 'CAT',
-#     'title': 'TITLE'}
-#
-# tag2label = {"O": 'O',
-#              # "B-PER": 'A', "I-PER": 'a',
-#              # "B-ADR": 'B', "I-ADR": 'b',
-#              #"B-AFF": 'C', "I-AFF": 'c',
-#              "B-CAT": 'M', "I-CAT": 'm',
-#              "B-TITLE": 'N', "I-TITLE": 'n'
-#              }
-# label2tag = {"O": 'O', "X": 'X',
-#              # 'A': "B-PER", 'a': "I-PER",
-#              # 'B': "B-ADR", 'b': "I-ADR",
-#              #'C': "B-AFF", 'c': "I-AFF",
-#              'M': "B-CAT", 'm': "I-CAT",
-#              'N': "B-TITLE", 'n': "I-TITLE"
-#              }
+tag = {
+    # 'name' : 'PER',
+    # 'address' : 'ADR',
+    #'aff' : 'AFF',
+    'cat': 'CAT',
+    'title': 'TITLE'}
+
+tag2label = {"O": 'O',
+             # "B-PER": 'A', "I-PER": 'a',
+             # "B-ADR": 'B', "I-ADR": 'b',
+             #"B-AFF": 'C', "I-AFF": 'c',
+             "B-CAT": 'M', "I-CAT": 'm',
+             "B-TITLE": 'N', "I-TITLE": 'n'
+             }
+label2tag = {"O": 'O', "X": 'X',
+             # 'A': "B-PER", 'a': "I-PER",
+             # 'B': "B-ADR", 'b': "I-ADR",
+             #'C': "B-AFF", 'c': "I-AFF",
+             'M': "B-CAT", 'm': "I-CAT",
+             'N': "B-TITLE", 'n': "I-TITLE"
+             }
 ############
-#patent
 # tag = {
 #     # 'name' : 'PER',
 #     # 'address' : 'ADR',
 #     #'aff' : 'AFF',
 #     'name': 'NAME'}
-
+#
 # tag2label = {"O": 'O',
 #              # "B-PER": 'A', "I-PER": 'a',
 #              # "B-ADR": 'B', "I-ADR": 'b',
@@ -184,27 +186,27 @@ def clean_text(text):
 #              'M': "B-NAME", 'm': "I-NAME"
 #              }
 ############
-tag = {
-    # 'name' : 'PER',
-    # 'address' : 'ADR',
-    #'aff' : 'AFF',
-    'title':'TITLE',
-    'name': 'NAME'}
-
-tag2label = {"O": 'O',
-             # "B-PER": 'A', "I-PER": 'a',
-             # "B-ADR": 'B', "I-ADR": 'b',
-             #"B-AFF": 'C', "I-AFF": 'c',
-             "B-NAME": 'M', "I-NAME": 'm',
-             "B-TITLE": 'N', "I-TITLE": 'n'
-             }
-label2tag = {"O": 'O', "X": 'X',
-             # 'A': "B-PER", 'a': "I-PER",
-             # 'B': "B-ADR", 'b': "I-ADR",
-             #'C': "B-AFF", 'c': "I-AFF",
-             'M': "B-NAME", 'm': "I-NAME",
-             'N': "B-TITLE", 'n': "I-TITLE"
-             }
+# tag = {
+#     # 'name' : 'PER',
+#     # 'address' : 'ADR',
+#     #'aff' : 'AFF',
+#     'title':'TITLE',
+#     'name': 'NAME'}
+#
+# tag2label = {"O": 'O',
+#              # "B-PER": 'A', "I-PER": 'a',
+#              # "B-ADR": 'B', "I-ADR": 'b',
+#              #"B-AFF": 'C', "I-AFF": 'c',
+#              "B-NAME": 'M', "I-NAME": 'm',
+#              "B-TITLE": 'N', "I-TITLE": 'n'
+#              }
+# label2tag = {"O": 'O', "X": 'X',
+#              # 'A': "B-PER", 'a': "I-PER",
+#              # 'B': "B-ADR", 'b': "I-ADR",
+#              #'C': "B-AFF", 'c': "I-AFF",
+#              'M': "B-NAME", 'm': "I-NAME",
+#              'N': "B-TITLE", 'n': "I-TITLE"
+#              }
 
 def tagging(text,w):
     # print(text, len(text))
@@ -284,26 +286,43 @@ def cut_text(text):
 
     return text
 
+def gen_data():
+    train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500.txt', 'infoExample2000-2100.txt',
+                   'infoExample2100-2200.txt', 'infoExample2200-2300.txt', 'infoExample2400-2500.txt',
+                   'infoExample2600-2700.txt']
+    train_data = ['project2.txt']
+    #test_data_standard = ['test_data_standard2.txt']
+    #test_data = ['infoExample2700-2800.txt', 'infoExample2800-2900.txt']
+    with open(os.path.join(DATA_DIR, 'test_data_project2'), 'w+') as w:
+        for file_name in train_data:
+            with open(os.path.join(DATA_DIR, file_name), 'r') as file:
+                data = file.read()
+                #data=json.load(file)
+            #personList = data.split('*********&&&&&&&&')
+            projectList=data.split('*******')
+            for i,text in enumerate(projectList):
+                #text=cut_text(text)
+                #tagging(clean_text(text[8:len(text)-9]),w)
+                print(text)
+                tagging(clean_text(text[9:len(text)-10]), w)
 
-train_data = ['info500-750.txt', '750-1000.txt', 'info1000-1250.txt', '1250-1500.txt', 'infoExample2000-2100.txt',
-               'infoExample2100-2200.txt', 'infoExample2200-2300.txt', 'infoExample2400-2500.txt',
-               'infoExample2600-2700.txt']
-train_data = ['award.txt']
-#test_data_standard = ['test_data_standard2.txt']
-#test_data = ['infoExample2700-2800.txt', 'infoExample2800-2900.txt']
-with open(os.path.join(DATA_DIR, 'train_data_award_title'), 'w+') as w:
-    for file_name in train_data:
-        with open(os.path.join(DATA_DIR, file_name), 'r') as file:
-            data = file.read()
-            #data=json.load(file)
-        #personList = data.split('*********&&&&&&&&')
-        projectList=data.split('*******')
-        for i,text in enumerate(projectList):
-            #text=cut_text(text)
-            #tagging(clean_text(text[8:len(text)-9]),w)
-            print(text)
-            tagging(clean_text(text[9:len(text)-10]), w)
+
+            res = re.search(r'[\n]+', text)
+
+def get_data():
+    persons=mongo_client.get_crawled_person_by_taskId(id="5bd58e9b8d431508e304d60a")
+    datas=[]
+    with open(os.path.join(DATA_DIR, 'project2.txt'), 'w+') as f:
+        for person in persons:
+            if 'projects_region' in person:
+                print(123)
+                print(person['projects_region'])
+                datas.append(person['projects_region'])
+                f.write(person['projects_region'])
+                f.write('\n')
+                f.write('*******')
+                f.write('\n')
+#gen_data()
 
 
-        res = re.search(r'[\n]+', text)
 

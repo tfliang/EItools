@@ -601,20 +601,19 @@ def process():
 #process()
 
 def del_data():
-    persons=mongo_client.get_collection("crawled_person_final").find()
+    persons=mongo_client.get_collection("crawled_person_final").find({ "pubs.author": {'$exists': True } })
     for i,person in enumerate(persons):
         list=[]
-        if 'raw_result' in person:
-            del person['raw_result']
-        # if len(person['pubs'])>0:
-        #     for l in person['pubs']:
-        #         try:
-        #             if 'key' in l:
-        #                 del l['key']
-        #             list.append(l)
-        #         except Exception as e:
-        #             print(l)
-        #     person['pubs']=list
+        if len(person['pubs'])>0:
+            for l in person['pubs']:
+                try:
+                    l['authors']=l['author']
+                    if 'author' in l:
+                        del l['author']
+                    list.append(l)
+                except Exception as e:
+                    print(l)
+            person['pubs']=list
             mongo_client.save_crawled_person(person)
 
 def test_task(task_id):
