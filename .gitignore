@@ -16,7 +16,7 @@ EItools/temp/*.json
 EItools/extract/data_path/*data*
 EItools/temp/result/*
 
-
+*log.txt
 *test*
 
 *db.sqlite3*
